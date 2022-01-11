@@ -6,19 +6,19 @@ import Rolex from '../../assests/Rolex.jpg'
 const data=[
     {
         name:'Rolex',
-        description:'Brander watch in Good Condition',
+        description:'Branded watch in Good Condition',
         time:'6 months old',
         img:Rolex
     },
     {
       name:'Rolex',
-      description:'Brander watch in Good Condition',
+      description:'Branded watch in Good Condition',
       time:'6 months old',
       img:Rolex
   },
   {
     name:'Rolex',
-    description:'Brander watch in Good Condition',
+    description:'Branded watch in Good Condition',
     time:'6 months old',
     img:Rolex
 }
