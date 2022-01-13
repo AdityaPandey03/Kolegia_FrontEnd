@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme)=>{
 const NoteCard = ({data}) => {
     const classes= useStyles();
     return ( 
-        <Card className={classes.card}>
+        <Card elevation={3} className={classes.card}>
             <CardMedia
             className={classes.media}
             component="img"
@@ -48,11 +48,11 @@ const NoteCard = ({data}) => {
             />
         
 <CardContent className={classes.card}>
-<Typography  variant='h3' >{data.name}</Typography>
+<Typography  variant='h4' >{data.name}</Typography>
         <Typography variant='p' >{data.description}</Typography>
         <div className='box'>
         <Typography variant='p' >{data.time}</Typography>
-        <Link className={classes.Link} color='secondary' href="#" underline="none">
+        <Link className={classes.Link}  href="#" underline="none">
         {'View more'}
       </Link>
         
