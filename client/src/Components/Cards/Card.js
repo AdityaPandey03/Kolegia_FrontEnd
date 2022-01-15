@@ -5,8 +5,8 @@ import Link from '@mui/material/Link';
 import './Card.css'
 import { CardContent } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+// import Box from '@mui/material/Box';
+// import Button from '@mui/material/Button';
 
 
 
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme)=>{
     }
 })
 
-const NoteCard = ({data}) => {
+const NoteCard = ({data,img}) => {
     const classes= useStyles();
     return ( 
         <Card elevation={3} className={classes.card}>
@@ -43,7 +43,7 @@ const NoteCard = ({data}) => {
             className={classes.media}
             component="img"
            padding='5'
-            image={data.img}
+            image={img}
             alt="watch"
             />
         

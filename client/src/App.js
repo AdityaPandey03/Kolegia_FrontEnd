@@ -22,7 +22,7 @@ function App() {
   
   return <div className="App">
     
-    <Navbar/>
+    <Navbar />
     
     <Cards/>
     <div className="circle"><button onClick={toggleModal} className="btn-modal btn">

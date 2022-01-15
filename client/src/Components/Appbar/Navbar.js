@@ -1,5 +1,6 @@
 import { FaBell,FaBars,FaSearch } from "react-icons/fa";
 import { SiGooglechat } from "react-icons/si";
+
 import './Navbar.css'
 const Navbar = () => {
     return (  
@@ -16,7 +17,7 @@ const Navbar = () => {
         <li> <form className="form"
                 id="form">
                     
-          <input type="text" placeholder='Search...' id="search" className="search" />
+          <input  type="text" placeholder='Search...' id="search" className="search" />
           <div className="icon"><FaSearch/></div>
                 </form></li>
                 <div className="a">
