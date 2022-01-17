@@ -8,7 +8,9 @@ const Navbar = () => {
 
 <div className="header">
     <h1>Kolegia</h1>
+    <div className="nav-profile" >P</div>
 </div>
+
 <input type="checkbox" id="check"/>
       <label for="check" class="checkbtn">
         <i style={{color:'white'}}class="fas fa-bars"><FaBars/></i>
