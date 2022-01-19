@@ -12,7 +12,6 @@ const Dashboard = () => {
             <Dcards />
             <div className="flex"> 
             <Profile/>
-           
             </div>
            
         </div>

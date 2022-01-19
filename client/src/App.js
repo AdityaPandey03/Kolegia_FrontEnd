@@ -1,11 +1,14 @@
 import "./App.css";
-import Cards from './Components/Cards/Cards'
+import Cards from './Components/Buy_sell/Cards/Cards'
 import { useState } from "react";
 
 // import Navbar from "./Components/Appbar/Navbar";
-import Modal from "./Components/Modal/Modal";
+import Modal from "./Components/Buy_sell/Modal/Modal";
 import Loader from "./Components/Loader/Loader";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import Navbar from './Components/Appbar/Navbar'
+import Bcards from "./Components/Lost_Found/Cards/Bcards";
+
 
 
 function App() {
@@ -24,7 +27,7 @@ function App() {
     }
   
   return <div className="App">
-    
+    {/* <Loader/> */}
     {/* <Navbar />
     
     <Cards/>
@@ -33,9 +36,12 @@ function App() {
       </button></div>
     
     <Modal const toggleModal={toggleModal} modal={modal} /> */}
-    {/* <Loader/> */}
+    <Bcards/>
     
-<Dashboard/>
+    
+{/* <Dashboard/> */}
+
+
   </div>;
 }
 

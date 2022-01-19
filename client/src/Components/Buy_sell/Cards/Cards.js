@@ -1,7 +1,7 @@
 import NoteCard from "./Card";
 import Grid from '@mui/material/Grid';
 import { Container } from '@mui/material';
-import Rolex from '../../assests/Rolex.jpg'
+import Rolex from '../../../assests/Rolex.jpg'
 import { makeStyles } from "@mui/styles";
 import {useState,useEffect} from 'react'
 
