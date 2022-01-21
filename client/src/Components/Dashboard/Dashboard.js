@@ -6,7 +6,7 @@ import Navbar from "../Appbar/Navbar";
 const Dashboard = () => {
     return ( 
         <>
-        <Navbar/>
+        {/* <Navbar/> */}
         <div className="cont-dashboard">
         
             <Dcards />

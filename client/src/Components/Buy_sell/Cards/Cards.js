@@ -4,6 +4,7 @@ import { Container } from '@mui/material';
 import Rolex from '../../../assests/Rolex.jpg'
 import { makeStyles } from "@mui/styles";
 import {useState,useEffect} from 'react'
+import Modal from "../Modal/Modal";
 
 const useStyles = makeStyles((theme)=>{
   return{
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme)=>{
 
 const Cards = () => {
   const [data,setData]=useState([]);
+  const [modal, setModal] = useState(false);
   
 
   useEffect(()=>{
@@ -54,6 +56,18 @@ const Cards = () => {
     .then((res)=>res.json())
     .then((data)=>setData(data))
   },[])
+
+  
+  
+    const toggleModal = () => {
+      setModal(!modal);
+    };
+  
+    if(modal) {
+      document.body.classList.add('active-modal')
+    } else {
+      document.body.classList.remove('active-modal')
+    }
 
    
  
@@ -72,6 +86,10 @@ const Cards = () => {
          )
        })}
       </Grid>
+      <div className="circle"><button onClick={toggleModal} className="btn-modal btn">
+        +
+      </button></div>
+      <Modal const toggleModal={toggleModal} modal={modal} />
       </Container>
 
 

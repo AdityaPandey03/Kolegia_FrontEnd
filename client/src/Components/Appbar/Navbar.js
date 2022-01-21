@@ -1,5 +1,8 @@
 import { FaBell,FaBars,FaSearch } from "react-icons/fa";
 import { SiGooglechat } from "react-icons/si";
+import { Link } from "react-router-dom";
+
+
 
 import './Navbar.css'
 const Navbar = () => {
@@ -23,10 +26,10 @@ const Navbar = () => {
           <div className="icon"><FaSearch/></div>
                 </form></li>
                 <div className="a">
-        <li><a href="">Items-needed</a></li>
+        {/* <li><a href="">Items-needed</a></li> */}
         <li><a href=""></a><FaBell/></li>
         <li><a href=""></a><SiGooglechat/></li>
-        <li><a href=""></a>Dashboard</li>
+        <li><Link to='/dashboard'>Dashboard</Link></li>
         </div>
         
     </ul>

@@ -72,6 +72,7 @@ const Bcards = () => {
                        </div>
                        
                        <div className='img-cont'>
+                           
                            {card.image.map((i)=>{
                                return(
                    <img onClick={showImage} src={i} alt="Watch"   />
