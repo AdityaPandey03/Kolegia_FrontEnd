@@ -1,0 +1,54 @@
+.Dcards-cont{
+    display: flex;
+    justify-content: center;
+    /* margin: 3rem; */
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-right:0 ;
+    width: 50%;
+    
+}
+
+
+#Dcard{
+    width: 23rem;
+    height: 18rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 13px;
+    padding: 20px 20px 0px 0px;
+
+   
+    box-shadow:  5px 5px 10px #c3c3c3,
+                 -5px -5px 10px #fdfdfd;
+}
+#Dcard img{
+    width:11rem;
+    height: 8rem;
+    margin: 2rem;
+}
+
+#Dcard button{
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.Lost-found button{
+    background-color:#87DFF0 ;
+}
+.My-Tickets button{
+background-color:#F0BC5E;
+border: none;
+}
+
+.Buy-Sell button{
+    background-color:#F25767 ;
+}
