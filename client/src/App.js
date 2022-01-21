@@ -1,6 +1,8 @@
 import "./App.css";
 import Cards from './Components/Buy_sell/Cards/Cards'
 import { useState } from "react";
+import CarousleCards from "../src/Components/CarousleCards";
+import LoginSignup from "../src/Components/LoginSignup"
 import {
   BrowserRouter,
   Routes,
@@ -27,6 +29,8 @@ function App() {
     {/* <Loader/> */}
     <Navbar />
 <Routes>
+<Route path="/loginsignup" exact element={<LoginSignup />}></Route>
+          <Route path="/carousel" exact element={<CarousleCards />}></Route>
   <Route exact path='/dashboard' element={<Dashboard/>}/>
   <Route  exact path='/buySell'  element={<Cards/>}/>
   <Route exact path='/lostFound'  element={<Bcards/>}/>
