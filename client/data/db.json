@@ -1,0 +1,24 @@
+{
+    "data": [
+      {
+        "name": "Rolex",
+        "description": "Branded watch in Good Condition ",
+        "time": "6 months old"
+      },
+      {
+        "name": "Micromax",
+        "description": "Branded watch in Good Condition",
+        "time": "6 months old"
+      },
+      {
+        "name": "Redmi",
+        "description": "Branded watch in Good Condition",
+        "time": "6 months old"
+      },
+      {
+        "name": "Apple",
+        "description": "Branded watch in Good Condition",
+        "time": "6 months old"
+      }
+    ]
+  }
