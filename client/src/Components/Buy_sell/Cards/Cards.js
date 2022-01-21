@@ -5,6 +5,8 @@ import Rolex from '../../../assests/Rolex.jpg'
 import { makeStyles } from "@mui/styles";
 import {useState,useEffect} from 'react'
 import Modal from "../Modal/Modal";
+import {connect} from 'react-redux'
+import { Fetchdata } from "../../../store/actions/projectActions";
 
 const useStyles = makeStyles((theme)=>{
   return{
@@ -46,15 +48,20 @@ const useStyles = makeStyles((theme)=>{
 // }
 // ]
 
-const Cards = () => {
-  const [data,setData]=useState([]);
+const Cards = ({requestData,data}) => {
+  // const [data,setData]=useState([]);
   const [modal, setModal] = useState(false);
-  
+
+ 
+
+
 
   useEffect(()=>{
-    fetch('http://localhost:8000/data')
-    .then((res)=>res.json())
-    .then((data)=>setData(data))
+    // fetch('http://localhost:8000/data')
+    // .then((res)=>res.json())
+    // .then((data)=>setData(data))
+    requestData();
+  //  setData(Data);
   },[])
 
   
@@ -95,5 +102,18 @@ const Cards = () => {
 
      );
 }
+const mapStateToProps=(state)=>{
  
-export default Cards;
+  return{
+      data:state.project.data,
+    
+  }
+ }
+
+ const  mapDispatchToProps=(dispatch)=>{
+  return{
+      requestData:()=>dispatch(Fetchdata())
+  }
+}
+ 
+ export default connect(mapStateToProps,mapDispatchToProps)(Cards);;
