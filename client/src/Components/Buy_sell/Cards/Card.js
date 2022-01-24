@@ -40,6 +40,7 @@ const NoteCard = ({ data, img }) => {
         image={img}
         alt="watch"
       />
+      
 
       <CardContent className={classes.card}>
         <Typography variant="h4">{data.name}</Typography>
