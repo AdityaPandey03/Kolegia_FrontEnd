@@ -1,19 +1,20 @@
-.Dcards-cont{
+.Bcards-cont{
     display: flex;
     justify-content: center;
     /* margin: 3rem; */
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
-    margin-right:0 ;
+    margin-top: 2rem;
+    /* margin-right:0 ;
     margin-left:5rem;
-   
+    */
 
     
 }
 
 
 #Bcard{
-    width: 23rem;
+    width: 20rem;
     height: 21rem;
     display: flex;
     flex-direction: column;
@@ -24,7 +25,7 @@
     
 
    position: relative;
-   margin: 5rem;
+   /* margin: 5rem; */
     box-shadow:  5px 5px 10px #c3c3c3,
                  -5px -5px 10px #fdfdfd;
                  background-color: #E7E7F7;
@@ -40,13 +41,13 @@
     flex-direction: column;
     gap: 13px;
     box-sizing: border-box;
-    width: 20rem;
+    width: 18rem;
     height: 12rem;
 }
 .img-cont{
     border: 2px solid red;
     box-sizing: border-box;
-    width: 20rem;
+    width: 18rem;
     height: 5rem;
     padding: 5px;
     border-radius: 5px;
@@ -70,7 +71,7 @@
    display: flex;
     top: 44px;
     
-    width: 20rem;
+    width: 18rem;
     height: 12rem;
     overflow: hidden;
     
@@ -97,7 +98,7 @@ label{
 }
 
 .pink{
-    color:black;
+    color:rgba(0, 0, 0, 0.75);
 }
 .view-more-01{
     display: flex;
