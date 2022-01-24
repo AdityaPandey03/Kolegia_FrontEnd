@@ -1,7 +1,14 @@
-import { GET_ALL_BUY_SELL_ITEMS } from "../constants/AllConstants";
+import {
+  GET_ALL_BUY_SELL_ITEMS,
+  GET_PRODUCT_DETAILS_REQUEST,
+  GET_SINGLE_BUY_SELL_ITEM,
+} from "../constants/AllConstants";
 
 const initialState = {
   itemList: [],
+  singleProduct: {},
+  firstImage: "",
+  isLoading: false,
 };
 
 const BuySellReducer = (state = initialState, action) => {
@@ -11,6 +18,22 @@ const BuySellReducer = (state = initialState, action) => {
         ...state,
         itemList: action.payload,
       };
+    case GET_PRODUCT_DETAILS_REQUEST:
+      return {
+        ...state,
+        isLoading: action.payload,
+      };
+
+    case GET_SINGLE_BUY_SELL_ITEM:
+      return {
+        ...state,
+        isLoading: false,
+        singleProduct: action.payload,
+        firstImage: action.payload.itemImages
+          ? action.payload.itemImages[0].img
+          : "",
+      };
+
     default:
       return state;
   }

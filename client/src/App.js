@@ -11,6 +11,7 @@ import Loader from "./Components/Loader/Loader";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Navbar from "./Components/Appbar/Navbar";
 import Bcards from "./Components/Lost_Found/Cards/Bcards";
+import ProductDetails from "./Components/Buy_sell/ProductDetails/ProductDetails";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/buySell" element={<Cards />} />
           <Route exact path="/lostFound" element={<Bcards />} />
+          <Route exact path="/product/:id" element={<ProductDetails />} />
         </Routes>
       </div>
     </BrowserRouter>
