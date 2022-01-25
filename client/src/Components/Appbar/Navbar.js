@@ -9,7 +9,7 @@ const Navbar = () => {
     return (  
         <div className="container-nav">
 
-<div className="header">
+<div className="header1">
     <h1>Kolegia</h1>
     <div className="nav-profile" >P</div>
 </div>

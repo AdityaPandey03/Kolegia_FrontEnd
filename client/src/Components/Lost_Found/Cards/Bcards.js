@@ -72,8 +72,8 @@ const Bcards = () => {
                        <h2 className='header-02'>Found</h2>
                        <div className="card-details">
                            <h2 className='pink'><label htmlFor="h2"><FaUser/></label>{card.posted_by}</h2>
-                       <h3 className='pink'><label htmlFor="h3">Item:</label>{card.item_name}</h3>
-                       <h3 className='pink'><label htmlFor="h3">Description:</label>{card.description}</h3>
+                       <h4 className='pink'><label htmlFor="h4">Item:</label>{card.item_name}</h4>
+                       <h4 className='pink'><label htmlFor="h4">Description:</label>{card.description}</h4>
                        <div className='view-more-01'><div><label htmlFor="h4">Created at:</label>
                        <h4 className='pink'>{card.createdAt}</h4></div> 
                        <a href="">View-more</a></div>
