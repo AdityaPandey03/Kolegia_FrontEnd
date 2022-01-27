@@ -7,7 +7,9 @@
    flex-direction: column;
    align-items: center;
    border-radius: 13px ;
-   background: #87DFF0;
+   /* background: #87DFF0; */
+   background-color: #332A7C;
+   
    box-sizing: border-box;
    overflow: hidden;
    
@@ -43,6 +45,7 @@
 }
 .main-content h1, h4{
     margin:0px;
+    color: white;
 }
 
 .main-content h4{
@@ -53,7 +56,7 @@
     box-sizing: border-box;
     width: 23rem;
     height: 18rem;
-    
+    color: white;
    text-align: center;
     
 }

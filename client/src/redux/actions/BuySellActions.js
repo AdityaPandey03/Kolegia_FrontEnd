@@ -3,6 +3,8 @@ import {
   GET_ALL_BUY_SELL_ITEMS,
   GET_PRODUCT_DETAILS_REQUEST,
   GET_SINGLE_BUY_SELL_ITEM,
+  ADD_NEW_BUY_SELL_ITEM
+  
 } from "../constants/AllConstants";
 
 export const getAllBuySellItems = () => async (dispatch) => {
@@ -37,3 +39,21 @@ export const getSingleProductDetails = (itemId) => async (dispatch) => {
     console.log(err);
   }
 };
+
+export const addNewBuySellItem= (itemName,description,postedBy,price,imageList)=> async (dispatch) => {
+  try {
+   const res=  await axios.post(
+      "http://localhost:8000/api/buysell/newproduct",{
+        itemName,description,postedBy,price,imageList
+      }
+    );
+    console.log(res);
+    dispatch({
+      type: ADD_NEW_BUY_SELL_ITEM,
+     
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+

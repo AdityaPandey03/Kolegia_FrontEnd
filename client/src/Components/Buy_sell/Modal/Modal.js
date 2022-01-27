@@ -1,14 +1,20 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import "./Modal.css";
+import { addNewBuySellItem } from "../../../redux/actions/BuySellActions";
 
  function Modal({toggleModal,modal}) {
   const [itemName,setItemName]=useState('');
   const [description,setDescription]=useState('');
   const [postedBy,setPostedBy]=useState('');
  const [price,setPrice]=useState(0);
- const [image,setImage]=useState([])
+ const [imageList,setImageList]=useState([])
  
-console.log(itemName)
+const dispatch=useDispatch();
+
+// const handleClick=()=>{
+//   dispatch(addNewBuySellItem(itemName));
+// }
 
   return (
     <>
@@ -28,8 +34,8 @@ console.log(itemName)
             <label htmlFor="input">Price</label>
             <input onChange={e=>setPrice(e.target.value)} type="number" />
             <label htmlFor="input">Upload-Image</label>
-            <input onChange={e=>setImage(e.target.value)} type="file" />
-            <button>Submit</button>
+            <input onChange={e=>setImageList(e.target.value)} type="file" multiple />
+            <button onClick={()=>dispatch(addNewBuySellItem(itemName,description,postedBy,price,imageList))}>Submit</button>
             
 
             <button className="close-modal" onClick={toggleModal}>

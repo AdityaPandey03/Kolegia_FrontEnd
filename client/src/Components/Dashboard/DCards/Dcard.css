@@ -1,3 +1,8 @@
+/* @font-face {
+    font-family: 'Akzidenz-Grotesk BQ';
+    src: url('../../../assests/Akzidenz-Grotesk\ BQ\ Light.ttf');
+  } */
+
 .Dcards-cont{
     display: flex;
     justify-content: center;
@@ -39,9 +44,10 @@
     color: white;
     border: none;
     cursor: pointer;
+    background-color: #332A7C;
 }
 
-.Lost-found button{
+/* .Lost-found button{
     background-color:#87DFF0 ;
 }
 .My-Tickets button{
@@ -51,4 +57,4 @@ border: none;
 
 .Buy-Sell button{
     background-color:#F25767 ;
-}
+} */
