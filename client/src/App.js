@@ -13,25 +13,26 @@ import Navbar from "./Components/Appbar/Navbar";
 import Bcards from "./Components/Lost_Found/Cards/Bcards";
 import Dropdown from "./Components/Dropdown/Dropdown";
 import ProductDetails from "./Components/Buy_sell/ProductDetails/ProductDetails";
+import LoginSignUp from "./Components/LoginSignUp/Login";
 
 function App() {
   return (
-    
-    <BrowserRouter>
-      <div className="App">
-        {/* <Loader/> */}
-        <Navbar />
-        {/* <Dropdown className='drop'/> */}
-        <Routes>
-          <Route path="/loginsignup" exact element={<LoginSignup />}></Route>
-          <Route path="/carousel" exact element={<CarousleCards />}></Route>
-          <Route exact path="/dashboard" element={<Dashboard />} />
-          <Route exact path="/buySell" element={<Cards />} />
-          <Route exact path="/lostFound" element={<Bcards />} />
-          <Route exact path="/product/:id" element={<ProductDetails />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <LoginSignUp/>
+    // <BrowserRouter>
+    //   <div className="App">
+    //     {/* <Loader/> */}
+    //     <Navbar />
+    //     {/* <Dropdown className='drop'/> */}
+    //     <Routes>
+    //       <Route path="/loginsignup" exact element={<LoginSignup />}></Route>
+    //       <Route path="/carousel" exact element={<CarousleCards />}></Route>
+    //       <Route exact path="/dashboard" element={<Dashboard />} />
+    //       <Route exact path="/buySell" element={<Cards />} />
+    //       <Route exact path="/lostFound" element={<Bcards />} />
+    //       <Route exact path="/product/:id" element={<ProductDetails />} />
+    //     </Routes>
+    //   </div>
+    // </BrowserRouter>
   );
 }
 
