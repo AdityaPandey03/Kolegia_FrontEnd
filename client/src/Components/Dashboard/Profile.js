@@ -1,4 +1,4 @@
-import Pic from '../../../assests/Pic.jpeg';
+import Pic from '../../assests/Pic.jpeg';
 import './Profile.css'
 const Profile = () => {
     return ( 

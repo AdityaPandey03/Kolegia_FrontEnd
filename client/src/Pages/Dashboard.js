@@ -1,7 +1,7 @@
-import Dcards from "./DCards/Dcards";
-import Profile from "./Profile/Profile";
-import "./Dashboard.css";
-import Navbar from "../Appbar/Navbar";
+import Dcards from "../Components/Dashboard/DashboardCards";
+import Profile from "../Components/Dashboard/Profile";
+import "../Components/Dashboard/Dashboard.css";
+
 
 const Dashboard = () => {
   return (

@@ -36,6 +36,8 @@ body.active-modal {
     max-width: 600px;
     min-width: 300px;
     pointer-events: visible;
+    display: flex;
+    flex-direction: column;
 }
 
 .close-modal {

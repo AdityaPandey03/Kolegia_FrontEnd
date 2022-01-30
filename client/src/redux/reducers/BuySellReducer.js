@@ -2,6 +2,7 @@ import {
   GET_ALL_BUY_SELL_ITEMS,
   GET_PRODUCT_DETAILS_REQUEST,
   GET_SINGLE_BUY_SELL_ITEM,
+  ADD_NEW_BUY_SELL_ITEM
 } from "../constants/AllConstants";
 
 const initialState = {
@@ -33,6 +34,9 @@ const BuySellReducer = (state = initialState, action) => {
           ? action.payload.itemImages[0].img
           : "",
       };
+      case ADD_NEW_BUY_SELL_ITEM:
+        return state;
+
 
     default:
       return state;
