@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
 // import Link from "@mui/material/Link";
 import { Link } from "react-router-dom";
-import "./Card.css";
+import "./BuySellCard.css";
 import { CardContent } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 // import Box from '@mui/material/Box';

@@ -1,4 +1,4 @@
-import './Login.css'
+import '../Components/LoginSignUp/Login.css'
 
 const LoginSignUp = () => {
 
@@ -11,79 +11,77 @@ const handleClick2=()=>{
 
     return ( 
         <div className="body">
-        <div className="logo">
-          <h1 className="title">Kolegia</h1>
-        </div>
+        
     
         <div className="container" id="container">
-          <div className="form">
+          <div>
             <div className="form-container sign-up-container">
-              <form className="signup-form" action="">
-                <h1>Create Account</h1>
+              <form className="signup-form form2" action="">
+                <h1 className='h1'>Create Account</h1>
     
                 <div>
                   <input
-                    className="signup-name"
+                    className="signup-name input"
                     type="text"
                     name="name"
-                    placeholder=" &#xf007;  Name"
+                    placeholder="Name"
                   />
                 </div>
                 <div>
                   <input
-                    className="signup-email"
+                    className="signup-email input"
                     type="email"
                     name="email"
-                    placeholder=" &#xf0e0;  Email"
+                    placeholder="Email"
                   />
                 </div>
                 <div>
                   <input
-                    className="signup-password"
+                    className="signup-password input"
                     type="password"
                     name="password"
-                    placeholder="&#xf023;  Password"
+                    placeholder="Password"
                   />
                 </div>
-                <button className="submit">SignUp</button>
+                <button className="submit button">SignUp</button>
               </form>
             </div>
             <div className="form-container sign-in-container">
-              <form className="signin-form" action="#">
-                <h1>Sign In</h1>
+              <form className="signin-form form2 " action="#">
+                <h1 className='h1'>Sign In</h1>
                 <div>
                   <input
-                    className="signin-email"
+                    className="signin-email input"
                     type="email"
                     name="email"
-                    placeholder=" &#xf0e0;  Email"
+                    placeholder="Email"
                   />
                 </div>
                 <div>
                   <input
-                    className="signin-password"
+                    className="signin-password input"
                     type="password"
                     name="password"
-                    placeholder=" &#xf023;  Password"
+                    placeholder="Password"
                   />
                 </div>
     
-                <button className="submit">Sign In</button>
+                <button className="submit button">Sign In</button>
               </form>
             </div>
           </div>
           <div className="overlay-container">
             <div className="overlay">
               <div className="overlay-panel overlay-left">
-                <h1>You're Welcome</h1>
-                <p>Login to Enter the Kolegia</p>
-                <button className="ghost" id="signIn" onClick={handleClick2}>Sign In</button>
+                <h1 className='h1'>You're Welcome</h1>
+                <p className='p'>Login to Enter the Kolegia</p>
+                <button className="ghost button" id="signIn" onClick={handleClick2}>Sign In</button>
               </div>
               <div className="overlay-panel overlay-right">
-                <h1>Hey, Buddy!</h1>
+                <h1 className='h1'>Hey, Buddy!</h1>
     
-                <p>Oops! don't have an account? Signup</p>
-                <button className="ghost" id="signUp" onClick={handleClick1}>Sign Up</button>
+                <p className='p'>Oops! don't have an account? Signup</p>
+                <button className="ghost button" id="signUp" onClick={handleClick1}>Sign Up</button>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import "./Modal.css";
-import { addNewBuySellItem } from "../../../redux/actions/BuySellActions";
+import "../Components/Buy_sell/AddItems.css";
+import { addNewBuySellItem } from "../redux/actions/BuySellActions";
 
  function Modal({toggleModal,modal}) {
   const [itemName,setItemName]=useState('');

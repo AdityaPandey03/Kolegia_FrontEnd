@@ -1,14 +1,14 @@
 
-import Rolex from '../../../assests/Rolex.jpg'
-import Pic from '../../../assests/Pic.jpeg'
-import './Bcard.css'
+import Rolex from '../assests/Rolex.jpg'
+import Pic from '../assests/Pic.jpeg'
+import '../Components/Lost_Found/LostFound.css'
 import { useState } from 'react'
 import { MdLocationOn } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import {  useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
 
-import { getAllLostFoundItems } from '../../../redux/actions/LostFoundActions';
+import { getAllLostFoundItems } from '../redux/actions/LostFoundActions';
 
 
 

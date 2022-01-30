@@ -15,8 +15,8 @@ const Navbar = () => {
 </div>
 
 <input type="checkbox" id="check"/>
-      <label for="check" class="checkbtn">
-        <i style={{color:'white'}}class="fas fa-bars"><FaBars/></i>
+      <label htmlFor="check" className="checkbtn">
+        <i style={{color:'white'}}className="fas fa-bars"><FaBars/></i>
       </label>
     <ul>
         <li> <form className="form"
@@ -27,8 +27,8 @@ const Navbar = () => {
                 </form></li>
                 <div className="a">
         {/* <li><a href="">Items-needed</a></li> */}
-        <li><a href=""></a><FaBell/></li>
-        <li><a href=""></a><SiGooglechat/></li>
+        <li><a href="#"><FaBell/></a></li>
+        <li><a href="#"><SiGooglechat/></a></li>
         <li><Link to='/dashboard'>Dashboard</Link></li>
         </div>
         

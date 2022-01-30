@@ -1,12 +1,12 @@
 
-import Buy from '../../../assests/Buy.svg'
-import Lostfound from '../../../assests/Lostfound.svg'
-import Tickets from '../../../assests/Tickets.svg'
+import Buy from '../../assests/Buy.svg'
+import Lostfound from '../../assests/Lostfound.svg'
+import Tickets from '../../assests/Tickets.svg'
 
 import { Link } from 'react-router-dom'
 
 
-import './Dcard.css'
+import './DashboardCards.css'
 
 
 const Dcards = () => {
@@ -35,7 +35,7 @@ const Dcards = () => {
 
         },
         {
-            Title:'My-Tickets',
+            Title:'My-Tickets2',
             img:Tickets,
             button_title:'ViewMore',
             path:'myTickets'

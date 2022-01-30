@@ -4,13 +4,7 @@
   box-sizing: border-box;
 }
 
-/* html {
-  background: url(./assets/702670.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-} */
+
 
 .body {
   display: flex;
@@ -21,16 +15,9 @@
   height: 100vh;
   margin: -20px 0 50px;
 }
-.title {
-  color: white;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 3rem;
-  font-weight: 600;
-}
 
-h1 {
+
+.h1 {
   font-weight: bold;
   margin: 0;
 }
@@ -40,11 +27,9 @@ h1 {
   gap: 10px;
 }
 
-h2 {
-  text-align: center;
-}
 
-p {
+
+.p {
   font-size: 14px;
   font-weight: 100;
   line-height: 20px;
@@ -52,22 +37,13 @@ p {
   margin: 20px 0 30px;
 }
 
-span {
-  font-size: 12px;
-}
 
-a {
-  color: #333;
-  font-size: 14px;
-  text-decoration: none;
-  margin: 15px 0;
-}
 
-button {
+.button {
   border-radius: 20px;
 
   border: 1px solid white;
-  background-color: rgb(69, 69, 151);
+  background-color: #F0BC5E;
 
   margin: 10px;
   color: #ffffff;
@@ -79,23 +55,9 @@ button {
   transition: transform 80ms ease-in;
 }
 
-button:active {
-  transform: scale(0.95);
-}
 
-button:focus {
-  outline: none;
-}
 
-button.ghost {
-  background-color: transparent;
-  border-color: #ffffff;
-}
-button:hover {
-  background-color: cadetblue;
-}
-
-form {
+.form2 {
   background-color: #ffffff;
 
   display: flex;
@@ -107,7 +69,7 @@ form {
   text-align: center;
 }
 
-input {
+.input {
   background-color: #eee;
   border: none;
   padding: 12px 15px;
@@ -192,12 +154,7 @@ input {
 }
 
 .overlay {
-/*   
-  background-image: url("./assets/theatre.jpg"); */
 
-  /* background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0 0; */
   background-color:#332A7C ;
   color: #ffffff;
   position: relative;

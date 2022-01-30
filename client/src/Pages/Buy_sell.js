@@ -1,13 +1,13 @@
-import NoteCard from "./Card";
+import NoteCard from "../Components/Buy_sell/BuySellCard";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
-import Rolex from "../../../assests/Rolex.jpg";
+import Rolex from "../assests/Rolex.jpg";
 import { makeStyles } from "@mui/styles";
 import { useState, useEffect } from "react";
-import Modal from "../Modal/Modal";
+import Modal from "./Additems_buySell";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { Fetchdata } from "../../../redux/actions/projectActions";
-import { getAllBuySellItems } from "../../../redux/actions/BuySellActions";
+import { Fetchdata } from "../redux/actions/projectActions";
+import { getAllBuySellItems } from "../redux/actions/BuySellActions";
 
 const useStyles = makeStyles((theme) => {
   return {
