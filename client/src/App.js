@@ -14,6 +14,8 @@ import Bcards from "./Pages/Lost_found";
 import Dropdown from "./Components/Dropdown/Dropdown";
 import ProductDetails from "./Pages/ProductDetails_buySell";
 import LoginSignUp from "./Pages/Login";
+import ProfileMobile from "./Pages/ProfileMobile";
+
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
       <div className="App">
         {/* <Loader/> */}
         <Navbar />
-        {/* <Dropdown className='drop'/> */}
+        <Dropdown className='drop'/>
         <Routes>
           <Route path="/" exact element={<LoginSignUp/>}></Route>
           
@@ -30,6 +32,7 @@ function App() {
           <Route exact path="/buySell" element={<Cards />} />
           <Route exact path="/lostFound" element={<Bcards />} />
           <Route exact path="/product/:id" element={<ProductDetails />} />
+          <Route exact path="/profile" element={<ProfileMobile/>} />
         </Routes>
       </div>
     </BrowserRouter>
