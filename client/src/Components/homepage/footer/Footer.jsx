@@ -1,0 +1,36 @@
+import React from 'react';
+import './footer.css';
+
+const Footer = () => (
+  <div className="footer section__padding">
+    <div className="footer-links">
+      <div className="footer-links_div">
+        <h2>Team</h2>
+        <p><a href="https://www.linkedin.com/in/kartikeyvaish/" target="_blank">Kartikey Vaish</a></p>
+        <p><a href="https://www.linkedin.com/in/kislay-singh-546554194/" target="_blank">Kislay Singh</a></p>
+        <p><a href="https://www.linkedin.com/in/vivek-sherkhane-a00710197/" target="_blank">Vivek Sherkhane</a></p>
+        <p><a href="#">Aditya Pandey</a></p>
+        <p><a href="https://www.linkedin.com/in/aman-vaishya-32456a1b8/" target="_blank">Aman Vaishya</a></p>
+        <p><a href="https://www.linkedin.com/in/adarsh-aryan-364b78201/" target="_blank">Adarsh Aryan</a></p>
+      </div>
+      <div className="footer-links_div">
+        <h2>Company</h2>
+        <p>Terms & Conditions </p>
+        <p>Privacy Policy</p>
+      </div>
+      <div className="footer-links_div">
+        <h2>Get in touch</h2>
+        <p>Abjudfgskfifheof</p>
+        <p>97xxxxxxxx</p>
+        <p>xxx@xxx.xxxx</p>
+      </div>
+    </div>
+
+    <div className="footer-copyright">
+      <p>@2022 Kolegia</p>
+      <p>All rights reserved.</p>
+    </div>
+  </div>
+);
+
+export default Footer;
