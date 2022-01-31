@@ -25,7 +25,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         {/* <Loader/> */}
-        <Navbar />
+        {/* <Navbar /> */}
         <Dropdown className='drop'/>
         <Routes>
         <Route path="/" exact element={<Homepage/>}></Route>
