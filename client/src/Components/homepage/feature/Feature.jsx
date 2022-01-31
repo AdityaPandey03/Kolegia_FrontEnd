@@ -7,12 +7,12 @@ import requirement from '../../../assests/requirement.png';
 import './feature.css';
 
 const Feature = () => (
-  <div className="feature section__padding" id="blog">
-    <div className="feature-heading">
+  <div className="feature3 section__padding" id="feature">
+    <div className="feature-heading3">
       <h1>Features</h1>
     </div>
-    <div className="feature-container">
-      <div className="feature-container_cards">
+    <div className="feature-container3">
+      <div className="feature-container_cards3">
         <Card imgUrl={lost_found} text="Lost/Found" />
         <Card imgUrl={buy_sell} text="Buy/Sell" />
         <Card imgUrl={requirement} text="Requirement" />
