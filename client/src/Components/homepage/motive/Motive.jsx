@@ -1,5 +1,5 @@
 import React from 'react';
-import motive_image from '../../assets/motive.png';
+import motive_image from '../../../assests/motive.png';
 import './motive.css';
 
 const Motive = () => (

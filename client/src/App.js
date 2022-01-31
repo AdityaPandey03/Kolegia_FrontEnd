@@ -15,10 +15,12 @@ import Dropdown from "./Components/Dropdown/Dropdown";
 import ProductDetails from "./Pages/ProductDetails_buySell";
 import LoginSignUp from "./Pages/Login";
 import ProfileMobile from "./Pages/ProfileMobile";
+import Homepage from './Components/homepage/Homepage'
 
 
 function App() {
   return (
+    
     
     <BrowserRouter>
       <div className="App">
@@ -26,7 +28,9 @@ function App() {
         <Navbar />
         <Dropdown className='drop'/>
         <Routes>
-          <Route path="/" exact element={<LoginSignUp/>}></Route>
+        <Route path="/" exact element={<Homepage/>}></Route>
+          <Route path="/loginSignUp" exact element={<LoginSignUp/>}></Route>
+
           
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/buySell" element={<Cards />} />

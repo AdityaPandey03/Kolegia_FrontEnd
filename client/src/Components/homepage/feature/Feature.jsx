@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from '../../homepage/card/Card';
-import lost_found from '../../assets/lost_found.png';
-import buy_sell from '../../assets/buy_sell.png';
-import requirement from '../../assets/requirement.png';
+import lost_found from '../../../assests/lost_found.png';
+import buy_sell from '../../../assests/buy_sell.png';
+import requirement from '../../../assests/requirement.png';
 
 import './feature.css';
 
