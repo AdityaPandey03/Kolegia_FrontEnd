@@ -11,7 +11,8 @@ const Navbar = () => {
 
 <div className="header1">
     <h1>Kolegia</h1>
-    <div className="nav-profile" >P</div>
+    <Link className="nav-profile" to='/profile'>Dashboard</Link>
+   
 </div>
 
 <input type="checkbox" id="check"/>

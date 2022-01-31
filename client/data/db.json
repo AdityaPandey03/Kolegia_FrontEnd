@@ -5,6 +5,22 @@
       "description": "aaaaaa",
       "postedBy": "Ada",
       "id": 1
+    },
+    {
+      "itemName": "Watch",
+      "description": "Good condition",
+      "postedBy": "Adarsh",
+      "price": "200",
+      "imageList": "C:\\fakepath\\Screenshot (2).png",
+      "id": 2
+    },
+    {
+      "itemName": "Watch-2",
+      "description": "Good condition",
+      "postedBy": "Adarsh",
+      "price": "2000",
+      "imageList": "C:\\fakepath\\c-2.webp",
+      "id": 3
     }
   ]
 }

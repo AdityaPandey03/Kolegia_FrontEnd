@@ -31,7 +31,7 @@ const handleClick=(e)=>{
 
     return ( 
         <div className="dropdown">
-             <div class="header">
+             <div className="header">
     <div className="dropdown" data-dropdown>
       <button className="link" data-dropdown-button onClick={handleClick}>Information</button>
       <div className="dropdown-menu information-grid">

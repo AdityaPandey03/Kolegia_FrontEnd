@@ -5,8 +5,9 @@ import Rolex from "../assests/Rolex.jpg";
 import { makeStyles } from "@mui/styles";
 import { useState, useEffect } from "react";
 import Modal from "./Additems_buySell";
-import { connect, useDispatch, useSelector } from "react-redux";
-import { Fetchdata } from "../redux/actions/projectActions";
+import { useDispatch, useSelector } from "react-redux";
+import { FaPlusCircle} from "react-icons/fa";
+
 import { getAllBuySellItems } from "../redux/actions/BuySellActions";
 
 const useStyles = makeStyles((theme) => {
@@ -55,9 +56,9 @@ const Cards = () => {
         )}
       </Grid>
       <div className="circle">
-        <button onClick={toggleModal} className="btn-modal btn">
-          +
-        </button>
+     
+       <FaPlusCircle onClick={toggleModal} className="btn-modal btn"/>
+        
       </div>
       <Modal const toggleModal={toggleModal} modal={modal} />
     </Container>

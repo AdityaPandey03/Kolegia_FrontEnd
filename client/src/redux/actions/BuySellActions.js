@@ -47,7 +47,7 @@ export const addNewBuySellItem= (itemName,description,postedBy,price,imageList)=
         itemName,description,postedBy,price,imageList
       }
     );
-    console.log(res);
+  
     dispatch({
       type: ADD_NEW_BUY_SELL_ITEM,
      

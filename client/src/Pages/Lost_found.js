@@ -7,8 +7,10 @@ import { MdLocationOn } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import {  useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
+import { FaPlusCircle} from "react-icons/fa";
 
 import { getAllLostFoundItems } from '../redux/actions/LostFoundActions';
+import Modal from "./Additems_lostFound";
 
 
 
@@ -18,11 +20,22 @@ import { getAllLostFoundItems } from '../redux/actions/LostFoundActions';
 const Bcards = () => {
 
     const [pht,setPht]=useState('');
+    const [modal, setModal] = useState(false);
 
     const Data = useSelector((state) => state.lostFound.itemList);
   
     const dispatch = useDispatch();
 
+
+    const toggleModal = () => {
+        setModal(!modal);
+      };
+    
+      if (modal) {
+        document.body.classList.add("active-modal");
+      } else {
+        document.body.classList.remove("active-modal");
+      }
    
     useEffect(() => {
         dispatch(getAllLostFoundItems());
@@ -101,6 +114,12 @@ const Bcards = () => {
                     </div>
                 )
             })}
+              <div className="circle">
+     
+     <FaPlusCircle onClick={toggleModal} className="btn-modal btn"/>
+      
+    </div>
+    <Modal const toggleModal={toggleModal} modal={modal}/>
         </div>
         </>
 
