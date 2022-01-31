@@ -1,4 +1,4 @@
-.review-content {
+.review-content3 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +7,7 @@
 
 }
 
-.review-heading h1 {
+.review-heading3 h1 {
     font-size: 45px;
     line-height: 75px;
     font-family: var(--font-family);
@@ -15,7 +15,7 @@
     text-align: center;
 }
 
-.review-content p {
+.review-content3 p {
     text-align: center;
     margin-bottom: 20px;
     color: var(--color-text);
@@ -27,11 +27,11 @@
     font-weight: 700;
 }
 
-.slider {
+.slider3 {
     display: flex;
 }
 
-.slider span {
+.slider3 span {
     height: 20px;
     width: 20px;
     margin: 0 3px;
@@ -41,7 +41,7 @@
     cursor: pointer;
 }
 
-.slider span::before {
+.slider3 span::before {
     content: "";
     height: 6px;
     width: 6px;
@@ -50,10 +50,10 @@
     transition: background-color 0.3s ease;
 }
 
-.slider span:hover::before {
+.slider3 span:hover::before {
     background-color: var(--color-primary);
 }
 
-.slider span[data-feedback="${active}"]::before {
+.slider3 span[data-feedback="${active}"]::before {
     background-color: var(--color-primary);
 }

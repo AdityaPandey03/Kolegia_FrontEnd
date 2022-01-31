@@ -1,40 +1,40 @@
 import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import './navbar.css';
+import './nav_bar.css';
 
-const Navbar = () => {
+const Nav_bar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <div className="navbar">
-      <div className="navbar-links">
-        <div className="navbar-links_logo">
+    <div className="navbar3">
+      <div className="navbar-links3">
+        <div className="navbar-links_logo3">
           <p><a href="#home">KOLEGIA</a></p>
         </div>
-        <div className="navbar-links_container">
+        <div className="navbar-links_container3">
           <p><a href="#feature">Features</a></p>
           <p><a href="#motive">Motive</a></p>
           <p><a href="#review">Reviews</a></p>
-          <p><a href="#blog">Contact Us</a></p>
+          <p><a href="#">Contact Us</a></p>
         </div>
       </div>
-      <div className="navbar-sign">
+      <div className="navbar-sign3">
         <button type="button" name='signin'>Sign in</button>
         <button type="button" name='signup'>Sign up</button>
       </div>
-      <div className="navbar-menu">
+      <div className="navbar-menu3">
         {toggleMenu
           ? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)} />
           : <RiMenu3Line color="#fff" size={27} onClick={() => setToggleMenu(true)} />}
         {toggleMenu && (
-        <div className="navbar-menu_container scale-up-center">
-          <div className="navbar-menu_container-links">
+        <div className="navbar-menu_container3 scale-up-center">
+          <div className="navbar-menu_container-links3">
             <p><a href="#feature">Features</a></p>
             <p><a href="#motive">Motive</a></p>
             <p><a href="#review">Reviews</a></p>
             <p><a href="#blog">Contact Us</a></p>
           </div>
-          <div className="navbar_menu_container_sign">
+          <div className="navbar_menu_container_sign3">
             <p><a href="#">Sign in</a></p>
             <p><a href="#">Sign up</a></p>
           </div>
@@ -45,4 +45,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Nav_bar;

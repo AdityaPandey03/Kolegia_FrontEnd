@@ -7,9 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import Navbar from "./Components/Appbar/Navbar";
 
-import Loader from "./Components/Loader/Loader";
+// import Loader from "./Components/Loader/Loader";
 import Dashboard from "./Pages/Dashboard";
-import Navbar from "./Components/Appbar/Navbar";
+// import Navbar from "./Components/Appbar/Navbar";
 import Bcards from "./Pages/Lost_found";
 import Dropdown from "./Components/Dropdown/Dropdown";
 import ProductDetails from "./Pages/ProductDetails_buySell";
@@ -25,8 +25,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         {/* <Loader/> */}
-        <Navbar />
-        <Dropdown className='drop'/>
+        {/* <Navbar /> */}
+        {/* <Dropdown className='drop'/> */}
         <Routes>
         <Route path="/" exact element={<Homepage/>}></Route>
           <Route path="/loginSignUp" exact element={<LoginSignUp/>}></Route>

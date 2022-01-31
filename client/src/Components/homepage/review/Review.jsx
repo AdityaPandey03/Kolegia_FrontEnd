@@ -37,14 +37,14 @@ const Review = () => {
     }
 
   return (
-        <div className='review section__padding section__margin'>
-            <div className='review-heading'>
+        <div className='review3 section__padding section__margin' id="review">
+            <div className='review-heading3'>
                 <h1>Feedbacks</h1>
             </div>
-            <div className='review-content'>
+            <div className='review-content3'>
                 <p>{current.message}</p>
                 <p id='user'>{current.user}</p>
-                <div className='slider'>
+                <div className='slider3'>
                     {Object.keys(feedback).map(index => (
                         <span 
                         onClick={event => handleSetClick(event)}
