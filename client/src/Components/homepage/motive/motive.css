@@ -1,0 +1,87 @@
+.motive {
+    display: flex;
+    flex-direction: row;
+}
+
+.motive-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.motive-content h1 {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 62px;
+    line-height: 75px;
+    letter-spacing: -0.04em;
+}
+
+.motive-content p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--color-text);
+
+    margin-top: 1.5rem;
+}
+
+.motive-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.motive-image img {
+    width: 50%;
+    height: 80%;
+}
+
+@media screen and (max-width: 1050px) {
+    .motive {
+        flex-direction: column;
+    }
+
+    .motive-content {
+        margin: 0 0 3rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .motive-content h1 {
+        font-size: 48px;
+        line-height: 60px;
+    }
+
+    .motive-content p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+
+    .motive-content__input {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .motive-content h1 {
+        font-size: 36px;
+        line-height: 48px;
+    }
+
+    .motive-content p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .motive-content__input {
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
