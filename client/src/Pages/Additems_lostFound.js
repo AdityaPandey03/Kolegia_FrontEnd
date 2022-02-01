@@ -1,62 +1,135 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import "../Components/Buy_sell/AddItems.css";
-import { addNewLostFoundItem } from "../redux/actions/LostFoundActions";
+import React from "react";
+import "../Components/Lost_Found/LostFound.css";
 
- function Modal({toggleModal,modal}) {
-  const [itemName,setItemName]=useState('');
-  const [location,setLocation]=useState('');
-  const [postedBy,setPostedBy]=useState('');
- const [date,setDate]=useState(0);
- const [imageList,setImageList]=useState([])
- const [brand,setBrand]=useState('');
- const [category,setCategory]=useState('');
- 
-
-
-const dispatch=useDispatch();
-
-// const handleClick=()=>{
-//   dispatch(addNewBuySellItem(itemName));
-// }
-
+function AddItem() {
   return (
-    <>
-      
-      {/* itemName, price, description, userId, postedBy */}
-      {modal && (
-        <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content">
-            <form onSubmit={()=>dispatch(addNewLostFoundItem(itemName,location,postedBy,date,imageList,brand,category))}>
-            <h2>Add item</h2>
-            <label  htmlFor="input">Name of product</label>
-            <input onChange={e=>setItemName(e.target.value)} type="text" />
-            <label  htmlFor="input">Your-name</label>
-            <input onChange={e=>setPostedBy(e.target.value)} type="text" />
-            <label htmlFor="input">Location</label>
-            <input onChange={e=>setLocation(e.target.value)} type="text" />
-            <label htmlFor="input">Date</label>
-            <input onChange={e=>setDate(e.target.value)} type="number" />
-            <label htmlFor="input">Brand</label>
-            <input onChange={e=>setBrand(e.target.value)} type="number" />
-            <label htmlFor="input">Category</label>
-            <input onChange={e=>setCategory(e.target.value)} type="number" />
-            <label htmlFor="input">Upload-Image</label>
-            <input onChange={e=>setImageList(e.target.value)} type="file" multiple />
-            <button>Submit</button>
-            </form>
-
-            <button className="close-modal" onClick={toggleModal}>
-              CLOSE
-            </button>
-            
+    <div style={{ height: "100vh" }}>
+      <form className="addItemForm">
+        <div className="left">
+          <div className="inputContainer">
+            <label htmlFor="item" className="inputLabel">
+              Item Lost
+            </label>
+            <input
+              className="formInput"
+              type="text"
+              id="item"
+              placeholder="enter item name you lost"
+              required
+            ></input>
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="brand" className="inputLabel">
+              Brand
+            </label>
+            <input
+              className="formInput"
+              type="text"
+              id="brand"
+              placeholder="enter brand of the item you lost"
+              required
+            ></input>
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="category" className="inputLabel">
+              Category
+            </label>
+            <input
+              className="formInput"
+              type="email"
+              id="category"
+              placeholder="category of item"
+              required
+            ></input>
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="color" className="inputLabel">
+              Color
+            </label>
+            <input
+              className="formInput"
+              type="name"
+              id="color"
+              placeholder="primary color of item"
+              required
+            ></input>
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="images" className="inputLabel">
+              Images of Item
+            </label>
+            <input
+              className="formInput"
+              type="file"
+              multiple
+              id="images"
+              placeholder="Add images of item (if any)"
+            ></input>
           </div>
         </div>
-      )}
-     
-    </>
+        <div className="right">
+          <div className="inputContainer">
+            <label htmlFor="date" className="inputLabel">
+              Date
+            </label>
+            <input
+              className="formInput"
+              type="date"
+              id="date"
+              placeholder="date when item lost"
+              required
+            ></input>
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="time" className="inputLabel">
+              Time
+            </label>
+            <input
+              className="formInput"
+              type="time"
+              id="time"
+              placeholder="time when item lost"
+              required
+            ></input>
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="location" className="inputLabel">
+              Location
+            </label>
+            <input
+              className="formInput"
+              type="text"
+              id="location"
+              placeholder="location where item lost"
+              required
+            ></input>
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="description" className="inputLabel">
+              Description
+            </label>
+            <textarea
+              className="formInput"
+              type="textarea"
+              id="description"
+              placeholder="tell us more about item, additional information"
+              required
+            ></textarea>
+          </div>
+          <div className="inputContainer">
+            <button
+              type="submit"
+              className="primary submitBtn"
+              style={{ marginBottom: "1.5rem" }}
+            >
+              POST
+            </button>
+          </div>
+          <div></div>
+        </div>
+      </form>
+    </div>
   );
 }
 
-export default Modal;
+export default AddItem;

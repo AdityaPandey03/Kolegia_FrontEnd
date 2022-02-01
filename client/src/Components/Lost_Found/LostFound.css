@@ -1,109 +1,268 @@
-.Bcards-cont{
-    display: flex;
-    justify-content: center;
-    /* margin: 3rem; */
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    /* margin-right:0 ;
+.Bcards-cont {
+  display: flex;
+  justify-content: center;
+  /* margin: 3rem; */
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  /* margin-right:0 ;
     margin-left:5rem;
     */
-
-    
 }
 
+#Bcard {
+  width: 20rem;
+  height: 21rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 16px;
 
-#Bcard{
-    width: 20rem;
-    height: 21rem;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    border-radius: 16px;
-    
-
-   position: relative;
-   /* margin: 5rem; */
-    box-shadow:  5px 5px 10px #c3c3c3,
-                 -5px -5px 10px #fdfdfd;
-                 background-color: #E7E7F7;
-
-                 
+  position: relative;
+  /* margin: 5rem; */
+  box-shadow: 5px 5px 10px #c3c3c3, -5px -5px 10px #fdfdfd;
+  background-color: #e7e7f7;
 }
-.card-details{
-    margin-top: 18px;
-    margin-left: 15px;
-   
-   
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-    box-sizing: border-box;
-    width: 18rem;
-    height: 12rem;
+.card-details {
+  margin-top: 18px;
+  margin-left: 15px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  box-sizing: border-box;
+  width: 18rem;
+  height: 12rem;
 }
-.img-cont{
-    border: 2px solid red;
-    box-sizing: border-box;
-    width: 18rem;
-    height: 5rem;
-    padding: 5px;
-    border-radius: 5px;
-    background-color:#EA4C89 ;
-    margin-bottom: 17px;
-    margin-top: 5px;
+.img-cont {
+  border: 2px solid red;
+  box-sizing: border-box;
+  width: 18rem;
+  height: 5rem;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #ea4c89;
+  margin-bottom: 17px;
+  margin-top: 5px;
 }
 
-.img-cont img{
-    width: 5rem;
-    height: 4rem;
-    cursor: pointer;
-    margin-right: 6px;
+.img-cont img {
+  width: 5rem;
+  height: 4rem;
+  cursor: pointer;
+  margin-right: 6px;
 }
-.Display{
-    display: none;
-}
-
-.hover-img{
-   position: absolute;
-   display: flex;
-    top: 44px;
-    
-    width: 18rem;
-    height: 12rem;
-    overflow: hidden;
-    
+.Display {
+  display: none;
 }
 
-.hover-img img{
+.hover-img {
+  position: absolute;
+  display: flex;
+  top: 44px;
+
+  width: 18rem;
+  height: 12rem;
+  overflow: hidden;
+}
+
+.hover-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+label {
+  color: #332a7c;
+  margin-right: 6px;
+}
+
+.header-02 {
+  color: Red;
+}
+
+.pink {
+  color: rgba(0, 0, 0, 0.75);
+}
+.view-more-01 {
+  display: flex;
+  justify-content: space-between;
+}
+.view-more-01 a {
+  margin-right: 10px;
+}
+
+.addNewBtn {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  bottom: 2%;
+  right: 2%;
+  text-align: center;
+  background-color: #d3dedc;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 3rem;
+  font-weight: lighter;
+}
+
+.addNewBtn:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* display lost found item details css start */
+.LostItemMaincontainer {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.LostItemDetailsContainerWrapper {
+  height: 100%;
+  width: 100%;
+  padding: 0 4%;
+  margin-top: 5%;
+}
+
+.headingContainer {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.5;
+}
+
+.LostItemDetailsContainer {
+  margin-top: 3%;
+  height: 75%;
+  width: 100%;
+  display: flex;
+}
+
+.firstHalf,
+.secondHalf {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 95%;
+  border: 1px solid #f3f3f3;
+  border-top: 11px solid #346e98;
+}
+
+.firstHalf {
+  margin-right: 5%;
+}
+
+.LostDetailsListItem {
+  box-sizing: border-box;
+  padding: 23px 15px 6px 40px;
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: #383838;
+  font-weight: 500;
+  border-bottom: 1px solid #f3f3f3;
+  font-family: "HelveticaLight";
+  align-items: center;
+}
+
+.raiseHandBtn {
+  padding: 1rem;
+  border: 0.1rem #a4a4a4 solid;
+  border-radius: 0.5rem;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  height: 0%;
+}
+
+@media only screen and (max-width: 767px) {
+  .firstHalf,
+  .secondHalf {
+    flex: 0 0 100%;
+    margin-top: 5%;
+  }
+
+  .secondHalf {
+    margin-bottom: 5% !important;
+    height: auto;
+  }
+  .LostItemDetailsContainer {
+    flex-wrap: wrap;
+  }
+}
+
+/* display lost found item details css end*/
+
+/* add new lost found item css start */
+
+.addItemForm {
+  /* max-width: 60rem; */
+  height: 100%;
+  /* margin: 0 auto; */
+  display: flex;
+  padding: 0 4%;
+}
+
+.left,
+.right {
+  flex: 1;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+}
+
+.inputLabel {
+  margin: 1rem 0;
+  display: inline-block;
+  font-size: 1.1rem;
+}
+
+.formInput,
+.submitBtn {
+  padding: 1rem;
+  border: 0.1rem #a4a4a4 solid;
+  border-radius: 0.5rem;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
+}
+.submitBtn {
+  cursor: pointer;
+  background-color: #f8f8f8;
+}
+.submitBtn.primary {
+  background-color: #f0c040;
+}
+
+@media only screen and (max-width: 767px) {
+  .addItemForm {
+    display: block;
+  }
+
+  /* .left,
+    .right {
+      flex: 0 0 100%;
+      margin-top: 5%;
+    }
   
-  
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-   
-  
-
+    .right {
+      margin-bottom: 5% !important;
+      height: auto;
+    }
+    .addItemForm {
+      flex-wrap: wrap;
+    } */
 }
 
-label{
-    color: #332A7C;
-    margin-right: 6px;
-}
-
-.header-02{
-    color: Red;
-}
-
-.pink{
-    color:rgba(0, 0, 0, 0.75);
-}
-.view-more-01{
-    display: flex;
-    justify-content: space-between;
-}
-.view-more-01 a{
-    margin-right: 10px;
-}
+/* add new lost found item css end*/
