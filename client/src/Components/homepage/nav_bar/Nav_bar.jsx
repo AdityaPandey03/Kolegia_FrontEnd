@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import './nav_bar.css';
 
+import { Link } from 'react-router-dom';
+
 const Nav_bar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -19,8 +21,8 @@ const Nav_bar = () => {
         </div>
       </div>
       <div className="navbar-sign3">
-        <button type="button" name='signin'>Sign in</button>
-        <button type="button" name='signup'>Sign up</button>
+        <button type="button" name='signin'><Link to='loginSignUp'>SignUp/Login</Link></button>
+        {/* <button type="button" name='signup'>Sign up</button> */}
       </div>
       <div className="navbar-menu3">
         {toggleMenu

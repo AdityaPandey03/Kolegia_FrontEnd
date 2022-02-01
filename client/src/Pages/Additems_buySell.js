@@ -14,9 +14,26 @@ import { addNewBuySellItem } from "../redux/actions/BuySellActions";
  
 const dispatch=useDispatch();
 
-// const handleClick=()=>{
-//   dispatch(addNewBuySellItem(itemName));
-// }
+
+
+
+
+ 
+
+
+const handleSubmit=()=>{
+  const formData= new FormData();
+  for(var i=0;i<imageList.length;i++){
+    formData.append('imageList',imageList[i]);
+  }
+  formData.append('itemName',itemName)
+  formData.append('description',description)
+  formData.append('price',price)
+  formData.append('postedBy',postedBy)
+
+  dispatch(addNewBuySellItem(formData));
+
+}
 
   return (
     <>
@@ -26,7 +43,7 @@ const dispatch=useDispatch();
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-            <form onClick={()=>dispatch(addNewBuySellItem(itemName,description,postedBy,price,imageList))}>
+            <form onSubmit={handleSubmit}>
             <h2>Add item</h2>
             <label  htmlFor="input">Name of product</label>
             <input onChange={e=>setItemName(e.target.value)} type="text" />
@@ -37,7 +54,7 @@ const dispatch=useDispatch();
             <label htmlFor="input">Price</label>
             <input onChange={e=>setPrice(e.target.value)} type="number" />
             <label htmlFor="input">Upload-Image</label>
-            <input onChange={e=>setImageList(e.target.value)} type="file" multiple />
+            <input onChange={e=>setImageList([...imageList,...e.target.files])} type="file" multiple />
             <button>Submit</button>
             </form>
 
