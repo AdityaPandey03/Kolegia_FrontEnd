@@ -40,14 +40,15 @@ export const getSingleProductDetails = (itemId) => async (dispatch) => {
   }
 };
 
-export const addNewBuySellItem= (itemName,description,postedBy,price,imageList)=> async (dispatch) => {
+export const addNewBuySellItem= (formData)=> async (dispatch) => {
+  console.log(formData);
   try {
    const res=  await axios.post(
-      "http://localhost:8000/api/buysell/newproduct",{
-        itemName,description,postedBy,price,imageList
-      }
+      "http://localhost:8000/data",
+        formData
+      
     );
-  
+  console.log(res);
     dispatch({
       type: ADD_NEW_BUY_SELL_ITEM,
      

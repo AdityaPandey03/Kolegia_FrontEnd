@@ -5,7 +5,7 @@ import Cards from "./Pages/Buy_sell";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// import Navbar from "./Components/Appbar/Navbar";
+import Navbar from "./Components/Appbar/Navbar";
 
 // import Loader from "./Components/Loader/Loader";
 import Dashboard from "./Pages/Dashboard";
@@ -25,14 +25,14 @@ function App() {
     <BrowserRouter>
       <div className="App">
         {/* <Loader/> */}
-        {/* <Navbar /> */}
+        <Navbar />
 
         
 
         {/* <Dropdown className='drop'/> */}
 
         <Routes>
-        <Route path="/" exact element={<Homepage/>}></Route>
+        {/* <Route path="/" exact element={<Homepage/>}></Route> */}
           <Route path="/loginSignUp" exact element={<LoginSignUp/>}></Route>
 
           
