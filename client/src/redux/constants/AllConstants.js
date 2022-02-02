@@ -16,3 +16,5 @@ export const ADD_NEW_REQUIREMENT = "ADD_NEW_REQUIREMENT";
 //USER CONSTANTS
 export const SET_USER = "SET_USER";
 export const USER_LOGOUT = "USER_LOGOUT";
+export const VERIFY_EMAIL="VERIFY_EMAIL";
+export const VERIFY_OTP="VERIFY_OTP"

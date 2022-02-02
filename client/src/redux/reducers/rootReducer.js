@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import authReducer from "./authReducer";
+import AuthReducer from "./authReducer";
 import BuySellReducer from "./BuySellReducer";
 import { projectReducer } from "./projectReducer";
 import LostFoundReducer  from "./LostFoundReducer"
 const rootReducer = combineReducers({
-  auth: authReducer,
+  auth: AuthReducer,
   project: projectReducer,
   buySell: BuySellReducer,
   lostFound: LostFoundReducer,

@@ -1,6 +1,22 @@
 import '../Components/LoginSignUp/Login.css'
+import { useDispatch ,useSelector} from "react-redux";
+import { useState } from 'react';
+import {verifyEmail} from '../redux/actions/authActions'
+import { Link, useNavigate } from "react-router-dom";
+ 
 
 const LoginSignUp = () => {
+  const otpId= useSelector((state) => state.auth.emailres);
+  const navigate = useNavigate();
+ 
+
+ const [email,setEmail]= useState('')
+ //otp-verified-here
+ if(otpId.length){
+  navigate('/otpPage');
+}
+//  console.log(email);
+ const dispatch=useDispatch();
 
 const handleClick1=()=>{
     document.getElementById("container").classList.add("right-panel-active");
@@ -9,6 +25,10 @@ const handleClick2=()=>{
     document.getElementById("container").classList.remove("right-panel-active");
 }
 
+const handleSubmit=()=>{
+  dispatch(verifyEmail(email));
+  
+}
     return ( 
         <div className="body">
         
@@ -16,35 +36,23 @@ const handleClick2=()=>{
         <div className="container" id="container">
           <div>
             <div className="form-container sign-up-container">
-              <form className="signup-form form2" action="">
+              <div className="signup-form form2">
                 <h1 className='h1'>Create Account</h1>
     
-                <div>
-                  <input
-                    className="signup-name input"
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                  />
-                </div>
+                
                 <div>
                   <input
                     className="signup-email input"
                     type="email"
                     name="email"
                     placeholder="Email"
+                    onChange={(e)=>setEmail(e.target.value)}
                   />
                 </div>
-                <div>
-                  <input
-                    className="signup-password input"
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                  />
-                </div>
-                <button className="submit button">SignUp</button>
-              </form>
+               
+                
+                <button onClick={handleSubmit} className="submit button">Verify Email</button>
+              </div>
             </div>
             <div className="form-container sign-in-container">
               <form className="signin-form form2 " action="#">
