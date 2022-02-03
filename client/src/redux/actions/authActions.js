@@ -45,12 +45,22 @@ export const verifyOtp=(otp,otpId)=>async (dispatch)=>{
         console.log(error.status);
     }
 }
-export const addUserDetails=(formData)=>async (dispatch)=>{
+export const addUserDetails=(name,email,roll_number,hostel,phone,password,confirm_password,terms_accepted,room_number,year,batch)=>async (dispatch)=>{
 
     try {
         const addUserRes=await axios.post(
-            "http://localhost:3000/api/v1/otp/auth/register",{
-              formData
+            "http://localhost:3000/api/v1/auth/register",{
+                name:name,
+                email:email,
+                roll_number:roll_number,
+                hostel:hostel,
+                phone:phone,
+                password:password,
+                confirm_password:confirm_password,
+                terms_accepted:terms_accepted,
+                room_number:room_number,
+                year:year,
+                batch:batch
             }
             
         );
