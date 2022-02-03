@@ -18,3 +18,5 @@ export const SET_USER = "SET_USER";
 export const USER_LOGOUT = "USER_LOGOUT";
 export const VERIFY_EMAIL="VERIFY_EMAIL";
 export const VERIFY_OTP="VERIFY_OTP"
+export const SIGN_UP_ERROR="SIGN_UP_ERROR"
+export const ADD_USER_DETAILS="ADD_USER_DETAILS"

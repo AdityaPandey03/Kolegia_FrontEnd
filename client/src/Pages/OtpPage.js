@@ -6,9 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 const OtpPage = () => {
     const dispatch=useDispatch();
     const navigate = useNavigate();
-    const status= useSelector((state) => state.auth.otpres.status);
+    const status= useSelector((state) => state.auth.otpres);
     const [otp,setOtp]=useState(0);
-    const otpId= useSelector((state) => state.auth.emailres);
+    const otpId= useSelector((state) => state.auth.otpId);
     // const otpId="61ee9495db63b894d08f6c56";
 if(status===200){
     navigate('/signUpForm');

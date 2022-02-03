@@ -6,16 +6,26 @@ import { Link, useNavigate } from "react-router-dom";
  
 
 const LoginSignUp = () => {
-  const otpId= useSelector((state) => state.auth.emailres);
+  const verifyEmailResponse= useSelector((state) => state.auth.status);
+  console.log(verifyEmailResponse);
+
   const navigate = useNavigate();
- 
 
  const [email,setEmail]= useState('')
+ const [message,setMessage]=useState('')
+
+
  //otp-verified-here
- if(otpId.length){
+
+ if(verifyEmailResponse){
+ if(verifyEmailResponse===200){
   navigate('/otpPage');
+}else{
+  setMessage('User already exist');
 }
-//  console.log(email);
+ }
+ console.log(message);
+
  const dispatch=useDispatch();
 
 const handleClick1=()=>{
@@ -26,7 +36,12 @@ const handleClick2=()=>{
 }
 
 const handleSubmit=()=>{
+  if(email.length){
   dispatch(verifyEmail(email));
+  }
+  else{
+    setMessage('Email is required');
+  }
   
 }
     return ( 
@@ -52,6 +67,7 @@ const handleSubmit=()=>{
                
                 
                 <button onClick={handleSubmit} className="submit button">Verify Email</button>
+                <p style={{color:'black'}}>{message}</p>
               </div>
             </div>
             <div className="form-container sign-in-container">
