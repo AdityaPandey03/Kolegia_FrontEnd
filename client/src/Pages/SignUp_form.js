@@ -98,8 +98,7 @@ else {
             <input onChange={e=>setPhone(e.target.value)} type="number" />
             <label  htmlFor="input">Profile Picture</label>
             <input defaultValue={Profile_picture} onChange={e=>setProfilePicture(e.target.value)} type="file" />
-            <label  htmlFor="input">Terms and condition</label>
-            <input type="check" />
+            
             <label  htmlFor="input">Password</label>
             <input onChange={e=>setPassword(e.target.value)} type="password" />
             <label  htmlFor="input">Confirm Password</label>
