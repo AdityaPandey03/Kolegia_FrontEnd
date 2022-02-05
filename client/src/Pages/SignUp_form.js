@@ -8,10 +8,12 @@ import {  useNavigate,useLocation} from "react-router-dom"
 const SignUpForm = () => {
     const addUserResponse = useSelector((state) => state.auth.addUserResponse);
     const location=useLocation();
-   
+   var Email;
+   var Name;
+   var Profile_picture;
     const errorMessage=useSelector((state)=>state.auth.errorMessage)
     
-    var Message;
+    var signUpErrorMessage;
     
     
  
@@ -31,11 +33,11 @@ const SignUpForm = () => {
 
     if(location.state !=null){
     if(location.state.Email){
-        setEmail(location.state.email)
+        Email=location.state.Email
     }
     if(location.state.name && location.state.profile_Picture){
-        setName(location.state.name);
-        setName(location.state.profile_Picture);
+        Name=location.state.name;
+       Profile_picture=location.state.profile_Picture;
     }
          
     }
@@ -50,7 +52,7 @@ const SignUpForm = () => {
     }
 }
 else {
-    Message=errorMessage
+    signUpErrorMessage=errorMessage
 
   }
 
@@ -82,10 +84,10 @@ else {
     return ( 
         <div style={{display:'flex',flexDirection:'column',width:'500px',gap:'10px'}} className="signUpForm">
             <h1>Enter Your details</h1>
-             <label defaultValue={name}  htmlFor="input">Name</label>
-            <input onChange={e=>setName(e.target.value)}  type="text" />
+             <label   htmlFor="input">Name</label>
+            <input defaultValue={Name} onChange={e=>setName(e.target.value)}  type="text" />
             <label  htmlFor="input">Email</label>
-            <input defaultValue={email} onChange={e=>setEmail(e.target.value)} type="text" />
+            <input defaultValue={Email} onChange={e=>setEmail(e.target.value)} type="text" />
             <label  htmlFor="input">Roll No</label>
             <input onChange={e=>setRollNo(e.target.value)} type="text" />
             <label  htmlFor="input">Hostel</label>
@@ -94,8 +96,8 @@ else {
             <input onChange={e=>setRoomNo(e.target.value)} type="text" />
             <label  htmlFor="input">Phone no</label>
             <input onChange={e=>setPhone(e.target.value)} type="number" />
-            <label defaultValue={profile_Picture} htmlFor="input">Profile Picture</label>
-            <input onChange={e=>setProfilePicture(e.target.value)} type="file" />
+            <label  htmlFor="input">Profile Picture</label>
+            <input defaultValue={Profile_picture} onChange={e=>setProfilePicture(e.target.value)} type="file" />
             <label  htmlFor="input">Terms and condition</label>
             <input type="check" />
             <label  htmlFor="input">Password</label>
@@ -113,7 +115,7 @@ else {
             />
 
             <button onClick={handleSubmit}>Submit</button>
-            <p style={{color:'black'}}>{Message}</p>
+            <p style={{color:'black'}}>{signUpErrorMessage}</p>
         </div>
      );
 }

@@ -15,7 +15,7 @@ const OtpPage = () => {
 
 
     var Email;
-    var Message;
+    var message;
     if(location.state !=null){
          Email=location.state.Email;
     }
@@ -27,7 +27,7 @@ const OtpPage = () => {
             state:{Email:Email}
           });
       }else {
-        Message=errorMessage
+        message=errorMessage
       }
     const style={
 
@@ -66,7 +66,7 @@ cont:{
             </p>
             <input onChange={(e)=>setOtp(e.target.value)} style={{width:'12rem',height:'2rem'}} type="number" placeholder="otp"/>
             <button onClick={handleClick} style={{width:'8rem',height:'2.5rem',background:'#332A7C',color:'white',fontSize:'1.1rem'}}>Verify Otp</button>
-            <p style={{color:'black'}}>{Message}</p>
+            <p style={{color:'black'}}>{message}</p>
             </div>
            
         </div>
