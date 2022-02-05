@@ -1,5 +1,12 @@
 import axios from "axios";
-import { VERIFY_EMAIL,VERIFY_OTP ,SIGN_UP_ERROR,ADD_USER_DETAILS} from "../constants/AllConstants";
+import { 
+    VERIFY_EMAIL,VERIFY_OTP ,
+    ADD_USER_DETAILS,
+    LOGIN_WITH_GOOGLE,
+    LOGIN_WITH_GOOGLE_ERROR,
+    LOGIN_WITH_EMAIL,
+     CHECKING_ERROR
+    } from "../constants/AllConstants";
 
 export const verifyEmail=(email)=>async (dispatch)=>{
     console.log(email);
@@ -17,11 +24,14 @@ export const verifyEmail=(email)=>async (dispatch)=>{
         });
         // console.log(res);
     } catch (error) {
-        
-       dispatch({
-           type:SIGN_UP_ERROR,
-           payload:error,
-       })
+        if (error.response) {
+            console.log(error.response);
+            dispatch({
+                type:CHECKING_ERROR,
+                payload:error.response,
+            })
+          }
+       
     }
 }
 export const verifyOtp=(otp,otpId)=>async (dispatch)=>{
@@ -42,7 +52,13 @@ export const verifyOtp=(otp,otpId)=>async (dispatch)=>{
         });
         // console.log(res);
     } catch (error) {
-        console.log(error.status);
+        if (error.response) {
+            console.log(error.response);
+            dispatch({
+                type:CHECKING_ERROR,
+                payload:error.response,
+            })
+          }
     }
 }
 export const addUserDetails=(name,email,roll_number,hostel,phone,password,confirm_password,terms_accepted,room_number,year,batch)=>async (dispatch)=>{
@@ -71,7 +87,65 @@ export const addUserDetails=(name,email,roll_number,hostel,phone,password,confir
         });
         // console.log(res);
     } catch (error) {
-        console.log(error.status);
+        if (error.response) {
+            console.log(error.response);
+            dispatch({
+                type:CHECKING_ERROR,
+                payload:error.response,
+            })
+          }
+    }
+}
+export const loginWithGoogle=(ID_Token)=>async (dispatch)=>{
+
+    try {
+        const loginUserRes=await axios.post(
+            "http://localhost:3000/api/v1/auth/google-login",{
+               ID_Token:ID_Token,
+            }
+            
+        );
+        console.log(loginUserRes);
+        dispatch({
+            type:LOGIN_WITH_GOOGLE,
+            payload:loginUserRes,
+        });
+        // console.log(res);
+    } catch (error) {
+        if (error.response) {
+            console.log(error.response);
+            dispatch({
+                type:LOGIN_WITH_GOOGLE_ERROR,
+                payload:error.response,
+            })
+          }
+    }
+}
+
+export const signInWithEmail=(email,password)=>async (dispatch)=>{
+
+    try {
+        const loginUserRes=await axios.post(
+            "http://localhost:3000/api/v1/auth/login",{
+               email:email,
+               password:password
+            }
+            
+        );
+        console.log(loginUserRes);
+        dispatch({
+            type:LOGIN_WITH_EMAIL,
+            payload:loginUserRes,
+        });
+        // console.log(res);
+    } catch (error) {
+        if (error.response) {
+            console.log(error.response);
+            dispatch({
+                type:CHECKING_ERROR,
+                payload:error.response,
+            })
+          }
     }
 }
 

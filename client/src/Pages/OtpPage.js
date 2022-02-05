@@ -1,18 +1,34 @@
 import {useState} from 'react';
 import { useDispatch ,useSelector} from "react-redux";
 import {verifyOtp} from '../redux/actions/authActions'
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const OtpPage = () => {
     const dispatch=useDispatch();
     const navigate = useNavigate();
-    const status= useSelector((state) => state.auth.otpres);
+    const location=useLocation();
+    const responseStatusCode= useSelector((state) => state.auth.otpStatusCode);
+    const errorMessage=useSelector((state)=>state.auth.errorMessage)
     const [otp,setOtp]=useState(0);
     const otpId= useSelector((state) => state.auth.otpId);
     // const otpId="61ee9495db63b894d08f6c56";
-if(status===200){
-    navigate('/signUpForm');
-}
+
+
+    var Email;
+    var Message;
+    if(location.state !=null){
+         Email=location.state.Email;
+    }
+    ///otp-verification
+
+    
+    if(responseStatusCode===200){
+        navigate('/signUpForm',{
+            state:{Email:Email}
+          });
+      }else {
+        Message=errorMessage
+      }
     const style={
 
 box:{
@@ -50,6 +66,7 @@ cont:{
             </p>
             <input onChange={(e)=>setOtp(e.target.value)} style={{width:'12rem',height:'2rem'}} type="number" placeholder="otp"/>
             <button onClick={handleClick} style={{width:'8rem',height:'2.5rem',background:'#332A7C',color:'white',fontSize:'1.1rem'}}>Verify Otp</button>
+            <p style={{color:'black'}}>{Message}</p>
             </div>
            
         </div>

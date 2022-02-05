@@ -1,32 +1,52 @@
 import '../Components/LoginSignUp/Login.css'
 import { useDispatch ,useSelector} from "react-redux";
 import { useState } from 'react';
-import {verifyEmail} from '../redux/actions/authActions'
+import {verifyEmail,signInWithEmail} from '../redux/actions/authActions'
 import { Link, useNavigate } from "react-router-dom";
+import Googlelogin from '../Components/GoogleLogin/Googlelogin';
  
 
 const LoginSignUp = () => {
-  const verifyEmailResponse= useSelector((state) => state.auth.status);
-  console.log(verifyEmailResponse);
+  const responseStatusCode= useSelector((state) => state.auth.loginStatusCode);
+  const loginWithEmailResponse=useSelector((state)=>state.auth.loginWithEmailResponse)
+  const errorMessage=useSelector((state)=>state.auth.errorMessage)
+  
+  
+  console.log(`This is ${responseStatusCode}`);
 
   const navigate = useNavigate();
+  const dispatch=useDispatch();
 
  const [email,setEmail]= useState('')
- const [message,setMessage]=useState('')
 
+ const [password,setPassword]=useState('')
 
- //otp-verified-here
+ //ErrorMessage
+var Message;
 
- if(verifyEmailResponse){
- if(verifyEmailResponse===200){
-  navigate('/otpPage');
-}else{
-  setMessage('User already exist');
+ //user-login-verification
+if(loginWithEmailResponse.data){
+  if(loginWithEmailResponse.data.user_token){
+    localStorage.setItem("jwt",loginWithEmailResponse.data.user_token);
+    navigate('/dashboard');
 }
- }
- console.log(message);
+}
+else if(responseStatusCode===200){
+  navigate('/otpPage',{
+    state:{Email:email}
+  });
 
- const dispatch=useDispatch();
+}else {
+  Message=errorMessage
+}
+ 
+
+
+ 
+ 
+
+
+ 
 
 const handleClick1=()=>{
     document.getElementById("container").classList.add("right-panel-active");
@@ -35,14 +55,14 @@ const handleClick2=()=>{
     document.getElementById("container").classList.remove("right-panel-active");
 }
 
-const handleSubmit=()=>{
-  if(email.length){
-  dispatch(verifyEmail(email));
-  }
-  else{
-    setMessage('Email is required');
-  }
+const handleSubmitSignIn=()=>{
   
+    dispatch(signInWithEmail(email,password))
+  
+}
+
+const handleSubmitSignUp=()=>{
+  dispatch(verifyEmail(email));
 }
     return ( 
         <div className="body">
@@ -66,12 +86,19 @@ const handleSubmit=()=>{
                 </div>
                
                 
-                <button onClick={handleSubmit} className="submit button">Verify Email</button>
-                <p style={{color:'black'}}>{message}</p>
+                <button onClick={handleSubmitSignUp} className="submit button">Verify Email</button>
+
+                <p style={{color:'black'}}>{Message}</p>
+                
+                <Googlelogin/>
               </div>
+             
             </div>
             <div className="form-container sign-in-container">
-              <form className="signin-form form2 " action="#">
+            
+            <div className='signin-form form2'>
+
+      
                 <h1 className='h1'>Sign In</h1>
                 <div>
                   <input
@@ -79,6 +106,7 @@ const handleSubmit=()=>{
                     type="email"
                     name="email"
                     placeholder="Email"
+                    onChange={(e)=>setEmail(e.target.value)}
                   />
                 </div>
                 <div>
@@ -87,11 +115,15 @@ const handleSubmit=()=>{
                     type="password"
                     name="password"
                     placeholder="Password"
+                    onChange={(e)=>setPassword(e.target.value)}
                   />
                 </div>
     
-                <button className="submit button">Sign In</button>
-              </form>
+                <button className="submit button" onClick={handleSubmitSignIn}>Sign In</button>
+                <p style={{color:'black'}}>{Message}</p>
+                <Googlelogin/>
+              </div>
+              
             </div>
           </div>
           <div className="overlay-container">

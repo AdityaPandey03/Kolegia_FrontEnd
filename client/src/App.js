@@ -19,10 +19,13 @@ import AddItem from "./Pages/Additems_lostFound";
 import OtpPage from "./Pages/OtpPage";
 import SignUpForm from "./Pages/SignUp_form";
 
+
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+
+      
         {/* <Loader/> */}
         {/* <Navbar /> */}
     
