@@ -1,0 +1,36 @@
+.signUpContainer{
+    background-color: #332A7C;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.signUpFormCont{
+    box-sizing: border-box;
+    background-color: white;
+    display: flex;
+    
+    justify-content: center;
+    width: 600px;
+    margin: 30px 0 30px 0;
+    border-radius: 6px;
+    padding: 15px;
+    flex-wrap: wrap;
+}
+
+.signUpFormCont input{
+    border: 1px solid #F0BC5E;
+    width: 10rem;
+    height: 3rem;
+    width: 16rem;
+    margin: 10px;
+    font-size: 1rem;
+    padding: 5px;
+}
+
+@media(max-width:600px){
+    .signUpFormCont{
+        flex-direction: column;
+    }
+}

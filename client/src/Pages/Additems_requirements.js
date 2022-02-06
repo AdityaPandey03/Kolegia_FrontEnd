@@ -27,8 +27,9 @@ const handleSubmit=()=>{
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
+          <h2 style={{color:'#332A7C'}} >Add item</h2>
             <form onSubmit={handleSubmit}>
-            <h2>Add item</h2>
+            
             <label  htmlFor="input">Title</label>
             <input onChange={e=>setTitle(e.target.value)} type="text" />
             
@@ -40,7 +41,7 @@ const handleSubmit=()=>{
             </form>
 
             <button className="close-modal" onClick={toggleModal}>
-              CLOSE
+              +
             </button>
             
           </div>
