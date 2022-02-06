@@ -18,6 +18,7 @@ import LostFoundItemDetails from "./Pages/ProductDetails_lostFound";
 import AddItem from "./Pages/Additems_lostFound";
 import OtpPage from "./Pages/OtpPage";
 import SignUpForm from "./Pages/SignUp_form";
+import Requirement from "./Pages/Requirement";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route exact path="/lostFound" element={<Bcards />} />
           <Route exact path="/product/:id" element={<ProductDetails />} />
           <Route exact path="/profile" element={<ProfileMobile />} />
+          <Route exact path="/requirement" element={<Requirement />} />
           <Route
             exact
             path="/lostItem/:id"

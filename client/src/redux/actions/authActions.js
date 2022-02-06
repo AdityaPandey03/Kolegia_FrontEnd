@@ -105,7 +105,7 @@ export const loginWithGoogle=(ID_Token)=>async (dispatch)=>{
             }
             
         );
-        console.log(loginUserRes);
+        console.log(loginUserRes.data.user_token);
         dispatch({
             type:LOGIN_WITH_GOOGLE,
             payload:loginUserRes,
