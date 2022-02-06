@@ -7,6 +7,7 @@ import { FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { FaPlusCircle } from "react-icons/fa";
+import LoadingBox from "../Components/LoadingBox";
 
 import { getAllLostFoundItems } from "../redux/actions/LostFoundActions";
 import Modal from "./Additems_lostFound";
@@ -17,7 +18,8 @@ const Bcards = () => {
   const [pht, setPht] = useState("");
   const [modal, setModal] = useState(false);
 
-  const Data = useSelector((state) => state.lostFound.itemList);
+  const Data = useSelector((state) => state.lostFound.lostFoundItemList);
+  const isLoading = useSelector((state) => state.lostFound.isLoading);
 
   const dispatch = useDispatch();
 
@@ -37,18 +39,6 @@ const Bcards = () => {
 
   //   console.log(Data);
   const image = [];
-  // const data=[
-  //     {
-  //         name:'Rohit Kumar',
-  //         item:"watch",
-  //         location:'Behind Hostel 1',
-  //         time:'12/4/2022 14:12',
-  //         image:[Rolex,Pic],
-  //         type:"Lost"
-
-  //     },
-
-  // ]
 
   const showImage = (e) => {
     let iD = e.target.alt;
@@ -62,63 +52,72 @@ const Bcards = () => {
   };
   return (
     <>
-      <div className="Bcards-cont">
-        {Data.map((card) => {
-          return (
-            <div className="found" id="Bcard" key={card.name}>
-              <h2 className="header-02">Found</h2>
-              <div className="card-details">
-                <h2 className="pink">
-                  <label htmlFor="h2">
-                    <FaUser />
-                  </label>
-                  {card.posted_by}
-                </h2>
-                <h4 className="pink">
-                  <label htmlFor="h4">Item:</label>
-                  {card.item_name}
-                </h4>
-                <h4 className="pink">
-                  <label htmlFor="h4">Description:</label>
-                  {card.description}
-                </h4>
-                <div className="view-more-01">
-                  <div>
-                    <label htmlFor="h4">Created at:</label>
-                    <h4 className="pink">{card.createdAt}</h4>
+      {isLoading ? (
+        <LoadingBox />
+      ) : (
+        <div className="Bcards-cont">
+          {Data.length > 0 &&
+            Data.map((card) => {
+              return (
+                <div className="found" id="Bcard" key={card.name}>
+                  <h2 className="header-02">Found</h2>
+                  <div className="card-details">
+                    <h2 className="pink">
+                      <label htmlFor="h2">
+                        <FaUser />
+                      </label>
+                      {card.owner_details.name}
+                    </h2>
+                    <h4 className="pink">
+                      <label htmlFor="h4">Item:</label>
+                      {card.name}
+                    </h4>
+                    <h4 className="pink">
+                      <label htmlFor="h4">Description:</label>
+                      {card.description}
+                    </h4>
+                    <div className="view-more-01">
+                      <div>
+                        <label htmlFor="h4">Created at:</label>
+                        <h4 className="pink">{card.posted_on}</h4>
+                      </div>
+                      <Link to={`/lostItem/${card._id}`}>View More</Link>
+                    </div>
                   </div>
-                  <Link to={`/lostItem/${card._id}`}>View More</Link>
-                </div>
-              </div>
-              <div id={`div${card.item_id}`} className="Display">
-                <img src={pht} alt="Watch" />
-              </div>
+                  <div id={`div${card.item_id}`} className="Display">
+                    <img src={pht} alt="Watch" />
+                  </div>
 
-              {image.length ? (
-                <div className="img-cont">
-                  {image.map((i) => {
-                    return (
-                      <img onClick={showImage} src={i} alt={card.item_id} />
-                    );
-                  })}
+                  {card.files.length ? (
+                    <div className="img-cont">
+                      {card.files.map((item) => {
+                        return (
+                          <img
+                            onClick={showImage}
+                            src={item.uri}
+                            alt={card.item_id}
+                          />
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="img-cont">
+                      <h3>No images available</h3>
+                    </div>
+                  )}
                 </div>
-              ) : (
-                <div className="img-cont">
-                  <h3>No images available</h3>
-                </div>
-              )}
-            </div>
-          );
-        })}
-        <div className="addNewBtnContainer">
-          <button
-            className="addNewBtn"
-            onClick={(e) => navigate("/lostItem/addItem")}
-          >
-            +
-          </button>
+              );
+            })}
+          <div className="addNewBtnContainer">
+            <button
+              className="addNewBtn"
+              onClick={(e) => navigate("/lostItem/addItem")}
+            >
+              +
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

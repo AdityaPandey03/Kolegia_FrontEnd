@@ -1,10 +1,9 @@
 import axios from "axios";
 import {
   GET_ALL_BUY_SELL_ITEMS,
-  GET_PRODUCT_DETAILS_REQUEST,
+  NEW_REQUEST,
   GET_SINGLE_BUY_SELL_ITEM,
-  ADD_NEW_BUY_SELL_ITEM
-  
+  ADD_NEW_BUY_SELL_ITEM,
 } from "../constants/AllConstants";
 
 export const getAllBuySellItems = () => async (dispatch) => {
@@ -23,7 +22,7 @@ export const getAllBuySellItems = () => async (dispatch) => {
 
 export const getSingleProductDetails = (itemId) => async (dispatch) => {
   dispatch({
-    type: GET_PRODUCT_DETAILS_REQUEST,
+    type: NEW_REQUEST,
     payload: true,
   });
   try {
@@ -40,21 +39,15 @@ export const getSingleProductDetails = (itemId) => async (dispatch) => {
   }
 };
 
-export const addNewBuySellItem= (formData)=> async (dispatch) => {
+export const addNewBuySellItem = (formData) => async (dispatch) => {
   console.log(formData);
   try {
-   const res=  await axios.post(
-      "http://localhost:8000/data",
-        formData
-      
-    );
-  console.log(res);
+    const res = await axios.post("http://localhost:8000/data", formData);
+    console.log(res);
     dispatch({
       type: ADD_NEW_BUY_SELL_ITEM,
-     
     });
   } catch (err) {
     console.log(err);
   }
 };
-
