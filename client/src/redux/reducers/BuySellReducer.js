@@ -1,8 +1,8 @@
 import {
   GET_ALL_BUY_SELL_ITEMS,
-  GET_PRODUCT_DETAILS_REQUEST,
+  NEW_REQUEST,
   GET_SINGLE_BUY_SELL_ITEM,
-  ADD_NEW_BUY_SELL_ITEM
+  ADD_NEW_BUY_SELL_ITEM,
 } from "../constants/AllConstants";
 
 const initialState = {
@@ -17,9 +17,10 @@ const BuySellReducer = (state = initialState, action) => {
     case GET_ALL_BUY_SELL_ITEMS:
       return {
         ...state,
+        isLoading: false,
         itemList: action.payload,
       };
-    case GET_PRODUCT_DETAILS_REQUEST:
+    case NEW_REQUEST:
       return {
         ...state,
         isLoading: action.payload,
@@ -34,9 +35,8 @@ const BuySellReducer = (state = initialState, action) => {
           ? action.payload.itemImages[0].img
           : "",
       };
-      case ADD_NEW_BUY_SELL_ITEM:
-        return state;
-
+    case ADD_NEW_BUY_SELL_ITEM:
+      return state;
 
     default:
       return state;
