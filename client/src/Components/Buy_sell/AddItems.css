@@ -49,6 +49,7 @@ body.active-modal {
     width: 20rem;
     height: 2.5rem;
     border: 1px solid #F0BC5E ;
+    border-radius: 4px;
 }
 
 .close-modal {
