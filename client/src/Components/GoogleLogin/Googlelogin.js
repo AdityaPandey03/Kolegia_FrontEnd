@@ -35,7 +35,7 @@ function Googlelogin() {
 
     }
 
-// const clientId=776693258230-ao65omhjlnr88mbsrm90q87j3aetp1ev.apps.googleusercontent.com
+
   const handleFailure = (result) => {
       console.log(result)
   
@@ -51,7 +51,7 @@ function Googlelogin() {
        
         <div>
             <GoogleLogin
-              clientId='783014303868-kjghpnb5lk3h2099mepfcl0qrb7f1e3q.apps.googleusercontent.com'
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
               buttonText="Continue  with Google"
               onSuccess={handleLogin}
               onFailure={handleFailure}
