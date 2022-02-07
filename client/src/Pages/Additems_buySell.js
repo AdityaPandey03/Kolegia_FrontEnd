@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import "../Components/Buy_sell/AddItems.css";
+import jwt_decode from "jwt-decode";
 import { addNewBuySellItem } from "../redux/actions/BuySellActions";
 
  function Modal({toggleModal,modal}) {
@@ -20,14 +21,19 @@ const dispatch=useDispatch();
  
 
 
-const handleSubmit=()=>{
+const handleSubmit=(e)=>{
+  e.preventDefault();
+  const token = localStorage.getItem("jwt");
+    const decoded = jwt_decode(token);
+
   const formData= new FormData();
   for(var i=0;i<imageList.length;i++){
-    formData.append('imageList',imageList[i]);
+    formData.append('files',imageList[i]);
   }
-  formData.append('itemName',itemName)
+  formData.append('name',itemName)
   formData.append('description',description)
   formData.append('price',price)
+  formData.append("token", decoded.auth_token);
   
 
   dispatch(addNewBuySellItem(formData));

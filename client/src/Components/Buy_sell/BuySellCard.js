@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const NoteCard = ({ data, img }) => {
-  console.log(data);
+const NoteCard = ({ data}) => {
+  
   const classes = useStyles();
   return (
     <Card elevation={3} className={classes.card}>
@@ -39,18 +39,18 @@ const NoteCard = ({ data, img }) => {
         className={classes.media}
         component="img"
         padding="5"
-        image={img}
+        image={data.files[0].uri}
         alt="watch"
       />
       
 
       <CardContent className={classes.card}>
-        <Typography variant="p">{data.itemName}</Typography>
-        <Typography variant="p">{data.postedBy}</Typography>
+        <Typography variant="p">{data.name}</Typography>
+       
         <Typography variant="p">{data.price}</Typography>
         <Typography variant="p">{data.description}</Typography>
         <div className="box">
-          <Typography variant="p">{data.time}</Typography>
+         
           <Link to={`/product/${data._id}`} underline="none">
             {"View more"}
           </Link>

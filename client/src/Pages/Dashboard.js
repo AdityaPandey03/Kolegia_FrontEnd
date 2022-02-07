@@ -9,9 +9,9 @@ const Dashboard = () => {
       {/* <Navbar/> */}
       <div className="cont-dashboard">
         <Dcards />
-        <div className="flex">
+        {/* <div className="flex">
           <Profile />
-        </div>
+        </div> */}
       </div>
     </>
   );

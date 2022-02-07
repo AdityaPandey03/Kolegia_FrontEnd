@@ -8,9 +8,12 @@ import { CircularProgress, Button } from "@material-ui/core";
 
 function ProductDetails() {
   const params = useParams();
+
   const productId = params.id;
   const buySell = useSelector((state) => state.buySell);
   const { isLoading, singleProduct, firstImage } = buySell;
+
+
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,12 +33,12 @@ function ProductDetails() {
         <div className="containerWrapper">
           <div className="imageListContainer">
             {singleProduct ? (
-              singleProduct.itemImages?.map((image, index) => {
+              singleProduct.files?.map((image, index) => {
                 return (
                   <div key={index}>
                     <img
                       className="sideImage"
-                      src={image.img}
+                      src={image.uri}
                       onClick={handleClick}
                     />
                   </div>
@@ -49,10 +52,11 @@ function ProductDetails() {
             <img alt="image" className="previewImage" src={image2} />
           </div>
           <div className="detailsContainer">
-            <h1>{singleProduct?.itemName}</h1>
-            <h4>posted By :{singleProduct?.postedBy}</h4>
+            <h1>{singleProduct?.name}</h1>
             <p>price : ${singleProduct?.price}</p>
             <p>description : {singleProduct?.description}</p>
+            <h3>Owner details</h3>
+            <h4 style={{color:'black'}}>posted By :{singleProduct?.owner_details.name}</h4>
 
             <Button variant="contained">
               <CircularProgress size={14} />

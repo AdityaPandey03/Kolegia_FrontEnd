@@ -12,7 +12,7 @@ const LoginSignUp = () => {
   const errorMessage=useSelector((state)=>state.auth.errorMessage)
   
   
-  console.log(`This is ${responseStatusCode}`);
+  
 
   const navigate = useNavigate();
   const dispatch=useDispatch();

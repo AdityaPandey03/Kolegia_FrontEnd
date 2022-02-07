@@ -18,7 +18,7 @@ const BuySellReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        itemList: action.payload,
+        itemList: action.payload.products,
       };
     case NEW_REQUEST:
       return {
@@ -30,9 +30,9 @@ const BuySellReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        singleProduct: action.payload,
-        firstImage: action.payload.itemImages
-          ? action.payload.itemImages[0].img
+        singleProduct: action.payload.Product,
+        firstImage: action.payload.Product.files
+          ? action.payload.Product.files[0].uri
           : "",
       };
     case ADD_NEW_BUY_SELL_ITEM:

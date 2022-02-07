@@ -18,7 +18,7 @@ const SignUpForm = () => {
     
  
     const navigate=useNavigate();
-    const [name,setName]=useState('')
+    const [name,setName]=useState(Name)
     const [email,setEmail]=useState('')
     const [roll_number,setRollNo]=useState('')
     const [hostel,setHostel]=useState('')
@@ -35,9 +35,9 @@ const SignUpForm = () => {
     if(location.state.Email){
         Email=location.state.Email
     }
-    if(location.state.name && location.state.profile_Picture){
+    if(location.state.name && location.state.profile_picture){
         Name=location.state.name;
-       Profile_picture=location.state.profile_Picture;
+       Profile_picture=location.state.profile_picture;
     }
          
     }
@@ -59,23 +59,25 @@ else {
 
 
     const handleSubmit=()=>{
-        // const formData= new FormData();
+        const formData= new FormData();
        
-        // formData.append('name',name)
-        // formData.append('email',email)
-        // formData.append('roll_Number',roll_Number)
-        // formData.append('hostel',hostel)
-        // formData.append('room_Number',room_Number)
-        // formData.append('phone',phone)
-        // formData.append('password',password)
-        // formData.append('confirm_password',confirm_password)
-        // formData.append('terms_accepted',terms_accepted)
+        formData.append('name',name)
+        formData.append('email',Email)
+        formData.append('roll_number',roll_number)
+        formData.append('hostel',hostel)
+        formData.append('room_number',room_number)
+        formData.append('phone',phone)
+        formData.append('password',password)
+        formData.append('confirm_password',confirm_password)
+        formData.append('terms_accepted',terms_accepted)
+        formData.append('batch',batch)
+        formData.append('year',year)
         
 
-        // formData.append('profile_Picture',profile_Picture)
+        formData.append('profile_Picture',profile_Picture)
 
       
-        dispatch(addUserDetails(name,email,roll_number,hostel,phone,password,confirm_password,terms_accepted,room_number,year,batch));
+        dispatch(addUserDetails(formData));
       
       }
 
@@ -94,7 +96,7 @@ else {
             <input onChange={e=>setHostel(e.target.value)} type="text" placeholder="Hostel" />
             <input onChange={e=>setRoomNo(e.target.value)} type="text" placeholder="Room No" />
             <label  htmlFor="input">Profile Picture</label>
-            <input style={{border:'none'}} defaultValue={Profile_picture} onChange={e=>setProfilePicture(e.target.value)} type="file" />
+            <input style={{border:'none'}} onChange={e=>setProfilePicture(e.target.value)} type="file" />
             <input onChange={e=>setPassword(e.target.value)} type="password" placeholder="Password" />
             <input onChange={e=>setConfirm_Password(e.target.value)} type="password" placeholder="Confirm Password" />
           
