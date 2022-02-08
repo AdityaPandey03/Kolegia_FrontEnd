@@ -13,6 +13,8 @@ function ProductDetails() {
   const buySell = useSelector((state) => state.buySell);
   const { isLoading, singleProduct, firstImage } = buySell;
 
+  
+
 
 
   const dispatch = useDispatch();
@@ -56,7 +58,7 @@ function ProductDetails() {
             <p>price : ${singleProduct?.price}</p>
             <p>description : {singleProduct?.description}</p>
             <h3>Owner details</h3>
-            <h4 style={{color:'black'}}>posted By :{singleProduct?.owner_details.name}</h4>
+            {/* <h4 style={{color:'black'}}>posted By :{singleProduct.owner_details.name}</h4> */}
 
             <Button variant="contained">
               <CircularProgress size={14} />
