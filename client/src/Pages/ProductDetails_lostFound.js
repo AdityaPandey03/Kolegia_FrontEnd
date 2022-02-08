@@ -57,7 +57,7 @@ function LostFoundItemDetails() {
       var year = date.getFullYear();
       setDateString(day + "-" + month + "-" + year);
     }
-  }, [product_id, product.lost_date]);
+  }, [product_id, product?.lost_date]);
 
   return (
     <div className="LostItemMaincontainer">
@@ -65,7 +65,7 @@ function LostFoundItemDetails() {
         <div className="headingContainer">
           <div>
             <h1>Lost Item Details</h1>
-            <h4>Item ID : {product._id}</h4>
+            <h4>Item ID : {product?._id}</h4>
           </div>
           <button className="raiseHandBtn" onClick={(e) => setOpenModal(true)}>
             RAISE HAND
@@ -75,19 +75,19 @@ function LostFoundItemDetails() {
           <div className="firstHalf">
             <div className="LostDetailsListItem">
               <h4>Item Lost</h4>
-              <p>{product.name}</p>
+              <p>{product?.name}</p>
             </div>
             <div className="LostDetailsListItem">
               <h4>Category</h4>
-              <p>{product.category}</p>
+              <p>{product?.category}</p>
             </div>
             <div className="LostDetailsListItem">
               <h4>Brand</h4>
-              <p>{product.brand}</p>
+              <p>{product?.brand}</p>
             </div>
             <div className="LostDetailsListItem">
               <h4>Primary Color</h4>
-              <p>{product.color}</p>
+              <p>{product?.color}</p>
             </div>
           </div>
           <div className="secondHalf">
@@ -97,15 +97,15 @@ function LostFoundItemDetails() {
             </div>
             <div className="LostDetailsListItem">
               <h4>Time Lost</h4>
-              <p>{product.lost_time}</p>
+              <p>{product?.lost_time}</p>
             </div>
             <div className="LostDetailsListItem">
               <h4>Location Lost</h4>
-              <p>{product.lost_location}</p>
+              <p>{product?.lost_location}</p>
             </div>
             <div className="LostDetailsListItem">
               <h4>Description</h4>
-              <p>{product.description}</p>
+              <p>{product?.description}</p>
             </div>
           </div>
         </div>
