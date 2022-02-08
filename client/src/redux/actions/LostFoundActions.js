@@ -34,13 +34,21 @@ export const getAllLostFoundItems = () => async (dispatch) => {
     console.log(err);
   }
 };
-export const getLostFoundProductDetails = (itemId) => async (dispatch) => {
+export const getLostFoundProductDetails = (itemData) => async (dispatch) => {
+  // console.log(data.decoded.auth_token);
   dispatch({
     type: NEW_REQUEST,
     payload: true,
   });
   try {
-    const { data } = await axios.get(`API${itemId}`);
+    const { data } = await axios.get(
+      `http://localhost:3000/api/v1/lost-found-items/get-lost-found-product-details?product_id=${itemData.product_id}`,
+      {
+        headers: {
+          authorization: `Bearer ${itemData.decoded.auth_token}`,
+        },
+      }
+    );
     console.log(data);
     dispatch({
       type: GET_SINGLE_LOST_FOUND_ITEM,
