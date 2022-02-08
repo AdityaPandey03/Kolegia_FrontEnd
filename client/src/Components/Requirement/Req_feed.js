@@ -7,13 +7,13 @@ const Req_feed = ({ data }) => {
       <h3>{ data.title }</h3>
     </div>
     <div className='feed_desc'>
-      <p>{ data.desc }</p>
+      <p>{ data.description }</p>
     </div>
     <div className='feed_username'>
-      <p>Posted by: { data.username }</p>
+      <p>Posted by: { data.posted_by }</p>
     </div>
     <div className='feed_date'>
-      <h3>{ data.date }</h3>
+      <h3>{ data.posted_on }</h3>
     </div>
   </div>
   );

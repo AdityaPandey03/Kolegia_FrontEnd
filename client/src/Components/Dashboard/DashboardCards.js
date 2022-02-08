@@ -2,6 +2,7 @@
 import Buy from '../../assests/Buy.svg'
 import Lostfound from '../../assests/Lostfound.svg'
 import Tickets from '../../assests/Tickets.svg'
+import Profile from './Profile'
 
 import { Link } from 'react-router-dom'
 
@@ -35,21 +36,30 @@ const Dcards = () => {
 
         },
         {
-            Title:'My-Tickets2',
+            Title:'My Requirements',
             img:Tickets,
             button_title:'ViewMore',
             path:'myTickets'
 
-        }
+        },
+        {
+            Title:'My Responses',
+            img:Tickets,
+            button_title:'ViewMore',
+            path:'myTickets'
+
+        },
+        
         
     ]
     return (
         <>
       
         <div className='Dcards-cont'>
-            {data.map((card)=>{
+            <Profile/>
+            {data.map((card,index)=>{
                 return(
-                    <div className={card.Title} id='Dcard' key={card.Title}>
+                    <div className={card.Title} id='Dcard' key={index}>
                         <h2>{card.Title}</h2>
                         <img src={card.img} alt={card.Title} />
                      <Link to={card.path}><button className='button-01'>{card.button_title}</button></Link>   

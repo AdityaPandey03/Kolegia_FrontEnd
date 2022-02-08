@@ -61,23 +61,14 @@ export const verifyOtp=(otp,otpId)=>async (dispatch)=>{
           }
     }
 }
-export const addUserDetails=(name,email,roll_number,hostel,phone,password,confirm_password,terms_accepted,room_number,year,batch)=>async (dispatch)=>{
+export const addUserDetails=(data)=>async (dispatch)=>{
 
     try {
         const addUserRes=await axios.post(
-            "http://localhost:3000/api/v1/auth/register",{
-                name:name,
-                email:email,
-                roll_number:roll_number,
-                hostel:hostel,
-                phone:phone,
-                password:password,
-                confirm_password:confirm_password,
-                terms_accepted:terms_accepted,
-                room_number:room_number,
-                year:year,
-                batch:batch
-            }
+            "http://localhost:3000/api/v1/auth/register",
+               
+            data
+            
             
         );
         // console.log(OtpResponse);
@@ -96,12 +87,12 @@ export const addUserDetails=(name,email,roll_number,hostel,phone,password,confir
           }
     }
 }
-export const loginWithGoogle=(ID_Token)=>async (dispatch)=>{
+export const loginWithGoogle=(id_token)=>async (dispatch)=>{
 
     try {
         const loginUserRes=await axios.post(
             "http://localhost:3000/api/v1/auth/google-login",{
-               ID_Token:ID_Token,
+               id_token:id_token,
             }
             
         );

@@ -12,7 +12,8 @@ const initialState={
     addUserResponse:'',
     loginWithGoogleResponse:'',
     loginWithGoogleErrorResponse:'',
-    loginWithEmailResponse:''
+    loginWithEmailResponse:'',
+    isLoggedIn:false
 }
 
 const AuthReducer=(state=initialState,action)=>{
@@ -40,7 +41,8 @@ const AuthReducer=(state=initialState,action)=>{
                     case LOGIN_WITH_GOOGLE:
                                 return{
                                     ...state,
-                                    loginWithGoogleResponse:action.payload
+                                    loginWithGoogleResponse:action.payload,
+                                    isLoggedIn:action.payload.data.isLoggedIn
                                 };
                                 case LOGIN_WITH_GOOGLE_ERROR:
                                     return{

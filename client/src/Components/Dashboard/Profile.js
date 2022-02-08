@@ -1,8 +1,10 @@
 import Pic from '../../assests/Pic.jpeg';
 import './Profile.css'
+import MyRequirements from './MyRequirements';
 const Profile = () => {
     return ( 
-        <div className="profile-card">
+        <div className="profile-section">
+        <div  className="profile-card">
             <div className='main-content'>
             <div className="profile-img">
                 <img src={Pic} alt="aa"  />
@@ -16,6 +18,8 @@ const Profile = () => {
             </div>
             
             
+        </div>
+        {/* <MyRequirements/> */}
         </div>
      );
 }

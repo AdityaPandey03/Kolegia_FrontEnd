@@ -1,43 +1,34 @@
-import Rolex from "../assests/Rolex.jpg";
-import Pic from "../assests/Pic.jpeg";
+
 import "../Components/Lost_Found/LostFound.css";
 import { useState } from "react";
-import { MdLocationOn } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { FaPlusCircle } from "react-icons/fa";
 import LoadingBox from "../Components/LoadingBox";
 
 import { getAllLostFoundItems } from "../redux/actions/LostFoundActions";
-import Modal from "./Additems_lostFound";
+
 import { Link, useNavigate } from "react-router-dom";
 
 const Bcards = () => {
   const navigate = useNavigate();
   const [pht, setPht] = useState("");
-  const [modal, setModal] = useState(false);
+  
 
   const Data = useSelector((state) => state.lostFound.lostFoundItemList);
   const isLoading = useSelector((state) => state.lostFound.isLoading);
 
   const dispatch = useDispatch();
 
-  const toggleModal = () => {
-    setModal(!modal);
-  };
+ 
 
-  if (modal) {
-    document.body.classList.add("active-modal");
-  } else {
-    document.body.classList.remove("active-modal");
-  }
+  
 
   useEffect(() => {
     dispatch(getAllLostFoundItems());
   }, []);
 
-  //   console.log(Data);
+  
   const image = [];
 
   const showImage = (e) => {
@@ -84,7 +75,7 @@ const Bcards = () => {
                       <Link to={`/lostItem/${card._id}`}>View More</Link>
                     </div>
                   </div>
-                  <div id={`div${card.item_id}`} className="Display">
+                  <div id={`div${card._id}`} className="Display">
                     <img src={pht} alt="Watch" />
                   </div>
 
