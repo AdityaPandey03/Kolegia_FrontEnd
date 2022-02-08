@@ -11,31 +11,32 @@ function Googlelogin() {
   const errorResponse=useSelector((state)=>state.auth.loginWithGoogleErrorResponse)
   const successResponse=useSelector((state)=>state.auth.loginWithGoogleResponse)
 
+  const isLoggedIn=useSelector((state)=>state.auth.isLoggedIn)
+
   var ErrorMessage;
   
   if(errorResponse){
   
    if(errorResponse.status===500){
      ErrorMessage=errorResponse.data.message
-     
    }
-   if(errorResponse.status===404){
-    navigate('/signUpForm',{
-      state:{Email:errorResponse.user_details.email,
-              name:errorResponse.user_details.name,
-            profile_picture:errorResponse.user_details.profile_picture}
-    });
    }
-  }
-    if(successResponse.data){
-      if(successResponse.data.user_token){
+  
+    if(successResponse){
+      if(isLoggedIn){
         localStorage.setItem("jwt",successResponse.data.user_token);
         navigate('/dashboard');
+      } else{
+        navigate('/signUpForm',{
+              state:{Email:successResponse.data.user_details.email,
+                      name:successResponse.data.user_details.name,
+                    profile_picture:successResponse.data.user_details.profile_picture}
+      })
+      
+     
+
       }
-
-    }
-
-
+  }
   const handleFailure = (result) => {
       console.log(result)
   
@@ -51,6 +52,7 @@ function Googlelogin() {
        
         <div>
             <GoogleLogin
+            
               clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
               buttonText="Continue  with Google"
               onSuccess={handleLogin}
