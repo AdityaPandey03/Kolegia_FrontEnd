@@ -6,7 +6,7 @@ const MyRequirements = () => {
 
 <h2 >My Requirements</h2>
 <img src=''  />
-<Link to=''><button style={{backgroundColor:'#F25767 '}}>View More</button></Link>   
+<Link to='/myOwnRequirements'><button style={{backgroundColor:'#F25767 '}}>View More</button></Link>   
         
 </div>
 

@@ -19,6 +19,8 @@ import AddItem from "./Pages/Additems_lostFound";
 import OtpPage from "./Pages/OtpPage";
 import SignUpForm from "./Pages/SignUp_form";
 import Requirement from "./Pages/Requirement";
+import My_requirements from "./Pages/My_requirements";
+import Edit_MyRequirement from "./Pages/Edit_MyRequirement"
 
 
 function App() {
@@ -42,7 +44,10 @@ function App() {
           <Route exact path="/lostFound" element={<Bcards />} />
           <Route exact path="/product/:id" element={<ProductDetails />} />
           <Route exact path="/profile" element={<ProfileMobile />} />
-          <Route exact path="/requirement" element={<Requirement />} />
+          <Route exact path="/requirements" element={<Requirement />} />
+          <Route exact path="/myOwnRequirements" element={<My_requirements />} />
+          <Route exact path="/editMyRequirement" element={<Edit_MyRequirement />} />
+
           <Route
             exact
             path="/lostItem/:id"

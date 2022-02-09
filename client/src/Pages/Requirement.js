@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 
 const Requirement = () => {
     const itemList = useSelector((state) => state.requirement.items);
+    const status=useSelector((state=>state.requirement.addrequirementresponse))
     const [modal, setModal] = useState(false);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -19,35 +20,16 @@ const Requirement = () => {
         setModal(!modal);
       };
 
+       if(status===200){
+        window.location.reload(false);
+  }
       if (modal) {
         document.body.classList.add("active-modal");
       } else {
         document.body.classList.remove("active-modal");
       }
     
-    const data = [
-        {
-            title : "Mobile" ,
-            description : "I want a old mobile phone under 7k in proper condition",
-            posted_by : "Jayant Singh",
-            posted_on : "12 Feb 2022",
-           
-        },
-        {
-            title : "Mobile" ,
-            description : "I want a old mobile phone under 7k in proper condition",
-            posted_by : "Jayant Singh",
-            posted_on : "12 Feb 2022",
-           
-        },
-        {
-            title : "Mobile" ,
-            description : "I want a old mobile phone under 7k in proper condition",
-            posted_by : "Jayant Singh",
-            posted_on : "12 Feb 2022",
-            
-        },
-    ]
+    
     return (
     
   <div className='requirement_page'>
@@ -56,9 +38,9 @@ const Requirement = () => {
           
       </div>
       <div className='page_content'>
-      {data.map((item,index)=>{
+      {itemList.map((item,index)=>{
           return(
-             <Req_feed key={index} data = {item} />
+             <Req_feed key={index} data = {item} postedBy={item.posted_by_user_name} />
           )
       })}
       

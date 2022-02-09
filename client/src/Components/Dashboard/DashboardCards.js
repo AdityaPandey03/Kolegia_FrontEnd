@@ -39,7 +39,7 @@ const Dcards = () => {
             Title:'My Requirements',
             img:Tickets,
             button_title:'ViewMore',
-            path:'myTickets'
+            path:'/myOwnRequirements'
 
         },
         {

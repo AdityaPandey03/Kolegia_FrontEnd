@@ -2,20 +2,33 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import "../Components/Buy_sell/AddItems.css";
 import { addRequirements } from "../redux/actions/RequirementActions";
+import jwt_decode from "jwt-decode";
+import { useSelector } from "react-redux";
+import {  useNavigate } from "react-router-dom";
 
 function Modal({ toggleModal, modal }) {
+  const navigate= useNavigate();
+  const errorMessage2=useSelector((state)=>state.requirement.errorMessageRequirements)
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [reload,setReload]=useState(false)
+  const status=useSelector((state=>state.requirement.addrequirementresponse))
+
+
 
   const dispatch = useDispatch();
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("jwt");
+      const decoded = jwt_decode(token);
     const formData = new FormData();
 
-    formData.append("title", title);
-    formData.append("description", description);
+    // formData.append("title", title);
+    // formData.append("description", description);
+    // formData.append("token", decoded.auth_token);
 
-    dispatch(addRequirements(formData));
+    dispatch(addRequirements(title,description,decoded.auth_token));
   };
 
   return (
@@ -36,7 +49,9 @@ function Modal({ toggleModal, modal }) {
               />
 
               <button>Submit</button>
+              <p>{errorMessage2}</p>
             </form>
+
 
             <button className="close-modal" onClick={toggleModal}>
               +
