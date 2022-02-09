@@ -1,6 +1,7 @@
 .motive3 {
     display: flex;
     flex-direction: row;
+    margin: 150px;
 }
 
 .motive-content3 {
@@ -14,8 +15,8 @@
 .motive-content3 h1 {
     font-family: var(--font-family);
     font-weight: 800;
-    font-size: 62px;
-    line-height: 75px;
+    font-size: 65px;
+    line-height: 95px;
     letter-spacing: -0.04em;
 }
 
@@ -37,8 +38,8 @@
 }
 
 .motive-image3 img {
-    width: 50%;
-    height: 80%;
+    width: 60%;
+    height: 90%;
 }
 
 @media screen and (max-width: 1050px) {

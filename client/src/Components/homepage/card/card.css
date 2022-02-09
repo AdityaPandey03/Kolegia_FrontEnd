@@ -1,9 +1,12 @@
 .feature_card3 {
-    width: 100%;
-    height: 80%;
+    width: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     background: var(--color-primary);
+    border-radius:15px;
+
+
 }
 
 .feature_card-image3 {
@@ -16,15 +19,19 @@
 .feature_card-image3 img {
     width: 100%;
     height: 100%;
+    border-radius:15px  15px 0px;
+
 }
 
 .feature_card-content3 {
-    flex: 1;
+    /* flex:1; */
+    flex: 0.25;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    padding: 1rem 1.5rem;
+    /* padding: 1rem 1.5rem; */
+    padding: 0.75rem 2rem;
 }
 
 /* .feature_card-content p {
@@ -38,9 +45,9 @@
 
 .feature_card-content3 h3 {
     font-family: var(--font-family);
-    font-size: 24px;
+    font-size: 25px;
     font-weight: 700;
-    line-height: 25px;
+    line-height: 27px;
     text-align: center;
     
     color: #fff;

@@ -6,7 +6,6 @@
 .feature-heading3 {
     width: 100%;
     text-align: left;
-
     margin-bottom: 5rem;
 }
 
@@ -25,7 +24,7 @@
 .feature-container_cards3 {
     display:grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10rem;
+    grid-gap: 9rem;
 }
 
 @media screen and (max-width: 990px) {

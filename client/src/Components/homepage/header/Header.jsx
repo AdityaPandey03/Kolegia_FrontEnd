@@ -1,11 +1,12 @@
 import React from 'react';
 import image from '../../../assests/main_image.png';
+import homeimage from '../../../assests/homeimage.png';
 import './header.css';
 
 const Header = () => (
   <div className="header3 section__padding" id="home">
     <div className="header-image3">
-      <img src={image} />
+      <img src={homeimage} />
     </div>
     <div className="header-content3">
       <h1>Hey, I am your College Mate!</h1>
