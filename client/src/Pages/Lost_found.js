@@ -1,4 +1,3 @@
-
 import "../Components/Lost_Found/LostFound.css";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
@@ -13,22 +12,16 @@ import { Link, useNavigate } from "react-router-dom";
 const Bcards = () => {
   const navigate = useNavigate();
   const [pht, setPht] = useState("");
-  
 
   const Data = useSelector((state) => state.lostFound.lostFoundItemList);
   const isLoading = useSelector((state) => state.lostFound.isLoading);
 
   const dispatch = useDispatch();
 
- 
-
-  
-
   useEffect(() => {
     dispatch(getAllLostFoundItems());
   }, []);
 
-  
   const image = [];
 
   const showImage = (e) => {
@@ -81,9 +74,10 @@ const Bcards = () => {
 
                   {card.files.length ? (
                     <div className="img-cont">
-                      {card.files.map((item) => {
+                      {card.files.map((item, index) => {
                         return (
                           <img
+                            key={index}
                             onClick={showImage}
                             src={item.uri}
                             alt={card.item_id}

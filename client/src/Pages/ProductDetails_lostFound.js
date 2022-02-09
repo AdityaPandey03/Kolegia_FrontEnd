@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "@mui/material/Modal";
 import { makeStyles } from "@material-ui/core/styles";
 import "../Components/Lost_Found/LostFound.css";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getLostFoundProductDetails } from "../redux/actions/LostFoundActions";
+import jwt_decode from "jwt-decode";
 
 function getModalStyle() {
   const top = 50;
@@ -31,8 +35,29 @@ const useStyles = makeStyles((theme) => ({
 
 function LostFoundItemDetails() {
   const classes = useStyles();
+  const params = useParams();
+  const dispatch = useDispatch();
   const [modalStyle] = useState(getModalStyle);
   const [openModal, setOpenModal] = useState(false);
+  const [dateString, setDateString] = useState("");
+
+  const product_id = params.id;
+  const product = useSelector((state) => state.lostFound.singleProduct.Product);
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    const decoded = jwt_decode(token);
+
+    dispatch(getLostFoundProductDetails({ product_id, decoded }));
+
+    if (product?.lost_date) {
+      const date = new Date(product?.lost_date);
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+      setDateString(day + "-" + month + "-" + year);
+    }
+  }, [product_id, product.lost_date]);
 
   return (
     <div className="LostItemMaincontainer">
@@ -40,7 +65,7 @@ function LostFoundItemDetails() {
         <div className="headingContainer">
           <div>
             <h1>Lost Item Details</h1>
-            <h4>Item Id : 1234ABCD</h4>
+            <h4>Item ID : {product._id}</h4>
           </div>
           <button className="raiseHandBtn" onClick={(e) => setOpenModal(true)}>
             RAISE HAND
@@ -50,45 +75,37 @@ function LostFoundItemDetails() {
           <div className="firstHalf">
             <div className="LostDetailsListItem">
               <h4>Item Lost</h4>
-              <p>Necklace</p>
+              <p>{product.name}</p>
             </div>
             <div className="LostDetailsListItem">
               <h4>Category</h4>
-              <p>Ornament and Accessories</p>
+              <p>{product.category}</p>
             </div>
             <div className="LostDetailsListItem">
               <h4>Brand</h4>
-              <p>XYZ Brand</p>
+              <p>{product.brand}</p>
             </div>
             <div className="LostDetailsListItem">
               <h4>Primary Color</h4>
-              <p>Gold</p>
+              <p>{product.color}</p>
             </div>
           </div>
           <div className="secondHalf">
             <div className="LostDetailsListItem">
               <h4>Date Lost</h4>
-              <p>27-01-2022</p>
+              <p>{dateString}</p>
             </div>
             <div className="LostDetailsListItem">
               <h4>Time Lost</h4>
-              <p>14:00</p>
+              <p>{product.lost_time}</p>
             </div>
             <div className="LostDetailsListItem">
               <h4>Location Lost</h4>
-              <p>XYZ Location</p>
+              <p>{product.lost_location}</p>
             </div>
             <div className="LostDetailsListItem">
               <h4>Description</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              <p>{product.description}</p>
             </div>
           </div>
         </div>
