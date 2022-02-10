@@ -21,6 +21,8 @@ import SignUpForm from "./Pages/SignUp_form";
 import Requirement from "./Pages/Requirement";
 import My_requirements from "./Pages/My_requirements";
 import Edit_MyRequirement from "./Pages/Edit_MyRequirement"
+import My_buySellItems from "./Pages/My_buySellItems";
+import Edit_MyBuySellItems from "./Pages/Edit_MyBuySellItems"
 
 
 function App() {
@@ -47,13 +49,14 @@ function App() {
           <Route exact path="/requirements" element={<Requirement />} />
           <Route exact path="/myOwnRequirements" element={<My_requirements />} />
           <Route exact path="/editMyRequirement" element={<Edit_MyRequirement />} />
-
+          <Route exact path="/editMyBuySellItems" element={<Edit_MyBuySellItems />} />
           <Route
             exact
             path="/lostItem/:id"
             element={<LostFoundItemDetails />}
           />
           <Route exact path="/lostItem/addItem" element={<AddItem />} />
+          <Route exact path="/myOwnBuySellItems" element={<My_buySellItems />} />
         </Routes>
       </div>
     </BrowserRouter>

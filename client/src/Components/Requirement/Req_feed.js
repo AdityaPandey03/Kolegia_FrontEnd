@@ -1,23 +1,26 @@
 import './req_feed.css';
-import { FaEdit} from "react-icons/fa";
+import { FaEdit,FaTrashAlt} from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Req_feed = ({ data,postedBy }) => {
+
+const Req_feed = ({ data,postedBy,handleClick ,editOption}) => {
   const navigate = useNavigate();
 
-  // const handleClick=()=>{
-  //   navigate('/editMyRequirement',{
-  //     state:data,
-  //   });
-  // }
+  
   return (
   <div className='feed'>
     <div className='feed_title'>
       <h3>{ data.title }</h3>
-   <Link 
+{ editOption?
+      <div className='eidtIcons'>
+      <Link 
    to='/editMyRequirement'
   state={{ Data: data }}><FaEdit /></Link>  
+    < FaTrashAlt onClick={(e)=>handleClick(data,e)}/>
+      </div> : null
+}
+  
     </div>
     <div className='feed_desc'>
       <p>{ data.description }</p>

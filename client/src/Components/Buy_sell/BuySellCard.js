@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "./BuySellCard.css";
 import { CardContent } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { FaEdit,FaTrashAlt} from "react-icons/fa";
 // import Box from '@mui/material/Box';
 // import Button from '@mui/material/Button';
 
@@ -30,11 +31,19 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const NoteCard = ({ data}) => {
+const NoteCard = ({ data,editOption,handleClick}) => {
   
   const classes = useStyles();
   return (
     <Card elevation={3} className={classes.card}>
+      { editOption?
+      <div className='eidtIcons_buySell'>
+      <Link 
+   to='/editMyBuySellItems'
+  state={{ Data: data }}><FaEdit /></Link>  
+    < FaTrashAlt onClick={(e)=>handleClick(data,e)}/>
+      </div> : null
+}
       <CardMedia
         className={classes.media}
         component="img"

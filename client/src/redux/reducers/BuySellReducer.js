@@ -3,6 +3,8 @@ import {
   NEW_REQUEST,
   GET_SINGLE_BUY_SELL_ITEM,
   ADD_NEW_BUY_SELL_ITEM,
+  GET_MY_OWN_BUY_SELL_ITEMS,
+  EDIT_BUY_SELL_ITEM,RESET_STATUS
 } from "../constants/AllConstants";
 
 const initialState = {
@@ -10,6 +12,8 @@ const initialState = {
   singleProduct: {},
   firstImage: "",
   isLoading: false,
+  editBuySellResponse:'',
+  ownBuySellItems:[]
 };
 
 const BuySellReducer = (state = initialState, action) => {
@@ -38,6 +42,25 @@ const BuySellReducer = (state = initialState, action) => {
     case ADD_NEW_BUY_SELL_ITEM:
       return state;
 
+      case GET_MY_OWN_BUY_SELL_ITEMS:
+        return {
+          ...state,
+          ownBuySellItems: action.payload.Products,
+          isLoading: false,
+        };
+
+        case EDIT_BUY_SELL_ITEM:
+      return{
+      ...state,
+      editBuySellResponse:action.payload.status
+      } 
+
+      case RESET_STATUS:{
+        return{
+          ...state,
+          editBuySellResponse:''
+        }
+      }
     default:
       return state;
   }

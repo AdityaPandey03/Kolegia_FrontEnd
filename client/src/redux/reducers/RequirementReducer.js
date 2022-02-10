@@ -4,7 +4,8 @@ import { GET_ALL_REQUIREMENTS,
   CHECKING_ERROR,
 GET_MY_OWN_REQUIREMENTS,
 EDIT_REQUIREMENT,
-RESET_STATUS} from "../constants/AllConstants";
+RESET_STATUS,
+DELETE_REQUIREMENT} from "../constants/AllConstants";
 
 const initialState = {
     items: [],
@@ -12,7 +13,8 @@ const initialState = {
     addrequirementresponse:"",
     errorMessageRequirements:'',
     ownItems:[],
-    editRequirementresponse:""
+    editRequirementresponse:"",
+    deleteRequirementResponse:""
     
   };
 
@@ -53,6 +55,13 @@ const initialState = {
             return{
                 ...state,
                 errorMessageRequirements:action.payload.data.message,
+                
+
+            };
+            case DELETE_REQUIREMENT:
+            return{
+                ...state,
+                deleteRequirementResponse:action.payload
                 
 
             };

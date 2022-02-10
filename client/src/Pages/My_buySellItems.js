@@ -1,15 +1,14 @@
 import NoteCard from "../Components/Buy_sell/BuySellCard";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
-import Rolex from "../assests/Rolex.jpg";
 import { makeStyles } from "@mui/styles";
 import { useState, useEffect } from "react";
-import Modal from "./Additems_buySell";
+
 import { useDispatch, useSelector } from "react-redux";
-import { FaPlusCircle} from "react-icons/fa";
+
 import LoadingBox from "../Components/LoadingBox";
 
-import { getAllBuySellItems } from "../redux/actions/BuySellActions";
+import { getAllOwnBuySellItems } from "../redux/actions/BuySellActions";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -19,28 +18,21 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const Cards = () => {
-  const itemList = useSelector((state) => state.buySell.itemList);
+const My_buySellItems = () => {
+  const itemList = useSelector((state) => state.buySell.ownBuySellItems);
   const isLoading = useSelector((state) => state.buySell.isLoading);
 
-  const [modal, setModal] = useState(false);
+  console.log(itemList);
+
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllBuySellItems());
-    // eslint-disable-next-line no-use-before-define
+    dispatch(getAllOwnBuySellItems());
+    
   }, []);
   
-  const toggleModal = () => {
-    setModal(!modal);
-  };
-
-  if (modal) {
-    document.body.classList.add("active-modal");
-  } else {
-    document.body.classList.remove("active-modal");
-  }
+ 
 
   const classes = useStyles();
   return ( 
@@ -54,7 +46,7 @@ const Cards = () => {
           itemList.map((item, index) => {
             return (
               <Grid lg={3} sm={4} xm={12} md={4} item key={index}>
-                <NoteCard editOption={false} data={item} />
+                <NoteCard  data={item} editOption={true} />
               </Grid>
             );
           })
@@ -62,12 +54,7 @@ const Cards = () => {
           <div></div>
         )}
       </Grid>
-      <div className="circle">
-     
-       <FaPlusCircle onClick={toggleModal} className="btn-modal btn"/>
-        
-      </div>
-      <Modal const toggleModal={toggleModal} modal={modal} />
+      
     </Container>
     
   )};
@@ -76,4 +63,4 @@ const Cards = () => {
         }
 
 
-export default Cards;
+export default My_buySellItems;
