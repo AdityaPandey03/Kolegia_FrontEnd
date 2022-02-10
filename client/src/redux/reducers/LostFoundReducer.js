@@ -3,6 +3,10 @@ import {
   GET_SINGLE_LOST_FOUND_ITEM,
   ADD_NEW_LOST_FOUND_ITEM,
   NEW_REQUEST,
+  GET_MY_OWN_LOST_FOUND_ITEMS,
+  EDIT_LOST_FOUND_ITEM,
+  DELETE_LOST_FOUND_ITEM,
+  RESET_STATUS
 } from "../constants/AllConstants";
 
 const initialState = {
@@ -10,6 +14,10 @@ const initialState = {
   singleProduct: {},
   firstImage: "",
   isLoading: false,
+  ownlostfoundItems:[],
+  editlostfoundResponse:''
+
+  
 };
 
 const LostFoundReducer = (state = initialState, action) => {
@@ -36,6 +44,26 @@ const LostFoundReducer = (state = initialState, action) => {
       };
     case ADD_NEW_LOST_FOUND_ITEM:
       return state;
+
+      case GET_MY_OWN_LOST_FOUND_ITEMS:
+        return {
+          ...state,
+          ownlostfoundItems: action.payload.Products,
+          isLoading: false,
+        };
+
+        case EDIT_LOST_FOUND_ITEM:
+      return{
+      ...state,
+      editlostfoundResponse:action.payload.status
+      } 
+
+      case RESET_STATUS:{
+        return{
+          ...state,
+          editlostfoundResponse:''
+        }
+      }
     default:
       return state;
   }

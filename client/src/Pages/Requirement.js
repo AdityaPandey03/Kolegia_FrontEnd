@@ -40,7 +40,7 @@ const Requirement = () => {
       <div className='page_content'>
       {itemList.map((item,index)=>{
           return(
-             <Req_feed key={index} data = {item} postedBy={item.posted_by_user_name} />
+             <Req_feed key={index} editOption={false} data = {item} postedBy={item.posted_by_user_name} />
           )
       })}
       
