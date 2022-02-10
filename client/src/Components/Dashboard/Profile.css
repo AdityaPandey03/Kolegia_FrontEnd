@@ -63,9 +63,15 @@
 }
 
 /* .profile-card:hover {
+<<<<<<< HEAD
   overflow: visible; */
   /* border-radius: 13px 13px 0px 0px; */
   /* height: 30rem;
+=======
+  overflow: visible;
+  border-radius: 13px 13px 0px 0px;
+  height: 30rem;
+>>>>>>> 7db69e2220058a23d20d6ac9195a59ec6dccd238
   transform: scale(1.1) translateZ(5px);
   box-shadow: 5px 5px 10px #c3c3c3, -5px -5px 10px #fdfdfd;
 } */

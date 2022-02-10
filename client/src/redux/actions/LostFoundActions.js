@@ -6,6 +6,11 @@ import {
   GET_SINGLE_LOST_FOUND_ITEM,
   ADD_NEW_LOST_FOUND_ITEM,
   NEW_REQUEST,
+  GET_MY_OWN_LOST_FOUND_ITEMS,
+  EDIT_LOST_FOUND_ITEM,
+  DELETE_LOST_FOUND_ITEM,
+  RESET_STATUS,
+  CHECKING_ERROR
 } from "../constants/AllConstants";
 
 export const getAllLostFoundItems = () => async (dispatch) => {
@@ -87,3 +92,109 @@ export const addNewLostFoundItem = (data) => async (dispatch) => {
     console.log(err);
   }
 };
+
+export const getAllOwnLostFoundItems = () => async (dispatch) => {
+  dispatch({
+    type: NEW_REQUEST,
+    payload: true,
+  });
+    try {
+      const token = localStorage.getItem("jwt");
+    const decoded = jwt_decode(token);
+      const { data } = await axios.get(
+        "http://localhost:3000/api/v1/lost-found-items/get-own-lost-found-list",{
+          headers:{
+            authorization:`Bearer ${decoded.auth_token}`,
+          },
+        }
+        
+      );
+    console.log(data);
+      dispatch({
+        type: GET_MY_OWN_LOST_FOUND_ITEMS,
+        payload: data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  export const editLostFoundItem= (formData)=> async (dispatch) => {
+    
+    
+    try {
+      var token = "";
+      for (var key of formData.entries()) {
+        if (key[0] === "token") {
+          token = key[1];
+        }
+      }
+     const res=  await axios.put(
+        "http://localhost:3000/api/v1/lost-found-items/edit-lost-found-product",formData
+          
+        
+          ,{
+            headers:{
+              authorization:`Bearer ${token}`,
+            }
+          }
+        
+      );
+    console.log(res)
+      dispatch({
+        type: EDIT_LOST_FOUND_ITEM,
+        payload:res
+       
+      });
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
+        dispatch({
+            type:CHECKING_ERROR,
+            payload:error.response,
+        })
+      }
+    }
+  };
+
+  export const deleteLostFoundItem = (product_id,token)=> async (dispatch) => {
+    // console.log(requirement_id,token);
+    
+      try {
+  
+       const res=  await axios.delete(
+          "http://localhost:3000/api/v1/lost-found-items/delete-lost-found-product",{
+            product_id
+       }
+            ,{
+              headers:{
+                authorization:`Bearer ${token}`,
+              }
+            }
+          
+        );
+      console.log(res);
+        dispatch({
+          type: DELETE_LOST_FOUND_ITEM,
+          payload:res
+         
+        });
+      } catch (error) {
+        if (error.response) {
+          console.log(error.response);
+          dispatch({
+              type:CHECKING_ERROR,
+              payload:error.response,
+          })
+        }
+      }
+    };
+
+  export const resetStatus=(dispatch)=>{
+    dispatch({
+      type:RESET_STATUS,
+    }
+
+    )
+
+   };

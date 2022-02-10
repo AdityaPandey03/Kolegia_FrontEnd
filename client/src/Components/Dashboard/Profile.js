@@ -1,6 +1,6 @@
 import Pic from '../../assests/jim.jpg';
 import './Profile.css'
-import MyRequirements from './MyRequirements';
+
 const Profile = () => {
     return ( 
         <div className="profile-section">

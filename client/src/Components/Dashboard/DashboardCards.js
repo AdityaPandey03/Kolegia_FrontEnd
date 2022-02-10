@@ -32,7 +32,7 @@ const Dcards = () => {
             Title:'My-Tickets',
             img:Tickets,
             button_title:'ViewMore',
-            path:'myTickets'
+            path:'/myOwnLostFoundItems'
 
         },
         {
@@ -46,7 +46,7 @@ const Dcards = () => {
             Title:'Stats',
             img:Tickets,
             button_title:'ViewMore',
-            path:'myTickets'
+            path:'/myOwnBuySellItems'
 
         },
         

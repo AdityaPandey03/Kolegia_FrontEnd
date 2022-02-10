@@ -6,7 +6,8 @@ NEW_REQUEST,
 CHECKING_ERROR,
 GET_MY_OWN_REQUIREMENTS,
 EDIT_REQUIREMENT,
-RESET_STATUS} from '../constants/AllConstants';
+RESET_STATUS,
+DELETE_REQUIREMENT} from '../constants/AllConstants';
 
 export const getAllRequirements = () => async (dispatch) => {
   dispatch({
@@ -126,6 +127,40 @@ export const getAllRequirements = () => async (dispatch) => {
       }
     };
 
+    export const deleteRequirement= (requirement_id,token)=> async (dispatch) => {
+    // console.log(requirement_id,token);
+    
+      try {
+  
+       const res=  await axios.delete(
+          "http://localhost:3000/api/v1/requirements/delete-requirement",{
+            requirement_id
+       }
+            ,{
+              headers:{
+                authorization:`Bearer ${token}`,
+              }
+            }
+          
+        );
+      console.log(res);
+        dispatch({
+          type: DELETE_REQUIREMENT,
+          payload:res
+         
+        });
+      } catch (error) {
+        if (error.response) {
+          console.log(error.response);
+          dispatch({
+              type:CHECKING_ERROR,
+              payload:error.response,
+          })
+        }
+      }
+    };
+
+
    export const resetStatus=(dispatch)=>{
      dispatch({
        type:RESET_STATUS,
@@ -133,4 +168,4 @@ export const getAllRequirements = () => async (dispatch) => {
 
      )
 
-    }
+    };
