@@ -8,7 +8,8 @@ import {
   GET_MY_OWN_BUY_SELL_ITEMS,
   EDIT_BUY_SELL_ITEM,
   RESET_STATUS,
-  CHECKING_ERROR
+  CHECKING_ERROR,
+  DELETE_BUY_SELL_ITEM
 } from "../constants/AllConstants";
 
 export const getAllBuySellItems = () => async (dispatch) => {
@@ -150,6 +151,44 @@ export const getAllOwnBuySellItems = () => async (dispatch) => {
       }
     }
   };
+
+  //delete
+
+  export const deleteBuySellItem= (product_id,token)=> async (dispatch) => {
+    // console.log(requirement_id,token);
+    
+      try {
+  
+       const res=  await axios.delete(
+          "http://localhost:3000/api/v1/buy-sell-items/delete-buy-sell-product",{
+            product_id
+       }
+            ,{
+              headers:{
+                authorization:`Bearer ${token}`,
+              }
+            }
+          
+        );
+      console.log(res);
+        dispatch({
+          type: DELETE_BUY_SELL_ITEM,
+          payload:res
+         
+        });
+      } catch (error) {
+        if (error.response) {
+          console.log(error.response);
+          dispatch({
+              type:CHECKING_ERROR,
+              payload:error.response,
+          })
+        }
+      }
+    };
+
+
+ 
   export const resetStatus=(dispatch)=>{
     dispatch({
       type:RESET_STATUS,

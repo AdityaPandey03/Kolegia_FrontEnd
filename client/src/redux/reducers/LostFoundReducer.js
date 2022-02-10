@@ -15,7 +15,8 @@ const initialState = {
   firstImage: "",
   isLoading: false,
   ownlostfoundItems:[],
-  editlostfoundResponse:''
+  editlostfoundResponse:'',
+  deleteLostFoundItemResponse:''
 
   
 };
@@ -64,6 +65,13 @@ const LostFoundReducer = (state = initialState, action) => {
           editlostfoundResponse:''
         }
       }
+      case DELETE_LOST_FOUND_ITEM:
+        return{
+            ...state,
+            deleteLostFoundItemResponse:action.payload
+            
+
+        };
     default:
       return state;
   }

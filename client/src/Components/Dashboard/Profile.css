@@ -57,13 +57,13 @@
   text-align: center;
 }
 
-.profile-card:hover {
+/* .profile-card:hover {
   overflow: visible;
-  /* border-radius: 13px 13px 0px 0px; */
+  border-radius: 13px 13px 0px 0px;
   height: 30rem;
   transform: scale(1.1) translateZ(5px);
   box-shadow: 5px 5px 10px #c3c3c3, -5px -5px 10px #fdfdfd;
-}
+} */
 
 @media (max-width: 845px) {
   .profile-card {

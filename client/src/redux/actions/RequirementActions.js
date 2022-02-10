@@ -127,15 +127,15 @@ export const getAllRequirements = () => async (dispatch) => {
       }
     };
 
-    export const deleteRequirement= (_id,token)=> async (dispatch) => {
-    console.log(_id,token);
+    export const deleteRequirement= (requirement_id,token)=> async (dispatch) => {
+    // console.log(requirement_id,token);
     
       try {
   
        const res=  await axios.delete(
           "http://localhost:3000/api/v1/requirements/delete-requirement",{
-            _id,
-          }
+            requirement_id
+       }
             ,{
               headers:{
                 authorization:`Bearer ${token}`,
