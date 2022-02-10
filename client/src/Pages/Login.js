@@ -134,10 +134,10 @@ const handleSubmitSignUp=()=>{
                 <button className="ghost button" id="signIn" onClick={handleClick2}>Sign In</button>
               </div>
               <div className="overlay-panel overlay-right">
-                <h1 className='h1'>Hey, Buddy!</h1>
+                <h1 className='h1'>Hey, Buddy!</h1> 
     
                 <p className='p'>Oops! don't have an account? Signup</p>
-                <button className="ghost button" id="signUp" onClick={handleClick1}>Sign Up</button>
+                 <button className="ghost button" id="signUp" onClick={handleClick1}>Sign Up</button>
               </div>
             </div>
           </div>

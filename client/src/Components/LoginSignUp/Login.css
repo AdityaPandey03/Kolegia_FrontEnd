@@ -1,4 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Inter:wght@500&family=Neonderthaw&family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -13,7 +15,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: 'Open Sans', sans-serif;
+
   height: 100vh;
   /* margin: -20px 0 50px; */
 }
@@ -21,7 +25,7 @@
 
 .h1 {
   font-weight: bold;
-  margin: 0;
+  margin: 15px;
 }
 .tq {
   color: white;
@@ -32,9 +36,9 @@
 
 
 .p {
-  font-size: 14px;
-  font-weight: 100;
-  line-height: 20px;
+  font-size: 18px;
+  font-weight:100;
+  line-height: 25px;
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
 }
@@ -44,15 +48,17 @@
 .button {
   border-radius: 20px;
 
-  border: 1px solid white;
+  border: 3px solid white;
   background-color: #F0BC5E;
 
-  margin: 10px;
+  margin: 30px;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
   padding: 12px 45px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  font-family: 'Open Sans', sans-serif;
+
   text-transform: uppercase;
   transition: transform 80ms ease-in;
 }
@@ -61,6 +67,12 @@
 
 .form2 {
   background-color: #ffffff;
+  /* background-image: url(../../assests/mountains4.jpg);  */
+  /* background-repeat: no-repeat;  */
+   /* background-size: cover; */
+
+
+
 
   display: flex;
   align-items: center;
@@ -74,17 +86,22 @@
 .input {
   background-color: #eee;
   border: none;
+
   padding: 12px 15px;
-  margin: 8px 0;
+  margin: 10px 0px;
   width: 15rem;
 
-  font-family: "Font Awesome 5 Free";
+  /* font-family: "Font Awesome 5 Free"; */
+  font-family: 'IBM Plex Sans', sans-serif;
+  
   border-radius: 5px;
   font-weight: 600;
 }
 
 .container {
   background-color: #fff;
+  /* background-image: url(../../assests/mountains1.png);  */
+
   /* border-radius: 10px; */
   /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */
   position: relative;
@@ -94,6 +111,7 @@
   max-width: 100%;
   height: 100vh;
   overflow: hidden;
+
 }
 
 .form-container {
@@ -101,6 +119,8 @@
   top: 0;
   width: 100%;
   height: 100%;
+    color:black;
+
   transition: all 0.6s ease-in-out;
 }
 
@@ -160,6 +180,9 @@
 .overlay {
 
   background-color:#332A7C ;
+  /* background-image: url(../../assests/mountain3.png); */
+  background-size: 44% 100%;
+ 
   color: #ffffff;
   position: relative;
   left: -100%;
