@@ -3,12 +3,13 @@ import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useState, useEffect } from "react";
+import jwt_decode from "jwt-decode";
 
 import { useDispatch, useSelector } from "react-redux";
 
 import LoadingBox from "../Components/LoadingBox";
 
-import { getAllOwnBuySellItems } from "../redux/actions/BuySellActions";
+import { deleteBuySellItem, getAllOwnBuySellItems } from "../redux/actions/BuySellActions";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -31,6 +32,14 @@ const My_buySellItems = () => {
     dispatch(getAllOwnBuySellItems());
     
   }, []);
+
+  ///delete item
+  const handleClick=(data,e)=>{
+    
+    const token = localStorage.getItem("jwt");
+      const decoded = jwt_decode(token);
+   dispatch(deleteBuySellItem(data._id,decoded.auth_token));
+}
   
  
 
@@ -46,7 +55,7 @@ const My_buySellItems = () => {
           itemList.map((item, index) => {
             return (
               <Grid lg={3} sm={4} xm={12} md={4} item key={index}>
-                <NoteCard  data={item} editOption={true} />
+                <NoteCard handleClick={handleClick}  data={item} editOption={true} />
               </Grid>
             );
           })

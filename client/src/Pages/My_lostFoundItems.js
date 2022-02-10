@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import LoadingBox from "../Components/LoadingBox";
 import LostFoundCard from "../Components/Lost_Found/LostFoundCard";
+import jwt_decode from "jwt-decode";
 
-import { getAllOwnLostFoundItems } from "../redux/actions/LostFoundActions";
+import { deleteLostFoundItem, getAllOwnLostFoundItems } from "../redux/actions/LostFoundActions";
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -23,7 +24,12 @@ const My_lostFoundItems = () => {
 
  
 
-  console.log(items)
+  const handleClick=(card,e)=>{
+    
+    const token = localStorage.getItem("jwt");
+      const decoded = jwt_decode(token);
+   dispatch(deleteLostFoundItem(card._id,decoded.auth_token));
+}
 
  
   return (
@@ -35,7 +41,7 @@ const My_lostFoundItems = () => {
           
              { items.map((card,index) => {
               return (
-                <LostFoundCard postedby={'You'} editOption={true} key={index} card={card}/>
+                <LostFoundCard handleClick={handleClick} postedby={'You'} editOption={true} key={index} card={card}/>
               )
             })}
           

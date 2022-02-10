@@ -4,7 +4,8 @@ import {
   GET_SINGLE_BUY_SELL_ITEM,
   ADD_NEW_BUY_SELL_ITEM,
   GET_MY_OWN_BUY_SELL_ITEMS,
-  EDIT_BUY_SELL_ITEM,RESET_STATUS
+  EDIT_BUY_SELL_ITEM,RESET_STATUS,
+  DELETE_BUY_SELL_ITEM
 } from "../constants/AllConstants";
 
 const initialState = {
@@ -13,7 +14,8 @@ const initialState = {
   firstImage: "",
   isLoading: false,
   editBuySellResponse:'',
-  ownBuySellItems:[]
+  ownBuySellItems:[],
+  deleteBuySellItemResponse:""
 };
 
 const BuySellReducer = (state = initialState, action) => {
@@ -54,6 +56,13 @@ const BuySellReducer = (state = initialState, action) => {
       ...state,
       editBuySellResponse:action.payload.status
       } 
+      case DELETE_BUY_SELL_ITEM:
+        return{
+            ...state,
+            deleteBuySellItemResponse:action.payload
+            
+
+        };
 
       case RESET_STATUS:{
         return{
