@@ -5,24 +5,25 @@ import { useEffect } from "react";
 import LoadingBox from "../Components/LoadingBox";
 import LostFoundCard from "../Components/Lost_Found/LostFoundCard";
 
-import { getAllLostFoundItems } from "../redux/actions/LostFoundActions";
+import { getAllOwnLostFoundItems } from "../redux/actions/LostFoundActions";
 
 import { Link, useNavigate } from "react-router-dom";
 
-const Bcards = () => {
+const My_lostFoundItems = () => {
   const navigate = useNavigate();
-  
 
-  const Data = useSelector((state) => state.lostFound.lostFoundItemList);
+  useEffect(() => {
+    dispatch(getAllOwnLostFoundItems());
+  }, []);
+
+  const items = useSelector((state) => state.lostFound.ownlostfoundItems);
   const isLoading = useSelector((state) => state.lostFound.isLoading);
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAllLostFoundItems());
-  }, []);
+ 
 
-  const image = [];
+  console.log(items)
 
  
   return (
@@ -31,24 +32,17 @@ const Bcards = () => {
         <LoadingBox />
       ) : (
         <div className="Bcards-cont">
-          {Data.length > 0 &&
-            Data.map((card,index) => {
+          
+             { items.map((card,index) => {
               return (
-                <LostFoundCard editOption={false} key={index} card={card}/>
+                <LostFoundCard postedby={'You'} editOption={true} key={index} card={card}/>
               )
             })}
-          <div className="addNewBtnContainer">
-            <button
-              className="addNewBtn"
-              onClick={(e) => navigate("/lostItem/addItem")}
-            >
-              +
-            </button>
-          </div>
+          
         </div>
       )}
     </>
   );
 };
 
-export default Bcards;
+export default My_lostFoundItems;

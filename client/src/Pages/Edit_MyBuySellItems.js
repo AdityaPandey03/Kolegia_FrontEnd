@@ -12,7 +12,7 @@ const location=useLocation();
 const productData=location.state.Data;
 
 var Name,Description,Price,id;
-console.log(productData);
+
 
 if(productData){
    Name=productData.name;
