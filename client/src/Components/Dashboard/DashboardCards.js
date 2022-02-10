@@ -14,7 +14,7 @@ const Dcards = () => {
 
     const data=[
         {
-            Title:'Lost-found',
+            Title:'Lost-Found',
             img:Lostfound,
             button_title:'Explore',
             path:'/lostFound'
@@ -36,14 +36,14 @@ const Dcards = () => {
 
         },
         {
-            Title:'My Requirements',
+            Title:'My-Responses',
             img:Tickets,
             button_title:'ViewMore',
             path:'/myOwnRequirements'
 
         },
         {
-            Title:'My Responses',
+            Title:'Stats',
             img:Tickets,
             button_title:'ViewMore',
             path:'myTickets'

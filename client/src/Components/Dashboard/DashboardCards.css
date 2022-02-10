@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 .Dcards-cont{
     display: flex;
@@ -14,16 +15,17 @@
 #Dcard{
     width: 23rem;
     height: 18rem;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
     box-sizing: border-box;
     border-radius: 13px;
-    padding: 20px 20px 0px 0px;
+    padding: 7px 10px 0px 0px;
 
    
-    box-shadow:  5px 5px 10px #c3c3c3,
+    box-shadow:  8px 8px 10px #D9D7F1,
                  -5px -5px 10px #fdfdfd;
 }
 #Dcard img{
@@ -43,7 +45,7 @@
     /* background-color: #332A7C; */
 }
 
-.Lost-found button{
+.Lost-Found button{
     background-color:#87DFF0 ;
 }
 .My-Tickets button{
@@ -53,4 +55,12 @@ border: none;
 
 .Buy-Sell button{
     background-color:#F25767 ;
+}
+.Stats button{
+    background-color:#4FBDBA;
+    border: none;
+} 
+.My-Responses button{
+    background-color:#8946A6;
+    border: none;
 }
