@@ -86,14 +86,14 @@ else {
     return ( 
         <div className="signUpContainer">
         <div  className="signUpFormCont">
-            <h1 style={{width:'100%',color:'#332A7C',marginLeft:'45px'}}>Enter Your details</h1>
+            <h1 style={{width:'100%',color:'#332A7C',marginLeft:'155px'}}>Enter Your Details</h1>
             <input defaultValue={Name} onChange={e=>setName(e.target.value)} placeholder="Name"  type="text" />
             <input defaultValue={Email} onChange={e=>setEmail(e.target.value)} placeholder=" Email" type="text" />
             <input onChange={e=>setPhone(e.target.value)} type="number" placeholder="Mobile No" />
-            <input onChange={e=>setYear(e.target.value)} type="string" placeholder="Year"/>
+            <input onChange={e=>setYear(e.target.value)} type="string" placeholder="Year" />
             <input onChange={e=>setBatch(e.target.value)} type="string" placeholder="Batch"/>
-            <input onChange={e=>setRollNo(e.target.value)} type="text" placeholder="Roll No" />
-            <input onChange={e=>setHostel(e.target.value)} type="text" placeholder="Hostel" />
+            <input onChange={e=>setRollNo(e.target.value)} type="text" placeholder="Roll No(2020-IMGxxx)" />
+            <input onChange={e=>setHostel(e.target.value)} type="text" placeholder="Hostel(BH-1)" />
             <input onChange={e=>setRoomNo(e.target.value)} type="text" placeholder="Room No" />
             <label  htmlFor="input">Profile Picture</label>
             <input style={{border:'none'}} onChange={e=>setProfilePicture(e.target.value)} type="file" />
