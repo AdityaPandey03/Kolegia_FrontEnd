@@ -16,6 +16,13 @@ const useStyles = makeStyles((theme) => {
       background: "#E7E7F7",
       position: "relative",
     },
+    card_content: {
+      background: "#E7E7F7",
+     display:'flex',
+     flexDirection:'Column',
+     gap:'4px',
+     fontSize:'18px'
+    },
 
     Link: {
       color: "#F25767",
@@ -53,11 +60,11 @@ const NoteCard = ({ data,editOption,handleClick}) => {
       />
       
 
-      <CardContent className={classes.card}>
+      <CardContent className={classes.card_content}>
         <Typography variant="p">{data.name}</Typography>
        
-        <Typography variant="p">{data.price}</Typography>
-        <Typography variant="p">{data.description}</Typography>
+        <Typography variant="p">Rs {data.price}</Typography>
+        <Typography variant="p">Description:{data.description}</Typography>
         <div className="box">
          
           <Link to={`/product/${data._id}`} underline="none">
