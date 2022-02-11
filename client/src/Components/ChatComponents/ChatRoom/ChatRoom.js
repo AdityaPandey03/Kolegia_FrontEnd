@@ -13,17 +13,17 @@ import AllChats from '../AllChats/AllChats';
 const ChatRoom = () => {
    
     return (
-       <div className="h1"> 
+       <div className="h12"> 
 
     <h1 className="title">Chat Container</h1>
     
-    <div className="outerContainer">
+    <div className="outerContainer2">
         <AllChats/>
-    <div className="container">
+    <div className="container22">
   
          <Messages/>
 
-  <div className="input">
+  <div className="input2">
                  <Input  />
             </div>
         </div>
