@@ -6,7 +6,13 @@ import { FaEdit,FaTrashAlt} from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 
 const LostFoundCard= ({card,editOption,handleClick,postedby}) => {
+
+
     const [pht, setPht] = useState("");
+
+    let result = card.posted_on.slice(0, 10);
+   
+    //showing images on click function
     const showImage = (e) => {
         let iD = e.target.alt;
         if (pht === e.target.src) {
@@ -17,6 +23,8 @@ const LostFoundCard= ({card,editOption,handleClick,postedby}) => {
           document.querySelector(`#div${iD}`).classList.add("hover-img");
         }
       };
+
+
     return (
         <div className="found" id="Bcard" >
             { editOption?
@@ -27,7 +35,7 @@ const LostFoundCard= ({card,editOption,handleClick,postedby}) => {
     < FaTrashAlt onClick={(e)=>handleClick(card,e)}/>
       </div> : null
 }
-          <h2 className="header-02">Found</h2>
+          {/* <h2 className="header-02">Found</h2> */}
           <div className="card-details">
             {postedby?<h2 className="pink">
               <label htmlFor="h2">
@@ -54,7 +62,7 @@ const LostFoundCard= ({card,editOption,handleClick,postedby}) => {
             <div className="view-more-01">
               <div>
                 <label htmlFor="h4">Created at:</label>
-                <h4 className="pink">{card.posted_on}</h4>
+                <h4 className="pink">{result}</h4>
               </div>
               <Link to={`/lostItem/${card._id}`}>View More</Link>
             </div>
@@ -71,7 +79,7 @@ const LostFoundCard= ({card,editOption,handleClick,postedby}) => {
                     key={index}
                     onClick={showImage}
                     src={item.uri}
-                    alt={card.item_id}
+                    alt={card._id}
                   />
                 );
               })}

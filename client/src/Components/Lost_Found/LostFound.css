@@ -23,7 +23,8 @@
   position: relative;
   /* margin: 5rem; */
   box-shadow: 5px 5px 10px #c3c3c3, -5px -5px 10px #fdfdfd;
-  background-color: #e7e7f7;
+  /* background-color: #e7e7f7; */
+  background-color: #fbfbfd;
 }
 .card-details {
   margin-top: 18px;
@@ -37,13 +38,13 @@
   height: 12rem;
 }
 .img-cont {
-  border: 2px solid red;
+  border: 2px solid rgb(209, 123, 123);
   box-sizing: border-box;
   width: 18rem;
   height: 5rem;
   padding: 5px;
   border-radius: 5px;
-  background-color: #ea4c89;
+  background-color: #e7e7f7;
   margin-bottom: 17px;
   margin-top: 5px;
 }
@@ -75,7 +76,7 @@
 }
 
 label {
-  color: #332a7c;
+  color: black;
   margin-right: 6px;
 }
 
@@ -84,7 +85,7 @@ label {
 }
 
 .pink {
-  color: rgba(0, 0, 0, 0.75);
+  color: #5B35D5;
 }
 .view-more-01 {
   display: flex;
@@ -95,13 +96,13 @@ label {
 }
 
 .addNewBtn {
-  height: 100px;
-  width: 100px;
+  height: 75px;
+  width: 75px;
   border-radius: 50%;
   position: fixed;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-  bottom: 2%;
-  right: 2%;
+  bottom: 5%;
+  right: 3%;
   text-align: center;
   background-color: #d3dedc;
   border: none;
