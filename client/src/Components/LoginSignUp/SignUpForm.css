@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Inter:wght@500&family=Neonderthaw&family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
 .signUpContainer{
     background-color: #332A7C;
+    /* background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%); */
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 }
 
@@ -10,24 +18,28 @@
     box-sizing: border-box;
     background-color: white;
     display: flex;
-    
+    font-family: 'Roboto', sans-serif;
     justify-content: center;
     width: 600px;
-    margin: 30px 0 30px 0;
+    height:95%;
+    margin: 20px;
     border-radius: 6px;
-    padding: 15px;
+    padding:20px 5px 20px 5px;
     flex-wrap: wrap;
 }
 
 .signUpFormCont input{
-    border: 1px solid #F0BC5E;
-    width: 10rem;
-    height: 3rem;
-    width: 16rem;
+    border: 2px solid #D9D7F1;
+    font-family: 'Roboto', sans-serif;
+    /* width:16rem; */
+    /* height:3rem; */
+    width: 40%;
+    height: 7%;
     margin: 10px;
     font-size: 1rem;
-    padding: 5px;
+    padding: 7px;
     border-radius: 4px;
+
 }
 
 @media(max-width:600px){
