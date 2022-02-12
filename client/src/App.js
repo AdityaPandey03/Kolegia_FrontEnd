@@ -48,7 +48,7 @@ function App() {
         {/* <Dropdown className='drop'/> */}
 
         <Routes>
-          {/* <Route path="/" exact element={<Homepage/>}></Route> */}
+          <Route path="/" exact element={<Homepage/>}></Route>
           <Route path="/loginSignUp" exact element={<LoginSignUp />}></Route>
           <Route exact path="/signUpForm" element={<SignUpForm/>} />
           <Route exact path="/dashboard" element={<Dashboard />} />
