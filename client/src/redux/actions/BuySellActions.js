@@ -160,13 +160,16 @@ export const getAllOwnBuySellItems = () => async (dispatch) => {
       try {
   
        const res=  await axios.delete(
-          "http://localhost:3000/api/v1/buy-sell-items/delete-buy-sell-product",{
-            product_id
-       }
-            ,{
+          "http://localhost:3000/api/v1/buy-sell-items/delete-buy-sell-product",
+            
+       {
+            
               headers:{
                 authorization:`Bearer ${token}`,
-              }
+              },
+              data:{
+                product_id,
+              },
             }
           
         );

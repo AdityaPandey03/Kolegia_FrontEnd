@@ -158,17 +158,22 @@ export const getAllOwnLostFoundItems = () => async (dispatch) => {
   };
 
   export const deleteLostFoundItem = (product_id,token)=> async (dispatch) => {
-    // console.log(requirement_id,token);
+   
     
       try {
   
        const res=  await axios.delete(
-          "http://localhost:3000/api/v1/lost-found-items/delete-lost-found-product",{
-            product_id
-       }
-            ,{
+          "http://localhost:3000/api/v1/lost-found-items/delete-lost-found-product",
+          
+
+          {
+       
+            
               headers:{
                 authorization:`Bearer ${token}`,
+              },
+              body:{
+                product_id,
               }
             }
           
