@@ -1,54 +1,56 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import "../Components/Lost_Found/LostFound.css";
-import { editLostFoundItem ,resetStatus} from "../redux/actions/LostFoundActions";
-import { useNavigate,useLocation} from "react-router-dom";
+import {
+  editLostFoundItem,
+  getLostFoundProductDetails,
+  resetStatus,
+} from "../redux/actions/LostFoundActions";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 
 function Edit_MyLostFoundItems() {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location=useLocation();
+  const params = useParams();
+  // const location=useLocation();
 
-  const productData=location.state.Data;
-   
+  const token = localStorage.getItem("jwt");
+  const decoded = jwt_decode(token);
+  const product_id = params.id;
+  const product = useSelector((state) => state.lostFound.singleProduct.Product);
 
-   var Name,Description,Brand,Id,Color,Category,LostDate,LostTime,LostLocation;
-
-
-   if(productData){
-    Name=productData.name;
-    Description=productData.description;
-    Brand=productData.brand;
-    Id=productData._id;
-    Color=productData.color;
-    Category=productData.category;
-    LostDate=productData.lost_date;
-    LostTime=productData.lost_time;
-    LostLocation=productData.lost_location;
-
- }
-
-  const [name, setName] = useState(Name);
-  const [description, setDescription] = useState(Description);
-  const [brand, setBrand] = useState(Brand);
-  const [color, setColor] = useState(Color);
-  const [category, setCategory] = useState(Category);
-  const [lostDate, setLostDate] = useState(LostDate);
-  const [lostTime, setLostTime] = useState(LostTime);
-  const [lostLocation, setLostLocation] = useState(LostLocation);
+  const [name, setName] = useState(product.name ? product.name : "");
+  const [description, setDescription] = useState(
+    product.description ? product.description : ""
+  );
+  const [brand, setBrand] = useState(product.brand ? product.brand : "");
+  const [color, setColor] = useState(product.color ? product.color : "");
+  const [category, setCategory] = useState(
+    product.category ? product.category : ""
+  );
+  const [lostDate, setLostDate] = useState(
+    product.lost_date ? product.lost_date : ""
+  );
+  const [lostTime, setLostTime] = useState(
+    product.lost_time ? product.lost_time : ""
+  );
+  const [lostLocation, setLostLocation] = useState(
+    product.lost_location ? product.lost_location : ""
+  );
   const [files, setFiles] = useState([]);
 
-  const  Status2=useSelector((state=>state.lostFound.editlostfoundResponse));
+  useEffect(() => {
+    dispatch(getLostFoundProductDetails({ product_id, decoded }));
+  }, []);
 
-if(Status2===200){
+  const Status2 = useSelector((state) => state.lostFound.editlostfoundResponse);
+
+  if (Status2 === 200) {
     dispatch(resetStatus);
-     navigate('/sidebar/myOwnLostFoundItems')
-     
- }
-    
+    navigate("/sidebar/myOwnLostFoundItems");
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,7 +59,7 @@ if(Status2===200){
     const decoded = jwt_decode(token);
 
     const formData = new FormData();
-    formData.append('product_id',Id);
+    formData.append("product_id", product_id);
     formData.append("name", name);
     formData.append("brand", brand);
     formData.append("category", category);
@@ -74,7 +76,6 @@ if(Status2===200){
     //   console.log(key[0] + ", " + key[1]);
     // }
     dispatch(editLostFoundItem(formData));
-   
   };
 
   return (
@@ -89,7 +90,7 @@ if(Status2===200){
               className="formInput"
               type="text"
               id="item"
-              defaultValue={Name}
+              defaultValue={name}
               placeholder="enter item name you lost"
               onChange={(e) => setName(e.target.value)}
               value={name}
@@ -103,11 +104,10 @@ if(Status2===200){
             <input
               className="formInput"
               type="text"
-              defaultValue={Brand}
+              defaultValue={brand}
               id="brand"
               placeholder="enter brand of the item you lost"
               onChange={(e) => setBrand(e.target.value)}
-             
               required
             ></input>
           </div>
@@ -118,11 +118,10 @@ if(Status2===200){
             <input
               className="formInput"
               type="text"
-              defaultValue={Category}
+              defaultValue={category}
               id="category"
               placeholder="category of item"
               onChange={(e) => setCategory(e.target.value)}
-              
               required
             ></input>
           </div>
@@ -133,11 +132,10 @@ if(Status2===200){
             <input
               className="formInput"
               type="name"
-              defaultValue={Color}
+              defaultValue={color}
               id="color"
               placeholder="primary color of item"
               onChange={(e) => setColor(e.target.value)}
-              
               required
             ></input>
           </div>
@@ -163,11 +161,10 @@ if(Status2===200){
             <input
               className="formInput"
               type="date"
-              defaultValue={LostDate}
+              defaultValue={lostDate}
               id="date"
               placeholder="date when item lost"
               onChange={(e) => setLostDate(e.target.value)}
-             
               required
             ></input>
           </div>
@@ -178,11 +175,10 @@ if(Status2===200){
             <input
               className="formInput"
               type="time"
-              defaultValue={LostTime}
+              defaultValue={lostTime}
               id="time"
               placeholder="time when item lost"
               onChange={(e) => setLostTime(e.target.value)}
-              
               required
             ></input>
           </div>
@@ -193,11 +189,10 @@ if(Status2===200){
             <input
               className="formInput"
               type="text"
-              defaultValue={LostLocation}
+              defaultValue={lostLocation}
               id="location"
               placeholder="location where item lost"
               onChange={(e) => setLostLocation(e.target.value)}
-              
               required
             ></input>
           </div>
@@ -209,10 +204,9 @@ if(Status2===200){
               className="formInput"
               type="textarea"
               id="description"
-              defaultValue={Description}
+              defaultValue={description}
               placeholder="tell us more about item, additional information"
               onChange={(e) => setDescription(e.target.value)}
-             
               required
             ></textarea>
           </div>
@@ -222,7 +216,7 @@ if(Status2===200){
               className="primary submitBtn"
               style={{ marginBottom: "1.5rem" }}
             >
-              POST
+              SAVE
             </button>
           </div>
           <div></div>

@@ -2,10 +2,17 @@ import React, { useEffect, useState } from "react";
 import Modal from "@mui/material/Modal";
 import { makeStyles } from "@material-ui/core/styles";
 import "../Components/Lost_Found/LostFound.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getLostFoundProductDetails } from "../redux/actions/LostFoundActions";
+import {
+  deleteLostFoundItem,
+  getLostFoundProductDetails,
+} from "../redux/actions/LostFoundActions";
 import jwt_decode from "jwt-decode";
+import Button from "@mui/material/Button";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import PanToolIcon from "@mui/icons-material/PanTool";
 
 function getModalStyle() {
   const top = 50;
@@ -36,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 function LostFoundItemDetails() {
   const classes = useStyles();
   const params = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [modalStyle] = useState(getModalStyle);
   const [openModal, setOpenModal] = useState(false);
@@ -43,11 +51,14 @@ function LostFoundItemDetails() {
 
   const product_id = params.id;
   const product = useSelector((state) => state.lostFound.singleProduct.Product);
+  const encodedToken = localStorage.getItem("jwt");
+  const decoded = jwt_decode(encodedToken);
+  const user_details = {
+    _id: decoded._id,
+  };
+  const token = decoded.auth_token;
 
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    const decoded = jwt_decode(token);
-
     dispatch(getLostFoundProductDetails({ product_id, decoded }));
 
     if (product?.lost_date) {
@@ -59,6 +70,29 @@ function LostFoundItemDetails() {
     }
   }, [product_id, product?.lost_date]);
 
+  const raiseHandFunction = async (e) => {
+    e.preventDefault();
+
+    setOpenModal(false);
+    // dispatch(raiseHand({ product_id, user_details, token })).then(
+    //   alert("Raised hand on this item successfully.")
+    // );
+  };
+  const handleClick = async (e) => {
+    console.log(e);
+    if (e.target.value === "edit") {
+      navigate(`/editLostFoundItems/${product_id}`);
+    } else if (e.target.value === "delete") {
+      dispatch(deleteLostFoundItem({ product_id, user_details, token })).then(
+        () => {
+          navigate("/lostFound");
+        }
+      );
+    }
+  };
+
+  console.log(product);
+
   return (
     <div className="LostItemMaincontainer">
       <div className="LostItemDetailsContainerWrapper">
@@ -67,9 +101,45 @@ function LostFoundItemDetails() {
             <h1>Lost Item Details</h1>
             <h4>Item ID : {product?._id}</h4>
           </div>
-          <button className="raiseHandBtn" onClick={(e) => setOpenModal(true)}>
-            RAISE HAND
-          </button>
+          {product?.owner_details?._id === user_details._id ? (
+            <div
+              className="buttonContainer"
+              style={{ display: "flex", height: "70%" }}
+            >
+              <Button
+                size="medium"
+                variant="contained"
+                color="primary"
+                value="edit"
+                endIcon={<EditIcon />}
+                style={{ marginRight: "10%" }}
+                onClick={handleClick}
+              >
+                EDIT
+              </Button>
+              <Button
+                size="medium"
+                variant="contained"
+                color="error"
+                value="delete"
+                endIcon={<DeleteIcon />}
+                onClick={handleClick}
+              >
+                DELETE
+              </Button>
+            </div>
+          ) : (
+            <Button
+              size="medium"
+              variant="contained"
+              color="primary"
+              endIcon={<PanToolIcon />}
+              style={{ display: "flex", height: "70%" }}
+              onClick={(e) => setOpenModal(true)}
+            >
+              RAISE HAND
+            </Button>
+          )}
         </div>
         <div className="LostItemDetailsContainer">
           <div className="firstHalf">
