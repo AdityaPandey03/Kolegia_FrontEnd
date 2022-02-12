@@ -45,7 +45,7 @@ function Edit_MyLostFoundItems() {
 
 if(Status2===200){
     dispatch(resetStatus);
-     navigate('/myOwnLostFoundItems')
+     navigate('/sidebar/myOwnLostFoundItems')
      
  }
     

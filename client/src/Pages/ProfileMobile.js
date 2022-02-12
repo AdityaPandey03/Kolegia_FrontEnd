@@ -1,6 +1,12 @@
 import Pic from '../assests/Pic.jpeg';
 import '../Components/Dashboard/ProfileMobile.css'
+import jwt_decode from "jwt-decode";
+
 const ProfileMobile= () => {
+
+    const token = localStorage.getItem("jwt");
+    const decoded = jwt_decode(token);
+    console.log(decoded)
     return ( 
         <div className="profile_mobile2">
              <div className="profile-card2">
@@ -8,8 +14,8 @@ const ProfileMobile= () => {
             <div className="profile-img2">
                 <img src={Pic} alt="aa"  />
             </div>
-            <h1>JIM HELPERT</h1>
-            <h4>@jim123</h4>
+            <h1>{decoded.name}</h1>
+            <h4 >{decoded.email}</h4>
             </div>
             <div className='other-content2'>
                 <h1>other-content</h1>

@@ -1,5 +1,6 @@
 import "./App.css";
 import Cards from "./Pages/Buy_sell";
+import {createTheme,ThemeProvider} from '@mui/material/styles'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -19,17 +20,24 @@ import AddItem from "./Pages/Additems_lostFound";
 import OtpPage from "./Pages/OtpPage";
 import SignUpForm from "./Pages/SignUp_form";
 import Requirement from "./Pages/Requirement";
-import My_requirements from "./Pages/My_requirements";
 import Edit_MyRequirement from "./Pages/Edit_MyRequirement"
-import My_buySellItems from "./Pages/My_buySellItems";
+
 import Edit_MyBuySellItems from "./Pages/Edit_MyBuySellItems"
-import My_lostFoundItems from "./Pages/My_lostFoundItems";
+
 import Edit_MyLostFoundItems from "./Pages/Edit_MyLostFoundItems"
 import ChatRoom from './Components/ChatComponents/ChatRoom/ChatRoom'
+import SideBar from "./Components/SideAppbarr/SideBar";
 
+const theme=createTheme({
+  palette:{
+         secondary:{
+           main:"#FFFF00"
+         }}
+})
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <BrowserRouter>
       <div className="App">
 
@@ -40,7 +48,7 @@ function App() {
         {/* <Dropdown className='drop'/> */}
 
         <Routes>
-          <Route path="/" exact element={<Homepage/>}></Route>
+          {/* <Route path="/" exact element={<Homepage/>}></Route> */}
           <Route path="/loginSignUp" exact element={<LoginSignUp />}></Route>
           <Route exact path="/signUpForm" element={<SignUpForm/>} />
           <Route exact path="/dashboard" element={<Dashboard />} />
@@ -50,7 +58,7 @@ function App() {
           <Route exact path="/product/:id" element={<ProductDetails />} />
           <Route exact path="/profile" element={<ProfileMobile />} />
           <Route exact path="/requirements" element={<Requirement />} />
-          <Route exact path="/myOwnRequirements" element={<My_requirements />} />
+   
           <Route exact path="/editMyRequirement" element={<Edit_MyRequirement />} />
           <Route exact path="/editMyBuySellItems" element={<Edit_MyBuySellItems />} />
           <Route
@@ -59,14 +67,17 @@ function App() {
             element={<LostFoundItemDetails />}
           />
           <Route exact path="/lostItem/addItem" element={<AddItem />} />
-          <Route exact path="/myOwnBuySellItems" element={<My_buySellItems />} />
-          <Route exact path="/myOwnLostFoundItems" element={<My_lostFoundItems />} />
+          <Route exact path="sidebar/*" element={<SideBar />} />
+         
+          
           <Route exact path="/editLostFoundItems" element={<Edit_MyLostFoundItems />} />
           <Route exact path="/chatRoom" element={<ChatRoom/>} />
+         
 
         </Routes>
       </div>
     </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

@@ -35,7 +35,7 @@ const dispatch = useDispatch();
  
    if(Status===200){
     dispatch(resetStatus);
-     navigate('/myOwnRequirements')
+     navigate('/sidebar/myOwnRequirements')
      
  }
 

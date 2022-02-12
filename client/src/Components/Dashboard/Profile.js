@@ -1,7 +1,14 @@
 import Pic from '../../assests/jim.jpg';
 import './Profile.css'
+import jwt_decode from "jwt-decode";
+
 
 const Profile = () => {
+
+    const token = localStorage.getItem("jwt");
+    const decoded = jwt_decode(token);
+    console.log(decoded)
+
     return ( 
         <div className="profile-section">
         <div  className="profile-card">
@@ -9,8 +16,8 @@ const Profile = () => {
             <div className="profile-img">
                 <img src={Pic} alt="aa"  />
             </div>
-            <h1>JIM HALPERT</h1>
-            {/* <h4>@jim123</h4> */}
+            <h1>{decoded.name}</h1>
+            <h4 style={{color:'black'}}>{decoded.email}</h4>
             </div>
             {/* <div className='other-content'>
                 <h1>other-content</h1>
