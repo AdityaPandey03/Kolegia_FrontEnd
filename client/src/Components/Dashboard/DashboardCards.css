@@ -25,8 +25,8 @@
     padding: 7px 10px 0px 0px;
 
    
-    box-shadow:  8px 8px 10px #D9D7F1,
-                 -5px -5px 10px #fdfdfd;
+    box-shadow:  5px 5px 8px #D9D7F1,
+                 -5px -5px 8px #fdfdfd;
 }
 #Dcard img{
     width:11rem;
@@ -48,7 +48,7 @@
 .Lost-Found button{
     background-color:#87DFF0 ;
 }
-.My-Tickets button{
+.Requirements button{
 background-color:#F0BC5E;
 border: none;
 }

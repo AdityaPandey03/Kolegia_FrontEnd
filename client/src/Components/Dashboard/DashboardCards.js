@@ -4,13 +4,17 @@ import Lostfound from '../../assests/Lostfound.svg'
 import Tickets from '../../assests/Tickets.svg'
 import Profile from './Profile'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 import './DashboardCards.css'
 
 
 const Dcards = () => {
+
+    const navigate=useNavigate();
+
+   
 
     const data=[
         {
@@ -29,17 +33,17 @@ const Dcards = () => {
 
         },
         {
-            Title:'My-Tickets',
+            Title:'Requirements',
             img:Tickets,
             button_title:'ViewMore',
-            path:'/myOwnLostFoundItems'
+            path:'/requirements'
 
         },
         {
             Title:'My-Responses',
             img:Tickets,
             button_title:'ViewMore',
-            path:'/myOwnRequirements'
+            path:'/'
 
         },
         {
@@ -56,7 +60,7 @@ const Dcards = () => {
         <>
       
         <div className='Dcards-cont'>
-            <Profile/>
+          <Link to='/sidebar'> <Profile/> </Link>  
             {data.map((card,index)=>{
                 return(
                     <div className={card.Title} id='Dcard' key={index}>

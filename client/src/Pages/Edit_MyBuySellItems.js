@@ -34,7 +34,7 @@ const  Status1=useSelector((state=>state.buySell.editBuySellResponse));
 
 if(Status1===200){
     dispatch(resetStatus);
-     navigate('/myOwnBuySellItems')
+     navigate('/sidebar/myOwnBuySellItems')
      
  }
 
