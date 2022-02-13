@@ -80,17 +80,17 @@ const handleSubmitSignUp=()=>{
                     className="signup-email input"
                     type="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder=" &#xf0e0;  Email"
                     onChange={(e)=>setEmail(e.target.value)}
                   />
                 </div>
                
                 
-                <button onClick={handleSubmitSignUp} className="submit button">Verify Email</button>
+                <button style={{width:'18rem'}} onClick={handleSubmitSignUp} className="submit button">Verify Email</button>
 
                 <p style={{color:'black'}}>{Message}</p>
                 
-                <Googlelogin/>
+                <Googlelogin />
               </div>
              
             </div>
@@ -105,7 +105,7 @@ const handleSubmitSignUp=()=>{
                     className="signin-email input"
                     type="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder=" &#xf0e0;  Email"
                     onChange={(e)=>setEmail(e.target.value)}
                   />
                 </div>
@@ -114,16 +114,16 @@ const handleSubmitSignUp=()=>{
                     className="signin-password input"
                     type="password"
                     name="password"
-                    placeholder="Password"
+                    placeholder="&#xf023;  Password"
                     onChange={(e)=>setPassword(e.target.value)}
                   />
                 </div>
     
-                <button className="submit button" onClick={handleSubmitSignIn}>Sign In</button>
+                <button style={{width:'18rem'}} className="submit button" onClick={handleSubmitSignIn}>Sign In</button>
                 <p style={{color:'black'}}>{Message}</p>
                 <Googlelogin/>
               </div>
-              
+              {/*DC4E41*/}
             </div>
           </div>
           <div className="overlay-container">
@@ -131,13 +131,13 @@ const handleSubmitSignUp=()=>{
               <div className="overlay-panel overlay-left">
                 <h1 className='h1'>You're Welcome</h1>
                 <p className='p'>Login to Enter the Kolegia</p>
-                <button className="ghost button" id="signIn" onClick={handleClick2}>Sign In</button>
+                <button style={{borderRadius:'50px'}} className="ghost button" id="signIn" onClick={handleClick2}>Sign In</button>
               </div>
               <div className="overlay-panel overlay-right">
                 <h1 className='h1'>Hey, Buddy!</h1> 
     
                 <p className='p'>Oops! don't have an account? Signup</p>
-                 <button className="ghost button" id="signUp" onClick={handleClick1}>Sign Up</button>
+                 <button style={{borderRadius:'50px'}} className="ghost button" id="signUp" onClick={handleClick1}>Sign Up</button>
               </div>
             </div>
           </div>
