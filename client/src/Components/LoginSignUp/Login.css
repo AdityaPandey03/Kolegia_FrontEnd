@@ -26,6 +26,7 @@
 .h1 {
   font-weight: bold;
   margin: 15px;
+  font-size: 3.5rem;
 }
 .tq {
   color: white;
@@ -36,7 +37,7 @@
 
 
 .p {
-  font-size: 18px;
+  font-size: 30px;
   font-weight:100;
   line-height: 25px;
   letter-spacing: 0.5px;
@@ -46,7 +47,7 @@
 
 
 .button {
-  border-radius: 20px;
+  border-radius: 10px;
 
   border: 3px solid white;
   background-color: #F0BC5E;
@@ -89,12 +90,13 @@
 
   padding: 12px 15px;
   margin: 10px 0px;
-  width: 15rem;
+  width: 18rem;
+  height: 3rem;
 
-  /* font-family: "Font Awesome 5 Free"; */
-  font-family: 'IBM Plex Sans', sans-serif;
-  
-  border-radius: 5px;
+  font-family: "Font Awesome 5 Free";
+  /* font-family: 'IBM Plex Sans', sans-serif; */
+  font-size: 1.1rem;
+  border-radius: 10px;
   font-weight: 600;
 }
 
@@ -178,10 +180,15 @@
 }
 
 .overlay {
+ 
 
-  background-color:#332A7C ;
-  /* background-image: url(../../assests/mountain3.png); */
-  background-size: 44% 100%;
+  /* background-color:#332A7C ; */
+  background-image: url(../../assests/image22.jpg);
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0 ;
+  background-size: 100% 100%;
  
   color: #ffffff;
   position: relative;
@@ -241,4 +248,11 @@
   margin: 0 5px;
   height: 40px;
   width: 40px;
+}
+
+.Google-login button {
+  width:18rem;
+  height: 3rem;
+  border-radius: 15px;
+ 
 }

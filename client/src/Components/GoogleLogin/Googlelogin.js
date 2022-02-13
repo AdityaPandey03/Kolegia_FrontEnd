@@ -50,7 +50,7 @@ function Googlelogin() {
     <div >
       
        
-        <div>
+        <div className='Google-login'>
             <GoogleLogin
             
               clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
