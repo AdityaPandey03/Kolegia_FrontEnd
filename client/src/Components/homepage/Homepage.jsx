@@ -5,9 +5,12 @@ import  Motive  from './motive/Motive';
 import  Review  from './review/Review';
 import  Footer  from './footer/Footer';
 import './homepage.css';
+import { useEffect } from 'react';
 
 
 const Homepage = () => {
+
+    window.localStorage.removeItem('jwt');
     return ( 
         <div className="homepage-cont">
             <Nav_bar/>
