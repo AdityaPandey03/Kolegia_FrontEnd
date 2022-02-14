@@ -43,7 +43,7 @@ const Dcards = () => {
             Title:'My-Responses',
             img:Tickets,
             button_title:'ViewMore',
-            path:'/'
+            path:'/aaa'
 
         },
         {

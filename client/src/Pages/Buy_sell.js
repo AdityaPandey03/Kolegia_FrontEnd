@@ -8,6 +8,7 @@ import Modal from "./Additems_buySell";
 import { useDispatch, useSelector } from "react-redux";
 import { FaPlusCircle} from "react-icons/fa";
 import LoadingBox from "../Components/LoadingBox";
+import Navbar from "../Components/Appbar/Navbar";
 
 import { getAllBuySellItems } from "../redux/actions/BuySellActions";
 
@@ -45,6 +46,7 @@ const Cards = () => {
   const classes = useStyles();
   return ( 
     <>
+    <Navbar visibleSearch={true}/>
     {isLoading ? (
     <LoadingBox />
   ) :(

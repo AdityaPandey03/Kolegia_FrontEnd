@@ -6,6 +6,7 @@ import {getAllRequirements} from '../redux/actions/RequirementActions'
 import Modal from "./Additems_requirements"
 import { FaPlusCircle} from "react-icons/fa";
 import { useState, useEffect } from "react";
+import Navbar from '../Components/Appbar/Navbar'
 
 const Requirement = () => {
     const itemList = useSelector((state) => state.requirement.items);
@@ -31,10 +32,12 @@ const Requirement = () => {
     
     
     return (
-    
+    <>
+    <Navbar visibleSearch={false}/>
   <div className='requirement_page'>
+
       <div className='page_heading'>
-          <h3>Requirement</h3>
+         
           
       </div>
       <div className='page_content'>
@@ -53,6 +56,7 @@ const Requirement = () => {
     </div>
     <Modal const toggleModal={toggleModal} modal={modal} />
   </div>
+  </>
     );
 };
 

@@ -39,7 +39,7 @@ const My_buySellItems = () => {
     const token = localStorage.getItem("jwt");
       const decoded = jwt_decode(token);
    dispatch(deleteBuySellItem(data._id,decoded.auth_token));
-   window.location.reload();
+   window.location.reload(true);
 }
   
  

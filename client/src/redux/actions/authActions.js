@@ -1,11 +1,17 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+
 import { 
     VERIFY_EMAIL,VERIFY_OTP ,
     ADD_USER_DETAILS,
     LOGIN_WITH_GOOGLE,
     LOGIN_WITH_GOOGLE_ERROR,
     LOGIN_WITH_EMAIL,
-     CHECKING_ERROR
+     CHECKING_ERROR,USER_LOGOUT,
+     VERIFY_EMAIL_FOR_RESET,
+     RESET_PASSWORD
+   
     } from "../constants/AllConstants";
 
 export const verifyEmail=(email)=>async (dispatch)=>{
@@ -34,7 +40,60 @@ export const verifyEmail=(email)=>async (dispatch)=>{
        
     }
 }
-export const verifyOtp=(otp,otpId)=>async (dispatch)=>{
+export const verifyEmailForReset=(email)=>async (dispatch)=>{
+    console.log(email);
+    try {
+        const emailResponseforReset=await axios.post(
+            "http://localhost:3000/api/v1/auth/send-forgot-password-otp",{
+                email:email
+            }
+            
+        );
+        console.log(emailResponseforReset);
+        dispatch({
+            type:VERIFY_EMAIL_FOR_RESET,
+            payload:emailResponseforReset,
+        });
+        // console.log(res);
+    } catch (error) {
+        if (error.response) {
+            console.log(error.response);
+            dispatch({
+                type:CHECKING_ERROR,
+                payload:error.response,
+            })
+          }
+       
+    }
+}
+export const verifyOtp=(otp,otpId,Verification)=>async (dispatch)=>{
+
+    try {
+        const OtpResponse=await axios.post(
+            "http://localhost:3000/api/v1/otp/verify-otp",{
+                otp_id: otpId,
+                otp: otp,
+                verification_type: Verification
+            }
+            
+        );
+        console.log(OtpResponse);
+        dispatch({
+            type:VERIFY_OTP,
+            payload:OtpResponse,
+        });
+        // console.log(res);
+    } catch (error) {
+        if (error.response) {
+            console.log(error.response);
+            dispatch({
+                type:CHECKING_ERROR,
+                payload:error.response,
+            })
+          }
+    }
+}
+export const verifyOtpForResetPassword=(otp,otpId)=>async (dispatch)=>{
 
     try {
         const OtpResponse=await axios.post(
@@ -45,7 +104,7 @@ export const verifyOtp=(otp,otpId)=>async (dispatch)=>{
             }
             
         );
-        // console.log(OtpResponse);
+        console.log(OtpResponse);
         dispatch({
             type:VERIFY_OTP,
             payload:OtpResponse,
@@ -142,4 +201,64 @@ export const signInWithEmail=(email,password)=>async (dispatch)=>{
 
 
 
+export const logoutUser= (token)=> async (dispatch) => {
+    
+    
+      try {
+  
+       const res=  await axios.delete(
+          "http://localhost:3000/api/v1/auth/logout",
+            
+       {
+            
+              headers:{
+                authorization:`Bearer ${token}`,
+              }
+             
+            }
+          
+        );
 
+       
+      console.log(res);
+        dispatch({
+          type: USER_LOGOUT,
+          payload:res
+         
+        });
+      } catch (error) {
+        if (error.response) {
+          console.log(error.response);
+          dispatch({
+              type:CHECKING_ERROR,
+              payload:error.response,
+          })
+        }
+      }
+    };
+    export const resetPasswordAction=(email,password,reset_request_id)=>async (dispatch)=>{
+
+        try {
+            const resetResponse=await axios.post(
+                "http://localhost:3000/api/v1/auth/reset-password",{
+                   email,password,reset_request_id
+                }
+                
+            );
+            console.log(resetResponse);
+            dispatch({
+                type:RESET_PASSWORD,
+                payload:resetResponse,
+            });
+            // console.log(res);
+        } catch (error) {
+            if (error.response) {
+                console.log(error.response);
+                dispatch({
+                    type:CHECKING_ERROR,
+                    payload:error.response,
+                })
+              }
+        }
+    }
+  
