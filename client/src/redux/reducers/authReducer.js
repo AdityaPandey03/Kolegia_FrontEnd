@@ -2,18 +2,24 @@ import { VERIFY_EMAIL, VERIFY_OTP,
     ADD_USER_DETAILS,
      LOGIN_WITH_GOOGLE,
     LOGIN_WITH_EMAIL,CHECKING_ERROR,
-    LOGIN_WITH_GOOGLE_ERROR } from "../constants/AllConstants";
+    LOGIN_WITH_GOOGLE_ERROR,
+USER_LOGOUT,
+VERIFY_EMAIL_FOR_RESET,
+RESET_PASSWORD} from "../constants/AllConstants";
 
 const initialState={
     otpStatusCode:'',
    loginStatusCode:'',
+   resetStatusCode:'',
     errorMessage:'',
     otpId:'',
     addUserResponse:'',
     loginWithGoogleResponse:'',
     loginWithGoogleErrorResponse:'',
     loginWithEmailResponse:'',
-    isLoggedIn:false
+    isLoggedIn:false,
+    logoutUserResponse:'',
+    requestId:''
 }
 
 const AuthReducer=(state=initialState,action)=>{
@@ -24,12 +30,19 @@ const AuthReducer=(state=initialState,action)=>{
                 loginStatusCode:action.payload.status,
                 otpId:action.payload.data.otp_id
             };
+            case VERIFY_EMAIL_FOR_RESET:
+                return{
+                    ...state,
+                    resetStatusCode:action.payload.status,
+                    otpId:action.payload.data.otp_id
+                };
             
                
                     case VERIFY_OTP:
                         return{
                             ...state,
                             otpStatusCode:action.payload.status,
+                            requestId:action.payload.data.reset_request_id
                             
                         };
                     case ADD_USER_DETAILS:
@@ -62,6 +75,17 @@ const AuthReducer=(state=initialState,action)=>{
                                             status:action.payload.status
                     
                                         };
+                                        case USER_LOGOUT:
+                                            return{
+                                                ...state,
+                                                logoutUserResponse:action.payload.status
+                                            }
+                                            case RESET_PASSWORD:
+                                                return{
+                                                    ...state,
+                                                    loginWithEmailResponse:action.payload,
+                                                }
+                                         
             default:
                 return state;
     }

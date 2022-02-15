@@ -16,17 +16,26 @@ const OtpPage = () => {
 
     var Email;
     var message;
+    var Verification;
     if(location.state !=null){
          Email=location.state.Email;
+         Verification=location.state.verification;
     }
     ///otp-verification
 
     
     if(responseStatusCode===200){
+        if(Verification==='EMAIL_VERIFICATION'){
         navigate('/signUpForm',{
             state:{Email:Email}
           });
-      }else {
+      }
+     else if(Verification==='FORGOT_PASSWORD'){
+        navigate('/resetPassword',{
+            state:{Email:Email}
+          });
+        }
+    }else  {
         message=errorMessage
       }
     const style={
@@ -54,7 +63,7 @@ cont:{
 }
 }
      const handleClick =()=>{
-     dispatch(verifyOtp(otp,otpId));
+     dispatch(verifyOtp(otp,otpId,Verification));
     }
 
 

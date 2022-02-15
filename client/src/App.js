@@ -4,11 +4,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Navbar from "./Components/Appbar/Navbar";
-
 // import Loader from "./Components/Loader/Loader";
 import Dashboard from "./Pages/Dashboard";
-// import Navbar from "./Components/Appbar/Navbar";
+
 import Bcards from "./Pages/Lost_found";
 import Dropdown from "./Components/Dropdown/Dropdown";
 import ProductDetails from "./Pages/ProductDetails_buySell";
@@ -27,6 +25,9 @@ import Edit_MyBuySellItems from "./Pages/Edit_MyBuySellItems";
 import Edit_MyLostFoundItems from "./Pages/Edit_MyLostFoundItems";
 import ChatRoom from "./Components/ChatComponents/ChatRoom/ChatRoom";
 import SideBar from "./Components/SideAppbarr/SideBar";
+import VerifyEmailPage from "./Pages/VerifyEmailPage";
+import ResetPassword from "./Pages/ResetPassword";
+import LostFoundResponses from "./Pages/LostFoundResponses";
 
 const theme = createTheme({
   palette: {
@@ -42,7 +43,6 @@ function App() {
       <BrowserRouter>
         <div className="App">
           {/* <Loader/> */}
-          {/* <Navbar /> */}
 
           {/* <Dropdown className='drop'/> */}
 
@@ -57,6 +57,9 @@ function App() {
             <Route exact path="/product/:id" element={<ProductDetails />} />
             <Route exact path="/profile" element={<ProfileMobile />} />
             <Route exact path="/requirements" element={<Requirement />} />
+            <Route exact path="/resetPassword" element={<ResetPassword />} />
+
+            <Route exact path="/verifyEmail" element={<VerifyEmailPage />} />
 
             <Route
               exact
@@ -82,6 +85,7 @@ function App() {
               element={<Edit_MyLostFoundItems />}
             />
             <Route exact path="/chatRoom" element={<ChatRoom />} />
+            <Route exact path="/responses" element={<LostFoundResponses />} />
           </Routes>
         </div>
       </BrowserRouter>

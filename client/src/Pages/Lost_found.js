@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import LoadingBox from "../Components/LoadingBox";
 import LostFoundCard from "../Components/Lost_Found/LostFoundCard";
+import Navbar from "../Components/Appbar/Navbar";
+
 
 import { getAllLostFoundItems } from "../redux/actions/LostFoundActions";
 
@@ -27,6 +29,7 @@ const Bcards = () => {
  
   return (
     <>
+    <Navbar visibleSearch={true}/>
       {isLoading ? (
         <LoadingBox />
       ) : (

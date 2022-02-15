@@ -1,12 +1,14 @@
 import '../Components/LoginSignUp/Login.css'
 import { useDispatch ,useSelector} from "react-redux";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {verifyEmail,signInWithEmail} from '../redux/actions/authActions'
 import { Link, useNavigate } from "react-router-dom";
 import Googlelogin from '../Components/GoogleLogin/Googlelogin';
  
 
 const LoginSignUp = () => {
+
+  // window.localStorage.removeItem('jwt');
   const responseStatusCode= useSelector((state) => state.auth.loginStatusCode);
   const loginWithEmailResponse=useSelector((state)=>state.auth.loginWithEmailResponse)
   const errorMessage=useSelector((state)=>state.auth.errorMessage)
@@ -33,7 +35,7 @@ if(loginWithEmailResponse.data){
 }
 else if(responseStatusCode===200){
   navigate('/otpPage',{
-    state:{Email:email}
+    state:{Email:email,verification:'EMAIL_VERIFICATION'}
   });
 
 }else {
@@ -118,6 +120,8 @@ const handleSubmitSignUp=()=>{
                     onChange={(e)=>setPassword(e.target.value)}
                   />
                 </div>
+                <Link to='/verifyEmail'>Forgot Password?</Link>
+
     
                 <button style={{width:'18rem'}} className="submit button" onClick={handleSubmitSignIn}>Sign In</button>
                 <p style={{color:'black'}}>{Message}</p>
