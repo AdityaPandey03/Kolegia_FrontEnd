@@ -14,6 +14,7 @@ import {
   GET_LOST_FOUND_RESPONSES,
   RAISE_HAND,
   ACCEPT_RAISED_HAND,
+  REJECT_RAISED_HAND,
 } from "../constants/AllConstants";
 
 export const getAllLostFoundItems = () => async (dispatch) => {
@@ -207,6 +208,7 @@ export const raiseHand = (data) => async (dispatch) => {
     console.log(res);
     dispatch({
       type: RAISE_HAND,
+      payload: res.data.message,
     });
   } catch (error) {
     if (error.response) {
@@ -271,6 +273,37 @@ export const acceptRaisedHand = (data) => async (dispatch) => {
     dispatch({
       type: ACCEPT_RAISED_HAND,
       payload: res.data,
+    });
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response);
+      dispatch({
+        type: CHECKING_ERROR,
+        payload: error.response,
+      });
+    }
+  }
+};
+
+export const rejectRaisedHand = (data) => async (dispatch) => {
+  dispatch({
+    type: NEW_REQUEST,
+    payload: true,
+  });
+  try {
+    const res = await axios.delete(
+      "http://localhost:3000/api/v1/raisedhands/reject-raised-hand",
+
+      {
+        headers: {
+          authorization: `Bearer ${data.token}`,
+        },
+        data,
+      }
+    );
+    console.log(res);
+    dispatch({
+      type: REJECT_RAISED_HAND,
     });
   } catch (error) {
     if (error.response) {

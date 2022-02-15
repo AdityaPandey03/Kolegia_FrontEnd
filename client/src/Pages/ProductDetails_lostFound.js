@@ -15,6 +15,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import PanToolIcon from "@mui/icons-material/PanTool";
 import Dropdown from "../Components/Lost_Found/Dropdown";
+import { RAISE_HAND } from "../redux/constants/AllConstants";
+import { CircularProgress } from "@material-ui/core";
 
 function getModalStyle() {
   const top = 50;
@@ -54,6 +56,10 @@ function LostFoundItemDetails() {
 
   const product_id = params.id;
   const product = useSelector((state) => state.lostFound.singleProduct.Product);
+  const raisedHandMessage = useSelector(
+    (state) => state.lostFound.raisedHandMessage
+  );
+  const isLoading = useSelector((state) => state.lostFound.isLoading);
   const encodedToken = localStorage.getItem("jwt");
   const decoded = jwt_decode(encodedToken);
   const user_details = {
@@ -77,10 +83,11 @@ function LostFoundItemDetails() {
     e.preventDefault();
 
     setOpenModal(false);
-    dispatch(raiseHand({ product_id, user_details, token, note })).then(
-      alert("Raised hand on this item successfully.")
+    dispatch(raiseHand({ product_id, token, note })).then(() =>
+      alert(raisedHandMessage)
     );
   };
+
   const handleClick = async (e) => {
     console.log(e);
     if (e.target.value === "edit") {
@@ -205,9 +212,10 @@ function LostFoundItemDetails() {
                 value={note}
               ></textarea>
             </div>
-            <button type="submit" className="lostBtn">
-              Submit
-            </button>
+            <Button type="submit" variant="contained" disabled={isLoading}>
+              {isLoading && <CircularProgress size={14} />}
+              {!isLoading && "SUBMIT"}
+            </Button>
           </form>
         </div>
       </Modal>

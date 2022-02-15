@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   acceptRaisedHand,
   getLostFoundItemResponses,
+  rejectRaisedHand,
 } from "../redux/actions/LostFoundActions";
 import jwt_decode from "jwt-decode";
 import Button from "@mui/material/Button";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function LostFoundResponses() {
   const dispatch = useDispatch();
@@ -16,7 +19,7 @@ function LostFoundResponses() {
   };
   const token = decoded.auth_token;
   const responses = useSelector((state) => state.lostFound.lostFoundResponses);
-  console.log(responses);
+  const isLoading = useSelector((state) => state.lostFound.isLoading);
 
   useEffect(() => {
     dispatch(getLostFoundItemResponses({ user_details, token }));
@@ -27,7 +30,7 @@ function LostFoundResponses() {
     if (e.target.value === "accept") {
       dispatch(acceptRaisedHand({ _id: response._id, user_details, token }));
     } else if (e.target.value === "decline") {
-      console.log(e.target);
+      dispatch(rejectRaisedHand({ _id: response._id, user_details, token }));
     }
   };
 
