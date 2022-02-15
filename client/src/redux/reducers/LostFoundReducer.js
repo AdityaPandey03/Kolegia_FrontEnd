@@ -7,10 +7,14 @@ import {
   EDIT_LOST_FOUND_ITEM,
   DELETE_LOST_FOUND_ITEM,
   RESET_STATUS,
+
   RAISE_HAND,
   GET_LOST_FOUND_RESPONSES,
   ACCEPT_RAISED_HAND,
   REJECT_RAISED_HAND,
+
+  CHECKING_ERROR_LOST_FOUND
+
 } from "../constants/AllConstants";
 
 const initialState = {
@@ -18,12 +22,20 @@ const initialState = {
   singleProduct: {},
   firstImage: "",
   isLoading: false,
+
   ownlostfoundItems: [],
   editlostfoundResponse: "",
   deleteLostFoundItemResponse: "",
   lostFoundResponses: [],
   acceptRaisedHandDetails: null,
   raisedHandMessage: "",
+
+  ownlostfoundItems:[],
+  editlostfoundResponse:'',
+  deleteLostFoundItemResponse:'',
+  addItemsLostFoundResonse:''
+
+
 };
 
 const LostFoundReducer = (state = initialState, action) => {
@@ -49,7 +61,10 @@ const LostFoundReducer = (state = initialState, action) => {
           : "",
       };
     case ADD_NEW_LOST_FOUND_ITEM:
-      return state;
+      return {
+        ...state,
+        addItemsLostFoundResonse:action.payload.status
+      }
 
     case GET_MY_OWN_LOST_FOUND_ITEMS:
       return {
@@ -63,6 +78,7 @@ const LostFoundReducer = (state = initialState, action) => {
         ...state,
         editlostfoundResponse: action.payload.status,
       };
+
 
     case RESET_STATUS: {
       return {
@@ -105,6 +121,27 @@ const LostFoundReducer = (state = initialState, action) => {
         isLoading: false,
       };
     }
+
+      case RESET_STATUS:{
+        return{
+          ...state,
+          editlostfoundResponse:'',
+          addItemsLostFoundResonse:''
+        }
+      }
+      case CHECKING_ERROR_LOST_FOUND:
+        return{
+            ...state,
+            errorMessageLostFound:action.payload.data.message
+            
+
+        };
+      case DELETE_LOST_FOUND_ITEM:
+        return{
+            ...state,
+            deleteLostFoundItemResponse:action.payload
+            
+
 
     default:
       return state;

@@ -1,7 +1,7 @@
 import { GET_ALL_REQUIREMENTS,
   ADD_NEW_REQUIREMENT,
   NEW_REQUEST ,
-  CHECKING_ERROR,
+  CHECKING_ERROR_REQUIREMENTS,
 GET_MY_OWN_REQUIREMENTS,
 EDIT_REQUIREMENT,
 RESET_STATUS,
@@ -51,7 +51,7 @@ const initialState = {
           ...state,
           editRequirementresponse:action.payload.status
           } 
-          case CHECKING_ERROR:
+          case CHECKING_ERROR_REQUIREMENTS:
             return{
                 ...state,
                 errorMessageRequirements:action.payload.data.message,
@@ -69,7 +69,8 @@ const initialState = {
             case RESET_STATUS:{
               return{
                 ...state,
-                editRequirementresponse:''
+                editRequirementresponse:'',
+                addrequirementresponse:''
               }
             }
 

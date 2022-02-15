@@ -8,7 +8,7 @@ import {
   GET_MY_OWN_BUY_SELL_ITEMS,
   EDIT_BUY_SELL_ITEM,
   RESET_STATUS,
-  CHECKING_ERROR,
+  CHECKING_ERROR_BUY_SELL,
   DELETE_BUY_SELL_ITEM
 } from "../constants/AllConstants";
 
@@ -83,8 +83,14 @@ export const addNewBuySellItem = (formData) => async (dispatch) => {
       type: ADD_NEW_BUY_SELL_ITEM,
       payload:res,
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response);
+      dispatch({
+          type:CHECKING_ERROR_BUY_SELL,
+          payload:error.response,
+      })
+    }
   }
 };
 
@@ -145,7 +151,7 @@ export const getAllOwnBuySellItems = () => async (dispatch) => {
       if (error.response) {
         console.log(error.response);
         dispatch({
-            type:CHECKING_ERROR,
+            type:CHECKING_ERROR_BUY_SELL,
             payload:error.response,
         })
       }
@@ -183,7 +189,7 @@ export const getAllOwnBuySellItems = () => async (dispatch) => {
         if (error.response) {
           console.log(error.response);
           dispatch({
-              type:CHECKING_ERROR,
+              type:CHECKING_ERROR_BUY_SELL,
               payload:error.response,
           })
         }

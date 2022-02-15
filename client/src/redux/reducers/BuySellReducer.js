@@ -5,7 +5,8 @@ import {
   ADD_NEW_BUY_SELL_ITEM,
   GET_MY_OWN_BUY_SELL_ITEMS,
   EDIT_BUY_SELL_ITEM,RESET_STATUS,
-  DELETE_BUY_SELL_ITEM
+  DELETE_BUY_SELL_ITEM,
+  CHECKING_ERROR_BUY_SELL
 } from "../constants/AllConstants";
 
 const initialState = {
@@ -15,7 +16,9 @@ const initialState = {
   isLoading: false,
   editBuySellResponse:'',
   ownBuySellItems:[],
-  deleteBuySellItemResponse:""
+  deleteBuySellItemResponse:"",
+  addItemsResponse:'',
+  errorMessageBuySell:''
 };
 
 const BuySellReducer = (state = initialState, action) => {
@@ -42,7 +45,10 @@ const BuySellReducer = (state = initialState, action) => {
           : "",
       };
     case ADD_NEW_BUY_SELL_ITEM:
-      return state;
+      return {
+        ...state,
+        addItemsResponse:action.payload.status
+      }
 
       case GET_MY_OWN_BUY_SELL_ITEMS:
         return {
@@ -63,11 +69,19 @@ const BuySellReducer = (state = initialState, action) => {
             
 
         };
+        case CHECKING_ERROR_BUY_SELL:
+          return{
+              ...state,
+              errorMessageBuySell:action.payload.data.message
+              
+  
+          };
 
       case RESET_STATUS:{
         return{
           ...state,
-          editBuySellResponse:''
+          editBuySellResponse:'',
+          addItemsResponse:''
         }
       }
     default:
