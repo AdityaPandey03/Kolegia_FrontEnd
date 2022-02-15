@@ -7,12 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   deleteLostFoundItem,
   getLostFoundProductDetails,
+  raiseHand,
 } from "../redux/actions/LostFoundActions";
 import jwt_decode from "jwt-decode";
 import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import PanToolIcon from "@mui/icons-material/PanTool";
+import Dropdown from "../Components/Lost_Found/Dropdown";
 
 function getModalStyle() {
   const top = 50;
@@ -48,6 +50,7 @@ function LostFoundItemDetails() {
   const [modalStyle] = useState(getModalStyle);
   const [openModal, setOpenModal] = useState(false);
   const [dateString, setDateString] = useState("");
+  const [note, setNote] = useState("");
 
   const product_id = params.id;
   const product = useSelector((state) => state.lostFound.singleProduct.Product);
@@ -74,9 +77,9 @@ function LostFoundItemDetails() {
     e.preventDefault();
 
     setOpenModal(false);
-    // dispatch(raiseHand({ product_id, user_details, token })).then(
-    //   alert("Raised hand on this item successfully.")
-    // );
+    dispatch(raiseHand({ product_id, user_details, token, note })).then(
+      alert("Raised hand on this item successfully.")
+    );
   };
   const handleClick = async (e) => {
     console.log(e);
@@ -90,8 +93,6 @@ function LostFoundItemDetails() {
       );
     }
   };
-
-  console.log(product);
 
   return (
     <div className="LostItemMaincontainer">
@@ -191,6 +192,7 @@ function LostFoundItemDetails() {
           <form
             className="form"
             style={{ display: "flex", flexDirection: "column" }}
+            onSubmit={raiseHandFunction}
           >
             <div className="inputDiv">
               <label htmlFor="description" className="form-label">
@@ -199,6 +201,8 @@ function LostFoundItemDetails() {
               <textarea
                 id="descripion"
                 style={{ outline: "none", border: "1px solid gray" }}
+                onChange={(e) => setNote(e.target.value)}
+                value={note}
               ></textarea>
             </div>
             <button type="submit" className="lostBtn">
