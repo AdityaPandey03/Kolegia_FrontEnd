@@ -102,7 +102,7 @@ label {
 .pink {
   /* color: #5B35D5; */
   color:black;
-  
+  /* color: #5b35d5; */
 }
 .view-more-01 {
   display: flex;
@@ -284,3 +284,57 @@ label {
 }
 
 /* add new lost found item css end*/
+
+/* responses css*/
+.resposneMainContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.responseMainWrapper {
+  width: 70%;
+  height: 100%;
+  margin: 10% auto;
+  padding: 2%;
+}
+
+.responseContainer {
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid gray;
+  padding: 1%;
+}
+
+.responseprofileImage {
+  height: 50px;
+  width: 50px;
+}
+
+.responseProfileImageContainer {
+  flex: 1;
+  max-width: 8%;
+}
+
+.responseDataContainer {
+  flex: 2;
+  justify-content: space-between;
+  /* padding: 1%; */
+}
+
+.responseButtonContainer {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+  /* padding: 1%; */
+}
+
+.responseData {
+  display: flex;
+}
+
+.dataLabel {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}

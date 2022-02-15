@@ -38,21 +38,17 @@
 
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 650px) {
+    .feature3 {
+        margin-top: 0%;
+        padding-top: 0%;
+    }
     .feature-container_cards3 {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(1, 0.5fr);
     }
 
     .feature-heading3 h1 {
         font-size: 46px;
         line-height: 52px;
     }
-}
-
-@media screen and (max-width: 550px) {
-    .feature-heading3 h1 {
-        font-size: 34px;
-        line-height: 42px;
-    }
-
 }

@@ -6,7 +6,11 @@ import {
   GET_MY_OWN_LOST_FOUND_ITEMS,
   EDIT_LOST_FOUND_ITEM,
   DELETE_LOST_FOUND_ITEM,
-  RESET_STATUS
+  RESET_STATUS,
+  RAISE_HAND,
+  GET_LOST_FOUND_RESPONSES,
+  ACCEPT_RAISED_HAND,
+  REJECT_RAISED_HAND,
 } from "../constants/AllConstants";
 
 const initialState = {
@@ -14,11 +18,12 @@ const initialState = {
   singleProduct: {},
   firstImage: "",
   isLoading: false,
-  ownlostfoundItems:[],
-  editlostfoundResponse:'',
-  deleteLostFoundItemResponse:''
-
-  
+  ownlostfoundItems: [],
+  editlostfoundResponse: "",
+  deleteLostFoundItemResponse: "",
+  lostFoundResponses: [],
+  acceptRaisedHandDetails: null,
+  raisedHandMessage: "",
 };
 
 const LostFoundReducer = (state = initialState, action) => {
@@ -46,32 +51,61 @@ const LostFoundReducer = (state = initialState, action) => {
     case ADD_NEW_LOST_FOUND_ITEM:
       return state;
 
-      case GET_MY_OWN_LOST_FOUND_ITEMS:
-        return {
-          ...state,
-          ownlostfoundItems: action.payload.Products,
-          isLoading: false,
-        };
+    case GET_MY_OWN_LOST_FOUND_ITEMS:
+      return {
+        ...state,
+        ownlostfoundItems: action.payload.Products,
+        isLoading: false,
+      };
 
-        case EDIT_LOST_FOUND_ITEM:
-      return{
-      ...state,
-      editlostfoundResponse:action.payload.status
-      } 
+    case EDIT_LOST_FOUND_ITEM:
+      return {
+        ...state,
+        editlostfoundResponse: action.payload.status,
+      };
 
-      case RESET_STATUS:{
-        return{
-          ...state,
-          editlostfoundResponse:''
-        }
-      }
-      case DELETE_LOST_FOUND_ITEM:
-        return{
-            ...state,
-            deleteLostFoundItemResponse:action.payload
-            
+    case RESET_STATUS: {
+      return {
+        ...state,
+        editlostfoundResponse: "",
+      };
+    }
+    case DELETE_LOST_FOUND_ITEM:
+      return {
+        ...state,
+        deleteLostFoundItemResponse: action.payload,
+      };
+    case RAISE_HAND: {
+      return {
+        ...state,
+        isLoading: false,
+        raisedHandMessage: action.payload,
+      };
+    }
 
-        };
+    case GET_LOST_FOUND_RESPONSES: {
+      return {
+        ...state,
+        lostFoundResponses: action.payload,
+        isLoading: false,
+      };
+    }
+
+    case ACCEPT_RAISED_HAND: {
+      return {
+        ...state,
+        isLoading: false,
+        acceptRaisedHandDetails: action.payload,
+      };
+    }
+
+    case REJECT_RAISED_HAND: {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }
+
     default:
       return state;
   }
