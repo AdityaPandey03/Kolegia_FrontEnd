@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch ,useSelector} from "react-redux";
 import jwt_decode from "jwt-decode";
 import "../Components/Lost_Found/LostFound.css";
-import { addNewLostFoundItem } from "../redux/actions/LostFoundActions";
+import { addNewLostFoundItem ,resetStatus} from "../redux/actions/LostFoundActions";
 import { useNavigate } from "react-router-dom";
 
 function AddItem() {
@@ -20,6 +20,14 @@ function AddItem() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+
+  const Status7 = useSelector((state) => state.lostFound.addItemsLostFoundResonse);
+  
+  
+  if (Status7 === 200) {
+    dispatch(resetStatus);
+    navigate("/lostFound");
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -43,7 +51,7 @@ function AddItem() {
     //   console.log(key[0] + ", " + key[1]);
     // }
     dispatch(addNewLostFoundItem(formData));
-    navigate("/lostFound");
+    
   };
 
   return (

@@ -6,7 +6,8 @@ import {
   GET_MY_OWN_LOST_FOUND_ITEMS,
   EDIT_LOST_FOUND_ITEM,
   DELETE_LOST_FOUND_ITEM,
-  RESET_STATUS
+  RESET_STATUS,
+  CHECKING_ERROR_LOST_FOUND
 } from "../constants/AllConstants";
 
 const initialState = {
@@ -16,7 +17,8 @@ const initialState = {
   isLoading: false,
   ownlostfoundItems:[],
   editlostfoundResponse:'',
-  deleteLostFoundItemResponse:''
+  deleteLostFoundItemResponse:'',
+  addItemsLostFoundResonse:''
 
   
 };
@@ -44,7 +46,10 @@ const LostFoundReducer = (state = initialState, action) => {
           : "",
       };
     case ADD_NEW_LOST_FOUND_ITEM:
-      return state;
+      return {
+        ...state,
+        addItemsLostFoundResonse:action.payload.status
+      }
 
       case GET_MY_OWN_LOST_FOUND_ITEMS:
         return {
@@ -62,9 +67,17 @@ const LostFoundReducer = (state = initialState, action) => {
       case RESET_STATUS:{
         return{
           ...state,
-          editlostfoundResponse:''
+          editlostfoundResponse:'',
+          addItemsLostFoundResonse:''
         }
       }
+      case CHECKING_ERROR_LOST_FOUND:
+        return{
+            ...state,
+            errorMessageLostFound:action.payload.data.message
+            
+
+        };
       case DELETE_LOST_FOUND_ITEM:
         return{
             ...state,

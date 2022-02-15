@@ -11,6 +11,7 @@ import {
   DELETE_LOST_FOUND_ITEM,
   RESET_STATUS,
   CHECKING_ERROR,
+  CHECKING_ERROR_LOST_FOUND,
 } from "../constants/AllConstants";
 
 export const getAllLostFoundItems = () => async (dispatch) => {
@@ -87,9 +88,15 @@ export const addNewLostFoundItem = (data) => async (dispatch) => {
       payload: res,
     });
 
-    alert("Item added successfully");
-  } catch (err) {
-    console.log(err);
+    
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response);
+      dispatch({
+          type:CHECKING_ERROR_LOST_FOUND,
+          payload:error.response,
+      })
+    }
   }
 };
 

@@ -36,13 +36,13 @@ const handleClick =  ()=> {
 
 <div className="header1">
     <h1>Kolegia</h1>
-    <Link className="nav-profile" to='/profile'>Dashboard</Link>
+    <Link className="nav-profile" to='/sideBar'>Profile</Link>
    
 </div>
 
 <input type="checkbox" id="check"/>
       <label htmlFor="check" className="checkbtn">
-        <i style={{color:'white'}}className="fas fa-bars"><FaBars/></i>
+        <i style={{color:'white'}}className="fas fa-bars"></i>
       </label>
     <ul>
         {visibleSearch?

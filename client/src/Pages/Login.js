@@ -131,7 +131,7 @@ const handleSubmitSignUp=()=>{
             </div>
           </div>
           <div className="overlay-container">
-            <div className="overlay">
+            <div className="overlay2">
               <div className="overlay-panel overlay-left">
                 <h1 className='h1'>You're Welcome</h1>
                 <p className='p'>Login to Enter the Kolegia</p>
