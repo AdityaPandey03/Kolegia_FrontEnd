@@ -30,9 +30,7 @@ const initialState = {
   acceptRaisedHandDetails: null,
   raisedHandMessage: "",
 
-  ownlostfoundItems:[],
-  editlostfoundResponse:'',
-  deleteLostFoundItemResponse:'',
+  
   addItemsLostFoundResonse:''
 
 
@@ -122,13 +120,7 @@ const LostFoundReducer = (state = initialState, action) => {
       };
     }
 
-      case RESET_STATUS:{
-        return{
-          ...state,
-          editlostfoundResponse:'',
-          addItemsLostFoundResonse:''
-        }
-      }
+     
       case CHECKING_ERROR_LOST_FOUND:
         return{
             ...state,
@@ -136,10 +128,7 @@ const LostFoundReducer = (state = initialState, action) => {
             
 
         };
-      case DELETE_LOST_FOUND_ITEM:
-        return{
-            ...state,
-            deleteLostFoundItemResponse:action.payload
+     
             
 
 
