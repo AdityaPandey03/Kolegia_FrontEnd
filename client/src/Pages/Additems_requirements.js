@@ -1,20 +1,24 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import "../Components/Buy_sell/AddItems.css";
-import { addRequirements } from "../redux/actions/RequirementActions";
+import { addRequirements ,resetStatus} from "../redux/actions/RequirementActions";
 import jwt_decode from "jwt-decode";
 import { useSelector } from "react-redux";
 import {  useNavigate } from "react-router-dom";
 
 function Modal({ toggleModal, modal }) {
   const navigate= useNavigate();
-  const errorMessage2=useSelector((state)=>state.requirement.errorMessageRequirements)
+  const errorMessage4=useSelector((state)=>state.requirement.errorMessageRequirements)
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [reload,setReload]=useState(false)
-  const status=useSelector((state=>state.requirement.addrequirementresponse))
+  const status5=useSelector((state=>state.requirement.addrequirementresponse))
 
-
+  if(status5===200){
+    dispatch(resetStatus);
+    window.location.reload(true);
+     
+  }
 
   const dispatch = useDispatch();
 
@@ -49,7 +53,7 @@ function Modal({ toggleModal, modal }) {
               />
 
               <button>Submit</button>
-              <p>{errorMessage2}</p>
+              <p>{errorMessage4}</p>
             </form>
 
 
