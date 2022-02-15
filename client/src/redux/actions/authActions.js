@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 
 import { 
@@ -10,7 +11,9 @@ import {
     LOGIN_WITH_EMAIL,
      CHECKING_ERROR,USER_LOGOUT,
      VERIFY_EMAIL_FOR_RESET,
-     RESET_PASSWORD
+     RESET_PASSWORD,
+     EDIT_PROFILE,
+     RESET_PROFILE_STATUS
    
     } from "../constants/AllConstants";
 
@@ -260,5 +263,47 @@ export const logoutUser= (token)=> async (dispatch) => {
                 })
               }
         }
-    }
+    };
+    export const editProfile= (formData)=> async (dispatch) => {
+    
+    
+        try {
+            const token = localStorage.getItem("jwt");
+            const decoded = jwt_decode(token);
+         const res=  await axios.put(
+            "http://localhost:3000/api/v1/auth/edit-profile",formData
+              
+            
+              ,{
+                headers:{
+                  authorization:`Bearer ${decoded.auth_token}`,
+                }
+              }
+            
+          );
+        console.log(res)
+          dispatch({
+            type: EDIT_PROFILE,
+            payload:res
+           
+          });
+        } catch (error) {
+          if (error.response) {
+            console.log(error.response);
+            dispatch({
+                type:CHECKING_ERROR,
+                payload:error.response,
+            })
+          }
+        }
+      };
+      export const resetStatus=(dispatch)=>{
+        dispatch({
+          type:RESET_PROFILE_STATUS,
+        }
+    
+        )
+    
+       };
+    
   

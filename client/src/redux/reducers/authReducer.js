@@ -5,7 +5,9 @@ import { VERIFY_EMAIL, VERIFY_OTP,
     LOGIN_WITH_GOOGLE_ERROR,
 USER_LOGOUT,
 VERIFY_EMAIL_FOR_RESET,
-RESET_PASSWORD} from "../constants/AllConstants";
+RESET_PASSWORD,
+EDIT_PROFILE,
+RESET_PROFILE_STATUS} from "../constants/AllConstants";
 
 const initialState={
     otpStatusCode:'',
@@ -19,7 +21,9 @@ const initialState={
     loginWithEmailResponse:'',
     isLoggedIn:false,
     logoutUserResponse:'',
-    requestId:''
+    requestId:'',
+    editProfileResponse:'',
+    editProfileData:''
 }
 
 const AuthReducer=(state=initialState,action)=>{
@@ -57,37 +61,47 @@ const AuthReducer=(state=initialState,action)=>{
                                     loginWithGoogleResponse:action.payload,
                                     isLoggedIn:action.payload.data.isLoggedIn
                                 };
-                                case LOGIN_WITH_GOOGLE_ERROR:
+                    case LOGIN_WITH_GOOGLE_ERROR:
                                     return{
                                         ...state,
                                         loginWithGoogleErrorResponse:action.payload
                                     };
-                                case LOGIN_WITH_EMAIL:
+                    case LOGIN_WITH_EMAIL:
                                     return{
                                         ...state,
                                         loginWithEmailResponse:action.payload,
                                         status:action.payload.status
                                     };
-                                    case CHECKING_ERROR:
+                    case CHECKING_ERROR:
                                         return{
                                             ...state,
                                             errorMessage:action.payload.data.message,
                                             status:action.payload.status
                     
                                         };
-                                        case USER_LOGOUT:
+                    case USER_LOGOUT:
                                             return{
                                                 ...state,
                                                 logoutUserResponse:action.payload.status
                                             }
-                                            case RESET_PASSWORD:
+                    case RESET_PASSWORD:
                                                 return{
                                                     ...state,
                                                     loginWithEmailResponse:action.payload,
                                                 }
-                                         
-            default:
-                return state;
+                    case EDIT_PROFILE:
+                                 return{
+                                     ...state,
+                                     editProfileResponse:action.payload.status,
+                                     editProfileData:action.payload.data
+                                 }        
+                    case RESET_PROFILE_STATUS:
+                        return{
+                        ...state,
+                        editProfileResponse:''    
+                        }                  
+                    default:
+                     return state;
     }
 }
 
