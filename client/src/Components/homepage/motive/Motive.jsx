@@ -3,7 +3,7 @@ import motive_image from '../../../assests/motive.png';
 import './motive.css';
 
 const Motive = () => (
-  <div className="motive3 section__padding" id="motive">
+  <div className="motive3 " id="motive">
     <div className="motive-image3">
       <img src={motive_image} />
     </div>

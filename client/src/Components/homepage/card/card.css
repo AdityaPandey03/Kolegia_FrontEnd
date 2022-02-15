@@ -51,15 +51,3 @@
     color: #fff;
     cursor: pointer;
 }
-
-@media screen and (max-width: 550px) {
-    .feature_card3 {
-        width: 50%;
-        height: 100%;
-        margin: 0rem 8rem;
-    }
-    .feature_card-content3 h3 {
-        font-size: 18px;
-        line-height: 25px;
-    }
-}

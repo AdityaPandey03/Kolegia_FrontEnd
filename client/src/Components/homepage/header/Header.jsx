@@ -6,7 +6,7 @@ import './header.css';
 const Header = () => (
   <div className="header3 section__padding" id="home">
     <div className="header-image3">
-      <img src={homeimage} />
+      <img src={image} />
     </div>
     <div className="header-content3">
       <h1>Hey, I am your College Mate!</h1>
