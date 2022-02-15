@@ -86,7 +86,7 @@ else {
     return ( 
         <div className="signUpContainer">
         <div  className="signUpFormCont">
-            <h1 style={{width:'100%',color:'#332A7C',marginLeft:'155px'}}>Enter Your Details</h1>
+            <h1 style={{width:'100%',color:'#332A7C'}}>Enter Your Details</h1>
             <input defaultValue={Name} onChange={e=>setName(e.target.value)} placeholder="Name"  type="text" />
             <input defaultValue={Email} onChange={e=>setEmail(e.target.value)} placeholder=" Email" type="text" />
             <input onChange={e=>setPhone(e.target.value)} type="number" placeholder="Mobile No" />

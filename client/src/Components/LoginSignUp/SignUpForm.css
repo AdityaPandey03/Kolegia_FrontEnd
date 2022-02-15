@@ -27,7 +27,9 @@
     padding:20px 5px 20px 5px;
     flex-wrap: wrap;
 }
-
+.signUpFormCont h1 {
+    text-align: center;
+}
 .signUpFormCont input{
     border: 2px solid #D9D7F1;
     font-family: 'Roboto', sans-serif;
@@ -42,8 +44,15 @@
 
 }
 
-@media(max-width:600px){
-    .signUpFormCont{
-        flex-direction: column;
+@media screen and (max-width: 650px) {
+    .signUpContainer {
+        justify-content: start;
+    }
+    .signUpFormCont {
+        width: 88%;
+        height: 95%;
+    }
+    .signUpFormCont h1 {
+        justify-content: start;
     }
 }
