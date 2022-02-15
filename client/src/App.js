@@ -28,6 +28,7 @@ import SideBar from "./Components/SideAppbarr/SideBar";
 import VerifyEmailPage from "./Pages/VerifyEmailPage";
 import ResetPassword from "./Pages/ResetPassword";
 import LostFoundResponses from "./Pages/LostFoundResponses";
+import Edit_Profile from "./Pages/Edit_Profile";
 
 const theme = createTheme({
   palette: {
@@ -58,7 +59,7 @@ function App() {
             <Route exact path="/profile" element={<ProfileMobile />} />
             <Route exact path="/requirements" element={<Requirement />} />
             <Route exact path="/resetPassword" element={<ResetPassword />} />
-
+            <Route exact path="/editProfile" element={<Edit_Profile/>} />
             <Route exact path="/verifyEmail" element={<VerifyEmailPage />} />
 
             <Route

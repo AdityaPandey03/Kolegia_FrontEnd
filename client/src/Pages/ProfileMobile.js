@@ -1,6 +1,8 @@
 import Pic from '../assests/Pic.jpeg';
 import '../Components/Dashboard/ProfileMobile.css'
 import jwt_decode from "jwt-decode";
+import { FaEdit} from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const ProfileMobile= () => {
 
@@ -13,6 +15,9 @@ const ProfileMobile= () => {
     return ( 
         <div className="profile_mobile2">
              <div className="profile-card2">
+             <div className="edit_profile_icons"> <Link 
+   to='/editProfile'
+  state={{ Data: decoded }}><FaEdit /></Link>  </div>
             <div className='main-content2'>
             <div className="profile-img2">
                 <img src={Pic} alt="aa"  />
