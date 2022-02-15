@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Shizuru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap');
 .Bcards-cont {
   display: flex;
   justify-content: center;
+  font-family: 'Noto Sans', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
   /* margin: 3rem; */
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   /* margin-right:0 ;
     margin-left:5rem;
     */
@@ -19,12 +25,19 @@
   align-items: center;
   box-sizing: border-box;
   border-radius: 16px;
+  box-shadow: 10px 8px 10px #D9D7F1, -10px -5px 10px #fdfdfd;
+
 
   position: relative;
   /* margin: 5rem; */
-  box-shadow: 5px 5px 10px #c3c3c3, -5px -5px 10px #fdfdfd;
+  /* box-shadow: 5px 5px 10px #c3c3c3, -5px -5px 10px #fdfdfd; */
   /* background-color: #e7e7f7; */
+
+
   background-color: #fbfbfd;
+ 
+
+
 }
 .card-details {
   margin-top: 18px;
@@ -38,15 +51,15 @@
   height: 12rem;
 }
 .img-cont {
-  border: 2px solid rgb(209, 123, 123);
+  border: 2px solid rgb(255, 255, 255);
   box-sizing: border-box;
   width: 18rem;
   height: 5rem;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #e7e7f7;
   margin-bottom: 17px;
-  margin-top: 5px;
+  margin-top: 25px;
 }
 
 .img-cont img {
@@ -76,8 +89,10 @@
 }
 
 label {
-  color: black;
+  /* color: black; */
+  color:black;
   margin-right: 6px;
+  font-family: 'Inter', sans-serif;
 }
 
 .header-02 {
@@ -85,7 +100,9 @@ label {
 }
 
 .pink {
-  color: #5B35D5;
+  /* color: #5B35D5; */
+  color:black;
+  
 }
 .view-more-01 {
   display: flex;
@@ -137,7 +154,7 @@ label {
 }
 
 .LostItemDetailsContainer {
-  margin-top: 3%;
+  margin-top: 2%;
   height: 75%;
   width: 100%;
   display: flex;

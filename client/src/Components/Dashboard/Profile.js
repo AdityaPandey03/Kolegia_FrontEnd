@@ -14,10 +14,10 @@ const Profile = () => {
         <div  className="profile-card">
             <div className='main-content'>
             <div className="profile-img">
-                <img src={Pic} alt="aa"  />
+                <img src={decoded.profile_picture} alt="aa"  />
             </div>
-            <h1>{decoded.name}</h1>
-            <h4 style={{color:'black'}}>{decoded.email}</h4>
+            <h1 style={{fontSize:'25px',color:'#332A7C',margin:'11px'}}>{decoded.name}</h1>
+            <h4 style={{color:'#000000',margin:'-6px'}}>{decoded.email}</h4>
             </div>
             {/* <div className='other-content'>
                 <h1>other-content</h1>
