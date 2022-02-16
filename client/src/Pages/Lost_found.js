@@ -5,7 +5,8 @@ import { useEffect } from "react";
 import LoadingBox from "../Components/LoadingBox";
 import LostFoundCard from "../Components/Lost_Found/LostFoundCard";
 import Navbar from "../Components/Appbar/Navbar";
-
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import { getAllLostFoundItems } from "../redux/actions/LostFoundActions";
 
@@ -13,7 +14,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Bcards = () => {
   const navigate = useNavigate();
-  
 
   const Data = useSelector((state) => state.lostFound.lostFoundItemList);
   const isLoading = useSelector((state) => state.lostFound.isLoading);
@@ -26,19 +26,23 @@ const Bcards = () => {
 
   const image = [];
 
- 
   return (
     <>
-    <Navbar visibleSearch={true}/>
+      <Navbar visibleSearch={true} />
       {isLoading ? (
-        <LoadingBox />
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={isLoading}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
       ) : (
         <div className="Bcards-cont">
           {Data.length > 0 &&
-            Data.map((card,index) => {
+            Data.map((card, index) => {
               return (
-                <LostFoundCard editOption={false} key={index} card={card}/>
-              )
+                <LostFoundCard editOption={false} key={index} card={card} />
+              );
             })}
           <div className="addNewBtnContainer">
             <button
