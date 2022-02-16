@@ -1,3 +1,5 @@
+
+
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
@@ -15,13 +17,22 @@ const useStyles = makeStyles((theme) => {
     card: {
       background: "#E7E7F7",
       position: "relative",
+      boxShadow: `10px 8px 10px #D9D7F1, -10px -5px 10px #fdfdfd`,
+      shadowColor: "#D9D7F1",
+
     },
     card_content: {
-      background: "#E7E7F7",
+      background: "#fbfbfd",
      display:'flex',
      flexDirection:'Column',
      gap:'4px',
-     fontSize:'18px'
+     fontSize:'15px',
+     boxShadow: `10px 8px 10px #D9D7F1, -10px -5px 10px #fdfdfd`,
+     shadowColor: "#D9D7F1",
+
+    //  "fontFamily": `'Dosis', sans-serif`
+     "fontFamily": `'Poppins', sans-serif`
+
     },
 
     Link: {
@@ -34,6 +45,8 @@ const useStyles = makeStyles((theme) => {
       position: "absolute",
       top: "220px",
       left: "40px",
+      "fontFamily": `'Poppins', sans-serif`
+
     },
   };
 });

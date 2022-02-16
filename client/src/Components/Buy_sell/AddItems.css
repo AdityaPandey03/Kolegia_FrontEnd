@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
 body.active-modal {
     overflow-y: hidden;
     pointer-events: none;
@@ -32,18 +35,19 @@ body.active-modal {
     transform: translate(-50%, -50%);
     line-height: 1.4;
     background: white;
-    padding: 14px 28px;
+    padding: 12px 28px;
     border-radius: 6px;
     width: 23rem;
     pointer-events: visible;
     text-align: center;
-    
+    font-family: 'Poppins', sans-serif;
 }
 .modal-content form{
     display: flex;
     flex-direction: column;
     text-align: left;
     gap:8px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .modal-content input{
@@ -77,4 +81,7 @@ form button{
 form label{
     color: #332A7C;
     font-size: 20px;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+
 }
