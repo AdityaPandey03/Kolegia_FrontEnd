@@ -55,7 +55,7 @@ const handleClick =  ()=> {
                 <div className="a">
         {/* <li><a href="">Items-needed</a></li> */}
         <li><a href="#"><FaBell/></a></li>
-        <li><a href="#"><SiGooglechat/></a></li>
+        <li><Link to='/chatRoom'><SiGooglechat/></Link></li>
         <li><Link to='/dashboard'>Dashboard</Link></li>
         <li on onClick={handleClick} style={{fontSize:'1.2rem'}}>Logout</li>
         </div>

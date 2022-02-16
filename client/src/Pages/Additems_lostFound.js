@@ -44,6 +44,7 @@ function AddItem() {
     formData.append("lost_time", lostTime);
     formData.append("lost_location", lostLocation);
     formData.append("token", decoded.auth_token);
+    
     for (var i = 0; i < files.length; i++) {
       formData.append("files", files[i]);
     }
