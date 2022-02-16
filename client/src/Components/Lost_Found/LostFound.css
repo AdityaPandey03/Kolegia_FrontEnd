@@ -206,36 +206,28 @@ label {
   height: 0%;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-@media (max-width:450px){
-  #Bcard{
-    width:17rem;
+@media (max-width: 450px) {
+  #Bcard {
+    width: 17rem;
     height: 18rem;
   }
-  .img-cont{
-    width:15rem;
+  .img-cont {
+    width: 15rem;
     height: 4rem;
   }
-  .img-cont img{
-  width: 4rem;
-  height: 3rem;
+  .img-cont img {
+    width: 4rem;
+    height: 3rem;
   }
-  .card-details{
+  .card-details {
     width: 15rem;
     height: 9rem;
   }
-  .hover-img{
+  .hover-img {
     width: 15rem;
     height: 9rem;
   }
 }
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 .inputDiv {
   padding: 2%;
   display: flex;
@@ -250,13 +242,6 @@ label {
   font-weight: 500;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 @media only screen and (max-width: 767px) {
   .firstHalf,
   .secondHalf {
@@ -281,8 +266,6 @@ label {
     flex-wrap: wrap;
   }
 }
-
-
 
 /* display lost found item details css end*/
 
