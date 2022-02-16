@@ -7,10 +7,7 @@ const Card = ({ imgUrl, text}) => (
       <img src={imgUrl} alt="card_image" />
     </div>
     <div className="feature_card-content3">
-      <div>
-        <h3>{text}</h3>
-        {/* <p>{desc}</p> */}
-      </div>
+        {text}
     </div>
   </div>
 );
