@@ -1,10 +1,15 @@
 .feed {
     display: flex;
     flex-direction: column;
-    border-style: solid;
+    /* border-style: solid; */
     border-width: 3px 3px 3px 10px;
-    border-color: #838383 #838383 #838383 #5839a0;
-    background-color: #fdf6de28;
+    /* border-color: #5839a0; */
+    box-shadow: 10px 8px 10px #D9D7F1, -10px -5px 10px #fdfdfd;
+  
+  /* margin: 5rem; */
+  /* box-shadow: 5px 5px 10px #c3c3c3, -5px -5px 10px #fdfdfd; */
+  /* background-color: #e7e7f7; */
+  background-color: #fbfbfd;
     border-radius: 0px 5px 5px 0px;
     padding: 4px 10px;
     margin: 7px 15px;
@@ -57,4 +62,8 @@
     .feed_date {
         font-size: 11px;
     }
+}
+.svg{
+    color:#F25767 ;
+    width:20px ;
 }

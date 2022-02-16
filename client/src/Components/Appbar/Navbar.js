@@ -44,7 +44,7 @@ const handleClick =  ()=> {
       <label htmlFor="check" className="checkbtn">
         <i style={{color:'white'}}className="fas fa-bars"></i>
       </label>
-    <ul>
+    < ul className='ul'>
         {visibleSearch?
         <li> <form className="form"
                 id="form">

@@ -210,6 +210,28 @@ label {
   height: 0%;
 }
 
+@media (max-width:450px){
+  #Bcard{
+    width:17rem;
+    height: 18rem;
+  }
+  .img-cont{
+    width:15rem;
+    height: 4rem;
+  }
+  .img-cont img{
+  width: 4rem;
+  height: 3rem;
+  }
+  .card-details{
+    width: 15rem;
+    height: 9rem;
+  }
+  .hover-img{
+    width: 15rem;
+    height: 9rem;
+  }
+}
 @media only screen and (max-width: 767px) {
   .firstHalf,
   .secondHalf {
@@ -225,6 +247,8 @@ label {
     flex-wrap: wrap;
   }
 }
+
+
 
 /* display lost found item details css end*/
 
