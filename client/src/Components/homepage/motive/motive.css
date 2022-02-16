@@ -17,15 +17,15 @@
 .motive-content3 h1 {
     font-family: var(--font-family);
     font-weight: 800;
-    font-size: 65px;
-    line-height: 95px;
+    font-size: 62px;
+    line-height: 75px;
     letter-spacing: -0.04em;
 }
 
 .motive-content3 p {
     font-family: var(--font-family);
     font-weight: 400;
-    font-size: 20px;
+    font-size: 22px;
     line-height: 28px;
     color: var(--color-text);
     margin-top: 1.5rem;

@@ -5,9 +5,9 @@
     scroll-behavior: smooth;
   }
   
-  body {
-    background: var(--color-bg);
-  }
+  /* body {
+    background-image: url("./solid_vector1.png");
+  } */
   
   a {
     color: unset;

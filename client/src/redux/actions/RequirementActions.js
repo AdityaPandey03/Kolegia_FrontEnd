@@ -9,6 +9,7 @@ import {
   EDIT_REQUIREMENT,
   RESET_STATUS,
   DELETE_REQUIREMENT,
+  CHECKING_ERROR_REQUIREMENTS
 } from "../constants/AllConstants";
 
 export const getAllRequirements = () => async (dispatch) => {
@@ -61,7 +62,7 @@ export const addRequirements =
       if (error.response) {
         console.log(error.response);
         dispatch({
-          type: CHECKING_ERROR,
+          type: CHECKING_ERROR_REQUIREMENTS,
           payload: error.response,
         });
       }
@@ -119,7 +120,7 @@ export const editRequirements =
       if (error.response) {
         console.log(error.response);
         dispatch({
-          type: CHECKING_ERROR,
+          type: CHECKING_ERROR_REQUIREMENTS,
           payload: error.response,
         });
       }
@@ -152,7 +153,7 @@ export const deleteRequirement =
       if (error.response) {
         console.log(error.response);
         dispatch({
-          type: CHECKING_ERROR,
+          type: CHECKING_ERROR_REQUIREMENTS,
           payload: error.response,
         });
       }

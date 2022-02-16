@@ -11,6 +11,13 @@ import {
   DELETE_LOST_FOUND_ITEM,
   RESET_STATUS,
   CHECKING_ERROR,
+
+  GET_LOST_FOUND_RESPONSES,
+  RAISE_HAND,
+  ACCEPT_RAISED_HAND,
+  REJECT_RAISED_HAND,
+  CHECKING_ERROR_LOST_FOUND,
+
 } from "../constants/AllConstants";
 
 export const getAllLostFoundItems = () => async (dispatch) => {
@@ -87,9 +94,15 @@ export const addNewLostFoundItem = (data) => async (dispatch) => {
       payload: res,
     });
 
-    alert("Item added successfully");
-  } catch (err) {
-    console.log(err);
+    
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response);
+      dispatch({
+          type:CHECKING_ERROR_LOST_FOUND,
+          payload:error.response,
+      })
+    }
   }
 };
 
@@ -154,6 +167,10 @@ export const editLostFoundItem = (formData) => async (dispatch) => {
 };
 
 export const deleteLostFoundItem = (data) => async (dispatch) => {
+  dispatch({
+    type: NEW_REQUEST,
+    payload: true,
+  });
   try {
     console.log(data.token);
     const res = await axios.delete(
@@ -169,6 +186,133 @@ export const deleteLostFoundItem = (data) => async (dispatch) => {
     dispatch({
       type: DELETE_LOST_FOUND_ITEM,
       payload: res,
+    });
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response);
+      dispatch({
+        type: CHECKING_ERROR,
+        payload: error.response,
+      });
+    }
+  }
+};
+
+export const raiseHand = (data) => async (dispatch) => {
+  dispatch({
+    type: NEW_REQUEST,
+    payload: true,
+  });
+  try {
+    console.log(data);
+    const res = await axios.post(
+      "http://localhost:3000/api/v1/raisedhands/raise-hand-on-an-item",
+      data,
+      {
+        headers: {
+          authorization: `Bearer ${data.token}`,
+        },
+      }
+    );
+    console.log(res);
+    dispatch({
+      type: RAISE_HAND,
+      payload: res.data.message,
+    });
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response);
+      dispatch({
+        type: CHECKING_ERROR,
+        payload: error.response,
+      });
+    }
+  }
+};
+
+export const getLostFoundItemResponses = (data) => async (dispatch) => {
+  dispatch({
+    type: NEW_REQUEST,
+    payload: true,
+  });
+  try {
+    const res = await axios.get(
+      "http://localhost:3000/api/v1/raisedhands/get-raised-responses",
+
+      {
+        headers: {
+          authorization: `Bearer ${data.token}`,
+        },
+        data,
+      }
+    );
+    console.log(res);
+    dispatch({
+      type: GET_LOST_FOUND_RESPONSES,
+      payload: res.data.raised_hands,
+    });
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response);
+      dispatch({
+        type: CHECKING_ERROR,
+        payload: error.response,
+      });
+    }
+  }
+};
+
+export const acceptRaisedHand = (data) => async (dispatch) => {
+  dispatch({
+    type: NEW_REQUEST,
+    payload: true,
+  });
+  try {
+    console.log(data);
+    const res = await axios.post(
+      "http://localhost:3000/api/v1/raisedhands/accept-raised-hand",
+      data,
+      {
+        headers: {
+          authorization: `Bearer ${data.token}`,
+        },
+      }
+    );
+    console.log(res);
+    dispatch({
+      type: ACCEPT_RAISED_HAND,
+      payload: res.data,
+    });
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response);
+      dispatch({
+        type: CHECKING_ERROR,
+        payload: error.response,
+      });
+    }
+  }
+};
+
+export const rejectRaisedHand = (data) => async (dispatch) => {
+  dispatch({
+    type: NEW_REQUEST,
+    payload: true,
+  });
+  try {
+    const res = await axios.delete(
+      "http://localhost:3000/api/v1/raisedhands/reject-raised-hand",
+
+      {
+        headers: {
+          authorization: `Bearer ${data.token}`,
+        },
+        data,
+      }
+    );
+    console.log(res);
+    dispatch({
+      type: REJECT_RAISED_HAND,
     });
   } catch (error) {
     if (error.response) {

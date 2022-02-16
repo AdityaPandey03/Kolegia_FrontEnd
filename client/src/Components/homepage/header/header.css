@@ -48,8 +48,8 @@
 }
 
 .header-image3 img {
-    width: 70%;
-    height: 87%;
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (max-width: 1050px) {
@@ -63,6 +63,10 @@
 }
 
 @media screen and (max-width: 650px) {
+    .header3{
+        margin-bottom: 0%;
+        padding-bottom: 0%;
+    }
     .header-content3 h1 {
         font-size: 48px;
         line-height: 60px;
