@@ -27,10 +27,11 @@ const useStyles = makeStyles((theme) => {
      flexDirection:'Column',
      gap:'4px',
      fontSize:'15px',
-     boxShadow: `10px 8px 10px #D9D7F1, -10px -5px 10px #fdfdfd`,
      shadowColor: "#D9D7F1",
-
+     shadowRadius: 5,
+     elevation: 15,
     //  "fontFamily": `'Dosis', sans-serif`
+     fontWeight:600,
      "fontFamily": `'Poppins', sans-serif`
 
     },
@@ -81,8 +82,8 @@ const NoteCard = ({ data,editOption,handleClick}) => {
       <CardContent className={classes.card_content}>
         <Typography variant="p">{data.name}</Typography>
        
-        <Typography variant="p">Rs {data.price}</Typography>
-        <Typography variant="p">Description:{slicedDescription}..</Typography>
+        <Typography variant="p">Rs:  {data.price}</Typography>
+        <Typography variant="p">Description:   {slicedDescription}...</Typography>
         <div className="box">
          
           <Link to={`/product/${data._id}`} underline="none">
