@@ -62,7 +62,7 @@ const handleSubmit=(e)=>{
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
           <h2 style={{color:'#332A7C',marginBottom:'10px'}}>Add Product</h2>
-            <form  onSubmit={handleSubmit}>
+            <form className="form02" onSubmit={handleSubmit}>
            
             <label  htmlFor="input">Name of product</label>
             <input onChange={e=>setItemName(e.target.value)} type="text" />
