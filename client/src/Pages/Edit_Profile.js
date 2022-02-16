@@ -74,9 +74,9 @@ const Edit_Profile = () => {
         formData.append('hostel',hostel)
         formData.append('room_number',room_number)
         formData.append('phone',phone)
-        formData.append('profile_Picture',profile_Picture)
+        formData.append('profile_picture',profile_Picture)
         
-
+ console.log(profile_Picture);
       
         dispatch(editProfile(formData));
       
@@ -99,7 +99,7 @@ const Edit_Profile = () => {
             <input defaultValue={Hostel} onChange={e=>setHostel(e.target.value)} type="text" placeholder="Hostel(BH-1)" />
             <input defaultValue={Room_Number} onChange={e=>setRoomNo(e.target.value)} type="text" placeholder="Room No" />
             <label  htmlFor="input">Profile Picture</label>
-            <input style={{border:'none'}} onChange={e=>setProfilePicture(e.target.value)} type="file" />
+            <input style={{border:'none'}} onChange={e=>setProfilePicture(e.target.files[0])} type="file" />
          
           
             

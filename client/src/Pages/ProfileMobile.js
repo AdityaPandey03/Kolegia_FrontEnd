@@ -10,6 +10,7 @@ const ProfileMobile= () => {
     const decoded = jwt_decode(token);
 
     console.log(decoded)
+    console.log(decoded.profile_picture);
     //decoded==data
 
     return ( 
@@ -20,7 +21,7 @@ const ProfileMobile= () => {
   state={{ Data: decoded }}><FaEdit /></Link>  </div>
             <div className='main-content2'>
             <div className="profile-img2">
-                <img src={Pic} alt="aa"  />
+                <img src={decoded.profile_picture} alt="profile_picture"  />
             </div>
             <h1>{decoded.name}</h1>
             <h4 >{decoded.email}</h4>

@@ -14,7 +14,7 @@ const Profile = () => {
         <div  className="profile-card">
             <div className='main-content'>
             <div className="profile-img">
-                <img src={decoded.profile_picture} alt="aa"  />
+                <img src={decoded.profile_picture} alt="profile-picture"  />
             </div>
             <h1 style={{fontSize:'25px',color:'#332A7C',margin:'11px'}}>{decoded.name}</h1>
             <h4 style={{color:'#000000',margin:'-6px'}}>{decoded.email}</h4>
