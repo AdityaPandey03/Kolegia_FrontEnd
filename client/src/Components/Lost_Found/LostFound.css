@@ -207,6 +207,7 @@ label {
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @media (max-width:450px){
   #Bcard{
     width:17rem;
@@ -230,6 +231,8 @@ label {
   }
 }
 =======
+=======
+>>>>>>> Stashed changes
 .inputDiv {
   padding: 2%;
   display: flex;
@@ -244,6 +247,9 @@ label {
   font-weight: 500;
 }
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 @media only screen and (max-width: 767px) {
   .firstHalf,
