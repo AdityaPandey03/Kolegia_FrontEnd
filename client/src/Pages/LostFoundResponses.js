@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import {
   acceptRaisedHand,
   getLostFoundItemResponses,
@@ -9,8 +11,10 @@ import jwt_decode from "jwt-decode";
 import Button from "@mui/material/Button";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import axios from "axios";
 
 function LostFoundResponses() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const encodedToken = localStorage.getItem("jwt");
   const decoded = jwt_decode(encodedToken);
@@ -19,23 +23,67 @@ function LostFoundResponses() {
   };
   const token = decoded.auth_token;
   const responses = useSelector((state) => state.lostFound.lostFoundResponses);
-  const isLoading = useSelector((state) => state.lostFound.isLoading);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     dispatch(getLostFoundItemResponses({ user_details, token }));
   }, []);
 
-  const handleClick = (e, response) => {
+  const handleClick = async (e, response) => {
     e.preventDefault();
+
     if (e.target.value === "accept") {
-      dispatch(acceptRaisedHand({ _id: response._id, user_details, token }));
+      setIsLoading(true);
+      const res = await axios.post(
+        "http://localhost:3000/api/v1/raisedhands/accept-raised-hand",
+        { _id: response._id, user_details, token },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(res);
+      if (res.status === 200) {
+        setIsLoading(false);
+        navigate("/chatRoom");
+      } else if (res.status !== 200) {
+        setIsLoading(false);
+        alert(res.data.message);
+      }
     } else if (e.target.value === "decline") {
-      dispatch(rejectRaisedHand({ _id: response._id, user_details, token }));
+      setIsLoading(true);
+      const data = { _id: response._id, user_details, token };
+      const res = await axios.delete(
+        "http://localhost:3000/api/v1/raisedhands/reject-raised-hand",
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+          data,
+        }
+      );
+
+      if (res.status === 200) {
+        setIsLoading(false);
+        dispatch(getLostFoundItemResponses({ user_details, token }));
+      } else {
+        setIsLoading(false);
+        alert(res.data.message);
+      }
     }
   };
 
   return (
     <div className="resposneMainContainer">
+      {isLoading && (
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={isLoading}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+      )}
       <div className="responseMainWrapper">
         {responses.length > 0 ? (
           responses.map((response, index) => {

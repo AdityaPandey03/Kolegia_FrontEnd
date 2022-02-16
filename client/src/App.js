@@ -28,7 +28,11 @@ import SideBar from "./Components/SideAppbarr/SideBar";
 import VerifyEmailPage from "./Pages/VerifyEmailPage";
 import ResetPassword from "./Pages/ResetPassword";
 import LostFoundResponses from "./Pages/LostFoundResponses";
+<<<<<<< HEAD
+import Messenger from "./Pages/Messenger";
+=======
 import Edit_Profile from "./Pages/Edit_Profile";
+>>>>>>> 8c1b22599e80e58794f43ee5e8c6d3d8f3b6a51f
 
 const theme = createTheme({
   palette: {
@@ -85,7 +89,7 @@ function App() {
               path="/editLostFoundItems/:id"
               element={<Edit_MyLostFoundItems />}
             />
-            <Route exact path="/chatRoom" element={<ChatRoom />} />
+            <Route exact path="/chatRoom" element={<Messenger />} />
             <Route exact path="/responses" element={<LostFoundResponses />} />
           </Routes>
         </div>
