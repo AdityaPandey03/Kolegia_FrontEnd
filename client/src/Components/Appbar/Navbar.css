@@ -24,7 +24,7 @@
     display: flex;
     justify-content: space-between;
 }
-ul{
+.ul{
     display: flex;
     gap: 0.5em;
     width: 100%;
@@ -107,7 +107,7 @@ ul{
 
 
   @media(max-width:820px){
-    ul{
+    .ul{
       gap: 0.2em;
       width: 100%;
     }
@@ -127,7 +127,7 @@ ul{
       
     }
 
-    ul{
+    .ul{
       position: fixed;
       width: 70%;
       height: 100vh;
@@ -156,7 +156,7 @@ ul{
         align-items: center;
     }
     
-    #check:checked ~ ul{
+    #check:checked ~ .ul{
       left: 0;
   
     }

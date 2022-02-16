@@ -33,10 +33,7 @@ const handleClick=(data,e)=>{
     return (
     
   <div className='requirement_page'>
-      <div className='page_heading'>
-          <h3>Requirement</h3>
-          
-      </div>
+     
       <div className='page_content'>
       {itemList.map((item,index)=>{
           return(
