@@ -49,6 +49,7 @@
 }
 
 .img-cont {
+
   border: 1px solid rgb(240, 188, 94);
   box-sizing: border-box;
   width: 18rem;
@@ -59,6 +60,7 @@
   margin-bottom: 15px;
   margin-top: 30px;
   font-family: "Dosis", sans-serif;
+
 }
 
 .img-cont img {
@@ -117,6 +119,7 @@ label {
 }
 
 .addNewBtn {
+
   height: 75px;
   width: 75px;
   border-radius: 50%;
@@ -131,6 +134,7 @@ label {
   cursor: pointer;
   font-size: 3rem;
   font-weight: lighter;
+
 }
 
 .addNewBtn:hover {
@@ -142,7 +146,6 @@ label {
   height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: "Inter", sans-serif;
 }
 
 .LostItemDetailsContainerWrapper {
@@ -150,12 +153,15 @@ label {
   width: 100%;
   padding: 0 4%;
   margin-top: 3%;
+
+
 }
 
 .headingContainer {
   display: flex;
   justify-content: space-between;
   line-height: 1.5;
+  font-family: "Hind Siliguri", sans-serif;
 }
 
 .LostItemDetailsContainer {
@@ -163,6 +169,7 @@ label {
   height: 75%;
   width: 100%;
   display: flex;
+
 }
 
 .firstHalf,
@@ -174,10 +181,12 @@ label {
   width: 95%;
   border: 1px solid #f3f3f3;
   border-top: 11px solid #346e98;
+
 }
 
 .firstHalf {
   margin-right: 5%;
+
 }
 
 .LostDetailsListItem {
@@ -235,6 +244,7 @@ label {
   margin: 2%;
   justify-content: space-between;
   width: 100%;
+  font-family: "Hind Siliguri", sans-serif;
 }
 
 .headingText {
@@ -262,9 +272,11 @@ label {
     margin-bottom: 5% !important;
     height: auto;
   }
+
   .LostItemDetailsContainer {
     flex-wrap: wrap;
   }
+  
 }
 
 /* display lost found item details css end*/
@@ -306,6 +318,7 @@ label {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1rem;
 }
+
 .submitBtn {
   cursor: pointer;
   background-color: #f8f8f8;
@@ -316,7 +329,7 @@ label {
 
 @media only screen and (max-width: 767px) {
   .addItemForm {
-    display: block;
+  display: block;
   }
 
   /* .left,

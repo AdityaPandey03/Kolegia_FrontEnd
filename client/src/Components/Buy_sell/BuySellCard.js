@@ -14,13 +14,14 @@ import { FaEdit,FaTrashAlt} from "react-icons/fa";
 
 const useStyles = makeStyles((theme) => {
   return {
+
     card: {
       background: "#E7E7F7",
       position: "relative",
       boxShadow: `10px 8px 10px #D9D7F1, -10px -5px 10px #fdfdfd`,
       shadowColor: "#D9D7F1",
-
     },
+
     card_content: {
       background: "#fbfbfd",
      display:'flex',
@@ -33,7 +34,6 @@ const useStyles = makeStyles((theme) => {
     //  "fontFamily": `'Dosis', sans-serif`
      fontWeight:600,
      "fontFamily": `'Poppins', sans-serif`
-
     },
 
     Link: {
@@ -74,16 +74,15 @@ const NoteCard = ({ data,editOption,handleClick}) => {
         className={classes.media}
         component="img"
         padding="5"
+        height="200"                
         image={data.files[0].uri}
         alt="watch"
       />
-      
 
       <CardContent className={classes.card_content}>
-        <Typography variant="p">{data.name}</Typography>
-       
-        <Typography variant="p">Rs:  {data.price}</Typography>
-        <Typography variant="p">Description:   {slicedDescription}...</Typography>
+        <Typography variant="p">{data.name}</Typography>       
+        <Typography variant="p">Rs: {data.price}</Typography>
+        <Typography variant="p">Description: {slicedDescription}...</Typography>
         <div className="box">
          
           <Link to={`/product/${data._id}`} underline="none">
