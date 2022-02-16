@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Req_feed = ({ data,postedBy,handleClick ,editOption}) => {
   const navigate = useNavigate();
 
-  
+  let result = data.posted_on.slice(0, 10);
   return (
   <div className='feed'>
     <div className='feed_title'>
@@ -16,8 +16,8 @@ const Req_feed = ({ data,postedBy,handleClick ,editOption}) => {
       <div className='eidtIcons'>
       <Link 
    to='/editMyRequirement'
-  state={{ Data: data }}><FaEdit /></Link>  
-    < FaTrashAlt onClick={(e)=>handleClick(data,e)}/>
+  state={{ Data: data }}><FaEdit  className='svg'/></Link>  
+    < FaTrashAlt className='svg' onClick={(e)=>handleClick(data,e)}/>
       </div> : null
 }
   
@@ -29,7 +29,7 @@ const Req_feed = ({ data,postedBy,handleClick ,editOption}) => {
       <p>Posted by: { postedBy }</p>
     </div>
     <div className='feed_date'>
-      <h3>{ data.posted_on }</h3>
+      <h3>{ result }</h3>
     </div>
   </div>
   );

@@ -38,7 +38,7 @@ const Requirement = () => {
 
       <div className='page_heading'>
          
-          
+         
       </div>
       <div className='page_content'>
       {itemList.map((item,index)=>{

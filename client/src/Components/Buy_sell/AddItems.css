@@ -77,7 +77,7 @@ body.active-modal {
     transform: rotate(45deg)
 }
 
-form button{
+.form02 button{
     width: 20rem;
     height: 2.5rem;
     background-color: #F25767;
@@ -87,7 +87,7 @@ form button{
     border-radius: 6px;
     margin-top: 5px;
 }
-form label{
+.form02 label{
     color: #332A7C;
     font-size: 20px;
     font-weight: 300;

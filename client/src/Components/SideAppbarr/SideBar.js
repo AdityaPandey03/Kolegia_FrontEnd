@@ -18,6 +18,8 @@ import My_buySellItems from '../../Pages/My_buySellItems';
 import My_lostFoundItems from '../../Pages/My_lostFoundItems'
 import My_requirements from '../../Pages/My_requirements';
 import ProfileMobile from "../../Pages/ProfileMobile";
+import HomeIcon from '@mui/icons-material/Home';
+import { fontSize } from '@mui/system';
 
 
 
@@ -36,32 +38,50 @@ const useStyles = makeStyles((theme) => {
     },
     drawer: {
       width: drawerWidth,
+      [theme.breakpoints.down(650)]: {
+       width:'60px'
+      }
     },
     drawerPaper: {
       width: drawerWidth,
+      [theme.breakpoints.down(650)]: {
+       width:'60px'
+      }
     },
     active: {
       background: '#f4f4f4'
     },
     title: {
-      padding: theme.spacing(2),
-      cursor:'pointer'
+      // padding: theme.spacing(2),
+      cursor:'pointer',
+      [theme.breakpoints.down(650)]: {
+        display:'none'
+      }
+      // fontSize:'2.5rem'
     },
-    appBar: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
+   
     date: {
       flexGrow: 1
     },
     list:{
        display:'flex',
-       flexDirection:'column'
+       flexDirection:'column',
+       
     },
 
     icon:{
       color:"#F25767"
     },
+    icon02:{
+      color:"#F25767",
+      width:'50px'
+    },
+    label:{
+      // display:'none'
+      [theme.breakpoints.down(650)]: {
+        display:'none'
+      }
+    }
 
    
   }
@@ -109,9 +129,18 @@ export default function SideBar() {
         anchor="left"
       >
         <div>
-          <Typography onClick={()=>navigate('/dashboard')} variant="h5" className={classes.title}>
+        
+          <ListItem 
+              button 
+               
+              onClick={() => navigate('/dashboard')}
+             
+            >
+              <ListItemIcon className={classes.icon02}><HomeIcon  /></ListItemIcon>
+              <ListItemText className={classes.title} primary={<Typography  variant="h5" className={classes.title}>
            Kolegia
-          </Typography>
+          </Typography>} />
+            </ListItem>
         </div>
 
         {/* links/list section */}
@@ -124,7 +153,7 @@ export default function SideBar() {
               className={location.pathname == item.path ? classes.active : null}
             >
               <ListItemIcon className={classes.icon}>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
+              <ListItemText className={classes.label} primary={item.text} />
             </ListItem>
           ))}
         </List>

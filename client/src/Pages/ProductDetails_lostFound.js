@@ -17,6 +17,7 @@ import PanToolIcon from "@mui/icons-material/PanTool";
 import Dropdown from "../Components/Lost_Found/Dropdown";
 import { RAISE_HAND } from "../redux/constants/AllConstants";
 import { CircularProgress } from "@material-ui/core";
+import Navbar from "../Components/Appbar/Navbar";
 
 function getModalStyle() {
   const top = 50;
@@ -102,124 +103,142 @@ function LostFoundItemDetails() {
   };
 
   return (
-    <div className="LostItemMaincontainer">
-      <div className="LostItemDetailsContainerWrapper">
-        <div className="headingContainer">
-          <div>
-            <h1>Lost Item Details</h1>
-            <h4>Item ID : {product?._id}</h4>
-          </div>
-          {product?.owner_details?._id === user_details._id ? (
-            <div
-              className="buttonContainer"
-              style={{ display: "flex", height: "70%" }}
-            >
+    <>
+      <Navbar />
+      <div className="LostItemMaincontainer">
+        <div className="LostItemDetailsContainerWrapper">
+          <div className="headingContainer">
+            <div className="headingText">
+              <h1 style={{ fontWeight: "500" }}>Lost Item Details</h1>
+              <h4 style={{ fontWeight: "400" }}>Item ID : {product?._id}</h4>
+            </div>
+            {product?.owner_details?._id === user_details._id ? (
+              <div
+                className="buttonContainer"
+                style={{ display: "flex", height: "70%" }}
+              >
+                <Button
+                  size="medium"
+                  variant="contained"
+                  color="primary"
+                  value="edit"
+                  endIcon={<EditIcon />}
+                  style={{ marginRight: "10%" }}
+                  onClick={handleClick}
+                >
+                  EDIT
+                </Button>
+                <Button
+                  size="medium"
+                  variant="contained"
+                  color="error"
+                  value="delete"
+                  endIcon={<DeleteIcon />}
+                  onClick={handleClick}
+                >
+                  DELETE
+                </Button>
+              </div>
+            ) : (
               <Button
                 size="medium"
                 variant="contained"
                 color="primary"
-                value="edit"
-                endIcon={<EditIcon />}
-                style={{ marginRight: "10%" }}
-                onClick={handleClick}
+                endIcon={<PanToolIcon />}
+                style={{ display: "flex", height: "70%" }}
+                onClick={(e) => setOpenModal(true)}
               >
-                EDIT
+                RAISE HAND
               </Button>
-              <Button
-                size="medium"
-                variant="contained"
-                color="error"
-                value="delete"
-                endIcon={<DeleteIcon />}
-                onClick={handleClick}
-              >
-                DELETE
-              </Button>
+            )}
+          </div>
+          <div className="LostItemDetailsContainer">
+            <div className="firstHalf">
+              <div className="LostDetailsListItem">
+                <h4>Item Lost</h4>
+                <p>{product?.name}</p>
+              </div>
+              <div className="LostDetailsListItem">
+                <h4>Category</h4>
+                <p>{product?.category}</p>
+              </div>
+              <div className="LostDetailsListItem">
+                <h4>Brand</h4>
+                <p>{product?.brand}</p>
+              </div>
+              <div className="LostDetailsListItem">
+                <h4>Primary Color</h4>
+                <p>{product?.color}</p>
+              </div>
             </div>
-          ) : (
-            <Button
-              size="medium"
-              variant="contained"
-              color="primary"
-              endIcon={<PanToolIcon />}
-              style={{ display: "flex", height: "70%" }}
-              onClick={(e) => setOpenModal(true)}
+            <div className="secondHalf">
+              <div className="LostDetailsListItem">
+                <h4>Date Lost</h4>
+                <p>{dateString}</p>
+              </div>
+              <div className="LostDetailsListItem">
+                <h4>Time Lost</h4>
+                <p>{product?.lost_time}</p>
+              </div>
+              <div className="LostDetailsListItem">
+                <h4>Location Lost</h4>
+                <p>{product?.lost_location}</p>
+              </div>
+              <div className="LostDetailsListItem">
+                <h4>Description</h4>
+                <p>{product?.description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Modal
+          open={openModal}
+          onClose={(e) => setOpenModal(false)}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <div style={modalStyle} className={`${classes.paper}`}>
+            <h4>Lost Item</h4>
+            <form
+              className="form"
+              style={{ display: "flex", flexDirection: "column" }}
+              onSubmit={raiseHandFunction}
             >
-              RAISE HAND
-            </Button>
-          )}
-        </div>
-        <div className="LostItemDetailsContainer">
-          <div className="firstHalf">
-            <div className="LostDetailsListItem">
-              <h4>Item Lost</h4>
-              <p>{product?.name}</p>
-            </div>
-            <div className="LostDetailsListItem">
-              <h4>Category</h4>
-              <p>{product?.category}</p>
-            </div>
-            <div className="LostDetailsListItem">
-              <h4>Brand</h4>
-              <p>{product?.brand}</p>
-            </div>
-            <div className="LostDetailsListItem">
-              <h4>Primary Color</h4>
-              <p>{product?.color}</p>
-            </div>
+              <div className="inputDiv">
+                <label
+                  htmlFor="description"
+                  className="form-label"
+                  style={{ marginBottom: "10px" }}
+                >
+                  Note (optional)
+                </label>
+                <textarea
+                  id="descripion"
+                  style={{
+                    outline: "none",
+                    border: "1px solid gray",
+                    width: "100%",
+                    maxWidth: "100%",
+                  }}
+                  onChange={(e) => setNote(e.target.value)}
+                  placeholder=""
+                  value={note}
+                ></textarea>
+              </div>
+              <Button
+                type="submit"
+                variant="contained"
+                disabled={isLoading}
+                style={{ marginLeft: "2%", width: "100%" }}
+              >
+                {isLoading && <CircularProgress size={14} />}
+                {!isLoading && "SUBMIT"}
+              </Button>
+            </form>
           </div>
-          <div className="secondHalf">
-            <div className="LostDetailsListItem">
-              <h4>Date Lost</h4>
-              <p>{dateString}</p>
-            </div>
-            <div className="LostDetailsListItem">
-              <h4>Time Lost</h4>
-              <p>{product?.lost_time}</p>
-            </div>
-            <div className="LostDetailsListItem">
-              <h4>Location Lost</h4>
-              <p>{product?.lost_location}</p>
-            </div>
-            <div className="LostDetailsListItem">
-              <h4>Description</h4>
-              <p>{product?.description}</p>
-            </div>
-          </div>
-        </div>
+        </Modal>
       </div>
-      <Modal
-        open={openModal}
-        onClose={(e) => setOpenModal(false)}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <div style={modalStyle} className={`${classes.paper}`}>
-          <h4>Lost Item</h4>
-          <form
-            className="form"
-            style={{ display: "flex", flexDirection: "column" }}
-            onSubmit={raiseHandFunction}
-          >
-            <div className="inputDiv">
-              <label htmlFor="description" className="form-label">
-                Description
-              </label>
-              <textarea
-                id="descripion"
-                style={{ outline: "none", border: "1px solid gray" }}
-                onChange={(e) => setNote(e.target.value)}
-                value={note}
-              ></textarea>
-            </div>
-            <Button type="submit" variant="contained" disabled={isLoading}>
-              {isLoading && <CircularProgress size={14} />}
-              {!isLoading && "SUBMIT"}
-            </Button>
-          </form>
-        </div>
-      </Modal>
-    </div>
+    </>
   );
 }
 
