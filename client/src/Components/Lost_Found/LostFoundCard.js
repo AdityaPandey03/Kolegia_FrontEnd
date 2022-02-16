@@ -7,7 +7,7 @@ import { FaUser } from "react-icons/fa";
 
 const LostFoundCard= ({card,editOption,handleClick,postedby}) => {
 
-
+const slicedDescription=card.description.slice(0,17);
     const [pht, setPht] = useState("");
 
     let result = card.posted_on.slice(0, 10);
@@ -57,7 +57,7 @@ const LostFoundCard= ({card,editOption,handleClick,postedby}) => {
             </h4>
             <h4 className="pink">
               <label htmlFor="h4">Description:</label>
-              {card.description}
+              {slicedDescription}...
             </h4>
             <div className="view-more-01">
               <div>

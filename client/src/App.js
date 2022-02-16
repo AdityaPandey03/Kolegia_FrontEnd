@@ -60,7 +60,7 @@ function App() {
             <Route exact path="/profile" element={<ProfileMobile />} />
             <Route exact path="/requirements" element={<Requirement />} />
             <Route exact path="/resetPassword" element={<ResetPassword />} />
-            <Route exact path="/editProfile" element={<Edit_Profile/>} />
+            <Route exact path="/editProfile" element={<Edit_Profile />} />
             <Route exact path="/verifyEmail" element={<VerifyEmailPage />} />
 
             <Route

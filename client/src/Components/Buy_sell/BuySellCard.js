@@ -38,7 +38,12 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
+
+
 const NoteCard = ({ data,editOption,handleClick}) => {
+
+  const slicedDescription=data.description.slice(0,17);
+  console.log(slicedDescription);
   
   const classes = useStyles();
   return (
@@ -64,7 +69,7 @@ const NoteCard = ({ data,editOption,handleClick}) => {
         <Typography variant="p">{data.name}</Typography>
        
         <Typography variant="p">Rs {data.price}</Typography>
-        <Typography variant="p">Description:{data.description}</Typography>
+        <Typography variant="p">Description:{slicedDescription}..</Typography>
         <div className="box">
          
           <Link to={`/product/${data._id}`} underline="none">

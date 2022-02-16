@@ -10,13 +10,18 @@ import {
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message/Message";
+import { io } from "socket.io-client";
 
 function Messenger() {
-  // console.log(messages);
+  const chats = useSelector((state) => state.chat.chats);
+  const currentChatMessages = useSelector(
+    (state) => state.chat.all_messages_of_a_conversation
+  );
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
-  const [messages, setMessages] = useState();
+  const [messages, setMessages] = useState(currentChatMessages);
   const [newMessage, setNewMessage] = useState("");
+  const [receivedMessage, setReceivedMessage] = useState(null);
   const dispatch = useDispatch();
   const encodedToken = localStorage.getItem("jwt");
   const decoded = jwt_decode(encodedToken);
@@ -25,10 +30,8 @@ function Messenger() {
   };
   const token = decoded.auth_token;
 
-  const chats = useSelector((state) => state.chat.chats);
-  const currentChatMessages = useSelector(
-    (state) => state.chat.all_messages_of_a_conversation
-  );
+  const socket = useRef();
+  const scrollRef = useRef();
 
   useEffect(() => {
     dispatch(getAllChats({ user_details, token }));
@@ -39,8 +42,24 @@ function Messenger() {
     dispatch(getMessages({ room_id, token }));
   }, [currentChat]);
 
+  useEffect(() => {
+    setMessages(currentChatMessages);
+  }, [currentChatMessages]);
+
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, [messages]);
+
   const clickHandler = (e) => {
     e.preventDefault();
+
+    socket.current.emit("sendMessage", {
+      senderId: user_details._id,
+      text: newMessage,
+      receiverId: currentChat?.chatting_with?._id,
+    });
 
     const formdata = new FormData();
     formdata.append("message", newMessage);
@@ -51,6 +70,34 @@ function Messenger() {
     dispatch(sendMessage(formdata));
     setNewMessage("");
   };
+
+  //SOCKET FUNCTIONS
+
+  useEffect(() => {
+    socket.current = io("ws://localhost:8800");
+    socket.current.on("getMessage", (data) => {
+      setReceivedMessage({
+        sender_id: data.senderId,
+        receiver_id: data.receiverId,
+        room_id: currentChat?._id,
+        message: data.text,
+        createdAt: Date.now(),
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    socket.current?.emit("addUser", user_details._id);
+    // socket.current.on("getUser", (users) => {
+    //   setOnlineUsers(
+    //     user.following.filter((f) => users.some((u) => u.userId == f))
+    //   );
+    // });
+  }, [user_details]);
+
+  useEffect(() => {
+    receivedMessage && setMessages((prev) => [...prev, receivedMessage]);
+  }, [receivedMessage]);
 
   return (
     <>
@@ -76,8 +123,8 @@ function Messenger() {
             {currentChat ? (
               <>
                 <div className="chatBoxTop">
-                  {currentChatMessages.length > 0 &&
-                    currentChatMessages.map((m) => {
+                  {messages.length > 0 &&
+                    messages.map((m) => {
                       return (
                         <div>
                           <Message

@@ -50,7 +50,7 @@ const Feedback = () => {
     return (
         <section id="testimonial" className="testimonials">
             <div className="container12">
-                <h1>Feedbacks</h1>
+                <h1 style={{paddingTop:"1rem",fontFamily:"cursive"}}>A Message From Our Users</h1>
                 <div className="row12">
                     <div className="col12">
                         <OwlCarousel id="customer-testimonoals" className="owl-carousel owl-theme" {...options}>
