@@ -21,6 +21,7 @@ import ProfileMobile from "../../Pages/ProfileMobile";
 import HomeIcon from '@mui/icons-material/Home';
 import { fontSize } from '@mui/system';
 import ProfilePage from '../profile/ProfilePage'
+import { SiWhitesource } from 'react-icons/si';
 
 
 
@@ -29,7 +30,7 @@ const drawerWidth = 240
 const useStyles = makeStyles((theme) => {
   return {
     page: {
-      background: '#f9f9f9',
+      background: 'white',
       width: '100%',
       padding: theme.spacing(3),
      
@@ -44,16 +45,18 @@ const useStyles = makeStyles((theme) => {
       }
     },
     drawerPaper: {
+      background: '#332a7c',
       width: drawerWidth,
       [theme.breakpoints.down(650)]: {
        width:'60px'
       }
     },
     active: {
-      background: '#f4f4f4'
+      background: '#F0BC5E'
     },
     title: {
       // padding: theme.spacing(2),
+      color: 'white',
       cursor:'pointer',
       [theme.breakpoints.down(650)]: {
         display:'none'
@@ -71,13 +74,14 @@ const useStyles = makeStyles((theme) => {
     },
 
     icon:{
-      color:"#F25767"
+      color:"white"
     },
     icon02:{
-      color:"#F25767",
+      color:"white",
       width:'50px'
     },
     label:{
+      color: 'white',
       // display:'none'
       [theme.breakpoints.down(650)]: {
         display:'none'

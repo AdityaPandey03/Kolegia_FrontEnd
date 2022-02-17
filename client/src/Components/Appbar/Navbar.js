@@ -33,34 +33,31 @@ const handleClick =  ()=> {
 }
     return (  
         <div className="container-nav">
-
-<div className="header1">
-    <h1>Kolegia</h1>
-    <Link className="nav-profile" to='/sideBar'>Profile</Link>
-   
-</div>
-
-<input type="checkbox" id="check"/>
-      <label htmlFor="check" className="checkbtn">
-        <i style={{color:'white'}}className="fas fa-bars"></i>
-      </label>
-    < ul className='ul'>
-        {visibleSearch?
-        <li> <form className="form"
-                id="form">
-                    
-          <input  type="text" placeholder='Search...' id="search" className="search" />
-          <div className="icon"><FaSearch/></div>
-                </form></li>:null}
-                <div className="a">
-        {/* <li><a href="">Items-needed</a></li> */}
-        <li><a href="#"><FaBell/></a></li>
-        <li><Link to='/chatRoom'><SiGooglechat/></Link></li>
-        <li><Link to='/dashboard'>Dashboard</Link></li>
-        <li on onClick={handleClick} style={{fontSize:'1.2rem'}}>Logout</li>
-        </div>
-        
-    </ul>
+            <div className="part_one">
+                <div className="header1">
+                    <img src="https://res.cloudinary.com/kartikeyvaish/image/upload/v1642841457/Kolegia/logo_snpqqs.png" alt="" />
+                    <p id='abc'>olegia</p>
+                </div>
+            </div>
+            <div className="a">
+                <Link className="nav-profile" to='/sideBar'>Profile</Link> 
+                <input type="checkbox" id="check"/>
+                <label htmlFor="check" className="checkbtn">
+                    <i style={{color:'white'}}className="fas fa-bars"></i>
+                </label>
+                <div className='ul'>
+                    {visibleSearch?
+                    <p><form className="form" id="form">                            
+                    <input  type="text" placeholder='Search...' id="search" className="search" />
+                    <div className="icon"><FaSearch/></div>
+                    </form></p>:null
+                    }
+                </div>            
+                {/* <li><a href="">Items-needed</a></li> */}
+                <p><Link to='/chatRoom'><SiGooglechat/></Link></p>
+                <p><Link to='/dashboard'>Dashboard</Link></p>
+                <p className="log_out" on onClick={handleClick}>Logout</p>
+            </div>        
         </div>
     );
 }
