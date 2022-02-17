@@ -8,7 +8,8 @@ VERIFY_EMAIL_FOR_RESET,
 RESET_PASSWORD,
 EDIT_PROFILE,
 RESET_PROFILE_STATUS,
-GET_DASHBOARD_STATS} from "../constants/AllConstants";
+GET_DASHBOARD_STATS,
+RESET_ERROR_MESSAGE} from "../constants/AllConstants";
 
 const initialState={
     otpStatusCode:'',
@@ -101,7 +102,13 @@ const AuthReducer=(state=initialState,action)=>{
                         return{
                         ...state,
                         editProfileResponse:''    
-                        }              
+                        }          
+                        
+                        case RESET_ERROR_MESSAGE:
+                            return{
+                            ...state,
+                            errorMessage:'', 
+                            }       
                         
                         case GET_DASHBOARD_STATS:
                             return{

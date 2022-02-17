@@ -3,6 +3,7 @@ import { useDispatch ,useSelector} from "react-redux";
 import {verifyOtp} from '../redux/actions/authActions'
 import { useLocation, useNavigate } from "react-router-dom";
 import LoadingButton from '@mui/lab/LoadingButton';
+import {resetErrorMessage} from '../redux/actions/authActions'
 
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -29,6 +30,7 @@ const OtpPage = () => {
 
     
     if(responseStatusCode===200){
+        dispatch(resetErrorMessage)
         if(Verification==='EMAIL_VERIFICATION'){
         navigate('/signUpForm',{
             state:{Email:Email}

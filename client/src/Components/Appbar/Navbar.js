@@ -56,7 +56,7 @@ const handleClick =  ()=> {
                 {/* <li><a href="">Items-needed</a></li> */}
                 <p><Link to='/chatRoom'><SiGooglechat/></Link></p>
                 <p><Link to='/dashboard'>Dashboard</Link></p>
-                <p className="log_out" on onClick={handleClick}>Logout</p>
+                <p className="log_out"  onClick={handleClick}>Logout</p>
             </div>        
         </div>
     );

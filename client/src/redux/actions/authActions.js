@@ -14,7 +14,8 @@ import {
      RESET_PASSWORD,
      EDIT_PROFILE,
      RESET_PROFILE_STATUS,
-     GET_DASHBOARD_STATS
+     GET_DASHBOARD_STATS,
+     RESET_ERROR_MESSAGE
    
     } from "../constants/AllConstants";
 
@@ -301,6 +302,14 @@ export const logoutUser= (token)=> async (dispatch) => {
       export const resetStatus=(dispatch)=>{
         dispatch({
           type:RESET_PROFILE_STATUS,
+        }
+    
+        )
+    
+       };
+       export const resetErrorMessage=(dispatch)=>{
+        dispatch({
+          type:RESET_ERROR_MESSAGE,
         }
     
         )
