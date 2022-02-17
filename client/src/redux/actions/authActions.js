@@ -13,7 +13,8 @@ import {
      VERIFY_EMAIL_FOR_RESET,
      RESET_PASSWORD,
      EDIT_PROFILE,
-     RESET_PROFILE_STATUS
+     RESET_PROFILE_STATUS,
+     GET_DASHBOARD_STATS
    
     } from "../constants/AllConstants";
 
@@ -306,4 +307,33 @@ export const logoutUser= (token)=> async (dispatch) => {
     
        };
     
+
+ export const getDashBoardStats=() => async(dispatch)=>{
+
+ try{
+        const token = localStorage.getItem("jwt");
+        const decoded = jwt_decode(token);
+
+        const res = await axios.get(
+          
+          "http://localhost:3000/api/v1/auth/get-dashboard-statistics",{
+            headers:{
+              authorization:`Bearer ${decoded.auth_token}`,
+            },
+          }
+        );
+    console.log(res);
+        dispatch({
+          type: GET_DASHBOARD_STATS,
+          payload: res,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+       
+
+       
+        
+       
   

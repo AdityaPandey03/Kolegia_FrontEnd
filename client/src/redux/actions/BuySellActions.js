@@ -28,7 +28,7 @@ export const getAllBuySellItems = () => async (dispatch) => {
         },
       }
     );
-
+console.log(data);
     dispatch({
       type: GET_ALL_BUY_SELL_ITEMS,
       payload: data,

@@ -2,6 +2,7 @@ import Dcards from "../Components/Dashboard/DashboardCards";
 import Profile from "../Components/Dashboard/Profile";
 import "../Components/Dashboard/Dashboard.css";
 import Navbar from "../Components/Appbar/Navbar";
+import StatsCard from "../Components/Dashboard/StatsCard";
 
 
 
@@ -11,6 +12,7 @@ const Dashboard = () => {
       <Navbar visibleSearch={false}/>
       <div className="cont-dashboard">
         <Dcards />
+        
       
       </div>
     </>
