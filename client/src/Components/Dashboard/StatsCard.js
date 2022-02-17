@@ -16,15 +16,25 @@ dispatch(getDashBoardStats())
     },[]);
 
     return ( 
-        <div className='statsCard' id="Dcard" >
-              <h2>Stats</h2>
-              <h4>Total-users:{stats.users_count}</h4>
-              <h4>Lost-Items:{stats.lost_items}</h4>
-              <h4>Unread-msgs:{stats.unread_messages_count}</h4>
-              <h4>Raise-hands:{stats.raised_hands_count}</h4>
+        <div className='statsCard' id="DcardStats" >
+              <h2 style={{textAlign:'center',color:'PURPLE'}}>Statistics</h2>
+              <h4 style={{marginTop:'35px',marginLeft:'20px', fontFamily: "Hind Siliguri, sans-serif",fontSize:'19px',fontWeight:'900'}}>Total Users:  {stats.users_count}</h4>
+              <h4 style={{marginTop:'13px',marginLeft:'20px', fontFamily: "Hind Siliguri, sans-serif",fontSize:'19px'}}>Lost Items:    {stats.lost_items}</h4>
+              <h4 style={{marginTop:'13px',marginLeft:'20px',fontFamily: "Hind Siliguri, sans-serif",fontSize:'19px'}}>Unread-msgs:   {stats.unread_messages_count}</h4>
+              <h4 style={{marginTop:'13px',marginLeft:'20px', fontFamily: "Hind Siliguri, sans-serif",fontSize:'19px'}}>Raised Hands:   {stats.raised_hands_count}</h4>
               
              
             </div>
+
+        //  {/* <div className='statsCard' id="DcardStats" >
+        //       <h2 style={{textAlign:'center'}}>Stats</h2>
+        //       <h4 style={{marginTop:'35px',marginLeft:'20px', fontFamily: "Inter, sans-serif",fontSize:'18px',fontWeight:'900'}}>Total Users:  {stats.users_count}</h4>
+        //       <h4 style={{marginTop:'15px',marginLeft:'20px', fontFamily: "Inter, sans-serif",fontSize:'18px'}}>Lost Items:    {stats.lost_items}</h4>
+        //       <h4 style={{marginTop:'15px',marginLeft:'20px',fontFamily: "Inter, sans-serif",fontSize:'18px'}}>Unread-msgs:   {stats.unread_messages_count}</h4>
+        //       <h4 style={{marginTop:'15px',marginLeft:'20px', fontFamily: "Inter, sans-serif",fontSize:'18px'}}>Raised Hands:   {stats.raised_hands_count}</h4>
+              
+             
+        //     </div> */}
      );
 }
  

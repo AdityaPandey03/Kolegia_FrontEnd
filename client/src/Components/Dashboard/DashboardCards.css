@@ -28,6 +28,26 @@
     box-shadow:  5px 5px 8px #D9D7F1,
                  -5px -5px 8px #fdfdfd;
 }
+#DcardStats{
+    width: 23rem;
+    height: 18rem;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: left;
+    box-sizing: border-box;
+    border-radius: 13px;
+    padding: 7px 10px 0px 0px;
+    /* background-image: url('../../assests/stats.jpg'); */
+    background: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url('../../assests/stats.jpg');
+    background-repeat: no-repeat;
+    
+
+   
+    box-shadow:  5px 5px 8px #D9D7F1,
+                 -5px -5px 8px #fdfdfd;
+}
 #Dcard img{
     width:11rem;
     height: 8rem;
