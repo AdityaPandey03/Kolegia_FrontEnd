@@ -5,6 +5,7 @@ import { getSingleProductDetails } from "../redux/actions/BuySellActions";
 import LoadingBox from "../Components/LoadingBox";
 import { useParams } from "react-router-dom";
 import { CircularProgress, Button } from "@material-ui/core";
+import Navbar from "../Components/Appbar/Navbar";
 
 function ProductDetails() {
   const params = useParams();
@@ -28,6 +29,8 @@ console.log(singleProduct);
   };
 
   return (
+    <>
+    <Navbar visibleSearch={false}/>
     <div className="container">
       {isLoading ? (
         <LoadingBox />
@@ -68,7 +71,9 @@ console.log(singleProduct);
           </div>
         </div>
       )}
+     
     </div>
+    </>
   );
 }
 
