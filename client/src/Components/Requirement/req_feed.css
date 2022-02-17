@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital@1&family=Roboto&display=swap');
 
-
-
 .feed {
     display: flex;
     flex-direction: column;
@@ -9,11 +7,10 @@
     border-width: 3px 3px 3px 10px;
     /* border-color: #5839a0; */
     box-shadow: 10px 8px 10px #D9D7F1, -10px -5px 10px #fdfdfd;
-  
   /* margin: 5rem; */
   /* box-shadow: 5px 5px 10px #c3c3c3, -5px -5px 10px #fdfdfd; */
   /* background-color: #e7e7f7; */
-  background-color: #fbfbfd;
+    background-color: #fbfbfd;
     border-radius: 0px 5px 5px 0px;
     padding: 4px 10px;
     margin: 7px 15px;
@@ -58,7 +55,8 @@
     color: var(--color-text);
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 750px){
+
     .feed_title {
         font-size: 24px;
     }

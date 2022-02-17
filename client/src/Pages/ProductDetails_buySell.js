@@ -55,14 +55,14 @@ function ProductDetails() {
           </div>
           <div className="detailsContainer">
             <h1>{singleProduct?.name}</h1>
-            <p>price : ${singleProduct?.price}</p>
-            <p>description : {singleProduct?.description}</p>
+            <p>Price :  Rs. {singleProduct?.price}</p>
+            <p>Description : {singleProduct?.description}</p>
             <h3>Owner details</h3>
-            {/* <h4 style={{color:'black'}}>posted By :{singleProduct.owner_details.name}</h4> */}
+            <h4 style={{color:'black'}}>Posted By :{singleProduct.owner_details.name}</h4>
 
             <Button variant="contained">
               <CircularProgress size={14} />
-              'Connect with author'
+              Connect with author
             </Button>
           </div>
         </div>
