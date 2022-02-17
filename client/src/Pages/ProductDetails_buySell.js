@@ -15,7 +15,7 @@ function ProductDetails() {
 
   
 
-
+console.log(singleProduct);
 
   const dispatch = useDispatch();
   useEffect(() => {
