@@ -17,7 +17,11 @@
     margin: 0 auto 15px;
     padding: 16px;
     color: white;
-    background-color: rgb(70, 71, 75);
+  
+    border-radius:10px;
+    /* background-color: rgb(70, 71, 75); */
+    box-shadow: 10px 8px 10px #D9D7F1, -10px -5px 10px #fdfdfd;
+    
   }
 
   .profile-page__background-svg {
@@ -29,8 +33,9 @@
     height: 50%;
     z-index: 0;
     opacity: 1;
-    fill: black;
+    fill: #332a7c;
     fill-opacity: 1;
+    border-radius: 10px 10px 0 0;
   }
 
   .top-section {
@@ -53,8 +58,9 @@
   .img-circle {
     border-radius: 50%;
     vertical-align: middle;
-    max-width: 90px;
-    min-height: 90px;
+    border: 2px solid white;
+   width: 10rem;
+   height: 10rem;
     transform-style: preserve-3d;
     margin: 0 auto 20px;
   }
@@ -83,7 +89,7 @@
   }
   .more_details {
     display: block;
-    color: #ffffff;
+    color: black;
     font-family: Iceberg;
     font-size: 20px;
     margin: 10px 0;
@@ -100,14 +106,16 @@
   }
   .edit_details {   
     display: inline-block;
-    border: 2px solid #000000;
+    /* border: 2px solid #F25767; */
+border: none;
     border-radius: 8px;
-    background-color: transparent;;
+    background-color:#F0BC5E; 
     color: white;
     padding: 15px;
     margin: 10px;
     transition: transform .2s;
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-size: 1.2rem;
     min-width: 150px;
   }
   .edit_details:hover {

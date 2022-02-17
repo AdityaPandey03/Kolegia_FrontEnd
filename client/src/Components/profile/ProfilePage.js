@@ -1,7 +1,14 @@
 import './profile.css';
 import { FaEnvelope, FaMobileAlt, FaMapMarkerAlt, FaHome, FaRegCalendarAlt, FaRegBookmark, FaRegMoneyBillAlt } from "react-icons/fa";
+import jwt_decode from "jwt-decode";
+import { Link } from 'react-router-dom';
+
 
 const Profile = () => {
+
+  const token = localStorage.getItem("jwt");
+  const decoded = jwt_decode(token);
+
   return (
     <div className="profile-page-container">
         <div className="profile-page">
@@ -21,37 +28,40 @@ const Profile = () => {
               </svg>
             <div className="top-section">
                 <div className='profile-image'>
-                    <img className='img-circle' src="https://res.cloudinary.com/kartikeyvaish/image/upload/v1642841457/Kolegia/logo_snpqqs.png" alt="User" />
+                    {/* <img className='img-circle' src="https://res.cloudinary.com/kartikeyvaish/image/upload/v1642841457/Kolegia/logo_snpqqs.png" alt="User" /> */}
+                    <img className='img-circle' src={decoded.profile_picture} alt="User"  />
                 </div>
-                <div className='user_name'>Vikas Mishra</div>
+                <div className='user_name'>{decoded.name}</div>
                 <div className="contact_details">
-                  <span className="email"><FaEnvelope /> vikas232@gmail.com</span>
-                  <span className="phone_no"><FaMobileAlt /> +916378xxxxxxxxxx</span>
+                  <span className="email"><FaEnvelope /> {decoded.email}</span>
+                  <span className="phone_no"><FaMobileAlt /> {decoded.phone}</span>
                 </div>
               </div>
               <div className="bottom-section">
                 <div className='leftpart'>
                   <div className="profile-page__field">
-                    <span className="more_details"><FaRegCalendarAlt /> Year: 2019</span>
+                    <span className="more_details"><FaRegCalendarAlt /> Year: {decoded.year}</span>
                   </div>
                   <div className="profile-page__field">
-                    <span className="more_details"><FaRegBookmark /> Batch: IMT</span>
+                    <span className="more_details"><FaRegBookmark /> Batch: {decoded.batch}</span>
                   </div>
                   <div className="profile-page__field">
-                    <span className="more_details"><FaRegMoneyBillAlt /> Roll No.- 2019IMT109</span>
+                    <span className="more_details"><FaRegMoneyBillAlt /> Roll No-{decoded.roll_number} </span>
                   </div>
                 </div>
                 <div className='rightpart'>
                   <div className="profile-page__field">
-                    <span className="more_details"><FaHome /> Hostel: BH1</span>
+                    <span className="more_details"><FaHome /> Hostel: {decoded.hostel}</span>
                   </div>
                   <div className="profile-page__field">
-                    <span className="more_details"><FaMapMarkerAlt /> Room No.: 409</span>
+                    <span className="more_details"><FaMapMarkerAlt /> Room No.: {decoded.room_number}</span>
                   </div>
                 </div>
             </div>
             <div className="profile-page__btn">
-                  <button className="edit_details">Edit Details</button>
+                  <button  className="edit_details"><Link 
+   to='/editProfile'
+  state={{ Data: decoded }}>Edit Details</Link></button>
             </div>
         </div>
     </div>

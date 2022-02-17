@@ -20,6 +20,7 @@ import My_requirements from '../../Pages/My_requirements';
 import ProfileMobile from "../../Pages/ProfileMobile";
 import HomeIcon from '@mui/icons-material/Home';
 import { fontSize } from '@mui/system';
+import ProfilePage from '../profile/ProfilePage'
 
 
 
@@ -168,7 +169,7 @@ export default function SideBar() {
         <Route exact path="/myOwnBuySellItems" element={<My_buySellItems />} />
         <Route exact path="/myOwnLostFoundItems" element={<My_lostFoundItems />}/>
          <Route exact path="/myOwnRequirements" element={<My_requirements />} />
-         <Route exact path="/" element={<ProfileMobile />} />
+         <Route exact path="/" element={<ProfilePage/>} />
         </Routes>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import Pic from '../assests/Pic.jpeg';
+
 import '../Components/Dashboard/ProfileMobile.css'
 import jwt_decode from "jwt-decode";
 import { FaEdit} from "react-icons/fa";
@@ -9,9 +9,7 @@ const ProfileMobile= () => {
     const token = localStorage.getItem("jwt");
     const decoded = jwt_decode(token);
 
-    console.log(decoded)
-    console.log(decoded.profile_picture);
-    //decoded==data
+    
 
     return ( 
         <div className="profile_mobile2">
