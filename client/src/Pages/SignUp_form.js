@@ -97,7 +97,7 @@ else {
             <input onChange={e=>setHostel(e.target.value)} type="text" placeholder="Hostel(BH-1)" />
             <input onChange={e=>setRoomNo(e.target.value)} type="text" placeholder="Room No" />
             <label  htmlFor="input">Profile Picture</label>
-            <input style={{border:'none'}} onChange={e=>setProfilePicture(e.target.value)} type="file" />
+            <input style={{border:'none'}} onChange={e=>setProfilePicture(e.target.files[0])} type="file" />
             <input onChange={e=>setPassword(e.target.value)} type="password" placeholder="Password" />
             <input onChange={e=>setConfirm_Password(e.target.value)} type="password" placeholder="Confirm Password" />
           

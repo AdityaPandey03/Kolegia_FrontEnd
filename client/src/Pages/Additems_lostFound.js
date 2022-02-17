@@ -139,7 +139,10 @@ function AddItem() {
               type="date"
               id="date"
               placeholder="date when item lost"
-              onChange={(e) => setLostDate(e.target.value)}
+              onChange={(e) =>{ let temp=e.target.value;console.log(new Date(temp).toLocaleDateString())}
+                               
+
+          }
               value={lostDate}
               required
             ></input>
@@ -153,7 +156,7 @@ function AddItem() {
               type="time"
               id="time"
               placeholder="time when item lost"
-              onChange={(e) => setLostTime(e.target.value)}
+              onChange={(e) => console.log(e.target.value)}
               value={lostTime}
               required
             ></input>
