@@ -7,7 +7,8 @@ USER_LOGOUT,
 VERIFY_EMAIL_FOR_RESET,
 RESET_PASSWORD,
 EDIT_PROFILE,
-RESET_PROFILE_STATUS} from "../constants/AllConstants";
+RESET_PROFILE_STATUS,
+GET_DASHBOARD_STATS} from "../constants/AllConstants";
 
 const initialState={
     otpStatusCode:'',
@@ -23,7 +24,8 @@ const initialState={
     logoutUserResponse:'',
     requestId:'',
     editProfileResponse:'',
-    editProfileData:''
+    editProfileData:'',
+    dashboardStats:''
 }
 
 const AuthReducer=(state=initialState,action)=>{
@@ -99,7 +101,13 @@ const AuthReducer=(state=initialState,action)=>{
                         return{
                         ...state,
                         editProfileResponse:''    
-                        }                  
+                        }              
+                        
+                        case GET_DASHBOARD_STATS:
+                            return{
+                                ...state,
+                                dashboardStats:action.payload.data.stats
+                            }
                     default:
                      return state;
     }

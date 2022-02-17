@@ -4,6 +4,7 @@ import Tickets from "../../assests/Tickets.svg";
 import Profile from "./Profile";
 
 import { Link, useNavigate } from "react-router-dom";
+import StatsCard from './StatsCard'
 
 import "./DashboardCards.css";
 
@@ -35,12 +36,7 @@ const Dcards = () => {
       button_title: "ViewMore",
       path: "/responses",
     },
-    {
-      Title: "Stats",
-      img: Tickets,
-      button_title: "ViewMore",
-      path: "/myOwnBuySellItems",
-    },
+   
   ];
   return (
     <>
@@ -57,9 +53,11 @@ const Dcards = () => {
               <Link to={card.path}>
                 <button className="button-01">{card.button_title}</button>
               </Link>
+
             </div>
           );
         })}
+        <StatsCard/>
       </div>
     </>
   );
