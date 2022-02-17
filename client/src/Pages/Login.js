@@ -5,7 +5,7 @@ import {verifyEmail,signInWithEmail} from '../redux/actions/authActions'
 import { Link, useNavigate } from "react-router-dom";
 import Googlelogin from '../Components/GoogleLogin/Googlelogin';
 import LoadingButton from '@mui/lab/LoadingButton';
-
+import {resetErrorMessage} from '../redux/actions/authActions'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
  
@@ -19,6 +19,7 @@ const LoginSignUp = () => {
   const responseStatusCode= useSelector((state) => state.auth.loginStatusCode);
   const loginWithEmailResponse=useSelector((state)=>state.auth.loginWithEmailResponse)
   const errorMessage=useSelector((state)=>state.auth.errorMessage)
+
   
   
   
@@ -36,12 +37,14 @@ var Message;
 
  //user-login-verification
 if(loginWithEmailResponse.data){
+  dispatch(resetErrorMessage)
   if(loginWithEmailResponse.data.user_token){
     localStorage.setItem("jwt",loginWithEmailResponse.data.user_token);
     navigate('/dashboard');
 }
 }
 else if(responseStatusCode===200){
+  dispatch(resetErrorMessage)
   navigate('/otpPage',{
     state:{Email:email,verification:'EMAIL_VERIFICATION'}
   });
@@ -63,9 +66,13 @@ else if(responseStatusCode===200){
  
 
 const handleClick1=()=>{
+  dispatch(resetErrorMessage)
+  Message=''
     document.getElementById("container").classList.add("right-panel-active");
 }
 const handleClick2=()=>{
+  Message=''
+  dispatch(resetErrorMessage)
     document.getElementById("container").classList.remove("right-panel-active");
 }
 

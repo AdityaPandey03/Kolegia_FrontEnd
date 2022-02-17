@@ -3,7 +3,7 @@ import { useDispatch,useSelector } from "react-redux";
 import "../Components/LoginSignUp/SignUpForm.css";
 import { addUserDetails } from "../redux/actions/authActions";
 import {  useNavigate,useLocation} from "react-router-dom"
-
+import {resetErrorMessage} from '../redux/actions/authActions'
 
 const SignUpForm = () => {
     const addUserResponse = useSelector((state) => state.auth.addUserResponse);
@@ -47,6 +47,7 @@ const SignUpForm = () => {
 //signUp verified here
     if(addUserResponse.data){
         if(addUserResponse.data.user_token){
+            dispatch(resetErrorMessage)
         localStorage.setItem("jwt",addUserResponse.data.user_token);
         navigate('/dashboard');
     }
