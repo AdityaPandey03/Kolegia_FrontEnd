@@ -4,10 +4,17 @@ import { useEffect, useState } from 'react';
 import {verifyEmail,signInWithEmail} from '../redux/actions/authActions'
 import { Link, useNavigate } from "react-router-dom";
 import Googlelogin from '../Components/GoogleLogin/Googlelogin';
+import LoadingButton from '@mui/lab/LoadingButton';
+
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
  
 
 const LoginSignUp = () => {
 
+  
+
+  const [loading, setLoading] = useState(false);
   // window.localStorage.removeItem('jwt');
   const responseStatusCode= useSelector((state) => state.auth.loginStatusCode);
   const loginWithEmailResponse=useSelector((state)=>state.auth.loginWithEmailResponse)
@@ -22,6 +29,7 @@ const LoginSignUp = () => {
  const [email,setEmail]= useState('')
 
  const [password,setPassword]=useState('')
+
 
  //ErrorMessage
 var Message;
@@ -38,13 +46,17 @@ else if(responseStatusCode===200){
     state:{Email:email,verification:'EMAIL_VERIFICATION'}
   });
 
-}else {
+}else if(errorMessage) {
+  
   Message=errorMessage
+  // setLoading(false);
 }
  
 
 
- 
+ useEffect(()=>{
+  setLoading(false);
+ },[Message]);
  
 
 
@@ -58,14 +70,17 @@ const handleClick2=()=>{
 }
 
 const handleSubmitSignIn=()=>{
-  
+  setLoading(true);
     dispatch(signInWithEmail(email,password))
   
 }
 
 const handleSubmitSignUp=()=>{
+  setLoading(true);
   dispatch(verifyEmail(email));
+  
 }
+
     return ( 
         <div className="body">
         
@@ -88,7 +103,18 @@ const handleSubmitSignUp=()=>{
                 </div>
                
                 
-                <button style={{width:'18rem'}} onClick={handleSubmitSignUp} className="submit button">Verify Email</button>
+                {/* <button style={{width:'18rem'}} onClick={handleSubmitSignUp} className="submit button">Verify Email</button> */}
+                <LoadingButton
+                style={{width:'18rem',color:'white',background:'#F0BC5E',borderRadius:'10px',margin:'20px',height:'2.8rem'}}
+                className='submit button'
+        onClick={handleSubmitSignUp}
+        endIcon={<ArrowForwardIosIcon/>}
+        loading={loading}
+        loadingPosition="end"
+        variant="contained"
+      >
+        Verify Email
+      </LoadingButton>
 
                 <p style={{color:'black'}}>{Message}</p>
                 
@@ -122,10 +148,21 @@ const handleSubmitSignUp=()=>{
                 </div>
                 <Link to='/verifyEmail'>Forgot Password?</Link>
 
-    
-                <button style={{width:'18rem'}} className="submit button" onClick={handleSubmitSignIn}>Sign In</button>
+                <LoadingButton
+                style={{width:'18rem',color:'white',background:'#F0BC5E',borderRadius:'10px',margin:'20px',height:'2.8rem'}}
+                className='submit button'
+        onClick={handleSubmitSignIn}
+        endIcon={<ArrowForwardIosIcon/>}
+        loading={loading}
+        loadingPosition="end"
+        variant="contained"
+      >
+        Sign In
+      </LoadingButton>
+                {/* <button style={{width:'18rem'}} className="submit button" onClick={handleSubmitSignIn}>Sign In</button> */}
                 <p style={{color:'black'}}>{Message}</p>
                 <Googlelogin/>
+                
               </div>
               {/*DC4E41*/}
             </div>

@@ -1,8 +1,11 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import { useDispatch ,useSelector} from "react-redux";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import {verifyEmail, verifyEmailForReset} from '../redux/actions/authActions'
+import LoadingButton from '@mui/lab/LoadingButton';
+
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const VerifyEmailPage = () => {
     const dispatch=useDispatch();
@@ -12,15 +15,20 @@ const VerifyEmailPage = () => {
     
     const errorMessage=useSelector((state)=>state.auth.errorMessage)
     const [email,setEmail]=useState('');
+    const [loading, setLoading] = useState(false);
     
-    console.log(responseStatusCode);
+   
 
     if(responseStatusCode===200){
         navigate('/otpPage',{
           state:{Email:email,verification:'FORGOT_PASSWORD'}
         });}
     
-    var message3;
+    var message3=errorMessage;
+    useEffect(()=>{
+        setLoading(false);
+       },[message3]);
+       
    
     const style={
 
@@ -47,6 +55,7 @@ cont:{
 }
 }
      const handleClick =()=>{
+         setLoading(true);
      dispatch(verifyEmailForReset(email));
     }
 
@@ -58,7 +67,18 @@ cont:{
                 An otp will be sent to your email address to verify you account 
             </p>
             <input onChange={(e)=>setEmail(e.target.value)} style={{width:'12rem',height:'2rem'}} type="email" placeholder="Email"/>
-            <button onClick={handleClick} style={{width:'8rem',height:'2.5rem',background:'#332A7C',color:'white',fontSize:'1.1rem'}}>Send Otp</button>
+           
+            <LoadingButton
+                style={{width:'13rem',color:'white',background:'#332A7C',borderRadius:'10px',margin:'20px',height:'2.8rem'}}
+                className='submit button'
+        onClick={handleClick}
+        endIcon={<ArrowForwardIosIcon/>}
+        loading={loading}
+        loadingPosition="end"
+        variant="contained"
+      >
+  Send Otp
+      </LoadingButton>
             <p style={{color:'black'}}>{message3}</p>
             </div>
            
