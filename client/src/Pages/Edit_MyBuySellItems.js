@@ -10,8 +10,8 @@ const dispatch=useDispatch();
 const navigate= useNavigate();
 const location=useLocation();
 const productData=location.state.Data;
-
-var Name,Description,Price,id;
+console.log(productData);
+var Name,Description,Price,id,Category,Brand,Color;
 
 
 if(productData){
@@ -19,6 +19,9 @@ if(productData){
    Description=productData.description;
    Price=productData.price;
    id=productData._id;
+   Category=productData.category;
+   Brand=productData.brand;
+   Color=productData.color;
 }
 
 
@@ -26,6 +29,11 @@ const [itemName,setItemName]=useState(Name);
 const [description,setDescription]=useState(Description);
 const [price,setPrice]=useState(Price);
 const [imageList,setImageList]=useState([])
+const [brand,setBrand]=useState(Brand)
+const [color,setColor]=useState(Color)
+const [category,setCategory]=useState(Category)
+const [boughtTime,setBoughtTime]=useState('')
+const [warranty,setWarranty]=useState('')
 
 
 
@@ -53,6 +61,11 @@ const handleSubmit=(e)=>{
   formData.append('description',description)
   formData.append('price',price)
   formData.append("token", decoded.auth_token);
+  formData.append('category',category)
+  formData.append('color',color)
+  formData.append('bought_datetime',boughtTime)
+  formData.append('warranty_till',warranty)
+  formData.append('brand',brand)
   
 
   dispatch(editBuySellItem(formData));
@@ -71,7 +84,11 @@ const handleSubmit=(e)=>{
            
             <label  htmlFor="input">Name of product</label>
             <input defaultValue={Name}  onChange={e=>setItemName(e.target.value)} type="text" />
-           
+            <input defaultValue={Brand} onChange={e=>setBrand(e.target.value)} type="text" placeholder="Brand" />
+            <input defaultValue={Color} onChange={e=>setColor(e.target.value)} type="text" placeholder="Color of product" />
+            <input  onChange={e=>setBoughtTime(e.target.value)} type="date" placeholder="Bought date" />
+            <input  onChange={e=>setWarranty(e.target.value)} type="date" placeholder="Warranty Ends" />
+            <input defaultValue={Category} onChange={e=>setCategory(e.target.value)} type="text" placeholder="Category" />
             <label  htmlFor="input">description</label>
             <input defaultValue={Description} onChange={e=>setDescription(e.target.value)} type="text" />
             <label htmlFor="input">Price</label>
