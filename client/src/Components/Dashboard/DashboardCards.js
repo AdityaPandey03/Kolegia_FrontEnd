@@ -55,6 +55,7 @@ const Dcards = () => {
       path: "/responses",
     },
   ];
+
   return (
     <>
       <div className="Dcards-cont">
