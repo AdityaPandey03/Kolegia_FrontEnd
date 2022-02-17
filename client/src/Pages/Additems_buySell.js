@@ -10,6 +10,12 @@ import { addNewBuySellItem ,resetStatus} from "../redux/actions/BuySellActions";
   const [description,setDescription]=useState('');
  const [price,setPrice]=useState(0);
  const [imageList,setImageList]=useState([])
+ const [brand,setBrand]=useState('')
+ const [color,setColor]=useState('')
+ const [category,setCategory]=useState('')
+ const [boughtTime,setBoughtTime]=useState('')
+ const [warranty,setWarranty]=useState('')
+
  
 
  
@@ -46,7 +52,12 @@ const handleSubmit=(e)=>{
   formData.append('name',itemName)
   formData.append('description',description)
   formData.append('price',price)
-  formData.append("token", decoded.auth_token);
+  formData.append("token", decoded.auth_token)
+  formData.append('category',category)
+  formData.append('color',color)
+  formData.append('bought_datetime',boughtTime)
+  formData.append('warranty_till',warranty)
+  formData.append('brand',brand)
   
 
   dispatch(addNewBuySellItem(formData));
@@ -64,13 +75,15 @@ const handleSubmit=(e)=>{
           <h2 style={{color:'#332A7C',marginBottom:'10px'}}>Add Product</h2>
             <form className="form02" onSubmit={handleSubmit}>
            
-            <label  htmlFor="input">Name of product</label>
-            <input onChange={e=>setItemName(e.target.value)} type="text" />
-           
-            <label htmlFor="input">description</label>
-            <input onChange={e=>setDescription(e.target.value)} type="text" />
-            <label htmlFor="input">Price</label>
-            <input onChange={e=>setPrice(e.target.value)} type="number" />
+            
+            <input onChange={e=>setItemName(e.target.value)} type="text" placeholder="Name of product" />
+            <input onChange={e=>setBrand(e.target.value)} type="text" placeholder="Brand" />
+            <input onChange={e=>setColor(e.target.value)} type="text" placeholder="Color of product" />
+            <input onChange={e=>setDescription(e.target.value)} type="text" placeholder="Description" />
+            <input onChange={e=>setBoughtTime(e.target.value)} type="date" placeholder="Bought date" />
+            <input onChange={e=>setPrice(e.target.value)} type="number" placeholder="Price"/>
+            <input onChange={e=>setWarranty(e.target.value)} type="date" placeholder="Warranty Ends" />
+            <input onChange={e=>setCategory(e.target.value)} type="text" placeholder="Category" />
             <label htmlFor="input">Upload-Image</label>
             <input style={{border:'none'}} onChange={e=>setImageList([...imageList,...e.target.files])} type="file" multiple />
             <button>Submit</button>
