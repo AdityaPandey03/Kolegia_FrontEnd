@@ -217,8 +217,9 @@ function LostFoundItemDetails() {
                   style={{
                     outline: "none",
                     border: "1px solid gray",
-                    width: "100%",
                     maxWidth: "100%",
+                    minWidth: "100%",
+                    minHeight: "68px",
                   }}
                   onChange={(e) => setNote(e.target.value)}
                   placeholder=""
