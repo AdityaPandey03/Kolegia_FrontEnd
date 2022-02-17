@@ -30,6 +30,7 @@ import ResetPassword from "./Pages/ResetPassword";
 import LostFoundResponses from "./Pages/LostFoundResponses";
 import Messenger from "./Pages/Messenger";
 import Edit_Profile from "./Pages/Edit_Profile";
+import ProfilePage from "./Components/profile/ProfilePage"
 
 const theme = createTheme({
   palette: {
@@ -57,7 +58,7 @@ function App() {
             <Route exact path="/buySell" element={<Cards />} />
             <Route exact path="/lostFound" element={<Bcards />} />
             <Route exact path="/product/:id" element={<ProductDetails />} />
-            <Route exact path="/profile" element={<ProfileMobile />} />
+            <Route exact path="/profile" element={<ProfilePage />} />
             <Route exact path="/requirements" element={<Requirement />} />
             <Route exact path="/resetPassword" element={<ResetPassword />} />
             <Route exact path="/editProfile" element={<Edit_Profile />} />

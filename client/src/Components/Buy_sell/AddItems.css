@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
 body.active-modal {
     overflow-y: hidden;
     pointer-events: none;
@@ -19,31 +22,41 @@ body.active-modal {
     right: 0;
     bottom: 0;
     position: fixed;
+
 }
 
 .overlay {
     /* background: rgba(49,49,49,0.8); */
-    background-color:#332A7C ;
+    background-color: WHITE ;
+
 }
 .modal-content {
     position: absolute;
+    box-shadow: 15px 15px 10px #D9D7F1, 10px 10px 10px #fdfdfd;
+
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    line-height: 1.4;
+    line-height: 1.8;
     background: white;
-    padding: 14px 28px;
-    border-radius: 6px;
+    padding: 12px 28px;
+    border-radius: 10px;
+    margin-bottom:15px;
     width: 23rem;
     pointer-events: visible;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
+    
+
     
 }
 .modal-content form{
     display: flex;
     flex-direction: column;
+    
     text-align: left;
     gap:8px;
+
 }
 
 .modal-content input{
@@ -77,4 +90,7 @@ body.active-modal {
 .form02 label{
     color: #332A7C;
     font-size: 20px;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+
 }

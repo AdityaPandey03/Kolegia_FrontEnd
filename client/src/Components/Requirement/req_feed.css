@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital@1&family=Roboto&display=swap');
+
+
+
 .feed {
     display: flex;
     flex-direction: column;
@@ -15,6 +19,7 @@
     margin: 7px 15px;
     max-width: 500px;
 }
+
 .feed_title {
     display: flex;
     justify-content: space-between;
@@ -23,10 +28,12 @@
     font-size: 28px;
     line-height: 50px;
 }
+
 .feed_title svg{
     width: 50px;
     font-weight: 200;
 }
+
 .feed_desc {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 250;
@@ -34,6 +41,7 @@
     color: var(--color-text);
     line-height: 20px;
 }
+
 .feed_username {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 280;
@@ -41,6 +49,7 @@
     color: var(--color-text);
     line-height: 40px;
 }
+
 .feed_date {
     text-align: end;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -63,6 +72,7 @@
         font-size: 11px;
     }
 }
+
 .svg{
     color:#F25767 ;
     width:20px ;
