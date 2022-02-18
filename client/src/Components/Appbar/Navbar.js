@@ -1,4 +1,6 @@
+import React, { useState } from 'react';
 import { FaBell,FaBars,FaSearch } from "react-icons/fa";
+import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import { SiGooglechat } from "react-icons/si";
 import { Link } from "react-router-dom";
 import jwt_decode from "jwt-decode";
@@ -12,6 +14,8 @@ import { useNavigate } from "react-router-dom";
 
 import './Navbar.css'
 const Navbar = ({visibleSearch}) => {
+
+    const [toggleMenu, setToggleMenu] = useState(false);
 
     const dispatch=useDispatch();
     const navigate=useNavigate();
@@ -31,6 +35,7 @@ const handleClick =  ()=> {
 
 
 }
+
     return (  
         <div className="container-nav">
             <div className="part_one">
@@ -40,11 +45,6 @@ const handleClick =  ()=> {
                 </div>
             </div>
             <div className="a">
-                <Link className="nav-profile" to='/sideBar'>Profile</Link> 
-                <input type="checkbox" id="check"/>
-                <label htmlFor="check" className="checkbtn">
-                    <i style={{color:'white'}}className="fas fa-bars"></i>
-                </label>
                 <div className='ul'>
                     {visibleSearch?
                     <p><form className="form" id="form">                            
@@ -53,11 +53,35 @@ const handleClick =  ()=> {
                     </form></p>:null
                     }
                 </div>            
-                {/* <li><a href="">Items-needed</a></li> */}
                 <p><Link to='/chatRoom'><SiGooglechat/></Link></p>
                 <p><Link to='/dashboard'>Dashboard</Link></p>
                 <p className="log_out" on onClick={handleClick}>Logout</p>
-            </div>        
+            </div>   
+            <div className="nav_mobile">
+                {toggleMenu
+                ? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)} />
+                : <RiMenu3Line color="#fff" size={27} onClick={() => setToggleMenu(true)} />}
+                {toggleMenu && (
+                <div className="nav_mobile_menu scale-up-center">
+                <div className="nav_mobile_menu_part">
+                    <div className='ul_menu'>
+                        {visibleSearch?
+                        <p><form className="form" id="form">                            
+                        <input  type="text" placeholder='Search...' id="search" className="search_menu" />
+                        <div className="icon_menu"><FaSearch/></div>
+                        </form></p>:null
+                        }
+                    </div>
+                    <p><Link to='/chatRoom'><SiGooglechat/></Link></p>
+                    <p><Link className="nav-profile" to='/sideBar'>Profile</Link></p>
+                    <p><Link to='/dashboard'>Dashboard</Link></p>                    
+                </div>
+                <div className="nav_mobile_menu_sign">
+                    <p className="log_out_menu" on onClick={handleClick}>LogOut</p>
+                </div>
+                </div>
+                )}
+            </div>         
         </div>
     );
 }
