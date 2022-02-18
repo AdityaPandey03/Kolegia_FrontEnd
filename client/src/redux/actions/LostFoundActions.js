@@ -16,6 +16,7 @@ import {
   ACCEPT_RAISED_HAND,
   REJECT_RAISED_HAND,
   CHECKING_ERROR_LOST_FOUND,
+  MARK_AS_FOUND,
 } from "../constants/AllConstants";
 
 export const getAllLostFoundItems = () => async (dispatch) => {
@@ -199,6 +200,43 @@ export const deleteLostFoundItem = (data) => async (dispatch) => {
       };
       dispatch({
         type: DELETE_LOST_FOUND_ITEM,
+        payload: payloadobj,
+      });
+    }
+  }
+};
+
+export const markAsFound = (data) => async (dispatch) => {
+  dispatch({
+    type: NEW_REQUEST,
+    payload: true,
+  });
+  try {
+    console.log(data);
+    const res = await axios.put(
+      "http://localhost:3000/api/v1/lost-found-items/mark-as-found",
+      data,
+      {
+        headers: {
+          authorization: `Bearer ${data.token}`,
+        },
+      }
+    );
+    console.log(res);
+    const payloadobj = { message: res.data.message, status: res.status };
+    dispatch({
+      type: MARK_AS_FOUND,
+      payload: payloadobj,
+    });
+  } catch (error) {
+    console.log(error.response);
+    if (error.response) {
+      const payloadobj = {
+        message: error.response.data.message,
+        status: error.response.status,
+      };
+      dispatch({
+        type: MARK_AS_FOUND,
         payload: payloadobj,
       });
     }

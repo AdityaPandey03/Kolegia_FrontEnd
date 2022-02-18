@@ -12,6 +12,7 @@ import {
   ACCEPT_RAISED_HAND,
   REJECT_RAISED_HAND,
   CHECKING_ERROR_LOST_FOUND,
+  MARK_AS_FOUND,
 } from "../constants/AllConstants";
 
 const initialState = {
@@ -26,6 +27,7 @@ const initialState = {
   acceptRaisedHandDetails: null,
   raisedHandResponse: {},
   addItemsLostFoundResponse: {},
+  itemFound: {},
 };
 
 const LostFoundReducer = (state = initialState, action) => {
@@ -55,6 +57,7 @@ const LostFoundReducer = (state = initialState, action) => {
       return {
         ...state,
         addItemsLostFoundResponse: action.payload,
+        isLoading: false,
       };
 
     case GET_MY_OWN_LOST_FOUND_ITEMS:
@@ -68,6 +71,7 @@ const LostFoundReducer = (state = initialState, action) => {
       return {
         ...state,
         editlostfoundResponse: action.payload,
+        isLoading: false,
       };
 
     case RESET_STATUS: {
@@ -80,6 +84,7 @@ const LostFoundReducer = (state = initialState, action) => {
       return {
         ...state,
         deleteLostFoundItemResponse: action.payload,
+        isLoading: false,
       };
     case RAISE_HAND: {
       return {
@@ -117,6 +122,14 @@ const LostFoundReducer = (state = initialState, action) => {
         ...state,
         errorMessageLostFound: action.payload.data.message,
       };
+
+    case MARK_AS_FOUND: {
+      return {
+        ...state,
+        itemFound: action.payload,
+        isLoading: false,
+      };
+    }
 
     default:
       return state;

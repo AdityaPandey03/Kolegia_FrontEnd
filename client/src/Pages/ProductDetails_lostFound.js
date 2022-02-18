@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   deleteLostFoundItem,
   getLostFoundProductDetails,
+  markAsFound,
   raiseHand,
 } from "../redux/actions/LostFoundActions";
 import jwt_decode from "jwt-decode";
@@ -14,6 +15,7 @@ import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import PanToolIcon from "@mui/icons-material/PanTool";
+import DoneIcon from "@mui/icons-material/Done";
 import { CircularProgress } from "@material-ui/core";
 import Navbar from "../Components/Appbar/Navbar";
 import { toast } from "react-toastify";
@@ -53,11 +55,14 @@ function LostFoundItemDetails() {
   const [modalStyle] = useState(getModalStyle);
   const [openModal, setOpenModal] = useState(false);
   const [openModal2, setOpenModal2] = useState(false);
+  const [openModal3, setOpenModal3] = useState(false);
   const [dateString, setDateString] = useState("");
   const [note, setNote] = useState("");
   const [rseponseOfRaisedHand, setResponseOfRaisedHand] = useState(null);
   const [deleteItemResponse, setDeleteItemResponse] = useState(null);
   const [deleteSuccess, setDeleteSuccess] = useState(false);
+  const [itemFound, setItemFound] = useState(null);
+  const [itemFoundSuccess, setItemFoundSuccess] = useState(false);
 
   const product_id = params.id;
   const product = useSelector((state) => state.lostFound.singleProduct.Product);
@@ -67,6 +72,7 @@ function LostFoundItemDetails() {
   const deleteLostFoundItemResponse = useSelector(
     (state) => state.lostFound.deleteLostFoundItemResponse
   );
+  const foundItemResponse = useSelector((state) => state.lostFound.itemFound);
   const isLoading = useSelector((state) => state.lostFound.isLoading);
   const encodedToken = localStorage.getItem("jwt");
   const decoded = jwt_decode(encodedToken);
@@ -126,6 +132,23 @@ function LostFoundItemDetails() {
     }
   }, [deleteItemResponse]);
 
+  useEffect(() => {
+    console.log(foundItemResponse);
+    setItemFound(foundItemResponse);
+  }, [foundItemResponse]);
+
+  useEffect(() => {
+    console.log(itemFound);
+    if (itemFound?.status === 200) {
+      toast.success(itemFound?.message);
+      setItemFoundSuccess(true);
+      setItemFound(null);
+    } else {
+      toast.error(itemFound?.message);
+      setItemFound(null);
+    }
+  }, [itemFound]);
+
   //TOASTIFY FUNCTIONS END
 
   //EDIT AND DELETE MY LOST FOUND FUNCTIONS START
@@ -136,6 +159,13 @@ function LostFoundItemDetails() {
     }
   }, [deleteSuccess]);
 
+  useEffect(() => {
+    console.log(itemFoundSuccess);
+    if (itemFoundSuccess) {
+      navigate("/lostFound");
+    }
+  }, [itemFoundSuccess]);
+
   const handleConfirmDelete = (e) => {
     e.preventDefault();
     if (e.target.value === "true") {
@@ -145,12 +175,23 @@ function LostFoundItemDetails() {
     }
   };
 
+  const handleMarkAsFound = (e) => {
+    e.preventDefault();
+    if (e.target.value === "true") {
+      dispatch(markAsFound({ product_id, user_details, token }));
+    } else {
+      setOpenModal3(false);
+    }
+  };
+
   const handleClick = async (e) => {
     console.log(e);
     if (e.target.value === "edit") {
       navigate(`/editLostFoundItems/${product_id}`);
     } else if (e.target.value === "delete") {
       setOpenModal2(true);
+    } else if (e.target.value === "found") {
+      setOpenModal3(true);
     }
   };
 
@@ -177,7 +218,7 @@ function LostFoundItemDetails() {
                   color="primary"
                   value="edit"
                   endIcon={<EditIcon />}
-                  style={{ marginRight: "10%" }}
+                  style={{ marginRight: "10%", height: "70%" }}
                   onClick={handleClick}
                 >
                   EDIT
@@ -187,10 +228,22 @@ function LostFoundItemDetails() {
                   variant="contained"
                   color="error"
                   value="delete"
+                  style={{ marginRight: "10%", height: "70%" }}
                   endIcon={<DeleteIcon />}
                   onClick={handleClick}
                 >
                   DELETE
+                </Button>
+                <Button
+                  size="medium"
+                  variant="contained"
+                  color="success"
+                  value="found"
+                  style={{ height: "70%" }}
+                  endIcon={<DoneIcon />}
+                  onClick={handleClick}
+                >
+                  FOUND
                 </Button>
               </div>
             ) : (
@@ -295,7 +348,7 @@ function LostFoundItemDetails() {
         </Modal>
         <Modal
           open={openModal2}
-          onClose={(e) => setOpenModal(false)}
+          onClose={(e) => setOpenModal2(false)}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
@@ -334,6 +387,47 @@ function LostFoundItemDetails() {
               style={{ marginLeft: "2%", width: "fit-content" }}
               value="false"
               onClick={handleConfirmDelete}
+            >
+              {isLoading && <CircularProgress size={14} />}
+              {!isLoading && "CANCEL"}
+            </Button>
+          </div>
+        </Modal>
+        <Modal
+          open={openModal3}
+          onClose={(e) => setOpenModal3(false)}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <div style={modalStyle} className={`${classes.paper}`}>
+            <p
+              style={{
+                marginTop: "2%",
+                marginBottom: "2%",
+                fontFamily: "Helvetica",
+                fontWeight: "400",
+              }}
+            >
+              click confirm to proceed further.
+            </p>
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={isLoading}
+              onClick={handleMarkAsFound}
+              style={{ width: "fit-content" }}
+              value="true"
+            >
+              {isLoading && <CircularProgress size={14} />}
+              {!isLoading && "CONFIRM"}
+            </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={isLoading}
+              style={{ marginLeft: "2%", width: "fit-content" }}
+              value="false"
+              onClick={handleMarkAsFound}
             >
               {isLoading && <CircularProgress size={14} />}
               {!isLoading && "CANCEL"}
