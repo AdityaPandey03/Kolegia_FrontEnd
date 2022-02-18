@@ -23,9 +23,7 @@ export const getAllBuySellItems = () => async (dispatch) => {
     const { data } = await axios.get(
       
       "http://localhost:3000/api/v1/buy-sell-items/get-buy-sell-feed",{
-        headers:{
-          authorization:`Bearer ${decoded.auth_token}`,
-        },
+       
       }
     );
 console.log(data);
