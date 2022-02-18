@@ -22,8 +22,7 @@ const Nav_bar = () => {
         </div>
       </div>
       <div className="navbar-sign3">
-        <button type="button" name='login'><Link to='loginSignUp'>LogIn</Link></button>
-        <button type="button" name='signup'><Link to='loginSignUp'>SignUp</Link></button>
+        <button type="button" name='login'><Link to='loginSignUp'>LogIn/SignUp</Link></button>
       </div>
       <div className="navbar-menu3">
         {toggleMenu
@@ -38,8 +37,7 @@ const Nav_bar = () => {
             <p><a href="#blog">Contact Us</a></p>
           </div>
           <div className="navbar_menu_container_sign3">
-            <p><Link to='loginSignUp'>LogIn</Link></p>
-            <p><Link to='loginSignUp'>SignUp</Link></p>
+            <p><Link to='loginSignUp'>LogIn/SignUp</Link></p>
           </div>
         </div>
         )}

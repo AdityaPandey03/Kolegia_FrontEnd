@@ -25,7 +25,7 @@ import { SiWhitesource } from 'react-icons/si';
 
 
 
-const drawerWidth = 240
+const drawerWidth = 220
 
 const useStyles = makeStyles((theme) => {
   return {
