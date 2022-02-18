@@ -72,22 +72,22 @@ const handleSubmit=(e)=>{
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-          <h2 style={{color:'#332A7C',marginBottom:'10px'}}>Add Product</h2>
+          <h2 style={{color:'#332A7C',marginBottom:'18px',fontFamily:"Inter, sans-serif"}}>Add Product</h2>
             <form className="form02" onSubmit={handleSubmit}>
            
             
-            <input onChange={e=>setItemName(e.target.value)} type="text" placeholder="Name of product" />
-            <input onChange={e=>setBrand(e.target.value)} type="text" placeholder="Brand" />
-            <input onChange={e=>setColor(e.target.value)} type="text" placeholder="Color of product" />
-            <input onChange={e=>setDescription(e.target.value)} type="text" placeholder="Description" />
-            <input onChange={e=>setBoughtTime(e.target.value)} type="date" placeholder="Bought date" />
-            <input onChange={e=>setPrice(e.target.value)} type="number" placeholder="Price"/>
-            <input onChange={e=>setWarranty(e.target.value)} type="date" placeholder="Warranty Ends" />
-            <input onChange={e=>setCategory(e.target.value)} type="text" placeholder="Category" />
-            <label htmlFor="input">Upload-Image</label>
-            <input style={{border:'none'}} onChange={e=>setImageList([...imageList,...e.target.files])} type="file" multiple />
-            <button>Submit</button>
-            <p>{Message3}</p>
+            <input style={{fontFamily:"Hind Siliguri, sans-serif",fontWeight:'700',fontSize:'14px'}} onChange={e=>setItemName(e.target.value)} type="text" placeholder="Name of product" />
+            <input style={{fontFamily:"Hind Siliguri, sans-serif",fontWeight:'700',fontSize:'14px'}} onChange={e=>setBrand(e.target.value)} type="text" placeholder="Brand" />
+            <input style={{fontFamily:"Hind Siliguri, sans-serif",fontWeight:'700',fontSize:'14px'}} onChange={e=>setColor(e.target.value)} type="text" placeholder="Color of product" />
+            <input style={{fontFamily:"Hind Siliguri, sans-serif",fontWeight:'700',fontSize:'14px'}} onChange={e=>setDescription(e.target.value)} type="text" placeholder="Description" />
+            <input style={{fontFamily:"Hind Siliguri, sans-serif",fontWeight:'700',fontSize:'14px'}} onChange={e=>setBoughtTime(e.target.value)} type="date" placeholder="Bought date" />
+            <input style={{fontFamily:"Hind Siliguri, sans-serif",fontWeight:'700',fontSize:'14px'}} onChange={e=>setPrice(e.target.value)} type="number" placeholder="Price"/>
+            <input style={{fontFamily:"Hind Siliguri, sans-serif",fontWeight:'700',fontSize:'14px'}} onChange={e=>setWarranty(e.target.value)} type="date" placeholder="Warranty Ends" />
+            <input style={{fontFamily:"Hind Siliguri, sans-serif",fontWeight:'700',fontSize:'14px'}} onChange={e=>setCategory(e.target.value)} type="text" placeholder="Category" />
+            <label style={{fontFamily:"Hind Siliguri, sans-serif",fontWeight:'700',fontSize:'18px'}} htmlFor="input">Upload-Image</label>
+            <input style={{fontFamily:"Hind Siliguri, sans-serif",fontWeight:'700',fontSize:'14px'}} onChange={e=>setImageList([...imageList,...e.target.files])} type="file" multiple />
+            <button style={{fontFamily:"Inter, sans-serif"}}>Submit</button>
+            <p style={{fontFamily:"Hind Siliguri, sans-serif",fontWeight:'700',fontSize:'14px'}} >{Message3}</p>
             </form>
 
             <button  className="close-modal" onClick={toggleModal}>
