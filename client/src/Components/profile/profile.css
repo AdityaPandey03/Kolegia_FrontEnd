@@ -13,7 +13,7 @@
     justify-content: flex-start;
     align-items: center;
     max-width: 700px;
-    min-width: 300px;
+    min-width: 280px;
     margin: 0 auto 15px;
     padding: 16px;
     color: white;
@@ -45,6 +45,7 @@
     align-items: center;
     z-index: 1;
     width: 100%;
+    box-sizing: border-box;
     
   }
   .profile-image {
@@ -107,7 +108,7 @@
   .edit_details {   
     display: inline-block;
     /* border: 2px solid #F25767; */
-border: none;
+   border: none;
     border-radius: 8px;
     background-color:#F0BC5E; 
     color: white;
@@ -116,7 +117,7 @@ border: none;
     transition: transform .2s;
     /* font-weight: bold; */
     font-size: 1.2rem;
-    min-width: 150px;
+    width: 150px;
   }
   .edit_details:hover {
     transform: translateY(-2px);
@@ -134,5 +135,26 @@ border: none;
     }
     .user_name {
       font-size: 24px;
+    }
+    .more_details{
+      font-size: 15px;
+    }
+    .edit_details{
+      width: 120px;
+      height: 40px;
+     margin: 0px;
+     padding: 10px;
+    }
+    .edit_details Link{
+      padding: 20px;
+    }
+    /* .bottom-section{
+      padding-top: 70px;
+    } */
+    .phone_no{
+      margin-bottom: 90px;
+    }
+    .profile-page{
+      width: 250px;
     }
   }
