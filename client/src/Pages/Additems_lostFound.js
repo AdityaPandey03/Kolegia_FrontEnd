@@ -5,8 +5,31 @@ import jwt_decode from "jwt-decode";
 import "../Components/Lost_Found/LostFound.css";
 import { addNewLostFoundItem ,resetStatus} from "../redux/actions/LostFoundActions";
 import { useNavigate } from "react-router-dom";
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 
 function AddItem() {
+
+
+
+  const currencies = [
+    {
+      value: 'USD',
+      label: '$',
+    },
+    {
+      value: 'EUR',
+      label: '€',
+    },
+    {
+      value: 'BTC',
+      label: '฿',
+    },
+    {
+      value: 'JPY',
+      label: '¥',
+    },
+  ];
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
@@ -91,6 +114,19 @@ function AddItem() {
             <label htmlFor="category" className="inputLabel">
               Category
             </label>
+            <TextField
+          id="outlined-select-currency"
+          select
+          label="Select"
+         
+          helperText="Please select your currency"
+        >
+          {currencies.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
             <input
               className="formInput"
               type="text"
