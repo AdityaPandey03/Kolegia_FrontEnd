@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => {
     },
     label:{
       color: 'white',
-      // display:'none'
+           // display:'none'
       [theme.breakpoints.down(650)]: {
         display:'none'
       }
@@ -103,6 +103,7 @@ export default function SideBar() {
     { 
       text: 'Profile', 
       icon: <PersonIcon  />, 
+
       path: '/sidebar' 
     },
 
@@ -167,8 +168,7 @@ export default function SideBar() {
               <ListItemText className={classes.label} primary={item.text} />
             </ListItem>
           ))}
-        </List>
-        
+        </List>        
       </Drawer>
 
       {/* main content */}
