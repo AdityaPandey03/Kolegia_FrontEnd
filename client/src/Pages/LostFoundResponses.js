@@ -103,10 +103,10 @@ function LostFoundResponses() {
                       <h5 className="dataLabel">Item Name: </h5>
                       <p>{response.product_details.name}</p>
                     </div>
-                    {response.note.length > 0 && (
+                    {response.note && (
                       <div className="responseData">
                         <h5 className="dataLabel">Note : </h5>
-                        <p>{response.product_details.note}</p>
+                        <p>{response.note}</p>
                       </div>
                     )}
                     <div className="responseData">

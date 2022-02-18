@@ -53,13 +53,25 @@ console.log(singleProduct);
               <div></div>
             )}
           </div>
+          <div className="description_wrapper">
           <div className="imageContainer">
             <img alt="image" className="previewImage" src={image2} />
+          </div>
+          <div className="description">
+            <h2>Description</h2>
+            <p>{singleProduct.brand}</p>
+            <p>
+              {singleProduct.color}
+            
+            </p>
+            <p>{singleProduct.description}</p>
+            <p>{singleProduct.category}</p>
+          </div>
           </div>
           <div className="detailsContainer">
             <h1 style={{fontFamily:"Inconsolata, monospace",marginBottom:'15px',fontWeight:'700',color:'#000000',fontSize:'40px'}}>{singleProduct?.name}</h1>
             <p style={{fontSize:'20px'}}>Price :  Rs. {singleProduct?.price}</p>
-            <p style={{fontSize:'20px',marginTop:'5px'}}>Description : {singleProduct?.description}</p>
+            
             <h3 style={{marginTop:'15px',marginBottom:'5px',fontFamily:"Hind Siliguri, sans-serif",fontWeight:'600',fontSize:'28px'}}>Owner Details</h3>
             <h4 style={{color:'black',fontSize:'20px'}}>Posted By: Aditya Pandey</h4>
 

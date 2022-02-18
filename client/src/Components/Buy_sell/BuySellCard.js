@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => {
 
 const NoteCard = ({ data,editOption,handleClick}) => {
 
-  const slicedDescription=data.description.slice(0,17);
+  const slicedDescription=data.description.slice(0,10);
   console.log(slicedDescription);
   
   const classes = useStyles();
@@ -74,7 +74,7 @@ const NoteCard = ({ data,editOption,handleClick}) => {
         className={classes.media}
         component="img"
         padding="5"
-        height="200"                
+        height="200" 
         image={data.files[0].uri}
         alt="watch"
       />

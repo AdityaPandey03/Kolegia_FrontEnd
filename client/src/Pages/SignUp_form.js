@@ -3,7 +3,7 @@ import { useDispatch,useSelector } from "react-redux";
 import "../Components/LoginSignUp/SignUpForm.css";
 import { addUserDetails } from "../redux/actions/authActions";
 import {  useNavigate,useLocation} from "react-router-dom"
-
+import {resetErrorMessage} from '../redux/actions/authActions'
 
 const SignUpForm = () => {
     const addUserResponse = useSelector((state) => state.auth.addUserResponse);
@@ -47,6 +47,7 @@ const SignUpForm = () => {
 //signUp verified here
     if(addUserResponse.data){
         if(addUserResponse.data.user_token){
+            dispatch(resetErrorMessage)
         localStorage.setItem("jwt",addUserResponse.data.user_token);
         navigate('/dashboard');
     }
@@ -96,7 +97,7 @@ else {
             <input onChange={e=>setHostel(e.target.value)} type="text" placeholder="Hostel(BH-1)" />
             <input onChange={e=>setRoomNo(e.target.value)} type="text" placeholder="Room No" />
             <label  htmlFor="input">Profile Picture</label>
-            <input style={{border:'none'}} onChange={e=>setProfilePicture(e.target.value)} type="file" />
+            <input style={{border:'none'}} onChange={e=>setProfilePicture(e.target.files[0])} type="file" />
             <input onChange={e=>setPassword(e.target.value)} type="password" placeholder="Password" />
             <input onChange={e=>setConfirm_Password(e.target.value)} type="password" placeholder="Confirm Password" />
           

@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import "../Components/LoginSignUp/SignUpForm.css";
 import {editProfile,resetStatus} from "../redux/actions/authActions";
 import {  useNavigate,useLocation} from "react-router-dom"
+import {resetErrorMessage} from '../redux/actions/authActions'
 
 
 
@@ -40,6 +41,7 @@ const Edit_Profile = () => {
     if(Status8===200){
       localStorage.setItem("jwt",NewToken);
         dispatch(resetStatus);
+        dispatch(resetErrorMessage);
          navigate('/sidebar')
          
      }

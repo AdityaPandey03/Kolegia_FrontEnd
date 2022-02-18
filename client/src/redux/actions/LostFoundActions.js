@@ -11,13 +11,11 @@ import {
   DELETE_LOST_FOUND_ITEM,
   RESET_STATUS,
   CHECKING_ERROR,
-
   GET_LOST_FOUND_RESPONSES,
   RAISE_HAND,
   ACCEPT_RAISED_HAND,
   REJECT_RAISED_HAND,
   CHECKING_ERROR_LOST_FOUND,
-
 } from "../constants/AllConstants";
 
 export const getAllLostFoundItems = () => async (dispatch) => {
@@ -74,6 +72,7 @@ export const addNewLostFoundItem = (data) => async (dispatch) => {
   try {
     var token = "";
     for (var key of data.entries()) {
+      console.log(key[0], " ", key[1]);
       if (key[0] === "token") {
         token = key[1];
       }
@@ -93,15 +92,13 @@ export const addNewLostFoundItem = (data) => async (dispatch) => {
       type: ADD_NEW_LOST_FOUND_ITEM,
       payload: res,
     });
-
-    
   } catch (error) {
     if (error.response) {
       console.log(error.response);
       dispatch({
-          type:CHECKING_ERROR_LOST_FOUND,
-          payload:error.response,
-      })
+        type: CHECKING_ERROR_LOST_FOUND,
+        payload: error.response,
+      });
     }
   }
 };
@@ -217,7 +214,7 @@ export const raiseHand = (data) => async (dispatch) => {
     console.log(res);
     dispatch({
       type: RAISE_HAND,
-      payload: res.data.message,
+      payload: res.status,
     });
   } catch (error) {
     if (error.response) {

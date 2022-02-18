@@ -36,6 +36,9 @@
 .imageContainer {
   flex: 2;
   align-items: center;
+  width: 35rem;
+  /* width: fit-content;
+  height: fit-content; */
 }
 .previewImage {
   height: auto;
@@ -70,6 +73,15 @@
   padding: 2px;
   font-family: "Inter", sans-serif;
 
+}
+.description_wrapper{
+  display: flex;
+  flex-direction: column;
+  
+}
+.description{
+  height: 15rem;
+  border: 2px solid black;
 }
 
 @media (min-device-width: 280px) and (max-device-width: 812px) {
