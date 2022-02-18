@@ -9,12 +9,13 @@ RESET_PASSWORD,
 EDIT_PROFILE,
 RESET_PROFILE_STATUS,
 GET_DASHBOARD_STATS,
-RESET_ERROR_MESSAGE} from "../constants/AllConstants";
+RESET_ERROR_MESSAGE,CHANGE_PASSWORD} from "../constants/AllConstants";
 
 const initialState={
     otpStatusCode:'',
    loginStatusCode:'',
    resetStatusCode:'',
+   changePasswordResponse:'',
     errorMessage:'',
     otpId:'',
     addUserResponse:'',
@@ -87,11 +88,16 @@ const AuthReducer=(state=initialState,action)=>{
                                                 ...state,
                                                 logoutUserResponse:action.payload.status
                                             }
-                    case RESET_PASSWORD:
+                                     case RESET_PASSWORD:
                                                 return{
                                                     ...state,
                                                     loginWithEmailResponse:action.payload,
                                                 }
+                                                case CHANGE_PASSWORD:
+                                                    return{
+                                                        ...state,
+                                                        changePasswordResponse:action.payload.status,
+                                                    }
                     case EDIT_PROFILE:
                                  return{
                                      ...state,
@@ -101,7 +107,8 @@ const AuthReducer=(state=initialState,action)=>{
                     case RESET_PROFILE_STATUS:
                         return{
                         ...state,
-                        editProfileResponse:''    
+                        editProfileResponse:''  ,
+                        changePasswordResponse:''  
                         }          
                         
                         case RESET_ERROR_MESSAGE:

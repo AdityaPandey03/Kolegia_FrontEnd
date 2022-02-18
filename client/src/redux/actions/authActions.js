@@ -15,7 +15,8 @@ import {
      EDIT_PROFILE,
      RESET_PROFILE_STATUS,
      GET_DASHBOARD_STATS,
-     RESET_ERROR_MESSAGE
+     RESET_ERROR_MESSAGE,
+     CHANGE_PASSWORD
    
     } from "../constants/AllConstants";
 
@@ -254,6 +255,38 @@ export const logoutUser= (token)=> async (dispatch) => {
             dispatch({
                 type:RESET_PASSWORD,
                 payload:resetResponse,
+            });
+            // console.log(res);
+        } catch (error) {
+            if (error.response) {
+                console.log(error.response);
+                dispatch({
+                    type:CHECKING_ERROR,
+                    payload:error.response,
+                })
+              }
+        }
+    };
+    export const changePasswordAction=(password,NewPassword)=>async (dispatch)=>{
+
+        try {
+            const token = localStorage.getItem("jwt");
+            const decoded = jwt_decode(token);
+            const changeResponse=await axios.put(
+                "http://localhost:3000/api/v1/auth/change-password",{
+                   CurrentPassword:password,
+                   NewPassword:NewPassword
+
+                }, {headers:{
+                    authorization:`Bearer ${decoded.auth_token}`,
+                  }
+                }
+                
+            );
+            console.log(changeResponse);
+            dispatch({
+                type:CHANGE_PASSWORD,
+                payload:changeResponse,
             });
             // console.log(res);
         } catch (error) {

@@ -2,48 +2,40 @@ import {useState,useEffect} from 'react';
 import { useDispatch ,useSelector} from "react-redux";
 
 import { useLocation, useNavigate } from "react-router-dom";
-import {resetPasswordAction,resetErrorMessage} from '../redux/actions/authActions'
+import {changePasswordAction,resetStatus,resetErrorMessage} from '../redux/actions/authActions'
 import LoadingButton from '@mui/lab/LoadingButton';
 
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const ResetPassword = () => {
+const Change_Password = () => {
     const dispatch=useDispatch();
     const navigate = useNavigate();
     const location=useLocation();
-    const loginWithEmailResponse=useSelector((state)=>state.auth.loginWithEmailResponse)
-    const responseStatusCode= useSelector((state) => state.auth.resetStatusCode);
-    const reset_request_id=useSelector((state)=>state.auth.requestId)
+    const ChangePasswordRes=useSelector((state)=>state.auth.changePasswordResponse)
+    // const responseStatusCode= useSelector((state) => state.auth.resetStatusCode);
+    // const reset_request_id=useSelector((state)=>state.auth.requestId)
     const errorMessage=useSelector((state)=>state.auth.errorMessage)
-    const [password,setPassword]=useState('');
-    const [confirmPassword,setConfirmPassword]=useState('');
+    const [currentPassword,setPassword]=useState('');
+    const [newPassword,setNewPassword]=useState('');
     const [loading, setLoading] = useState(false);
     
-var Email;
-    if(location.state !=null){
-        Email=location.state.Email;
-       
-   }
 
-    // if(responseStatusCode===200){
-    //     navigate('/otpPage',{
-    //       state:{Email:email,verification:'FORGOT_PASSWORD'}
-    //     });}
-    
-    var message4;
-    if(loginWithEmailResponse.data){
+    var message9;
+
+    if(ChangePasswordRes===200){
         dispatch(resetErrorMessage)
-        if(loginWithEmailResponse.data.user_token){
-          localStorage.setItem("jwt",loginWithEmailResponse.data.user_token);
-          navigate('/dashboard');
-      }
-      }
-      else {
-        message4=errorMessage
-      }
+        dispatch(resetStatus);
+         navigate('/sidebar')
+         
+     }
+     else{
+         message9=errorMessage;
+
+     }
+
       useEffect(()=>{
         setLoading(false);
-       },[message4]);
+       },[message9]);
    
     const style={
 
@@ -71,12 +63,10 @@ cont:{
 }
      const handleClick =()=>{
          setLoading(true)
-         if(password===confirmPassword){
-     dispatch(resetPasswordAction(Email,password,reset_request_id));}
-     else{
-         message4='Passwords do not match'
-     }
-    }
+        
+     dispatch(changePasswordAction(currentPassword,newPassword));}
+    
+    
 
 
     return ( 
@@ -85,8 +75,8 @@ cont:{
             <p style={{fontSize:'1.3rem'}}>
                Reset Password
             </p>
-            <input onChange={(e)=>setPassword(e.target.value)} style={{width:'12rem',height:'2rem'}} type="password" placeholder="Password"/>
-            <input onChange={(e)=>setConfirmPassword(e.target.value)} style={{width:'12rem',height:'2rem'}} type="password" placeholder="Confirm Password"/>
+            <input onChange={(e)=>setPassword(e.target.value)} style={{width:'12rem',height:'2rem'}} type="password" placeholder="Current Password"/>
+            <input onChange={(e)=>setNewPassword(e.target.value)} style={{width:'12rem',height:'2rem'}} type="password" placeholder="New Password"/>
             <LoadingButton
                 style={{width:'13rem',color:'white',background:'#332A7C',borderRadius:'10px',margin:'20px',height:'2.8rem'}}
                 className='submit button'
@@ -98,11 +88,11 @@ cont:{
       >
   Submit
       </LoadingButton>
-            <p style={{color:'black'}}>{message4}</p>
+            <p style={{color:'black'}}>{message9}</p>
             </div>
            
         </div>
      );
 }
  
-export default ResetPassword;
+export default Change_Password;

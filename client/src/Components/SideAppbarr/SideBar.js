@@ -22,10 +22,11 @@ import HomeIcon from '@mui/icons-material/Home';
 import { fontSize } from '@mui/system';
 import ProfilePage from '../profile/ProfilePage'
 import { SiWhitesource } from 'react-icons/si';
+import LockIcon from '@mui/icons-material/Lock';
 
 
 
-const drawerWidth = 220
+const drawerWidth = 230
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -119,6 +120,11 @@ export default function SideBar() {
       text: 'My Requirements', 
       icon: <FormatListBulletedIcon  />, 
       path: '/sidebar/myOwnRequirements' 
+    },
+    { 
+      text: 'Change Password', 
+      icon: <LockIcon  />, 
+      path: '/changePassword' 
     },
   ];
 
