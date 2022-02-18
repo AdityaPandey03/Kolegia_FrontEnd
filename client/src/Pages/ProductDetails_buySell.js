@@ -59,13 +59,13 @@ console.log(singleProduct);
           </div>
           <div className="description">
             <h2>Description</h2>
-            <p>{singleProduct.brand}</p>
-            <p>
+            <p style={{marginTop:'15px'}}>{singleProduct.brand}</p>
+            <p style={{marginTop:'5px'}}>
               {singleProduct.color}
             
             </p>
-            <p>{singleProduct.description}</p>
-            <p>{singleProduct.category}</p>
+            <p style={{marginTop:'5px'}}>{singleProduct.description}</p>
+            <p style={{marginTop:'5px'}}>{singleProduct.category}</p>
           </div>
           </div>
           <div className="detailsContainer">

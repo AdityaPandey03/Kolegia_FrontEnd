@@ -73,6 +73,7 @@
   padding: 2px;
   font-family: "Inter", sans-serif;
 
+
 }
 .description_wrapper{
   display: flex;
@@ -81,7 +82,15 @@
 }
 .description{
   height: 15rem;
-  border: 2px solid black;
+  width: 95%;
+  box-shadow: 10px 15px 10px #d9d7f1, -10px -5px 10px #fdfdfd;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)), url('../../assests/details.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  margin-bottom: 40px;
+
 }
 
 @media (min-device-width: 280px) and (max-device-width: 812px) {
@@ -98,6 +107,8 @@
     flex: 0 0 25%;
     height: 30%;
     text-align: left;
+    box-shadow: 10px 8px 10px #d9d7f1, -10px -5px 10px #fdfdfd;
+
   }
 
   .sideImage {
@@ -107,6 +118,7 @@
   .imageContainer {
     flex: 0 0 75%;
     height: 30%;
+
   }
 
   .detailsContainer {
