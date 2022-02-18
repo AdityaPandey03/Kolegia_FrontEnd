@@ -150,17 +150,21 @@ export const editLostFoundItem = (formData) => async (dispatch) => {
         },
       }
     );
-    console.log(res);
+    const payloadobj = { message: res.data.message, status: res.status };
     dispatch({
       type: EDIT_LOST_FOUND_ITEM,
-      payload: res,
+      payload: payloadobj,
     });
   } catch (error) {
     if (error.response) {
       console.log(error.response);
+      const payloadobj = {
+        message: error.response.data.message,
+        status: error.response.status,
+      };
       dispatch({
-        type: CHECKING_ERROR,
-        payload: error.response,
+        type: EDIT_LOST_FOUND_ITEM,
+        payload: payloadobj,
       });
     }
   }

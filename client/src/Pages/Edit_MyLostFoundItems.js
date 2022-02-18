@@ -10,9 +10,14 @@ import {
 } from "../redux/actions/LostFoundActions";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import Navbar from "../Components/Appbar/Navbar";
+<<<<<<< Updated upstream
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 
+=======
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+>>>>>>> Stashed changes
 
 function Edit_MyLostFoundItems() {
   const navigate = useNavigate();
@@ -82,20 +87,25 @@ function Edit_MyLostFoundItems() {
     product.lost_location ? product.lost_location : ""
   );
   const [files, setFiles] = useState([]);
+  const [editItemResponse, setEditItemResponse] = useState(null);
+  const [editSuccess, setEditSuccess] = useState(false);
 
   useEffect(() => {
     dispatch(getLostFoundProductDetails({ product_id, decoded }));
   }, []);
 
-  const Status2 = useSelector((state) => state.lostFound.editlostfoundResponse);
+  // const Status2 = useSelector((state) => state.lostFound.editlostfoundResponse);
 
-  if (Status2 === 200) {
-    dispatch(resetStatus);
-    navigate("/sidebar/myOwnLostFoundItems");
-  }
+  // if (Status2 === 200) {
+  //   dispatch(resetStatus);
+  //   navigate("/sidebar/myOwnLostFoundItems");
+  // }
   const handleChange = (event) => {
     setCategory(event.target.value);
   };
+  const editLostFoundItemResponse = useSelector(
+    (state) => state.lostFound.editlostfoundResponse
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -127,6 +137,28 @@ function Edit_MyLostFoundItems() {
     // }
     dispatch(editLostFoundItem(formData));
   };
+
+  useEffect(() => {
+    setEditItemResponse(editLostFoundItemResponse);
+  }, [editLostFoundItemResponse]);
+
+  useEffect(() => {
+    if (editItemResponse?.status === 200) {
+      toast.success(editItemResponse?.message);
+      setEditSuccess(true);
+      setEditItemResponse(null);
+    } else {
+      toast.error(editItemResponse?.message);
+      setEditItemResponse(null);
+    }
+  }, [editItemResponse]);
+
+  useEffect(() => {
+    if (editSuccess === true) {
+      dispatch(resetStatus);
+      navigate(`/lostItem/${product_id}`);
+    }
+  }, [editSuccess]);
 
   return (
     <>

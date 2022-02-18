@@ -20,7 +20,7 @@ const initialState = {
   firstImage: "",
   isLoading: false,
   ownlostfoundItems: [],
-  editlostfoundResponse: "",
+  editlostfoundResponse: {},
   deleteLostFoundItemResponse: {},
   lostFoundResponses: [],
   acceptRaisedHandDetails: null,
@@ -67,7 +67,7 @@ const LostFoundReducer = (state = initialState, action) => {
     case EDIT_LOST_FOUND_ITEM:
       return {
         ...state,
-        editlostfoundResponse: action.payload.status,
+        editlostfoundResponse: action.payload,
       };
 
     case RESET_STATUS: {
