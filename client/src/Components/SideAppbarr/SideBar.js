@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => {
     page: {
       background: 'white',
       width: '100%',
-      padding: theme.spacing(3),
+      padding: theme.spacing(1),
      
     },
     root: {

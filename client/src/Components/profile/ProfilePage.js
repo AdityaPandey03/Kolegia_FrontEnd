@@ -59,7 +59,7 @@ const Profile = () => {
                 </div>
             </div>
             <div className="profile-page__btn">
-                  <button  className="edit_details"><Link 
+                  <button  className="edit_details"><Link className='link02'
    to='/editProfile'
   state={{ Data: decoded }}>Edit Details</Link></button>
             </div>
