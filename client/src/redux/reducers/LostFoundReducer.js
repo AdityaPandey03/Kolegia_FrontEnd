@@ -7,14 +7,11 @@ import {
   EDIT_LOST_FOUND_ITEM,
   DELETE_LOST_FOUND_ITEM,
   RESET_STATUS,
-
   RAISE_HAND,
   GET_LOST_FOUND_RESPONSES,
   ACCEPT_RAISED_HAND,
   REJECT_RAISED_HAND,
-
-  CHECKING_ERROR_LOST_FOUND
-
+  CHECKING_ERROR_LOST_FOUND,
 } from "../constants/AllConstants";
 
 const initialState = {
@@ -22,18 +19,13 @@ const initialState = {
   singleProduct: {},
   firstImage: "",
   isLoading: false,
-
   ownlostfoundItems: [],
   editlostfoundResponse: "",
-  deleteLostFoundItemResponse: "",
+  deleteLostFoundItemResponse: {},
   lostFoundResponses: [],
   acceptRaisedHandDetails: null,
-  raisedHandMessage: "",
-
-  
-  addItemsLostFoundResonse:''
-
-
+  raisedHandResponse: {},
+  addItemsLostFoundResponse: {},
 };
 
 const LostFoundReducer = (state = initialState, action) => {
@@ -59,10 +51,11 @@ const LostFoundReducer = (state = initialState, action) => {
           : "",
       };
     case ADD_NEW_LOST_FOUND_ITEM:
+      console.log(action.payload);
       return {
         ...state,
-        addItemsLostFoundResonse:action.payload.status
-      }
+        addItemsLostFoundResponse: action.payload,
+      };
 
     case GET_MY_OWN_LOST_FOUND_ITEMS:
       return {
@@ -76,7 +69,6 @@ const LostFoundReducer = (state = initialState, action) => {
         ...state,
         editlostfoundResponse: action.payload.status,
       };
-
 
     case RESET_STATUS: {
       return {
@@ -93,7 +85,7 @@ const LostFoundReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        raisedHandMessage: action.payload,
+        raisedHandResponse: action.payload,
       };
     }
 
@@ -120,17 +112,11 @@ const LostFoundReducer = (state = initialState, action) => {
       };
     }
 
-     
-      case CHECKING_ERROR_LOST_FOUND:
-        return{
-            ...state,
-            errorMessageLostFound:action.payload.data.message
-            
-
-        };
-     
-            
-
+    case CHECKING_ERROR_LOST_FOUND:
+      return {
+        ...state,
+        errorMessageLostFound: action.payload.data.message,
+      };
 
     default:
       return state;

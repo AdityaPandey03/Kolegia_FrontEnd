@@ -14,10 +14,10 @@ import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import PanToolIcon from "@mui/icons-material/PanTool";
-import Dropdown from "../Components/Lost_Found/Dropdown";
-import { RAISE_HAND } from "../redux/constants/AllConstants";
 import { CircularProgress } from "@material-ui/core";
 import Navbar from "../Components/Appbar/Navbar";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function getModalStyle() {
   const top = 50;
@@ -52,13 +52,20 @@ function LostFoundItemDetails() {
   const dispatch = useDispatch();
   const [modalStyle] = useState(getModalStyle);
   const [openModal, setOpenModal] = useState(false);
+  const [openModal2, setOpenModal2] = useState(false);
   const [dateString, setDateString] = useState("");
   const [note, setNote] = useState("");
+  const [rseponseOfRaisedHand, setResponseOfRaisedHand] = useState(null);
+  const [deleteItemResponse, setDeleteItemResponse] = useState(null);
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
 
   const product_id = params.id;
   const product = useSelector((state) => state.lostFound.singleProduct.Product);
-  const raisedHandMessage = useSelector(
-    (state) => state.lostFound.raisedHandMessage
+  const raisedHandResponse = useSelector(
+    (state) => state.lostFound.raisedHandResponse
+  );
+  const deleteLostFoundItemResponse = useSelector(
+    (state) => state.lostFound.deleteLostFoundItemResponse
   );
   const isLoading = useSelector((state) => state.lostFound.isLoading);
   const encodedToken = localStorage.getItem("jwt");
@@ -84,9 +91,58 @@ function LostFoundItemDetails() {
     e.preventDefault();
 
     setOpenModal(false);
-    dispatch(raiseHand({ product_id, token, note })).then(() =>
-      alert(raisedHandMessage)
-    );
+    dispatch(raiseHand({ product_id, token, note }));
+  };
+
+  //TOASTIFY FUNCTIONS START
+  useEffect(() => {
+    setResponseOfRaisedHand(raisedHandResponse);
+  }, [raisedHandResponse]);
+
+  useEffect(() => {
+    if (rseponseOfRaisedHand?.status === 200) {
+      toast.success(rseponseOfRaisedHand?.message);
+      setResponseOfRaisedHand(null);
+    } else {
+      toast.error(rseponseOfRaisedHand?.message);
+      setResponseOfRaisedHand(null);
+    }
+  }, [rseponseOfRaisedHand]);
+
+  useEffect(() => {
+    // console.log(deleteLostFoundItemResponse);
+    setDeleteItemResponse(deleteLostFoundItemResponse);
+  }, [deleteLostFoundItemResponse]);
+
+  useEffect(() => {
+    console.log(deleteItemResponse);
+    if (deleteItemResponse?.status === 200) {
+      toast.success(deleteItemResponse?.message);
+      setDeleteSuccess(true);
+      setDeleteItemResponse(null);
+    } else {
+      toast.error(deleteItemResponse?.message);
+      setDeleteItemResponse(null);
+    }
+  }, [deleteItemResponse]);
+
+  //TOASTIFY FUNCTIONS END
+
+  //EDIT AND DELETE MY LOST FOUND FUNCTIONS START
+
+  useEffect(() => {
+    if (deleteSuccess) {
+      navigate("/lostFound");
+    }
+  }, [deleteSuccess]);
+
+  const handleConfirmDelete = (e) => {
+    e.preventDefault();
+    if (e.target.value === "true") {
+      dispatch(deleteLostFoundItem({ product_id, user_details, token }));
+    } else {
+      setOpenModal2(false);
+    }
   };
 
   const handleClick = async (e) => {
@@ -94,13 +150,11 @@ function LostFoundItemDetails() {
     if (e.target.value === "edit") {
       navigate(`/editLostFoundItems/${product_id}`);
     } else if (e.target.value === "delete") {
-      dispatch(deleteLostFoundItem({ product_id, user_details, token })).then(
-        () => {
-          navigate("/lostFound");
-        }
-      );
+      setOpenModal2(true);
     }
   };
+
+  //EDIT AND DELETE MY LOST FOUND FUNCTIONS END
 
   return (
     <>
@@ -191,6 +245,7 @@ function LostFoundItemDetails() {
             </div>
           </div>
         </div>
+
         <Modal
           open={openModal}
           onClose={(e) => setOpenModal(false)}
@@ -236,6 +291,53 @@ function LostFoundItemDetails() {
                 {!isLoading && "SUBMIT"}
               </Button>
             </form>
+          </div>
+        </Modal>
+        <Modal
+          open={openModal2}
+          onClose={(e) => setOpenModal(false)}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <div style={modalStyle} className={`${classes.paper}`}>
+            <h4
+              style={{ fontFamily: "Helvetica", fontWeight: "600" }}
+              className="label"
+            >
+              Delete Lost Item
+            </h4>
+            <p
+              style={{
+                marginTop: "2%",
+                marginBottom: "2%",
+                fontFamily: "Helvetica",
+                fontWeight: "400",
+              }}
+            >
+              Are you sure you want to delete this item permanently?
+            </p>
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={isLoading}
+              onClick={handleConfirmDelete}
+              style={{ width: "fit-content" }}
+              value="true"
+            >
+              {isLoading && <CircularProgress size={14} />}
+              {!isLoading && "GO AHED"}
+            </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={isLoading}
+              style={{ marginLeft: "2%", width: "fit-content" }}
+              value="false"
+              onClick={handleConfirmDelete}
+            >
+              {isLoading && <CircularProgress size={14} />}
+              {!isLoading && "CANCEL"}
+            </Button>
           </div>
         </Modal>
       </div>

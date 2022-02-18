@@ -9,6 +9,7 @@ import {
   resetStatus,
 } from "../redux/actions/LostFoundActions";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
+import Navbar from "../Components/Appbar/Navbar";
 
 function Edit_MyLostFoundItems() {
   const navigate = useNavigate();
@@ -79,150 +80,153 @@ function Edit_MyLostFoundItems() {
   };
 
   return (
-    <div style={{ height: "100vh" }}>
-      <form className="addItemForm" onSubmit={handleSubmit}>
-        <div className="left">
-          <div className="inputContainer">
-            <label htmlFor="item" className="inputLabel">
-              Item Lost
-            </label>
-            <input
-              className="formInput"
-              type="text"
-              id="item"
-              defaultValue={name}
-              placeholder="enter item name you lost"
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-              required
-            ></input>
+    <>
+      <Navbar />
+      <div style={{ height: "100vh" }}>
+        <form className="addItemForm" onSubmit={handleSubmit}>
+          <div className="left">
+            <div className="inputContainer">
+              <label htmlFor="item" className="inputLabel">
+                Item Lost
+              </label>
+              <input
+                className="formInput"
+                type="text"
+                id="item"
+                defaultValue={name}
+                placeholder="enter item name you lost"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+                required
+              ></input>
+            </div>
+            <div className="inputContainer">
+              <label htmlFor="brand" className="inputLabel">
+                Brand
+              </label>
+              <input
+                className="formInput"
+                type="text"
+                defaultValue={brand}
+                id="brand"
+                placeholder="enter brand of the item you lost"
+                onChange={(e) => setBrand(e.target.value)}
+                required
+              ></input>
+            </div>
+            <div className="inputContainer">
+              <label htmlFor="category" className="inputLabel">
+                Category
+              </label>
+              <input
+                className="formInput"
+                type="text"
+                defaultValue={category}
+                id="category"
+                placeholder="category of item"
+                onChange={(e) => setCategory(e.target.value)}
+                required
+              ></input>
+            </div>
+            <div className="inputContainer">
+              <label htmlFor="color" className="inputLabel">
+                Color
+              </label>
+              <input
+                className="formInput"
+                type="name"
+                defaultValue={color}
+                id="color"
+                placeholder="primary color of item"
+                onChange={(e) => setColor(e.target.value)}
+                required
+              ></input>
+            </div>
+            <div className="inputContainer">
+              <label htmlFor="images" className="inputLabel">
+                Images of Item
+              </label>
+              <input
+                className="formInput"
+                type="file"
+                multiple
+                id="images"
+                placeholder="Add images of item (if any)"
+                onChange={(e) => setFiles([...files, ...e.target.files])}
+              ></input>
+            </div>
           </div>
-          <div className="inputContainer">
-            <label htmlFor="brand" className="inputLabel">
-              Brand
-            </label>
-            <input
-              className="formInput"
-              type="text"
-              defaultValue={brand}
-              id="brand"
-              placeholder="enter brand of the item you lost"
-              onChange={(e) => setBrand(e.target.value)}
-              required
-            ></input>
+          <div className="right">
+            <div className="inputContainer">
+              <label htmlFor="date" className="inputLabel">
+                Date
+              </label>
+              <input
+                className="formInput"
+                type="date"
+                defaultValue={lostDate}
+                id="date"
+                placeholder="date when item lost"
+                onChange={(e) => setLostDate(e.target.value)}
+                required
+              ></input>
+            </div>
+            <div className="inputContainer">
+              <label htmlFor="time" className="inputLabel">
+                Time
+              </label>
+              <input
+                className="formInput"
+                type="time"
+                defaultValue={lostTime}
+                id="time"
+                placeholder="time when item lost"
+                onChange={(e) => setLostTime(e.target.value)}
+                required
+              ></input>
+            </div>
+            <div className="inputContainer">
+              <label htmlFor="location" className="inputLabel">
+                Location
+              </label>
+              <input
+                className="formInput"
+                type="text"
+                defaultValue={lostLocation}
+                id="location"
+                placeholder="location where item lost"
+                onChange={(e) => setLostLocation(e.target.value)}
+                required
+              ></input>
+            </div>
+            <div className="inputContainer">
+              <label htmlFor="description" className="inputLabel">
+                Description
+              </label>
+              <textarea
+                className="formInput"
+                type="textarea"
+                id="description"
+                defaultValue={description}
+                placeholder="tell us more about item, additional information"
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              ></textarea>
+            </div>
+            <div className="inputContainer">
+              <button
+                type="submit"
+                className="primary submitBtn"
+                style={{ marginBottom: "1.5rem" }}
+              >
+                SAVE
+              </button>
+            </div>
+            <div></div>
           </div>
-          <div className="inputContainer">
-            <label htmlFor="category" className="inputLabel">
-              Category
-            </label>
-            <input
-              className="formInput"
-              type="text"
-              defaultValue={category}
-              id="category"
-              placeholder="category of item"
-              onChange={(e) => setCategory(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div className="inputContainer">
-            <label htmlFor="color" className="inputLabel">
-              Color
-            </label>
-            <input
-              className="formInput"
-              type="name"
-              defaultValue={color}
-              id="color"
-              placeholder="primary color of item"
-              onChange={(e) => setColor(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div className="inputContainer">
-            <label htmlFor="images" className="inputLabel">
-              Images of Item
-            </label>
-            <input
-              className="formInput"
-              type="file"
-              multiple
-              id="images"
-              placeholder="Add images of item (if any)"
-              onChange={(e) => setFiles([...files, ...e.target.files])}
-            ></input>
-          </div>
-        </div>
-        <div className="right">
-          <div className="inputContainer">
-            <label htmlFor="date" className="inputLabel">
-              Date
-            </label>
-            <input
-              className="formInput"
-              type="date"
-              defaultValue={lostDate}
-              id="date"
-              placeholder="date when item lost"
-              onChange={(e) => setLostDate(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div className="inputContainer">
-            <label htmlFor="time" className="inputLabel">
-              Time
-            </label>
-            <input
-              className="formInput"
-              type="time"
-              defaultValue={lostTime}
-              id="time"
-              placeholder="time when item lost"
-              onChange={(e) => setLostTime(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div className="inputContainer">
-            <label htmlFor="location" className="inputLabel">
-              Location
-            </label>
-            <input
-              className="formInput"
-              type="text"
-              defaultValue={lostLocation}
-              id="location"
-              placeholder="location where item lost"
-              onChange={(e) => setLostLocation(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div className="inputContainer">
-            <label htmlFor="description" className="inputLabel">
-              Description
-            </label>
-            <textarea
-              className="formInput"
-              type="textarea"
-              id="description"
-              defaultValue={description}
-              placeholder="tell us more about item, additional information"
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            ></textarea>
-          </div>
-          <div className="inputContainer">
-            <button
-              type="submit"
-              className="primary submitBtn"
-              style={{ marginBottom: "1.5rem" }}
-            >
-              SAVE
-            </button>
-          </div>
-          <div></div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   );
 }
 

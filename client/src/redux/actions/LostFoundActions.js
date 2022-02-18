@@ -87,17 +87,20 @@ export const addNewLostFoundItem = (data) => async (dispatch) => {
         },
       }
     );
-
+    const payloadobj = { message: res.data.message, status: res.status };
     dispatch({
       type: ADD_NEW_LOST_FOUND_ITEM,
-      payload: res,
+      payload: payloadobj,
     });
   } catch (error) {
     if (error.response) {
-      console.log(error.response);
+      const payloadobj = {
+        message: error.response.data.message,
+        status: error.response.status,
+      };
       dispatch({
-        type: CHECKING_ERROR_LOST_FOUND,
-        payload: error.response,
+        type: ADD_NEW_LOST_FOUND_ITEM,
+        payload: payloadobj,
       });
     }
   }
@@ -179,17 +182,20 @@ export const deleteLostFoundItem = (data) => async (dispatch) => {
         data,
       }
     );
-    console.log(res);
+    const payloadobj = { message: res.data.message, status: res.status };
     dispatch({
       type: DELETE_LOST_FOUND_ITEM,
-      payload: res,
+      payload: payloadobj,
     });
   } catch (error) {
     if (error.response) {
-      console.log(error.response);
+      const payloadobj = {
+        message: error.response.data.message,
+        status: error.response.status,
+      };
       dispatch({
-        type: CHECKING_ERROR,
-        payload: error.response,
+        type: DELETE_LOST_FOUND_ITEM,
+        payload: payloadobj,
       });
     }
   }
@@ -211,17 +217,21 @@ export const raiseHand = (data) => async (dispatch) => {
         },
       }
     );
-    console.log(res);
+    const payloadobj = { message: res.data.message, status: res.status };
     dispatch({
       type: RAISE_HAND,
-      payload: res.status,
+      payload: payloadobj,
     });
   } catch (error) {
     if (error.response) {
-      console.log(error.response);
+      const payloadobj = {
+        message: error.response.data.message,
+        status: error.response.status,
+      };
+      console.log(payloadobj);
       dispatch({
-        type: CHECKING_ERROR,
-        payload: error.response,
+        type: RAISE_HAND,
+        payload: payloadobj,
       });
     }
   }
