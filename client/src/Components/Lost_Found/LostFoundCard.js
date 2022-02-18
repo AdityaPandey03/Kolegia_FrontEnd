@@ -27,14 +27,7 @@ const slicedDescription=card.description.slice(0,17);
 
     return (
         <div className="found" id="Bcard" >
-            { editOption?
-      <div className='eidtIcons_buySell'>
-      <Link 
-   to='/editLostFoundItems'
-  state={{ Data: card }}><FaEdit /></Link>  
-    < FaTrashAlt onClick={(e)=>handleClick(card,e)}/>
-      </div> : null
-}
+           
           {/* <h2 className="header-02">Found</h2> */}
           <div className="card-details">
             {postedby?<h2 className="pink">
