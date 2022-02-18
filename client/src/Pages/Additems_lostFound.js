@@ -11,19 +11,61 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../Components/Appbar/Navbar";
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 
 function AddItem() {
+  
+
+
+
+  const categories = [
+    {
+      value: 'Electronics and Mobiles',
+      label: 'Electronics and Mobiles',
+    },
+    {
+      value: 'Fashion',
+      label: 'Fashion',
+    },
+    {
+      value: 'Home and Garden',
+      label: 'Home and Garden',
+    },
+    {
+      value: 'Sports & Outdoors',
+      label: 'Sports & Outdoors',
+    },
+    {
+      value: 'Toys & Games',
+      label: 'Toys & Games',
+    },
+    {
+      value: 'Health & Beauty',
+      label: 'Health & Beauty',
+    },
+    {
+      value: 'Automotive',
+      label: 'Automotive',
+    },
+    {
+      value: 'Books & Audible',
+      label: 'Books & Audible',
+    },
+   
+  ];
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
   const [color, setColor] = useState("");
-  const [category, setCategory] = useState("");
+  const [OtherCategory, setCategoryOthers] = useState("");
   const [lostDate, setLostDate] = useState(null);
   const [lostTime, setLostTime] = useState(null);
   const [lostLocation, setLostLocation] = useState("");
   const [files, setFiles] = useState([]);
   const [createResponse, setCreateResponse] = useState(null);
   const [done, setDone] = useState(false);
+  const [category, setCategory] = useState('')
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -32,16 +74,23 @@ function AddItem() {
     (state) => state.lostFound.addItemsLostFoundResponse
   );
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
+   
     const token = localStorage.getItem("jwt");
     const decoded = jwt_decode(token);
 
     const formData = new FormData();
     formData.append("name", name);
     formData.append("brand", brand);
-    formData.append("category", category);
+    if(category){
+      formData.append("category", category);
+    }else{
+      formData.append('category',OtherCategory)
+    }
+    
     formData.append("color", color);
     formData.append("description", description);
     formData.append("lost_date", lostDate);
@@ -53,6 +102,11 @@ function AddItem() {
       formData.append("files", files[i]);
     }
     dispatch(addNewLostFoundItem(formData));
+  };
+  console.log(category);
+
+  const handleChange = (event) => {
+    setCategory(event.target.value);
   };
 
   //TOASTIFY FUNCTION START
@@ -118,14 +172,28 @@ function AddItem() {
               <label htmlFor="category" className="inputLabel">
                 Category
               </label>
+              <TextField
+          id="outlined-select-currency"
+          select
+          label="Select"
+          value={category}
+          onChange={handleChange}
+          helperText="Please select the category"
+        >
+          {categories.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
               <input
                 className="formInput"
                 type="text"
                 id="category"
-                placeholder="category of item"
-                onChange={(e) => setCategory(e.target.value)}
-                value={category}
-                required
+                placeholder="If Any other"
+                onChange={(e) => setCategoryOthers(e.target.value)}
+                value={OtherCategory}
+               
               ></input>
             </div>
             <div className="inputContainer">

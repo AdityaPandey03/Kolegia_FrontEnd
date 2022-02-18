@@ -10,11 +10,49 @@ import {
 } from "../redux/actions/LostFoundActions";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import Navbar from "../Components/Appbar/Navbar";
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
+
 
 function Edit_MyLostFoundItems() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const params = useParams();
+  const categories = [
+    {
+      value: 'Electronics and Mobiles',
+      label: 'Electronics and Mobiles',
+    },
+    {
+      value: 'Fashion',
+      label: 'Fashion',
+    },
+    {
+      value: 'Home and Garden',
+      label: 'Home and Garden',
+    },
+    {
+      value: 'Sports & Outdoors',
+      label: 'Sports & Outdoors',
+    },
+    {
+      value: 'Toys & Games',
+      label: 'Toys & Games',
+    },
+    {
+      value: 'Health & Beauty',
+      label: 'Health & Beauty',
+    },
+    {
+      value: 'Automotive',
+      label: 'Automotive',
+    },
+    {
+      value: 'Books & Audible',
+      label: 'Books & Audible',
+    },
+   
+  ];
   // const location=useLocation();
 
   const token = localStorage.getItem("jwt");
@@ -28,9 +66,12 @@ function Edit_MyLostFoundItems() {
   );
   const [brand, setBrand] = useState(product.brand ? product.brand : "");
   const [color, setColor] = useState(product.color ? product.color : "");
+  
   const [category, setCategory] = useState(
-    product.category ? product.category : ""
-  );
+    ''
+    // product.category ? product.category : ""
+);
+  const [OtherCategory, setCategoryOthers] = useState("");
   const [lostDate, setLostDate] = useState(
     product.lost_date ? product.lost_date : ""
   );
@@ -52,6 +93,9 @@ function Edit_MyLostFoundItems() {
     dispatch(resetStatus);
     navigate("/sidebar/myOwnLostFoundItems");
   }
+  const handleChange = (event) => {
+    setCategory(event.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,7 +107,12 @@ function Edit_MyLostFoundItems() {
     formData.append("product_id", product_id);
     formData.append("name", name);
     formData.append("brand", brand);
-    formData.append("category", category);
+    if(category){
+      formData.append("category", category);
+    }else{
+      formData.append('category',OtherCategory)
+    }
+   
     formData.append("color", color);
     formData.append("description", description);
     formData.append("lost_date", lostDate);
@@ -118,14 +167,28 @@ function Edit_MyLostFoundItems() {
               <label htmlFor="category" className="inputLabel">
                 Category
               </label>
+              <TextField
+          id="outlined-select-currency"
+          select
+          label="Select"
+          value={category}
+          onChange={handleChange}
+          helperText="Please select the category"
+        >
+          {categories.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
               <input
                 className="formInput"
                 type="text"
-                defaultValue={category}
+                
                 id="category"
-                placeholder="category of item"
-                onChange={(e) => setCategory(e.target.value)}
-                required
+                placeholder="if any other"
+                onChange={(e) => setCategoryOthers(e.target.value)}
+               
               ></input>
             </div>
             <div className="inputContainer">
@@ -168,7 +231,7 @@ function Edit_MyLostFoundItems() {
                 id="date"
                 placeholder="date when item lost"
                 onChange={(e) => setLostDate(e.target.value)}
-                required
+              
               ></input>
             </div>
             <div className="inputContainer">
