@@ -14,9 +14,11 @@ function ProductDetails() {
   const buySell = useSelector((state) => state.buySell);
   const { isLoading, singleProduct, firstImage } = buySell;
 
-  
 
-console.log(singleProduct);
+  const {owner_details}=singleProduct;
+  console.log(owner_details)
+
+
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -27,7 +29,7 @@ console.log(singleProduct);
   const handleClick = (e) => {
     image2 = e.target.src;
   };
-
+console.log(singleProduct)
   return (
     <>
     <Navbar visibleSearch={false}/>
@@ -59,13 +61,13 @@ console.log(singleProduct);
           </div>
           <div className="description">
             <h2>Description</h2>
-            <p>{singleProduct.brand}</p>
-            <p>
+            <p style={{marginTop:'15px'}}>{singleProduct.brand}</p>
+            <p style={{marginTop:'5px'}}>
               {singleProduct.color}
             
             </p>
-            <p>{singleProduct.description}</p>
-            <p>{singleProduct.category}</p>
+            <p style={{marginTop:'5px'}}>{singleProduct.description}</p>
+            <p style={{marginTop:'5px'}}>{singleProduct.category}</p>
           </div>
           </div>
           <div className="detailsContainer">
@@ -73,18 +75,31 @@ console.log(singleProduct);
             <p style={{fontSize:'20px'}}>Price :  Rs. {singleProduct?.price}</p>
             
             <h3 style={{marginTop:'15px',marginBottom:'5px',fontFamily:"Hind Siliguri, sans-serif",fontWeight:'600',fontSize:'28px'}}>Owner Details</h3>
-            <h4 style={{color:'black',fontSize:'20px'}}>Posted By: Aditya Pandey</h4>
+            <h4 style={{color:'black',fontSize:'20px'}}>Posted by:{owner_details?.name}</h4>
+            <h4>Phone:{owner_details?.phone}</h4>
 
-            <Button variant="contained" style={{width:'18rem',color:'white',background:'#332A7C',borderRadius:'10px',marginRight:'10px',marginTop:'48px',height:'2.5rem', fontFamily:"Hind Siliguri, sans-serif", fontWeight: '700'}}
->
-              <CircularProgress size={14} />
-               Connect with author
-            </Button>
+
+              <Button
+                variant="contained"
+                style={{
+                  width: "18rem",
+                  color: "white",
+                  background: "#332A7C",
+                  borderRadius: "10px",
+                  marginRight: "10px",
+                  marginTop: "48px",
+                  height: "2.5rem",
+                  fontFamily: "Hind Siliguri, sans-serif",
+                  fontWeight: "700",
+                }}
+              >
+                <CircularProgress size={14} />
+                Connect with author
+              </Button>
+            </div>
           </div>
-        </div>
-      )}
-     
-    </div>
+        )}
+      </div>
     </>
   );
 }

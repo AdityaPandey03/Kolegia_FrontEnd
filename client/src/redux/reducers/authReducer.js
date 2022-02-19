@@ -108,7 +108,8 @@ const AuthReducer=(state=initialState,action)=>{
                         return{
                         ...state,
                         editProfileResponse:''  ,
-                        changePasswordResponse:''  
+                        changePasswordResponse:'' ,
+                        loginWithGoogleResponse:'' 
                         }          
                         
                         case RESET_ERROR_MESSAGE:

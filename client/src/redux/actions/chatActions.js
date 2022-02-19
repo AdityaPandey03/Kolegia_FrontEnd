@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 import {
   GET_ALL_CHATS,
   GET_ALL_MESSAGES_OF_A_CONVERSATION,
+  GET_NEXT_BATCH,
   NEW_REQUEST,
   SEND_MESSAGE,
 } from "../constants/AllConstants";
@@ -51,7 +52,34 @@ export const getMessages = (data) => async (dispatch) => {
     console.log(res);
     dispatch({
       type: GET_ALL_MESSAGES_OF_A_CONVERSATION,
-      payload: res.data.messages,
+      payload: res.data.messages.reverse(),
+    });
+  } catch (err) {
+    console.log(err.response);
+    console.log(err);
+  }
+};
+
+export const getNextBacthOfMessages = (data) => async (dispatch) => {
+  dispatch({
+    type: NEW_REQUEST,
+    payload: true,
+  });
+
+  try {
+    console.log(data);
+    const res = await axios.get(
+      `http://localhost:3000/api/v1/chats/get-messages?room_id=${data.room_id}&skip=${data.skip}`,
+      {
+        headers: {
+          authorization: `Bearer ${data.token}`,
+        },
+      }
+    );
+    console.log(res);
+    dispatch({
+      type: GET_NEXT_BATCH,
+      payload: res.data.messages.reverse(),
     });
   } catch (err) {
     console.log(err.response);

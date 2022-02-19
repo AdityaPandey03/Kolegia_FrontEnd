@@ -58,20 +58,20 @@ const Navbar = ({visibleSearch,presentPage}) => {
     return (  
         <div className="container-nav">
             <div className="part_one">
-                <div className="header1">
+                <div onClick={()=>navigate('/dashboard')} className="header1">
                     <img src="https://res.cloudinary.com/kartikeyvaish/image/upload/v1642841457/Kolegia/logo_snpqqs.png" alt="" />
                     <p id='abc'>olegia</p>
                 </div>
             </div>
-            <div className="a">
-                <div className='ul'>
+            <div className='ul'>
                     {visibleSearch?
                     <p><form className="form" id="form" onSubmit={handleSearch}>                            
                     <input  type="text" placeholder='Search...' id="search" className="search" value={searchQuery} onChange={handleSearchChange} />
                     <div className="icon" onClick={handleSearch}><FaSearch/></div>
                     </form></p>:null
                     }
-                </div>            
+                </div>
+            <div className="a">            
                 <p><Link to='/chatRoom'><SiGooglechat/></Link></p>
                 <p><Link to='/dashboard'>Dashboard</Link></p>
                 <p className="log_out" on onClick={handleClick}>Logout</p>
@@ -83,14 +83,6 @@ const Navbar = ({visibleSearch,presentPage}) => {
                 {toggleMenu && (
                 <div className="nav_mobile_menu scale-up-center">
                 <div className="nav_mobile_menu_part">
-                    <div className='ul_menu'>
-                        {visibleSearch?
-                        <p><form className="form" id="form">                            
-                        <input  type="text" placeholder='Search...' id="search" className="search_menu" />
-                        <div className="icon_menu"><FaSearch/></div>
-                        </form></p>:null
-                        }
-                    </div>
                     <p><Link to='/chatRoom'><SiGooglechat/></Link></p>
                     <p><Link className="nav-profile" to='/sideBar'>Profile</Link></p>
                     <p><Link to='/dashboard'>Dashboard</Link></p>                    

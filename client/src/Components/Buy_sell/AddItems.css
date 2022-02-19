@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap');
 
 
 body.active-modal {
@@ -62,7 +63,7 @@ body.active-modal {
 .modal-content input{
     width: 20rem;
     height: 2.5rem;
-    border: 1px solid #F0BC5E ;
+    border: 0.75px solid #F0BC5E ;
     border-radius: 4px;
 }
 
@@ -81,11 +82,16 @@ body.active-modal {
     width: 20rem;
     height: 2.5rem;
     background-color: #F25767;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: white;
     border: none;
     border-radius: 6px;
     margin-top: 5px;
+}
+.form02 input{
+    font-family:'Hind Siliguri', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
 }
 .form02 label{
     color: #332A7C;
@@ -94,3 +100,8 @@ body.active-modal {
     font-family: 'Poppins', sans-serif;
 
 }
+::placeholder { 
+    color: black;
+    padding:5px;
+    opacity: 1; /* Firefox */
+  }

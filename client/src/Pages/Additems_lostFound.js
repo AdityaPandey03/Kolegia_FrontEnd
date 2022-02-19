@@ -11,48 +11,43 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../Components/Appbar/Navbar";
-import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
+import TextField from "@mui/material/TextField";
+import MenuItem from "@mui/material/MenuItem";
 
 function AddItem() {
-  
-
-
-
   const categories = [
     {
-      value: 'Electronics and Mobiles',
-      label: 'Electronics and Mobiles',
+      value: "Electronics and Mobiles",
+      label: "Electronics and Mobiles",
     },
     {
-      value: 'Fashion',
-      label: 'Fashion',
+      value: "Fashion",
+      label: "Fashion",
     },
     {
-      value: 'Home and Garden',
-      label: 'Home and Garden',
+      value: "Home and Garden",
+      label: "Home and Garden",
     },
     {
-      value: 'Sports & Outdoors',
-      label: 'Sports & Outdoors',
+      value: "Sports & Outdoors",
+      label: "Sports & Outdoors",
     },
     {
-      value: 'Toys & Games',
-      label: 'Toys & Games',
+      value: "Toys & Games",
+      label: "Toys & Games",
     },
     {
-      value: 'Health & Beauty',
-      label: 'Health & Beauty',
+      value: "Health & Beauty",
+      label: "Health & Beauty",
     },
     {
-      value: 'Automotive',
-      label: 'Automotive',
+      value: "Automotive",
+      label: "Automotive",
     },
     {
-      value: 'Books & Audible',
-      label: 'Books & Audible',
+      value: "Books & Audible",
+      label: "Books & Audible",
     },
-   
   ];
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -65,7 +60,7 @@ function AddItem() {
   const [files, setFiles] = useState([]);
   const [createResponse, setCreateResponse] = useState(null);
   const [done, setDone] = useState(false);
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState("");
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -74,27 +69,50 @@ function AddItem() {
     (state) => state.lostFound.addItemsLostFoundResponse
   );
 
+
+
+
+  function get_iso_time({ date, time }) {
+    try {
+      let newDateTime = date ? new Date(date) : new Date();
   
+      if (time) {
+        let digits = time.split(":");
+        let hours = parseInt(digits[0]);
+        let minutes = parseInt(digits[1]);
+  
+        newDateTime.setHours(hours, minutes);
+      }
+  
+      return newDateTime.toISOString();
+    } catch (error) {
+      return new Date().toISOString();
+    }
+  }
+
+  const newLostTime=get_iso_time({time:lostTime});
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   
+
     const token = localStorage.getItem("jwt");
     const decoded = jwt_decode(token);
 
     const formData = new FormData();
     formData.append("name", name);
     formData.append("brand", brand);
-    if(category){
+    if (category) {
       formData.append("category", category);
-    }else{
-      formData.append('category',OtherCategory)
+    } else {
+      formData.append("category", OtherCategory);
     }
-    
+
     formData.append("color", color);
     formData.append("description", description);
     formData.append("lost_date", lostDate);
-    formData.append("lost_time", lostTime);
+    formData.append("lost_time", newLostTime);
     formData.append("lost_location", lostLocation);
     formData.append("token", decoded.auth_token);
 
@@ -137,7 +155,7 @@ function AddItem() {
   return (
     <>
       <Navbar />
-      <div style={{ height: "100vh" }}>
+      <div style={{ height: "100vh", marginTop: "10vh" }}>
         <form className="addItemForm" onSubmit={handleSubmit}>
           <div className="left">
             <div className="inputContainer">
@@ -173,19 +191,19 @@ function AddItem() {
                 Category
               </label>
               <TextField
-          id="outlined-select-currency"
-          select
-          label="Select"
-          value={category}
-          onChange={handleChange}
-          helperText="Please select the category"
-        >
-          {categories.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
+                id="outlined-select-currency"
+                select
+                label="Select"
+                value={category}
+                onChange={handleChange}
+                helperText="Please select the category"
+              >
+                {categories.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
               <input
                 className="formInput"
                 type="text"
@@ -193,7 +211,6 @@ function AddItem() {
                 placeholder="If Any other"
                 onChange={(e) => setCategoryOthers(e.target.value)}
                 value={OtherCategory}
-               
               ></input>
             </div>
             <div className="inputContainer">

@@ -2,7 +2,7 @@
 import GoogleLogin from 'react-google-login';
 import { useState } from 'react';
 import { useDispatch ,useSelector} from "react-redux";
-import {loginWithGoogle} from '../../redux/actions/authActions'
+import {loginWithGoogle,resetStatus} from '../../redux/actions/authActions'
 import {  useNavigate } from "react-router-dom";
 
 function Googlelogin() {
@@ -23,10 +23,12 @@ function Googlelogin() {
    }
   
     if(successResponse){
+      dispatch(resetStatus)
       if(isLoggedIn){
         localStorage.setItem("jwt",successResponse.data.user_token);
         navigate('/dashboard');
       } else{
+        dispatch(resetStatus)
         navigate('/signUpForm',{
               state:{Email:successResponse.data.user_details.email,
                       name:successResponse.data.user_details.name,
