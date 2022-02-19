@@ -13,7 +13,7 @@ import ProductDetails from "./Pages/ProductDetails_buySell";
 import LoginSignUp from "./Pages/Login";
 import ProfileMobile from "./Pages/ProfileMobile";
 import Homepage from "./Components/homepage/Homepage";
-import Not_Found from "./Components/Not_Found/Not_Found";
+
 import LostFoundItemDetails from "./Pages/ProductDetails_lostFound";
 import AddItem from "./Pages/Additems_lostFound";
 import OtpPage from "./Pages/OtpPage";
@@ -34,6 +34,7 @@ import Edit_Profile from "./Pages/Edit_Profile";
 import ProfilePage from "./Components/profile/ProfilePage"
 import Change_Password from "./Pages/Change_Password";
 import SignUpPage from './Pages/SignUpPage'
+import Not_Found from "./Components/Not_Found/Not_Found";
 
 const theme = createTheme({
   palette: {
@@ -54,7 +55,9 @@ function App() {
 
           <Routes>
             <Route path="/" exact element={<Homepage />}></Route>
-            <Route path="/notFound" exact element={<Not_Found />}></Route>
+
+            <Route path="*" exact element={<Not_Found />}></Route>
+
             <Route path="/loginSignUp" exact element={<LoginSignUp />}></Route>
             <Route exact path="/signUpForm" element={<SignUpForm />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
