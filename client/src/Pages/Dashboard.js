@@ -1,6 +1,6 @@
 import Dcards from "../Components/Dashboard/DashboardCards";
 import Profile from "../Components/Dashboard/Profile";
-import "../Components/Dashboard/Dashboard.css";
+import "../Components/Dashboard/DashboardCards.css";
 import Navbar from "../Components/Appbar/Navbar";
 import StatsCard from "../Components/Dashboard/StatsCard";
 

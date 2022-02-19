@@ -46,7 +46,7 @@ const Cards = () => {
   const classes = useStyles();
   return ( 
     <>
-    <Navbar visibleSearch={true}/>
+    <Navbar visibleSearch={true} presentPage="buySell" />
     {isLoading ? (
     <LoadingBox />
   ) :(
