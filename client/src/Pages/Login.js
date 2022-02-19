@@ -84,6 +84,7 @@ const handleClick=()=>{
         
     
         <div className="container " id="container">
+        <button onClick={handleClick} className='mobile_view_signUp'>Sign up</button>
           <div>
            
       

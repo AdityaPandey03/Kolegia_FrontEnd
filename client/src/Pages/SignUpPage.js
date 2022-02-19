@@ -84,6 +84,7 @@ const handleSubmitSignUp=()=>{
         
     
         <div className="container " id="container">
+          <button onClick={handleClick} className='mobile_view_signUp'>Sign In</button>
           <div>
             
               <div className="signip-form form2">
