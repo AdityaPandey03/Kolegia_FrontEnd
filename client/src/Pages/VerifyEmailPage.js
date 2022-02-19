@@ -4,6 +4,8 @@ import { useDispatch ,useSelector} from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import {verifyEmail, verifyEmailForReset} from '../redux/actions/authActions'
 import LoadingButton from '@mui/lab/LoadingButton';
+import Navbar from "../Components/Appbar/Navbar";
+
 
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -34,22 +36,23 @@ const VerifyEmailPage = () => {
 
 box:{
     position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        width:'400px',
-        display:"flex",
-        flexDirection:'column',
-        alignItems:"center",
-        gap:"2rem",
-        padding:'10px',
-        borderRadius:'8px',
-background: '#F0BC5E',
-boxshadow:  '5px 5px 10px #b5b5b5,-5px -5px 10px #ffffff',
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width:'400px',
+    display:"flex",
+    flexDirection:'column',
+    alignItems:"center",
+    gap:"2rem",
+    padding:'5px',
+    fontFamily: "Inconsolata, monospace",
+borderRadius: '16px',
+background: '#FFFFFF',
+boxShadow:  '20px 20px 30px #D9D7F1,-20px -20px 30px #D9D7F1'
              
 },
 cont:{
-    backgroundColor:'#332A7C',
+    backgroundColor:'#FFFFFF',
     width:'100vw',
     height:'100vh'
 }
@@ -60,7 +63,10 @@ cont:{
     }
 
 
-    return ( 
+    return (
+        <>
+        <Navbar/>
+
         <div style={style.cont} className="otp-container">
             <div style={style.box} className="otp-box">
             <p style={{fontSize:'1.3rem'}}>
@@ -69,7 +75,7 @@ cont:{
             <input onChange={(e)=>setEmail(e.target.value)} style={{width:'12rem',height:'2rem'}} type="email" placeholder="Email"/>
            
             <LoadingButton
-                style={{width:'13rem',color:'white',background:'#332A7C',borderRadius:'10px',margin:'20px',height:'2.8rem'}}
+               style={{width:'13rem',color:'white',fontFamily: "Inter, monospace",background:'#332A7C',borderRadius:'10px',margin:'20px',height:'2.5rem',fontWeight:'700'}}
                 className='submit button'
         onClick={handleClick}
         endIcon={<ArrowForwardIosIcon/>}
@@ -83,6 +89,7 @@ cont:{
             </div>
            
         </div>
+        </>
      );
 }
  
