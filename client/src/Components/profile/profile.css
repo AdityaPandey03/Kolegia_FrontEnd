@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap');
 @font-face {
   font-family: Iceberg;
   src: url(Iceberg-Regular.ttf);
@@ -18,9 +21,12 @@
     padding: 16px;
     color: white;
   
-    border-radius:10px;
+    /* border-radius:10px; */
     /* background-color: rgb(70, 71, 75); */
-    box-shadow: 10px 8px 10px #D9D7F1, -10px -5px 10px #fdfdfd;
+    /* box-shadow: 10px 8px 10px #D9D7F1, -10px -5px 10px #fdfdfd; */
+    border-radius: 16px;
+background: #FFFFFF;
+box-shadow: 20px 20px 50px #D9D7F1,-20px -20px 40px #D9D7F1;
     
   }
 
@@ -54,7 +60,10 @@
   .user_name {
     flex: 3;
     font-size: 32px;
-    font-family: Iceberg;
+    /* font-family: Iceberg; */
+    font-family: 'Inconsolata', monospace;
+    font-weight: 900;
+    text-transform: uppercase;
   }
   .img-circle {
     border-radius: 50%;
@@ -84,15 +93,20 @@
     display: block;
     color: white;
     font-size: 14px;
-    font-family: Iceberg;
+    /* font-family: Iceberg; */
+    /* font-family: 'Inconsolata', monospace; */
+    font-family: 'Hind Siliguri', sans-serif;
     margin: 10px 0;
     overflow-x: auto;
   }
   .more_details {
     display: block;
     color: black;
-    font-family: Iceberg;
-    font-size: 20px;
+    /* font-family: Iceberg; */
+    /* font-family: 'Inconsolata', monospace; */
+    font-family: 'Hind Siliguri', sans-serif;
+    font-weight: 600;
+    font-size: 21px;
     margin: 10px 0;
     overflow-x: auto;
   }

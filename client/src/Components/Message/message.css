@@ -21,7 +21,8 @@
   border-radius: 10px;
   background-color: #1877f2;
   color: white;
-  max-width: 300px;
+  width: fit-content;
+  max-width: 250px;
 }
 
 .messageBottom {

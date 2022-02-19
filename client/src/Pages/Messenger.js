@@ -5,21 +5,30 @@ import Conversations from "../Components/Conversations/Conversations";
 import {
   getAllChats,
   getMessages,
+  getNextBacthOfMessages,
   sendMessage,
 } from "../redux/actions/chatActions";
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message/Message";
 import { io } from "socket.io-client";
+import { ConstructionOutlined } from "@mui/icons-material";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function Messenger() {
   const chats = useSelector((state) => state.chat.chats);
   const currentChatMessages = useSelector(
     (state) => state.chat.all_messages_of_a_conversation
   );
+  const nextBatch = useSelector(
+    (state) => state.chat.next_batch_of_a_conversation
+  );
+  const new_message = useSelector((state) => state.chat.new_message);
+  const isLoading = useSelector((state) => state.chat.isLoading);
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
-  const [messages, setMessages] = useState(currentChatMessages);
+  const [messages, setMessages] = useState([]);
+  const [messagesToShow, setMessagesToShow] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [receivedMessage, setReceivedMessage] = useState(null);
   const dispatch = useDispatch();
@@ -43,8 +52,17 @@ function Messenger() {
   }, [currentChat]);
 
   useEffect(() => {
+    // console.log(currentChatMessages.reverse());
     setMessages(currentChatMessages);
   }, [currentChatMessages]);
+
+  useEffect(() => {
+    nextBatch.length > 0 && setMessages((prev) => [...nextBatch, ...prev]);
+  }, [nextBatch]);
+
+  useEffect(() => {
+    new_message && setMessages((prev) => [...prev, new_message]);
+  }, [new_message]);
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({
@@ -97,7 +115,18 @@ function Messenger() {
 
   useEffect(() => {
     receivedMessage && setMessages((prev) => [...prev, receivedMessage]);
+    console.log(messages);
   }, [receivedMessage]);
+
+  const handleScroll = (e) => {
+    let element = e.target;
+    if (element.scrollTop === 0) {
+      const room_id = currentChat?._id;
+      dispatch(
+        getNextBacthOfMessages({ room_id, token, skip: messages.length })
+      );
+    }
+  };
 
   return (
     <>
@@ -122,7 +151,18 @@ function Messenger() {
           <div className="chatBoxWrapper">
             {currentChat ? (
               <>
-                <div className="chatBoxTop">
+                <div className="chatBoxTop" onScroll={handleScroll}>
+                  {isLoading && (
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <CircularProgress />
+                    </div>
+                  )}
                   {messages.length > 0 &&
                     messages.map((m) => {
                       return (
@@ -135,6 +175,7 @@ function Messenger() {
                       );
                     })}
                 </div>
+
                 <div className="chatBoxBottom">
                   <form
                     onSubmit={clickHandler}
@@ -163,13 +204,13 @@ function Messenger() {
           </div>
         </div>
         <div className="chatOnline">
-          <div className="chatOnlineWrapper">
-            {/* <ChatOnline
+          {/* <div className="chatOnlineWrapper"> */}
+          {/* <ChatOnline
               onlineUsers={onlineUsers}
               currentId={user._id}
               setCurrentChat={setCurrentChat}
             /> */}
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </>

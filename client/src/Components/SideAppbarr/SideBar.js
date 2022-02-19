@@ -34,35 +34,51 @@ const useStyles = makeStyles((theme) => {
       background: 'white',
       width: '100%',
       padding: theme.spacing(1),
+
      
     },
     root: {
       display: 'flex',
+
+      fontFamily:'Inter, sans-serif',
+
     },
     drawer: {
       width: drawerWidth,
+
       [theme.breakpoints.down(650)]: {
        width:'60px'
-      }
+      },
+      fontFamily:'Inter, sans-serif',
+
     },
     drawerPaper: {
       background: '#332a7c',
+
       width: drawerWidth,
       [theme.breakpoints.down(650)]: {
-       width:'60px'
-      }
+       width:'60px',
+
+
+      },
+
     },
     active: {
       background: '#F0BC5E'
     },
     title: {
-      // padding: theme.spacing(2),
+      padding: theme.spacing(0.75),
       color: 'white',
       cursor:'pointer',
       [theme.breakpoints.down(650)]: {
-        display:'none'
-      }
-      // fontSize:'2.5rem'
+        display:'none',
+
+      },
+      fontFamily:'Hind Siliguri, monospace',
+      fontWeight:'900',
+
+
+       fontSize:'1.5rem'
     },
    
     date: {
@@ -72,22 +88,26 @@ const useStyles = makeStyles((theme) => {
        display:'flex',
        flexDirection:'column',
        
+
+       
     },
 
     icon:{
-      color:"white"
+      color:"white",
+      
     },
     icon02:{
       color:"white",
-      width:'50px'
+      width:'50px',
+      
     },
     label:{
       color: 'white',
            // display:'none'
       [theme.breakpoints.down(650)]: {
         display:'none'
+      },
       }
-    }
 
    
   }
@@ -102,7 +122,7 @@ export default function SideBar() {
   const menuItems = [
     { 
       text: 'Profile', 
-      icon: <PersonIcon  />, 
+      icon: <PersonIcon  />,
 
       path: '/sidebar' 
     },
@@ -135,6 +155,7 @@ export default function SideBar() {
 
       {/* side drawer */}
       <Drawer
+      
         className={classes.drawer}
         variant="permanent"
         classes={{ paper: classes.drawerPaper }}
@@ -144,13 +165,14 @@ export default function SideBar() {
         
           <ListItem 
               button 
+
                
               onClick={() => navigate('/dashboard')}
              
             >
               <ListItemIcon className={classes.icon02}><HomeIcon  /></ListItemIcon>
-              <ListItemText className={classes.title} primary={<Typography  variant="h5" className={classes.title}>
-           Kolegia
+              <ListItemText  className={classes.title} primary={<Typography  variant="h5" className={classes.title}>
+           KOLEGIA
           </Typography>} />
             </ListItem>
         </div>
@@ -159,13 +181,13 @@ export default function SideBar() {
         <List className={classes.list}>
           {menuItems.map((item) => (
             <ListItem 
-              button 
+              button
               key={item.text} 
               onClick={() => navigate(item.path)}
               className={location.pathname == item.path ? classes.active : null}
             >
               <ListItemIcon className={classes.icon}>{item.icon}</ListItemIcon>
-              <ListItemText className={classes.label} primary={item.text} />
+              <ListItemText  className={classes.label} primary={item.text} />
             </ListItem>
           ))}
         </List>        
