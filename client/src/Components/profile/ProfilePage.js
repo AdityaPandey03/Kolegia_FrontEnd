@@ -10,7 +10,7 @@ const Profile = () => {
   const decoded = jwt_decode(token);
 
   return (
-    <div className="profile-page-container">
+    <div  style={{fontWeight:'600'}} className="profile-page-container">
         <div className="profile-page">
         <svg
                 className="profile-page__background-svg"
@@ -31,7 +31,7 @@ const Profile = () => {
                     {/* <img className='img-circle' src="https://res.cloudinary.com/kartikeyvaish/image/upload/v1642841457/Kolegia/logo_snpqqs.png" alt="User" /> */}
                     <img className='img-circle' src={decoded.profile_picture} alt="User"  />
                 </div>
-                <div className='user_name'>{decoded.name}</div>
+                <div  className='user_name'>{decoded.name}</div>
                 <div className="contact_details">
                   <span className="email"><FaEnvelope /> {decoded.email}</span>
                   <span className="phone_no"><FaMobileAlt /> {decoded.phone}</span>
@@ -46,7 +46,7 @@ const Profile = () => {
                     <span className="more_details"><FaRegBookmark /> Batch: {decoded.batch}</span>
                   </div>
                   <div className="profile-page__field">
-                    <span className="more_details"><FaRegMoneyBillAlt /> Roll No-{decoded.roll_number} </span>
+                    <span className="more_details"><FaRegMoneyBillAlt /> Roll No: {decoded.roll_number} </span>
                   </div>
                 </div>
                 <div className='rightpart'>
@@ -54,12 +54,12 @@ const Profile = () => {
                     <span className="more_details"><FaHome /> Hostel: {decoded.hostel}</span>
                   </div>
                   <div className="profile-page__field">
-                    <span className="more_details"><FaMapMarkerAlt /> Room No.: {decoded.room_number}</span>
+                    <span className="more_details"><FaMapMarkerAlt /> Room Number: {decoded.room_number}</span>
                   </div>
                 </div>
             </div>
             <div className="profile-page__btn">
-                  <button  className="edit_details"><Link className='link02'
+                  <button   style={{width:'15rem',color:'white',fontFamily: "Inter, monospace",background:'#332A7C',borderRadius:'10px',marginTop:'30px',height:'3.4rem',fontWeight:'700'}} className="edit_details"><Link className='link02'
    to='/editProfile'
   state={{ Data: decoded }}>Edit Details</Link></button>
             </div>

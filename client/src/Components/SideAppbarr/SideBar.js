@@ -149,7 +149,7 @@ export default function SideBar() {
              
             >
               <ListItemIcon className={classes.icon02}><HomeIcon  /></ListItemIcon>
-              <ListItemText className={classes.title} primary={<Typography  variant="h5" className={classes.title}>
+              <ListItemText  className={classes.title} primary={<Typography  variant="h5" className={classes.title}>
            Kolegia
           </Typography>} />
             </ListItem>
@@ -159,13 +159,13 @@ export default function SideBar() {
         <List className={classes.list}>
           {menuItems.map((item) => (
             <ListItem 
-              button 
+              button
               key={item.text} 
               onClick={() => navigate(item.path)}
               className={location.pathname == item.path ? classes.active : null}
             >
               <ListItemIcon className={classes.icon}>{item.icon}</ListItemIcon>
-              <ListItemText className={classes.label} primary={item.text} />
+              <ListItemText  className={classes.label} primary={item.text} />
             </ListItem>
           ))}
         </List>        
