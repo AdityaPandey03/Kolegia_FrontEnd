@@ -39,7 +39,7 @@ const handleClick =  ()=> {
     return (  
         <div className="container-nav">
             <div className="part_one">
-                <div className="header1">
+                <div onClick={()=>navigate('/dashboard')} className="header1">
                     <img src="https://res.cloudinary.com/kartikeyvaish/image/upload/v1642841457/Kolegia/logo_snpqqs.png" alt="" />
                     <p id='abc'>olegia</p>
                 </div>
