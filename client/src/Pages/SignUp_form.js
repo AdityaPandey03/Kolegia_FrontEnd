@@ -4,6 +4,8 @@ import "../Components/LoginSignUp/SignUpForm.css";
 import { addUserDetails } from "../redux/actions/authActions";
 import {  useNavigate,useLocation} from "react-router-dom"
 import {resetErrorMessage} from '../redux/actions/authActions'
+import Navbar from "../Components/Appbar/Navbar";
+
 
 const SignUpForm = () => {
     const addUserResponse = useSelector((state) => state.auth.addUserResponse);
@@ -85,32 +87,36 @@ else {
 
 
     return ( 
+        <>
+        <Navbar/>
         <div className="signUpContainer">
         <div  className="signUpFormCont">
-            <h1 style={{width:'100%',color:'#332A7C'}}>Enter Your Details</h1>
-            <input defaultValue={Name} onChange={e=>setName(e.target.value)} placeholder="Name"  type="text" />
-            <input defaultValue={Email} onChange={e=>setEmail(e.target.value)} placeholder=" Email" type="text" />
+            <h1 style={{width:'100%',color:'#332A7C',fontFamily:"Inconsolata, monospace",fontSize:'30px'}}>ENTER YOUR DETAILS</h1>
+            <input style={{marginTop:'20px'}} defaultValue={Name} onChange={e=>setName(e.target.value)} placeholder="Name"  type="text" />
+            <input style={{marginTop:'20px'}} defaultValue={Email} onChange={e=>setEmail(e.target.value)} placeholder=" Email" type="text" />
             <input onChange={e=>setPhone(e.target.value)} type="number" placeholder="Mobile No" />
-            <input onChange={e=>setYear(e.target.value)} type="string" placeholder="Year" />
-            <input onChange={e=>setBatch(e.target.value)} type="string" placeholder="Batch"/>
+            <input onChange={e=>setYear(e.target.value)} type="string" placeholder="Year(2019,2020..)" />
+            <input onChange={e=>setBatch(e.target.value)} type="string" placeholder="Batch(IMG,IMT,BCS)"/>
             <input onChange={e=>setRollNo(e.target.value)} type="text" placeholder="Roll No(2020-IMGxxx)" />
             <input onChange={e=>setHostel(e.target.value)} type="text" placeholder="Hostel(BH-1)" />
             <input onChange={e=>setRoomNo(e.target.value)} type="text" placeholder="Room No" />
-            <label  htmlFor="input">Profile Picture</label>
+            <label style={{marginTop:'18px',fontFamily:"Inter, sans-serif",fontWeight:'600',color:'black'}} htmlFor="input">Profile Picture</label>
             <input style={{border:'none'}} onChange={e=>setProfilePicture(e.target.files[0])} type="file" />
             <input onChange={e=>setPassword(e.target.value)} type="password" placeholder="Password" />
             <input onChange={e=>setConfirm_Password(e.target.value)} type="password" placeholder="Confirm Password" />
           
-            <label  htmlFor="input">Terms and condition</label>
+            <label style={{marginTop:'8px',fontFamily:"Inter, sans-serif",fontWeight:'700',color:'black'}} htmlFor="input">Terms and condition</label>
             <input style={{width:'4rem'
             ,height:'1rem'}} type="checkbox"
             onChange={(e)=>setTerms_accepted(e.target.checked)}
             defaultChecked={terms_accepted}
             />
-            <button style={{width:'31rem',height:'3rem',fontSize:'1.4rem',background:"#F25767",color:'white',border:'none',borderRadius:'6px'}} onClick={handleSubmit}>Submit</button>
+            <button style={{width:'24rem',height:'2.5rem',fontSize:'1.4rem',background:"#F25767",color:'white',border:'none',fontFamily:"Inter, monospace",fontWeight:'700',
+            borderRadius:'6px'}} onClick={handleSubmit}>SUBMIT</button>
             <p style={{color:'black'}}>{signUpErrorMessage}</p>
         </div>
         </div>
+        </>
      );
 }
  

@@ -14,10 +14,11 @@ function ProductDetails() {
   const buySell = useSelector((state) => state.buySell);
   const { isLoading, singleProduct, firstImage } = buySell;
 
+
   const {owner_details}=singleProduct;
   console.log(owner_details)
 
-// console.log(singleProduct);
+
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -77,16 +78,28 @@ console.log(singleProduct)
             <h4 style={{color:'black',fontSize:'20px'}}>Posted by:{owner_details?.name}</h4>
             <h4>Phone:{owner_details?.phone}</h4>
 
-            <Button variant="contained" style={{width:'18rem',color:'white',background:'#332A7C',borderRadius:'10px',marginRight:'10px',marginTop:'48px',height:'2.5rem', fontFamily:"Hind Siliguri, sans-serif", fontWeight: '700'}}
->
-              <CircularProgress size={14} />
-               Connect with author
-            </Button>
+
+              <Button
+                variant="contained"
+                style={{
+                  width: "18rem",
+                  color: "white",
+                  background: "#332A7C",
+                  borderRadius: "10px",
+                  marginRight: "10px",
+                  marginTop: "48px",
+                  height: "2.5rem",
+                  fontFamily: "Hind Siliguri, sans-serif",
+                  fontWeight: "700",
+                }}
+              >
+                <CircularProgress size={14} />
+                Connect with author
+              </Button>
+            </div>
           </div>
-        </div>
-      )}
-     
-    </div>
+        )}
+      </div>
     </>
   );
 }

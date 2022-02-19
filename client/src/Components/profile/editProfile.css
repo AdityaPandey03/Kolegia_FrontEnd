@@ -11,8 +11,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 100vh;
-    margin-top: 50px;
+    height: 80vh;
+    
 }
 
 .signUpFormCont{
@@ -21,18 +21,17 @@
     display: flex;
     font-family: 'Roboto', sans-serif;
     justify-content: center;
-    width: 600px;
+    width: 500px;
     height:95%;
-    margin: 40px;
-    padding:5px 5px 5px 5px;
+    margin-top: 60px;
+    border-radius: 6px;
+    flex-wrap: wrap;
     border-radius: 16px;
     background:  #ffffff;
     box-shadow:  23px 23px 71px #D9D7F1,-23px -23px 71px #ffffff;
-    flex-wrap: wrap;
 }
 .signUpFormCont h1 {
     text-align: center;
-
 }
 .signUpFormCont input{
     border: 2px solid #D9D7F1;

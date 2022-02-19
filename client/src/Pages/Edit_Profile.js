@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
-import "../Components/LoginSignUp/SignUpForm.css";
+import "../Components/profile/editProfile.css";
 import {editProfile,resetStatus} from "../redux/actions/authActions";
 import {  useNavigate,useLocation} from "react-router-dom"
-import {resetErrorMessage} from '../redux/actions/authActions'
+import {resetErrorMessage} from '../redux/actions/authActions';
+import Navbar from "../Components/Appbar/Navbar";
+
 
 
 
@@ -86,29 +88,33 @@ const Edit_Profile = () => {
 
 
 
-    return ( 
+    return (
+      <>
+      <Navbar/> 
         <div className="signUpContainer">
         <div  className="signUpFormCont">
-            <h1 style={{width:'100%',color:'#332A7C'}}>Edit Profile</h1>
+            <h1 style={{width:'100%',color:'#332A7C',fontFamily:"Inconsolata, monospace"}}>EDIT PROFILE</h1>
            
             
-            <input defaultValue={Name} onChange={e=>setName(e.target.value)} placeholder="Name"  type="text" />
+            <input  style={{fontFamily:"Inter, monospace",fontWeight:'500'}}defaultValue={Name} onChange={e=>setName(e.target.value)} placeholder="Name"  type="text" />
             
-            <input defaultValue={Phone} onChange={e=>setPhone(e.target.value)} type="number" placeholder="Mobile No" />
+            <input style={{fontFamily:"Inter, monospace",fontWeight:'500'}} defaultValue={Phone} onChange={e=>setPhone(e.target.value)} type="number" placeholder="Mobile No" />
 
    
            
-            <input defaultValue={Hostel} onChange={e=>setHostel(e.target.value)} type="text" placeholder="Hostel(BH-1)" />
-            <input defaultValue={Room_Number} onChange={e=>setRoomNo(e.target.value)} type="text" placeholder="Room No" />
-            <label  htmlFor="input">Profile Picture</label>
+            <input style={{fontFamily:"Inter, monospace",fontWeight:'500'}} defaultValue={Hostel} onChange={e=>setHostel(e.target.value)} type="text" placeholder="Hostel(BH-1)" />
+            <input style={{fontFamily:"Inter, monospace",fontWeight:'500'}} defaultValue={Room_Number} onChange={e=>setRoomNo(e.target.value)} type="text" placeholder="Room No" />
+            <label style={{marginTop:'18px',fontFamily:"Inter, sans-serif",fontWeight:'700'}} htmlFor="input">Profile Picture</label>
             <input style={{border:'none'}} onChange={e=>setProfilePicture(e.target.files[0])} type="file" />
          
           
             
-            <button style={{width:'31rem',height:'3rem',fontSize:'1.4rem',background:"#F25767",color:'white',border:'none',borderRadius:'6px'}} onClick={handleSubmit}>Submit</button>
+            <button style={{width:'24rem',height:'2.5rem',fontSize:'1.4rem',background:"#F25767",color:'white',border:'none',fontFamily:"Inter, monospace",fontWeight:'700',
+            borderRadius:'6px'}} onClick={handleSubmit}>Submit</button>
             <p style={{color:'black'}}>{errorMessage2}</p>
         </div>
         </div>
+        </>
      );
 }
  
