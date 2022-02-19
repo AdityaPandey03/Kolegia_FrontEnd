@@ -87,7 +87,7 @@ display: none;
 
 
 .form2 {
-  background-color: #90E0EF;
+  background-color: #CAF0F8;
   background-size: cover;
   
   display: flex;
@@ -121,10 +121,7 @@ display: none;
 }
 
 .container {
-  background-color: #90E0EF;
-  
-  
- 
+  background-color: #CAF0F8;
   scroll-behavior: none;
   width: 100%;
   max-width: 100%;

@@ -93,11 +93,12 @@ const handleSubmitSignUp=()=>{
           <div>
             
               <div className="signip-form form2">
-                <h1 className='h1'>CREATE ACCOUNT</h1>
+                <h1   style={{fontSize:'50px',marginTop:'90px'}} className='h1'>SIGN UP</h1>
     
                 
                 <div>
                   <input
+                  style={{marginTop:'50px'}}
                     className="signup-email input"
                     type="email"
                     name="email"
@@ -109,7 +110,7 @@ const handleSubmitSignUp=()=>{
                 
 
                 <LoadingButton
-                style={{width:'18rem',color:'white',background:'#F0BC5E',borderRadius:'10px',margin:'20px',height:'2.8rem'}}
+                style={{width:'18rem',color:'black',background:'#F0BC5E',borderRadius:'10px',margin:'20px',height:'2.8rem',fontFamily:'Inter,sans-serif',fontWeight:'700'}}
                 className='submit button'
         onClick={handleSubmitSignUp}
         endIcon={<ArrowForwardIosIcon/>}
