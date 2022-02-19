@@ -42,6 +42,7 @@
     /* background-image: url('../../assests/stats.jpg'); */
     background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('../../assests/stats.jpg');
     background-repeat: no-repeat;
+    background-position:center;
    
    
     box-shadow:  5px 5px 8px #D9D7F1,

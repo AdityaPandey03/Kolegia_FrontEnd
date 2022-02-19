@@ -4,6 +4,8 @@ import {verifyOtp} from '../redux/actions/authActions'
 import { useLocation, useNavigate } from "react-router-dom";
 import LoadingButton from '@mui/lab/LoadingButton';
 import {resetErrorMessage} from '../redux/actions/authActions'
+import Navbar from "../Components/Appbar/Navbar";
+
 
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -63,13 +65,14 @@ box:{
         alignItems:"center",
         gap:"2rem",
         padding:'10px',
-        borderRadius:'8px',
-background: '#F0BC5E',
-boxshadow:  '5px 5px 10px #b5b5b5,-5px -5px 10px #ffffff',
+        fontFamily: "Inconsolata, monospace",
+borderRadius: '6px',
+background: '#FFFFFF',
+boxShadow:  '30px 30px 71px #D9D7F1,-30px -30px 71px #ffffff'
              
 },
 cont:{
-    backgroundColor:'#332A7C',
+    backgroundColor:'#FFFFFF',
     width:'100vw',
     height:'100vh'
 }
@@ -81,15 +84,17 @@ cont:{
 
 
     return ( 
+        <>
+        <Navbar/>
         <div style={style.cont} className="otp-container">
             <div style={style.box} className="otp-box">
-            <p style={{fontSize:'1.3rem'}}>
-                An otp has been sent to your email address to verify you account .Please Enter that Otp below:
+            <p style={{fontSize:'1.1rem'}}>
+                An otp has been sent to your email address to verify your account.Please enter the OTP below:
             </p>
-            <input onChange={(e)=>setOtp(e.target.value)} style={{width:'12rem',height:'2rem'}} type="number" placeholder="otp"/>
+            <input onChange={(e)=>setOtp(e.target.value)} style={{width:'12rem',height:'2rem',fontFamily:"Inter, sans-serif",fontWeight:'700'}} type="number" placeholder="OTP"/>
            
             <LoadingButton
-                style={{width:'13rem',color:'white',background:'#332A7C',borderRadius:'10px',margin:'20px',height:'2.8rem'}}
+                style={{width:'13rem',color:'white',fontFamily:'Inter,sans-serif',background:'#332A7C',borderRadius:'10px',margin:'20px',height:'2.8rem',fontWeight:'700'}}
                 className='submit button'
         onClick={handleClick}
         endIcon={<ArrowForwardIosIcon/>}
@@ -103,6 +108,7 @@ cont:{
             </div>
            
         </div>
+        </>
      );
 }
  
