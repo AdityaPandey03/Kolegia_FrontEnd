@@ -61,6 +61,24 @@
   text-transform: uppercase;
   transition: transform 80ms ease-in;
 }
+.mobile_view_signUp{
+  border-radius: 10px;
+display: none;
+  border: 3px solid white;
+  background-color: #F0BC5E;
+
+  margin: 30px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 0.5px;
+  font-family: 'Open Sans', sans-serif;
+
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+
 
 
 
@@ -191,5 +209,8 @@
  } */
  .overlay2{
    display: none;
+ }
+ .mobile_view_signUp{
+   display: flex;
  }
 }
