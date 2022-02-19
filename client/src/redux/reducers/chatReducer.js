@@ -1,6 +1,7 @@
 import {
   GET_ALL_CHATS,
   GET_ALL_MESSAGES_OF_A_CONVERSATION,
+  GET_NEXT_BATCH,
   NEW_REQUEST,
   SEND_MESSAGE,
 } from "../constants/AllConstants";
@@ -8,6 +9,8 @@ import {
 const initialState = {
   chats: [],
   all_messages_of_a_conversation: [],
+  next_batch_of_a_conversation: [],
+  new_message: null,
   isLoading: false,
 };
 
@@ -36,14 +39,19 @@ const chatReducer = (state = initialState, action) => {
       };
     }
 
+    case GET_NEXT_BATCH: {
+      return {
+        ...state,
+        isLoading: false,
+        next_batch_of_a_conversation: action.payload,
+      };
+    }
+
     case SEND_MESSAGE: {
       return {
         ...state,
         isLoading: false,
-        all_messages_of_a_conversation: [
-          ...state.all_messages_of_a_conversation,
-          action.payload,
-        ],
+        new_message: action.payload,
       };
     }
 

@@ -33,6 +33,7 @@ import Messenger from "./Pages/Messenger";
 import Edit_Profile from "./Pages/Edit_Profile";
 import ProfilePage from "./Components/profile/ProfilePage"
 import Change_Password from "./Pages/Change_Password";
+import SignUpPage from './Pages/SignUpPage'
 
 const theme = createTheme({
   palette: {
@@ -67,6 +68,7 @@ function App() {
             <Route exact path="/editProfile" element={<Edit_Profile />} />
             <Route exact path="/verifyEmail" element={<VerifyEmailPage />} />
             <Route exact path='changePassword' element={<Change_Password/>}/>
+            <Route exact path='signUp' element={<SignUpPage/>}/>
 
             <Route
               exact

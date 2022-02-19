@@ -6,7 +6,7 @@ import { makeStyles } from "@mui/styles";
 import { useState, useEffect } from "react";
 import Modal from "./Additems_buySell";
 import { useDispatch, useSelector } from "react-redux";
-import { FaPlusCircle} from "react-icons/fa";
+import { FaPlusCircle } from "react-icons/fa";
 import LoadingBox from "../Components/LoadingBox";
 import Navbar from "../Components/Appbar/Navbar";
 
@@ -15,7 +15,7 @@ import { getAllBuySellItems } from "../redux/actions/BuySellActions";
 const useStyles = makeStyles((theme) => {
   return {
     root: {
-      marginTop: "20px",
+      marginTop: "13vh",
     },
   };
 });
@@ -32,7 +32,7 @@ const Cards = () => {
     dispatch(getAllBuySellItems());
     // eslint-disable-next-line no-use-before-define
   }, []);
-  
+
   const toggleModal = () => {
     setModal(!modal);
   };
@@ -44,38 +44,35 @@ const Cards = () => {
   }
 
   const classes = useStyles();
-  return ( 
+  return (
     <>
-    <Navbar visibleSearch={true}/>
-    {isLoading ? (
-    <LoadingBox />
-  ) :(
-    <Container className={classes.root}>
-      <Grid container spacing={3}>
-        {itemList.length > 0 ? (
-          itemList.map((item, index) => {
-            return (
-              <Grid lg={3} sm={4} xm={12} md={4} item key={index}>
-                <NoteCard editOption={false} data={item} />
-              </Grid>
-            );
-          })
-        ) : (
-          <div></div>
-        )}
-      </Grid>
-      <div className="circle">
-     
-       <FaPlusCircle onClick={toggleModal} className="btn-modal btn"/>
-        
-      </div>
-      <Modal const toggleModal={toggleModal} modal={modal} />
-    </Container>
-    
-  )};
-  </>
-);
-        }
-
+      <Navbar visibleSearch={true} />
+      {isLoading ? (
+        <LoadingBox />
+      ) : (
+        <Container className={classes.root}>
+          <Grid container spacing={3}>
+            {itemList.length > 0 ? (
+              itemList.map((item, index) => {
+                return (
+                  <Grid lg={3} sm={4} xm={12} md={4} item key={index}>
+                    <NoteCard editOption={false} data={item} />
+                  </Grid>
+                );
+              })
+            ) : (
+              <div></div>
+            )}
+          </Grid>
+          <div className="circle">
+            <FaPlusCircle onClick={toggleModal} className="btn-modal btn" />
+          </div>
+          <Modal const toggleModal={toggleModal} modal={modal} />
+        </Container>
+      )}
+      ;
+    </>
+  );
+};
 
 export default Cards;
