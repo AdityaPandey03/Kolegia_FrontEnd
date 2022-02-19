@@ -7,6 +7,8 @@ import Googlelogin from '../Components/GoogleLogin/Googlelogin';
 import LoadingButton from '@mui/lab/LoadingButton';
 import {resetErrorMessage} from '../redux/actions/authActions'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Navbar from "../Components/Appbar/Navbar";
+
 
  
 
@@ -79,7 +81,10 @@ const handleSubmitSignUp=()=>{
   
 }
 
-    return ( 
+    return (
+      <>
+      <Navbar/>
+
         <div className="body">
         
     
@@ -88,7 +93,7 @@ const handleSubmitSignUp=()=>{
           <div>
             
               <div className="signip-form form2">
-                <h1 className='h1'>Create Account</h1>
+                <h1 className='h1'>CREATE ACCOUNT</h1>
     
                 
                 <div>
@@ -126,13 +131,14 @@ const handleSubmitSignUp=()=>{
           
             <div className="overlay2">
               <div className="overlay-panel ">
-                <h1 className='h1'>You're Welcome</h1>
-                <p className='p'>Login to Enter the Kolegia</p>
+                {/* <h1 className='h1'>You're Welcome</h1> */}
+                <p className='p'>Login to enter Kolegia</p>
             <button onClick={handleClick}  style={{borderRadius:'50px'}} className="ghost button" id="signIn" >Sign In</button>
               </div>
               
             </div>
           </div>
+          </>
     
     
         

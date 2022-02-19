@@ -7,6 +7,8 @@ import Googlelogin from '../Components/GoogleLogin/Googlelogin';
 import LoadingButton from '@mui/lab/LoadingButton';
 import {resetErrorMessage} from '../redux/actions/authActions'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Navbar from "../Components/Appbar/Navbar";
+
 
  
 
@@ -80,6 +82,8 @@ const handleClick=()=>{
 }
 
     return ( 
+      <>
+      <Navbar/>
         <div className="body">
         
     
@@ -92,9 +96,10 @@ const handleClick=()=>{
             <div className='signin-form form2'>
 
       
-                <h1 className='h1'>Sign In</h1>
+                <h1 className='h1'>SIGN IN</h1>
                 <div>
                   <input
+                  style={{marginTop:'40px'}}
                     className="signin-email input"
                     type="email"
                     name="email"
@@ -104,6 +109,7 @@ const handleClick=()=>{
                 </div>
                 <div>
                   <input
+                  
                     className="signin-password input"
                     type="password"
                     name="password"
@@ -111,10 +117,10 @@ const handleClick=()=>{
                     onChange={(e)=>setPassword(e.target.value)}
                   />
                 </div>
-                <Link to='/verifyEmail'>Forgot Password?</Link>
+                <Link style={{fontSize:'18px',marginTop:'8px',fontWeight:'700'}} to='/verifyEmail'>Forgot Password?</Link>
 
                 <LoadingButton
-                style={{width:'18rem',color:'white',background:'#F0BC5E',borderRadius:'10px',margin:'20px',height:'2.8rem'}}
+                style={{width:'18rem',color:'black',background:'#F0BC5E',borderRadius:'15px',margin:'20px',height:'2.8rem',fontFamily:'Inter,sans-serif',fontWeight:'700'}}
                 className='submit button'
         onClick={handleSubmitSignIn}
         endIcon={<ArrowForwardIosIcon/>}
@@ -136,7 +142,7 @@ const handleClick=()=>{
             <div className="overlay2">
              
               <div className="overlay-panel ">
-                <h1 className='h1'>Hey, Buddy!</h1> 
+                {/* <h1 className='h1'>Hey, Buddy!</h1>  */}
     
                 <p className='p'>Oops! don't have an account? Signup</p>
           <button onClick={handleClick} style={{borderRadius:'50px'}} className="ghost button" id="signUp" >Sign Up</button>     
@@ -146,7 +152,8 @@ const handleClick=()=>{
        
     
         
-      // </div>
+      {/* // </div> */}
+      </>
      );
 }
  
