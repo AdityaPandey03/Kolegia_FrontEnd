@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaBell,FaBars,FaSearch } from "react-icons/fa";
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import { SiGooglechat } from "react-icons/si";
@@ -13,28 +13,47 @@ import { useNavigate } from "react-router-dom";
 
 
 import './Navbar.css'
-const Navbar = ({visibleSearch}) => {
+import { emptySearchLostFound, lostFoundSearch } from '../../redux/actions/LostFoundActions';
+import { buySellSearch, emptySearchBuySell } from '../../redux/actions/BuySellActions';
+const Navbar = ({visibleSearch,presentPage}) => {
 
     const [toggleMenu, setToggleMenu] = useState(false);
-
+    const [searchQuery, setSearchQuery] = useState();
     const dispatch=useDispatch();
     const navigate=useNavigate();
-    // const logoutUserRes=useSelector((state)=>state.auth.logoutUserResponse);
     // const token = localStorage.getItem("jwt");
 
-   
+    const handleClick =  ()=> {
+        const token = localStorage.getItem("jwt");
+        const decoded = jwt_decode(token);
+        const logout= dispatch(logoutUser(decoded.auth_token));
+        navigate('/')
+    }
 
+    let typingTimer;              
+    
+    //when user is finished typing, call appropriate action
 
-const handleClick =  ()=> {
-    const token = localStorage.getItem("jwt");
-    const decoded = jwt_decode(token);
-   const logout= dispatch(logoutUser(decoded.auth_token));
-
-  
-   navigate('/')
-
-
-}
+    const handleSearchChange=(event)=>{
+        setSearchQuery(event.target.value); 
+        if(event.target.value.length==0){
+            if(presentPage=="lostFound"){
+                dispatch(emptySearchLostFound());
+            }else{
+                dispatch(emptySearchBuySell());
+            }
+        }
+    }
+    const handleSearch=(e)=>{
+        e.preventDefault();
+            if (searchQuery.length>0) {
+                    if(presentPage=="lostFound"){
+                        dispatch(lostFoundSearch(searchQuery));
+                    }else{
+                        dispatch(buySellSearch(searchQuery));
+                    }
+            }
+    }
 
     return (  
         <div className="container-nav">
@@ -46,9 +65,9 @@ const handleClick =  ()=> {
             </div>
             <div className='ul'>
                     {visibleSearch?
-                    <p><form className="form" id="form">                            
-                    <input  type="text" placeholder='Search...' id="search" className="search" />
-                    <div className="icon"><FaSearch/></div>
+                    <p><form className="form" id="form" onSubmit={handleSearch}>                            
+                    <input  type="text" placeholder='Search...' id="search" className="search" value={searchQuery} onChange={handleSearchChange} />
+                    <div className="icon" onClick={handleSearch}><FaSearch/></div>
                     </form></p>:null
                     }
                 </div>

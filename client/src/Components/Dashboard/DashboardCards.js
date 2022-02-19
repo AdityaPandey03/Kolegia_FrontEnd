@@ -59,13 +59,10 @@ const Dcards = () => {
   return (
     <>
       <div className="Dcards-cont">
-        <Link to="/sidebar">
-          {" "}
-          <Profile />{" "}
-        </Link>
+          <Profile />
         {data.map((card, index) => {
           return (
-            <div className={card.Title} id="Dcard" key={index}>
+            <div className="Dcard" id={card.Title} key={index}>
               <h2>{card.Title}</h2>
               <img src={card.img} alt={card.Title} />
               <Link to={card.path}>

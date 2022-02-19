@@ -13,10 +13,13 @@ import {
   REJECT_RAISED_HAND,
   CHECKING_ERROR_LOST_FOUND,
   MARK_AS_FOUND,
+  SEARCH_LOST_FOUND_ITEMS,
+  EMPTY_SEARCH_LOST_FOUND,
 } from "../constants/AllConstants";
 
 const initialState = {
   lostFoundItemList: [],
+  totalLostFoundItems:[],
   singleProduct: {},
   firstImage: "",
   isLoading: false,
@@ -37,6 +40,19 @@ const LostFoundReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         lostFoundItemList: action.payload,
+        totalLostFoundItems:action.payload
+      };
+    case SEARCH_LOST_FOUND_ITEMS:
+      return {
+        ...state,
+        isLoading:false,
+        lostFoundItemList: action.payload
+      };
+    case EMPTY_SEARCH_LOST_FOUND:
+      return {
+        ...state,
+        isLoading:false,
+        lostFoundItemList:state.totalLostFoundItems
       };
     case NEW_REQUEST:
       return {
