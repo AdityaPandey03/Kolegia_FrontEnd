@@ -14,7 +14,11 @@ function ProductDetails() {
   const buySell = useSelector((state) => state.buySell);
   const { isLoading, singleProduct, firstImage } = buySell;
 
-  console.log(singleProduct);
+
+  const {owner_details}=singleProduct;
+  console.log(owner_details)
+
+
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -25,74 +29,55 @@ function ProductDetails() {
   const handleClick = (e) => {
     image2 = e.target.src;
   };
-
+console.log(singleProduct)
   return (
     <>
-      <Navbar visibleSearch={false} />
-      <div className="container" style={{ marginTop: "10vh" }}>
-        {isLoading ? (
-          <LoadingBox />
-        ) : (
-          <div className="containerWrapper">
-            <div className="imageListContainer">
-              {singleProduct ? (
-                singleProduct.files?.map((image, index) => {
-                  return (
-                    <div key={index}>
-                      <img
-                        className="sideImage"
-                        src={image.uri}
-                        onClick={handleClick}
-                      />
-                    </div>
-                  );
-                })
-              ) : (
-                <div></div>
-              )}
-            </div>
-            <div className="description_wrapper">
-              <div className="imageContainer">
-                <img alt="image" className="previewImage" src={image2} />
-              </div>
-              <div className="description">
-                <h2>Description</h2>
-                <p style={{ marginTop: "15px" }}>{singleProduct.brand}</p>
-                <p style={{ marginTop: "5px" }}>{singleProduct.color}</p>
-                <p style={{ marginTop: "5px" }}>{singleProduct.description}</p>
-                <p style={{ marginTop: "5px" }}>{singleProduct.category}</p>
-              </div>
-            </div>
-            <div className="detailsContainer">
-              <h1
-                style={{
-                  fontFamily: "Inconsolata, monospace",
-                  marginBottom: "15px",
-                  fontWeight: "700",
-                  color: "#000000",
-                  fontSize: "40px",
-                }}
-              >
-                {singleProduct?.name}
-              </h1>
-              <p style={{ fontSize: "20px" }}>
-                Price : Rs. {singleProduct?.price}
-              </p>
+    <Navbar visibleSearch={false}/>
+    <div className="container">
+      {isLoading ? (
+        <LoadingBox />
+      ) : (
+        <div className="containerWrapper">
+          <div className="imageListContainer">
+            {singleProduct ? (
+              singleProduct.files?.map((image, index) => {
+                return (
+                  <div key={index}>
+                    <img
+                      className="sideImage"
+                      src={image.uri}
+                      onClick={handleClick}
+                    />
+                  </div>
+                );
+              })
+            ) : (
+              <div></div>
+            )}
+          </div>
+          <div className="description_wrapper">
+          <div className="imageContainer">
+            <img alt="image" className="previewImage" src={image2} />
+          </div>
+          <div className="description">
+            <h2>Description</h2>
+            <p style={{marginTop:'15px'}}>{singleProduct.brand}</p>
+            <p style={{marginTop:'5px'}}>
+              {singleProduct.color}
+            
+            </p>
+            <p style={{marginTop:'5px'}}>{singleProduct.description}</p>
+            <p style={{marginTop:'5px'}}>{singleProduct.category}</p>
+          </div>
+          </div>
+          <div className="detailsContainer">
+            <h1 style={{fontFamily:"Inconsolata, monospace",marginBottom:'15px',fontWeight:'700',color:'#000000',fontSize:'40px'}}>{singleProduct?.name}</h1>
+            <p style={{fontSize:'20px'}}>Price :  Rs. {singleProduct?.price}</p>
+            
+            <h3 style={{marginTop:'15px',marginBottom:'5px',fontFamily:"Hind Siliguri, sans-serif",fontWeight:'600',fontSize:'28px'}}>Owner Details</h3>
+            <h4 style={{color:'black',fontSize:'20px'}}>Posted by:{owner_details?.name}</h4>
+            <h4>Phone:{owner_details?.phone}</h4>
 
-              <h3
-                style={{
-                  marginTop: "15px",
-                  marginBottom: "5px",
-                  fontFamily: "Hind Siliguri, sans-serif",
-                  fontWeight: "600",
-                  fontSize: "28px",
-                }}
-              >
-                Owner Details
-              </h3>
-              <h4 style={{ color: "black", fontSize: "20px" }}>
-                Posted By: Aditya Pandey
-              </h4>
 
               <Button
                 variant="contained"

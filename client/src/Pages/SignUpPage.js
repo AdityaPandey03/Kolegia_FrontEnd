@@ -10,7 +10,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
  
 
-const LoginSignUp = () => {
+const SignUp = () => {
 
   
 
@@ -29,7 +29,7 @@ const LoginSignUp = () => {
 
  const [email,setEmail]= useState('')
 
- const [password,setPassword]=useState('')
+ 
 
 
  //ErrorMessage
@@ -54,12 +54,17 @@ else if(responseStatusCode===200){
   Message=errorMessage
   // setLoading(false);
 }
+
+const handleClick=()=>{
+  dispatch(resetErrorMessage);
+  navigate('/loginSignUp')
+}
  
 
 
  useEffect(()=>{
-   
   setLoading(false);
+  
  },[Message]);
  
 
@@ -68,15 +73,10 @@ else if(responseStatusCode===200){
 
 
 
-const handleSubmitSignIn=()=>{
+const handleSubmitSignUp=()=>{
   setLoading(true);
-    dispatch(signInWithEmail(email,password))
+  dispatch(verifyEmail(email));
   
-}
-
-const handleClick=()=>{
-  dispatch(resetErrorMessage);
-  navigate('/signUp')
 }
 
     return ( 
@@ -85,68 +85,58 @@ const handleClick=()=>{
     
         <div className="container " id="container">
           <div>
-           
-      
             
-            <div className='signin-form form2'>
-
-      
-                <h1 className='h1'>Sign In</h1>
+              <div className="signip-form form2">
+                <h1 className='h1'>Create Account</h1>
+    
+                
                 <div>
                   <input
-                    className="signin-email input"
+                    className="signup-email input"
                     type="email"
                     name="email"
                     placeholder=" &#xf0e0;  Email"
                     onChange={(e)=>setEmail(e.target.value)}
                   />
                 </div>
-                <div>
-                  <input
-                    className="signin-password input"
-                    type="password"
-                    name="password"
-                    placeholder="&#xf023;  Password"
-                    onChange={(e)=>setPassword(e.target.value)}
-                  />
-                </div>
-                <Link to='/verifyEmail'>Forgot Password?</Link>
+               
+                
 
                 <LoadingButton
                 style={{width:'18rem',color:'white',background:'#F0BC5E',borderRadius:'10px',margin:'20px',height:'2.8rem'}}
                 className='submit button'
-        onClick={handleSubmitSignIn}
+        onClick={handleSubmitSignUp}
         endIcon={<ArrowForwardIosIcon/>}
         loading={loading}
         loadingPosition="end"
         variant="contained"
       >
-        Sign In
+        Verify Email
       </LoadingButton>
-               
+
                 <p style={{color:'black'}}>{Message}</p>
-                <Googlelogin/>
                 
+                <Googlelogin />
               </div>
-  
+             
             </div>
-          </div> 
+          
+          </div>  
           
             <div className="overlay2">
-             
               <div className="overlay-panel ">
-                <h1 className='h1'>Hey, Buddy!</h1> 
-    
-                <p className='p'>Oops! don't have an account? Signup</p>
-          <button onClick={handleClick} style={{borderRadius:'50px'}} className="ghost button" id="signUp" >Sign Up</button>     
+                <h1 className='h1'>You're Welcome</h1>
+                <p className='p'>Login to Enter the Kolegia</p>
+            <button onClick={handleClick}  style={{borderRadius:'50px'}} className="ghost button" id="signIn" >Sign In</button>
               </div>
+              
             </div>
           </div>
-       
+    
     
         
-      // </div>
+      
      );
 }
  
-export default LoginSignUp;
+export default SignUp;

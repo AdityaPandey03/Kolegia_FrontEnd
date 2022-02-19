@@ -7,6 +7,8 @@ import { FaUser } from "react-icons/fa";
 
 const LostFoundCard= ({card,editOption,handleClick,postedby}) => {
 
+const  slicedFilesArray=card.files.slice(0,3);
+
 const slicedDescription=card.description.slice(0,17);
     const [pht, setPht] = useState("");
 
@@ -64,9 +66,9 @@ const slicedDescription=card.description.slice(0,17);
             <img src={pht} alt="Watch" />
           </div>
 
-          {card.files.length ? (
+          {slicedFilesArray.length ? (
             <div className="img-cont">
-              {card.files.map((item, index) => {
+              {slicedFilesArray.map((item, index) => {
                 return (
                   <img
                     key={index}

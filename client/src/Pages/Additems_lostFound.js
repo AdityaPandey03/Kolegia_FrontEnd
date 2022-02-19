@@ -69,6 +69,31 @@ function AddItem() {
     (state) => state.lostFound.addItemsLostFoundResponse
   );
 
+
+
+
+  function get_iso_time({ date, time }) {
+    try {
+      let newDateTime = date ? new Date(date) : new Date();
+  
+      if (time) {
+        let digits = time.split(":");
+        let hours = parseInt(digits[0]);
+        let minutes = parseInt(digits[1]);
+  
+        newDateTime.setHours(hours, minutes);
+      }
+  
+      return newDateTime.toISOString();
+    } catch (error) {
+      return new Date().toISOString();
+    }
+  }
+
+  const newLostTime=get_iso_time({time:lostTime});
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -87,7 +112,7 @@ function AddItem() {
     formData.append("color", color);
     formData.append("description", description);
     formData.append("lost_date", lostDate);
-    formData.append("lost_time", lostTime);
+    formData.append("lost_time", newLostTime);
     formData.append("lost_location", lostLocation);
     formData.append("token", decoded.auth_token);
 
