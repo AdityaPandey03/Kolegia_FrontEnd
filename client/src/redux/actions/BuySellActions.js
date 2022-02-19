@@ -9,7 +9,9 @@ import {
   EDIT_BUY_SELL_ITEM,
   RESET_STATUS,
   CHECKING_ERROR_BUY_SELL,
-  DELETE_BUY_SELL_ITEM
+  DELETE_BUY_SELL_ITEM,
+  EMPTY_SEARCH_BUY_SELL,
+  SEARCH_BUY_SELL_ITEMS
 } from "../constants/AllConstants";
 
 export const getAllBuySellItems = () => async (dispatch) => {
@@ -37,6 +39,39 @@ console.log(data);
   } catch (err) {
     console.log(err);
   }
+};
+
+export const buySellSearch = (searchQuery) => async (dispatch) => {
+  dispatch({
+    type: NEW_REQUEST,
+    payload: true,
+  });
+  try {
+    const token = localStorage.getItem("jwt");
+    const decoded = jwt_decode(token);
+
+    const { data } = await axios.get(
+      `http://localhost:3000/api/v1/buy-sell-items/search-buy-sell-products?search=${searchQuery}`,
+      {
+        headers: {
+          authorization: `Bearer ${decoded.auth_token}`,
+        }
+      }
+    );
+    console.log(data);
+    dispatch({
+      type: SEARCH_BUY_SELL_ITEMS,
+      payload: data.products,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const emptySearchBuySell = ()=>(dispatch)=>{
+  dispatch({
+    type:EMPTY_SEARCH_BUY_SELL
+  })
 };
 
 export const getSingleProductDetails = (itemId) => async (dispatch) => {

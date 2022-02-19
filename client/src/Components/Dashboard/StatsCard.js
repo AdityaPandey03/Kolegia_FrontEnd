@@ -16,12 +16,12 @@ dispatch(getDashBoardStats())
     },[]);
 
     return ( 
-        <div className='statsCard' id="DcardStats" >
+        <div className="DcardStats" id='statsCard'>
               <h2 style={{textAlign:'center',color:'black'}}>Statistics</h2>
-              <h4 style={{marginTop:'35px',marginLeft:'20px', fontFamily: "Inconsolata, monospace",fontSize:'19px',fontWeight:'900'}}>Total Users:  {stats.users_count}</h4>
-              <h4 style={{marginTop:'13px',marginLeft:'20px', fontFamily: "Inconsolata, monospace",fontSize:'19px'}}>Lost Items:    {stats.lost_items}</h4>
-              <h4 style={{marginTop:'13px',marginLeft:'20px',fontFamily: "Inconsolata, monospace",fontSize:'19px'}}>Unread-msgs:   {stats.unread_messages_count}</h4>
-              <h4 style={{marginTop:'13px',marginLeft:'20px', fontFamily: "Inconsolata, monospace",fontSize:'19px'}}>Raised Hands:   {stats.raised_hands_count}</h4>
+              <h4 style={{marginTop:'35px',marginLeft:'20px', fontFamily: "Hind Siliguri, sans-serif",fontSize:'19px',fontWeight:'900'}}>Total Users:  {stats.users_count}</h4>
+              <h4 style={{marginTop:'13px',marginLeft:'20px', fontFamily: "Hind Siliguri, sans-serif",fontSize:'19px'}}>Lost Items:    {stats.lost_items}</h4>
+              <h4 style={{marginTop:'13px',marginLeft:'20px',fontFamily: "Hind Siliguri, sans-serif",fontSize:'19px'}}>Unread-msgs:   {stats.unread_messages_count}</h4>
+              <h4 style={{marginTop:'13px',marginLeft:'20px', fontFamily: "Hind Siliguri, sans-serif",fontSize:'19px'}}>Raised Hands:   {stats.raised_hands_count}</h4>
               
              
             </div>

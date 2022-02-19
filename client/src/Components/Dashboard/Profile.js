@@ -1,6 +1,7 @@
 import Pic from '../../assests/jim.jpg';
-import './Profile.css'
+import './DashboardCards.css'
 import jwt_decode from "jwt-decode";
+import { Link } from 'react-router-dom';
 
 
 const Profile = () => {
@@ -10,24 +11,18 @@ const Profile = () => {
     console.log(decoded)
 
     return ( 
-        <div className="profile-section">
-        <div  className="profile-card">
-            <div className='main-content'>
-            <div className="profile-img">
-                <img src={decoded.profile_picture} alt="profile-picture"  />
-            </div>
-            <h1 style={{fontSize:'25px',color:'#332A7C',margin:'11px'}}>{decoded.name}</h1>
-            <h4 style={{color:'#000000',margin:'-6px'}}>{decoded.email}</h4>
-            </div>
-            {/* <div className='other-content'>
-                <h1>other-content</h1>
-                <p>Eaque expedita fugit dolorum dolore officiis?  quas mollitia. Quasi tenetur, explicabo nisi quidem excepturi laborum fuga eius, corporis sequi placeat, quos et!</p>
-            </div> */}
-            
-            
+            <div className="Dcard profile-card">
+            <Link to="/sidebar">
+            <div className="main-content">
+                <div className="profile-img">
+                    <img src={decoded.profile_picture} alt="profile-picture"  />
+                </div>
+                <h1 style={{fontSize:'25px',color:'#332A7C'}}>{decoded.name}</h1>
+                <h4>{decoded.email}</h4>
+            </div>  
+        </Link> 
         </div>
-        {/* <MyRequirements/> */}
-        </div>
+        
      );
 }
  

@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
     max-width: 100vw;
-    height: 10vh;
+    height: 9vh;
     background-color: #332A7C;
     color: white;
     position: fixed;
@@ -34,7 +34,7 @@
   margin-right: 2rem;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 32px;
+  font-size: 36px;
   cursor: pointer;
   margin: 0 1rem;
 }
@@ -43,10 +43,10 @@
   height: 20%;
 }
 .ul{
+    flex: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-right: 0%;
     gap: 0.5em;
     width: 100%;
 
@@ -90,6 +90,7 @@
 .search{
     box-sizing: border-box;
     height: 2.4em;
+    width: 15em;
     border: none;
     /* border:2px solid red; */
     border-radius: 20px 0px 0 20px;
@@ -119,7 +120,7 @@
   line-height: 25px;
   text-transform: capitalize;
 
-  margin: 0;
+  margin: 1rem ;
   cursor: pointer;
 }
 
@@ -136,9 +137,9 @@
 
 .nav_mobile_menu {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   z-index: 2;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
   
   text-align: end;
@@ -151,16 +152,6 @@
   min-width: 210px;
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0,0, 0,0.2);
-}
-
-.nav_mobile_menu p {
-  margin: 1rem 0;
-}
-
-.ul_menu {
-  display: flex;
-  margin-left: 3rem;
-  margin-bottom: 1rem;
 }
 
 
@@ -179,32 +170,6 @@
   border-radius: 5px;
 }
 
-.search_menu {
-  box-sizing: border-box;
-  height: 2.5em;
-  width: 9em;
-  border: none;
-  /* border:2px solid red; */
-  border-radius: 20px 0px 0 20px;
-  text-align: center;
-  font-size: 0.8em;
-  margin-top: 3px;
-}
-
-.icon_menu{
-  background-color:#F0BC5E ;
-  text-align: center;
-  height: 2em;
-  width: 2em;
-  border-radius:0px 20px 20px 0px ;
-  margin-top: 3px;
-  margin-right: 3rem;
-}
-.icon_menu svg{
-  font-size: 0.8em;
-  margin-top: 11px;
-  margin-right: 2px;
-}
 
 
 
@@ -217,14 +182,36 @@
     .nav_mobile {
         display: flex;
     }
-}
-
-@media screen and (max-width: 700px) {
   .container-nav{
       padding: 2rem 1rem 2rem 0.2rem;
   }
+  .header1 {
+    margin-right: 0;
+  }
+  #abc {
+    color: #332A7C;
+  }
+  .ul {
+    margin-left: 0;
+  }
+  .search {
+    height: 1.8em;
+    width: 6em;
+  }
+  .icon svg{
+    font-size: 0.8em;
+    margin-top: 9px;
+    margin-left: 0px;
 }
-  @media (max-width: 550px){
+}
+  @media (max-width: 650px){
+
+    .header1 img {
+      width: 50%;
+      height: 50%;
+      padding-top: 0.2rem;
+    }
+    
     .nav_mobile_menu {
       top: 20px;
   }

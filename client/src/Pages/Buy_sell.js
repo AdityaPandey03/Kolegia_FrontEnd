@@ -46,33 +46,36 @@ const Cards = () => {
   const classes = useStyles();
   return (
     <>
-      <Navbar visibleSearch={true} />
-      {isLoading ? (
-        <LoadingBox />
-      ) : (
-        <Container className={classes.root}>
-          <Grid container spacing={3}>
-            {itemList.length > 0 ? (
-              itemList.map((item, index) => {
-                return (
-                  <Grid lg={3} sm={4} xm={12} md={4} item key={index}>
-                    <NoteCard editOption={false} data={item} />
-                  </Grid>
-                );
-              })
-            ) : (
-              <div></div>
-            )}
-          </Grid>
-          <div className="circle">
-            <FaPlusCircle onClick={toggleModal} className="btn-modal btn" />
-          </div>
-          <Modal const toggleModal={toggleModal} modal={modal} />
-        </Container>
-      )}
-      ;
-    </>
-  );
-};
+    <Navbar visibleSearch={true} presentPage="buySell" />
+    {isLoading ? (
+    <LoadingBox />
+  ) :(
+    <Container className={classes.root}>
+      <Grid container spacing={3}>
+        {itemList.length > 0 ? (
+          itemList.map((item, index) => {
+            return (
+              <Grid lg={3} sm={4} xm={12} md={4} item key={index}>
+                <NoteCard editOption={false} data={item} />
+              </Grid>
+            );
+          })
+        ) : (
+          <div></div>
+        )}
+      </Grid>
+      <div className="circle">
+     
+       <FaPlusCircle onClick={toggleModal} className="btn-modal btn"/>
+        
+      </div>
+      <Modal const toggleModal={toggleModal} modal={modal} />
+    </Container>
+    
+  )};
+  </>
+);
+        }
+
 
 export default Cards;
