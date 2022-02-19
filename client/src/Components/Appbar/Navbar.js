@@ -44,15 +44,15 @@ const handleClick =  ()=> {
                     <p id='abc'>olegia</p>
                 </div>
             </div>
-            <div className="a">
-                <div className='ul'>
+            <div className='ul'>
                     {visibleSearch?
                     <p><form className="form" id="form">                            
                     <input  type="text" placeholder='Search...' id="search" className="search" />
                     <div className="icon"><FaSearch/></div>
                     </form></p>:null
                     }
-                </div>            
+                </div>
+            <div className="a">            
                 <p><Link to='/chatRoom'><SiGooglechat/></Link></p>
                 <p><Link to='/dashboard'>Dashboard</Link></p>
                 <p className="log_out" on onClick={handleClick}>Logout</p>
@@ -64,14 +64,6 @@ const handleClick =  ()=> {
                 {toggleMenu && (
                 <div className="nav_mobile_menu scale-up-center">
                 <div className="nav_mobile_menu_part">
-                    <div className='ul_menu'>
-                        {visibleSearch?
-                        <p><form className="form" id="form">                            
-                        <input  type="text" placeholder='Search...' id="search" className="search_menu" />
-                        <div className="icon_menu"><FaSearch/></div>
-                        </form></p>:null
-                        }
-                    </div>
                     <p><Link to='/chatRoom'><SiGooglechat/></Link></p>
                     <p><Link className="nav-profile" to='/sideBar'>Profile</Link></p>
                     <p><Link to='/dashboard'>Dashboard</Link></p>                    
