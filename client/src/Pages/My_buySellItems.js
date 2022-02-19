@@ -24,7 +24,7 @@ const My_buySellItems = () => {
   const itemList = useSelector((state) => state.buySell.ownBuySellItems);
   const isLoading = useSelector((state) => state.buySell.isLoading);
 
-  console.log(itemList);
+ 
 
 
   const dispatch = useDispatch();

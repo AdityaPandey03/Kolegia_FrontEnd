@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => {
     },
     drawer: {
       width: drawerWidth,
+      background: '#332a7c',
 
       [theme.breakpoints.down(650)]: {
        width:'60px'
