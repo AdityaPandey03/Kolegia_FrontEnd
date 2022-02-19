@@ -14,7 +14,7 @@
   /* margin: 3rem; */
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  margin-top: 13vh;
   /* margin-right:0 ;
     margin-left:5rem;
     */
@@ -49,7 +49,6 @@
 }
 
 .img-cont {
-
   border: 1px solid rgb(240, 188, 94);
   box-sizing: border-box;
   width: 18rem;
@@ -60,7 +59,6 @@
   margin-bottom: 15px;
   margin-top: 30px;
   font-family: "Dosis", sans-serif;
-
 }
 
 .img-cont img {
@@ -119,7 +117,6 @@ label {
 }
 
 .addNewBtn {
-
   height: 75px;
   width: 75px;
   border-radius: 50%;
@@ -134,7 +131,6 @@ label {
   cursor: pointer;
   font-size: 3rem;
   font-weight: lighter;
-
 }
 
 .addNewBtn:hover {
@@ -145,6 +141,7 @@ label {
 .LostItemMaincontainer {
   height: 100vh;
   margin: 0;
+  margin-top: 13vh;
   padding: 0;
 }
 
@@ -153,8 +150,6 @@ label {
   width: 100%;
   padding: 0 4%;
   margin-top: 3%;
-
-
 }
 
 .headingContainer {
@@ -169,7 +164,6 @@ label {
   height: 75%;
   width: 100%;
   display: flex;
-
 }
 
 .firstHalf,
@@ -181,12 +175,10 @@ label {
   width: 95%;
   border: 1px solid #f3f3f3;
   border-top: 11px solid #346e98;
-
 }
 
 .firstHalf {
   margin-right: 5%;
-
 }
 
 .LostDetailsListItem {
@@ -276,7 +268,6 @@ label {
   .LostItemDetailsContainer {
     flex-wrap: wrap;
   }
-  
 }
 
 /* display lost found item details css end*/
@@ -329,7 +320,7 @@ label {
 
 @media only screen and (max-width: 767px) {
   .addItemForm {
-  display: block;
+    display: block;
   }
 
   /* .left,
@@ -367,6 +358,7 @@ label {
   border-left: 0.8px solid gray;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 5px;
+  margin-top: 11vh;
 }
 
 .responseContainer {

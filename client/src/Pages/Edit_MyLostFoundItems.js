@@ -159,7 +159,7 @@ function Edit_MyLostFoundItems() {
   return (
     <>
       <Navbar />
-      <div style={{ height: "100vh" }}>
+      <div style={{ height: "100vh", marginTop: "10vh" }}>
         <form className="addItemForm" onSubmit={handleSubmit}>
           <div className="left">
             <div className="inputContainer">
