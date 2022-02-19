@@ -4,7 +4,8 @@
     display: flex;
     /* flex-wrap: wrap; */
     justify-content: center;
-    margin: 1.5rem 1rem;
+    margin: 1rem;
+    margin-top:6rem;
     gap: 2rem;
 }
 
@@ -47,16 +48,6 @@
     background-color:white;
     box-sizing: border-box;
     border-radius: 13px;
-<<<<<<< HEAD
-=======
-    padding: 7px 10px 0px 0px;
-    /* background-image: url('../../assests/stats.jpg'); */
-    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('../../assests/stats.jpg');
-    background-repeat: no-repeat;
-    background-position:center;
-   
-   
->>>>>>> 8df03e8b0d50426aab089b4ac39bc83e1124f909
     box-shadow:  5px 5px 8px #D9D7F1,
                  -5px -5px 8px #fdfdfd;
     background: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url('../../assests/stats.jpg');
