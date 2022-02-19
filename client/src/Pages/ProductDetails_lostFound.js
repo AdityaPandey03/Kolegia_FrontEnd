@@ -160,7 +160,6 @@ function LostFoundItemDetails() {
   }, [deleteSuccess]);
 
   useEffect(() => {
-    console.log(itemFoundSuccess);
     if (itemFoundSuccess) {
       navigate("/lostFound");
     }
@@ -204,7 +203,14 @@ function LostFoundItemDetails() {
         <div className="LostItemDetailsContainerWrapper">
           <div className="headingContainer">
             <div className="headingText">
-              <h1 style={{ fontWeight: "700",fontFamily:"Hind Siliguri, sans-serif" }}>Lost Item Details</h1>
+              <h1
+                style={{
+                  fontWeight: "700",
+                  fontFamily: "Hind Siliguri, sans-serif",
+                }}
+              >
+                Lost Item Details
+              </h1>
               <h4 style={{ fontWeight: "400" }}>Item ID : {product?._id}</h4>
             </div>
             {product?.owner_details?._id === user_details._id ? (
@@ -252,7 +258,12 @@ function LostFoundItemDetails() {
                 variant="contained"
                 color="primary"
                 endIcon={<PanToolIcon />}
-                style={{ display: "flex", height: "70%",fontWeight: "700",fontFamily:"Hind Siliguri, sans-serif"}}
+                style={{
+                  display: "flex",
+                  height: "70%",
+                  fontWeight: "700",
+                  fontFamily: "Hind Siliguri, sans-serif",
+                }}
                 onClick={(e) => setOpenModal(true)}
               >
                 RAISE HAND
@@ -378,7 +389,7 @@ function LostFoundItemDetails() {
               value="true"
             >
               {isLoading && <CircularProgress size={14} />}
-              {!isLoading && "GO AHED"}
+              {!isLoading && "GO AHEAD"}
             </Button>
             <Button
               type="submit"
