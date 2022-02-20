@@ -26,31 +26,31 @@
   align-items: center;
   text-align: center;
   box-sizing: border-box;
-  max-width:5rem;
-  width:100%;
+  max-width: 5rem;
+  width: 100%;
   padding: 0.5rem 0;
-  
+
   box-shadow: 0px 0px 10px #6b95d4, 5px 5px 10px #4673c5;
 }
 
 .sideImage {
   width: 90%;
-  margin:1rem 0;
+  margin: 1rem 0;
 }
 
 .imageContainer {
-  display:flex;
+  display: flex;
   align-items: center;
   max-width: 30rem;
-  width:100%;
+  width: 100%;
   min-width: 10rem;
-  margin:0rem 1rem ;
+  margin: 0rem 1rem;
   /* width: fit-content;
   height: fit-content; */
 }
 .previewImage {
   height: 70vh;
-  width:100%;
+  width: 100%;
   min-width: 10rem;
   border-radius: 20px;
   object-fit: fill;
@@ -64,10 +64,10 @@
   font-weight: 500;
   max-width: 20rem;
   min-width: 10rem;
-  width:100%;
+  width: 100%;
   border-top: 1px solid blue;
 }
-.detailsContainer.h1{
+.detailsContainer.h1 {
   font-weight: bolder;
 }
 .connectBtn {
@@ -83,32 +83,32 @@
   width: 150px;
   padding: 2px;
   font-family: "Inter", sans-serif;
-
 }
-.description{
+.description {
   height: 90%;
   border-top: 1px solid blue;
   border-bottom: 1px solid blue;
   font-family: "Inter", sans-serif;
-  background: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6));
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.6)
+  );
   background-repeat: no-repeat;
   background-position: center;
-  padding:1rem 0.5rem;
+  padding: 1rem 0.5rem;
   margin-top: 1rem;
-
 }
 
-.owner{
-  width:100%; 
-  display:flex;
+.owner {
+  width: 100%;
+  display: flex;
   justify-content: space-between;
 }
 
-.ownerImg img{
-  width:5rem
+.ownerImg img {
+  width: 5rem;
 }
-@media screen and (max-width:1013px){
-
+@media screen and (max-width: 1013px) {
 }
 
 @media (max-device-width: 812px) {
@@ -126,7 +126,6 @@
     height: 30%;
     text-align: left;
     box-shadow: 10px 8px 10px #d9d7f1, -10px -5px 10px #fdfdfd;
-
   }
 
   .sideImage {
@@ -136,7 +135,6 @@
   .imageContainer {
     flex: 0 0 75%;
     height: 30%;
-
   }
 
   .detailsContainer {
@@ -145,7 +143,49 @@
     margin-top: 10%;
     margin-left: 5%;
     font-family: "Hind Siliguri", sans-serif;
-
   }
 }
 
+/*BUTTON CSS*/
+
+/* CSS */
+.button-7 {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-7:hover,
+.button-7:focus {
+  background-color: #07c;
+}
+
+.button-7:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.button-7:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
