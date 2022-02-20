@@ -4,15 +4,54 @@
   <img width="500" src="https://i.imgur.com/8NsQdLA.png" />
 </p>
 
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary><br />
+  <ol>
+    <li>
+      <a href="#about-the-project">What is Kolegia?</a>
+      </li>
+      <li>
+      <a href="#screenshots">Screenshots</a>
+      </li>
+      <li>
+         <a href="#video">Demonstration Video</a>
+      </li>
+    <li><a href="#features">Features</a>
+    </li>
+    <li><a href="#tech-stack">Tech Stack used</a>
+    </li>
+      <li><a href="#local-setup">Local Setup</a></li>
+    <li><a href="#team">Team Members</a></li>
+  </ol>
+</details>
+
+<div id="about-the-project" />
+<!-- ABOUT THE PROJECT -->
 Kolegia is a platform where users can post their lost items and find them. Users can also sell their items by posting them. Users can also post the requirement for a certain product.
 
-## Goal
+### Goal
 
 Kolegia is an online and mobile application that may be accessed via a web app or an Android app. Kolegia is a platform for college communities to promote their stuff or
 belongings inside their campus fraternity. It enables users to trade their belongings or file theft or missing complaint about their goods on the platform. Every instance will be enlarged to all users, and the rest of the users will be alerted about the specific situation. Anyone with knowledge or information about that user can raise their hand and respond to the case, and the user will be informed. Users may be able to tag persons associated with that specific case, which will help to mainstreamthe issue and help to close the case.
 
+<div id="screenshots" />
 
-## Features
+# Screenshots
+
+Screenshots of our website are added to [this link](https://photos.app.goo.gl/XzMd2bZgjn5LBq7DA).
+
+<div id="video" />
+
+# Demonstration 
+
+Demonstration of Kolegia is added to [this link](https://photos.app.goo.gl/XzMd2bZgjn5LBq7DA).
+<br />
+
+<div id="features" />
+
+<!-- GETTING STARTED -->
+# Features
 
 - Users can post their lost items and other users can help them find it.
 - Users can also sell something, by posting it on the platform.
@@ -20,53 +59,19 @@ belongings inside their campus fraternity. It enables users to trade their belon
 - Directly chat with the seller of the product for buying any item.
 - If someone wants to raise a hand on a lost item, they can easily do that.
 
-## Tech Stack
+<div id="tech-stack" />
+         
+# Tech Stack Used
 
-- React 
-- Node.js
 - MongoDB
+- Express
+- React JS
+- Node.js
 
-## Team Members
+<div id="local-setup" />
 
-- Kartikey Vaish 2019-BCS-078
-- Kislay Singh 2019-BCS-030
-- Vivek Sherkhane 2019-BCS-049
-- Aditya Pandey 2020-IMG-005
-- Adarsh Aryan 2020-IMG-003
-- Aman Vaishya 2020-IMG-008
+# Local Setup
 
-## ✨ Website Preview
-
- <p>
-  <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/1.jpeg" width="1100" height="600" object-fit="cover"/>
-  <br/>
-  <br/>
-  <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/3.jpeg" width="1100" height="600" />
-  <br/>
-  <br/>
-   <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/4.jpeg" width="1100" height="600" />
-  <br/>
-  <br/>
-  <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/2.jpeg" width="1100" height="600" />
-  <br/>
-  <br/>
-</p> 
-
-## ✨ App Preview
-
-<p align="center">
-  <img src="https://i.imgur.com/diC3koE.png" width="100%" />
-</p>
-
-##  Dark Theme
-
-<p align="center">
-  <img src="https://i.imgur.com/wIBS9gU.png" width="100%" />
-</p>
-
-
-
-## Development Setup
 
 To set up Kolegia for development, you need to follow the steps mentioned below:
 
@@ -106,3 +111,14 @@ Just type `npm start` in the terminal to open the website.
 ```dosini
 REACT_APP_GOOGLE_CLIENT_ID=""
 ```
+<div id="team" />
+<!-- CONTACT -->
+
+# Team
+
+- Aditya Pandey 2020-IMG-005
+- Adarsh Aryan 2020-IMG-003
+- Aman Vaishya 2020-IMG-008
+
+
+
