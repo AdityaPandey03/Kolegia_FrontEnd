@@ -1,64 +1,70 @@
-# Kolegia
+# Getting Started with Create React App
 
-<p align="center">
-  <img width="500" src="https://i.imgur.com/8NsQdLA.png" />
-</p>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Kolegia is a platform where users can post their lost items and find them. Users can also sell their items by posting them. Users can also post the requirement for a certain product.
+## Available Scripts
 
-## Features
+In the project directory, you can run:
 
-- Users can post their lost items and other users can help them find it.
-- Users can also sell something, by posting it on the platform.
-- If a user requires something, they can post a requirement for that.
-- Directly chat with the seller of the product for buying any item.
-- If someone wants to raise a hand on a lost item, they can easily do that.
+### `yarn start`
 
-## ✨ Website Preview
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-<!-- <p align="center">
-  <img src="https://i.imgur.com/diC3koE.png" width="100%" />
-</p> -->
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
+### `yarn test`
 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Development Setup
+### `yarn build`
 
-To set up Kolegia for development, you need to follow the steps mentioned below:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Step 1: Install Node.js from the [Node.js official website](https://nodejs.org/en/).
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-During the developement process, I used node version `v16.13.0`. You can check your node version by running the following command:
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```shell
-node -v
-```
+### `yarn eject`
 
-### Step 2: Setup [React](https://github.com/facebook/create-react-app) environment.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Follow the steps mentioned in the official documentation to setup the environment.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### Step 3: Clone the repository
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-    git clone https://github.com/AdityaPandey03/Kolegia_FrontEnd.git
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-### Step 4: Install dependencies
+## Learn More
 
-    cd client
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-    npm install
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Step 5: Create a `.env` file for environment variables
+### Code Splitting
 
-You'll have to create a `.env` file for environment variables with the variables listed [here](https://github.com/kartikeyvaish/Kolegia_Mobile/blob/main/README.md#env-file)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Step 6: Running the application
+### Analyzing the Bundle Size
 
-Run the app in the development mode.
-Just type `npm start` in the terminal to open the website.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## Environemnt Variables
+### Making a Progressive Web App
 
-```dosini
-REACT_APP_GOOGLE_CLIENT_ID=""
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
