@@ -68,8 +68,8 @@ console.log(singleProduct)
             <h2>Details</h2>
             <p style={{marginTop:'15px'}}><span style={{fontWeight:"600"}}>Brand:</span> {singleProduct?.brand}</p>
             <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Color:</span> {singleProduct?.color}</p>
-            {/* <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Bought on:</span> {singleProduct?.bought_datetime.split('T')[0]}</p> */}
-            {/* <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Warranty Till:</span> {singleProduct?.warranty_till.split('T')[0]}</p> */}
+            <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Bought on:</span> {singleProduct.bought_datetime?.split('T')[0]}</p>
+            <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Warranty Till:</span> {singleProduct?.warranty_till?.split('T')[0]}</p>
           </div>
             
             <h3 style={{marginTop:'15px',marginBottom:'5px',fontFamily:"Hind Siliguri, sans-serif",fontWeight:'600',fontSize:'25px'}}>Seller Details</h3>

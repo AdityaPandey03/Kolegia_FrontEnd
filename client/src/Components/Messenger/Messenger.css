@@ -74,9 +74,3 @@
   font-size: 50px;
   cursor: default;
 }
-
-.chatLabelBar {
-  height: 50px;
-  position: fixed;
-  background-color: #1877f2;
-}

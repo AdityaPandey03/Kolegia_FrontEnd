@@ -81,8 +81,8 @@ function LostFoundItemDetails() {
   };
   const token = decoded.auth_token;
 
-  useEffect(() => {
-    dispatch(getLostFoundProductDetails({ product_id, decoded }));
+  useEffect(async() => {
+   await dispatch(getLostFoundProductDetails({ product_id, decoded }));
 
     if (product?.lost_date) {
       const date = new Date(product?.lost_date);
@@ -99,6 +99,11 @@ function LostFoundItemDetails() {
     setOpenModal(false);
     dispatch(raiseHand({ product_id, token, note }));
   };
+var result;
+  
+if(product){result = product.lost_time?.slice(12,19)}
+  
+
 
   //TOASTIFY FUNCTIONS START
   useEffect(() => {
@@ -295,8 +300,8 @@ function LostFoundItemDetails() {
                 <p>{dateString}</p>
               </div>
               <div className="LostDetailsListItem">
-                <h4 style={{fontFamily:"Hind Siliguri,sans-serif",fontWeight:'700'}}>Time Lost</h4>
-                <p>{product?.lost_time}</p>
+                <h4>Time Lost</h4>
+                <p>{result}</p>
               </div>
               <div className="LostDetailsListItem">
                 <h4 style={{fontFamily:"Hind Siliguri,sans-serif",fontWeight:'700'}}>Location Lost</h4>
