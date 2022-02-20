@@ -31,9 +31,9 @@ belongings inside their campus fraternity. It enables users to trade their belon
 - Kartikey Vaish 2019-BCS-078
 - Kislay Singh 2019-BCS-030
 - Vivek Sherkhane 2019-BCS-049
-- Aditya Pandey 2020-IMT-005
-- Adarsh Aryan 2020-IMT-003
-- Aman Vaishya 2020-IMT-008
+- Aditya Pandey 2020-IMG-005
+- Adarsh Aryan 2020-IMG-003
+- Aman Vaishya 2020-IMG-008
 
 ## ✨ Website Preview
 
