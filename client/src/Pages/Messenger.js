@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../Components/Messenger/Messenger.css";
 import Conversations from "../Components/Conversations/Conversations";
+import Navbar from "../Components/Appbar/Navbar";
 import {
   getAllChats,
   getMessages,
@@ -128,17 +129,18 @@ function Messenger() {
       );
     }
   };
-
+console.log(currentChat);
   return (
     <>
+    <Navbar visibleSearch={false} presentPage="chatRoom" />
       <div className="messenger">
         <div className="chatMenu">
           <div className="chatMenuWrapper">
-            <input className="chatMenuInput" placeholder="search for friends" />
+            <input className="chatMenuInput" placeholder="Search for friends" />
             {chats.length > 0 ? (
               chats.map((c) => {
                 return (
-                  <div onClick={(e) => setCurrentChat(c)}>
+                  <div className="chatMenuList" onClick={(e) => setCurrentChat(c)}>
                     <Conversations conversation={c} />
                   </div>
                 );
@@ -150,6 +152,14 @@ function Messenger() {
         </div>
         <div className="chatBox">
           <div className="chatBoxWrapper">
+            {currentChat &&
+
+              <div className="chat_nav">
+              <img src={currentChat?.chatting_with?.profile_picture} />
+              <p>{currentChat?.chatting_with?.name}</p>
+              </div>
+
+            }
             {currentChat ? (
               <>
                 <div className="chatBoxTop" onScroll={handleScroll}>
@@ -180,16 +190,10 @@ function Messenger() {
                 <div className="chatBoxBottom">
                   <form
                     onSubmit={clickHandler}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      width: "100%",
-                    }}
                   >
                     <textarea
                       className="chatInput"
-                      placeholder="write Something"
+                      placeholder="Enter your text"
                       onChange={(e) => setNewMessage(e.target.value)}
                       value={newMessage}
                     ></textarea>

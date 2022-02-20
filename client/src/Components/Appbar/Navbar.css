@@ -1,12 +1,16 @@
 
 
 .container-nav{
-    background-color: var(--color-primary);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 100vw;
-    height: 9vh;
+  background-color: var(--color-primary);
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100vw;
+  width: 100%;
+  height: 9vh;
+  z-index: 100;
   }
 
 .part_one {

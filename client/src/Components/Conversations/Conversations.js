@@ -5,13 +5,15 @@ import "./Conversations.css";
 function Conversations({ conversation }) {
   return (
     <div className="conversation">
-      <img
-        src={conversation.chatting_with.profile_picture}
-        className="conversationImage"
-      />
-      <span className="conversationName">
-        {conversation.chatting_with.name}
-      </span>
+      <div className="conversation_details">
+        <img
+          src={conversation.chatting_with.profile_picture}
+          className="conversationImage"
+        />
+        <p className="conversationName">
+          {conversation.chatting_with.name}
+        </p>
+      </div>
     </div>
   );
 }
