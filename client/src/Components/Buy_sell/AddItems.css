@@ -43,7 +43,7 @@ body.active-modal {
     padding: 12px 28px;
     border-radius: 10px;
     margin-bottom:15px;
-    width: 23rem;
+    width: 45rem;
     pointer-events: visible;
     text-align: center;
     font-family: 'Poppins', sans-serif;
@@ -53,10 +53,10 @@ body.active-modal {
 }
 .modal-content form{
     display: flex;
-    flex-direction: column;
-    
+    /* flex-direction: column; */
+    justify-content: center;
     text-align: left;
-    gap:8px;
+    gap:24px;
 
 }
 
@@ -76,6 +76,11 @@ body.active-modal {
     border: none;
     font-size:1.7rem;
     transform: rotate(45deg)
+}
+
+.form02{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .form02 button{
