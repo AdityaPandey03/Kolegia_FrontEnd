@@ -27,20 +27,26 @@ const My_buySellItems = () => {
 
  
 
+const [items,setItems]=useState([])
+
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAllOwnBuySellItems());
-    
+  useEffect(async() => {
+   await dispatch(getAllOwnBuySellItems());
+    setItems(itemList)
   }, []);
 
   ///delete item
-  const handleClick=(data,e)=>{
-    
+
+  console.log(items)
+  const handleClick=async(data,e)=>{
+    console.log(data);
     const token = localStorage.getItem("jwt");
       const decoded = jwt_decode(token);
-   dispatch(deleteBuySellItem(data._id,decoded.auth_token));
+  await dispatch(deleteBuySellItem(data._id,decoded.auth_token));
+  const newitems = items.filter(item => item._id != data._id)
+  setItems(newitems)
   //  window.location.reload(true);
 }
   
@@ -54,8 +60,8 @@ const My_buySellItems = () => {
   ) :(
     <Container className={classes.root}>
       <Grid container spacing={3}>
-        {itemList.length > 0 ? (
-          itemList.map((item, index) => {
+        {items.length > 0 ? (
+          items.map((item, index) => {
             return (
               <Grid lg={3} sm={4} xm={12} md={4} item key={index}>
                 <NoteCard handleClick={handleClick}  data={item} editOption={true} />
