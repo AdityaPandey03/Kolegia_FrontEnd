@@ -83,7 +83,7 @@ const handleSubmitSignUp=()=>{
 
     return (
       <>
-      <Navbar/>
+      {/* <Navbar/> */}
 
         <div className="body">
         

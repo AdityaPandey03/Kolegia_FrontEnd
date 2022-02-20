@@ -83,7 +83,7 @@ const handleClick=()=>{
 
     return ( 
       <>
-      <Navbar/>
+      {/* <Navbar/> */}
         <div className="body">
         
     
