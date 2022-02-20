@@ -110,7 +110,7 @@ function ProductDetails() {
   return (
     <div>
       <Navbar visibleSearch={false} />
-      <div className="container">
+      <div className="container09">
         {isLoading ? (
           <LoadingBox />
         ) : (
@@ -136,44 +136,15 @@ function ProductDetails() {
               <img alt="image" className="previewImage" src={image2} />
             </div>
 
-            <div className="description">
-              <h2>Details</h2>
-              <p style={{ marginTop: "15px" }}>
-                <span style={{ fontWeight: "600" }}>Brand:</span>{" "}
-                {singleProduct?.brand}
-              </p>
-              <p style={{ marginTop: "5px" }}>
-                <span style={{ fontWeight: "600" }}>Color:</span>{" "}
-                {singleProduct?.color}
-              </p>
-              <p style={{ marginTop: "5px" }}>
-                <span style={{ fontWeight: "600" }}>Bought on:</span>{" "}
-                {singleProduct.bought_datetime?.split("T")[0]}
-              </p>
-              <p style={{ marginTop: "5px" }}>
-                <span style={{ fontWeight: "600" }}>Warranty Till:</span>{" "}
-                {singleProduct?.warranty_till?.split("T")[0]}
-              </p>
-            </div>
+           
 
-            <h3
-              style={{
-                marginTop: "15px",
-                marginBottom: "5px",
-                fontFamily: "Hind Siliguri, sans-serif",
-                fontWeight: "600",
-                fontSize: "25px",
-              }}
-            >
-              Seller Details
-            </h3>
+           
             <div className="owner">
               <div className="ownerImg">
-                <img
-                  src={owner_details?.profile_picture}
-                  style={{ borderRadius: "50%" }}
-                ></img>
+               
+             
                 <div className="detailsContainer">
+                  <div>
                   <h1 style={{ fontSize: "40px" }}>{singleProduct?.name}</h1>
                   <p>
                     in{" "}
@@ -193,21 +164,27 @@ function ProductDetails() {
                   <p style={{ fontSize: "22px" }}>
                     {singleProduct?.description}
                   </p>
-
-                  <div className="description">
-                    <h2>Details</h2>
-                    <p style={{ marginTop: "15px" }}>
-                      <span style={{ fontWeight: "600" }}>Brand:</span>{" "}
-                      {singleProduct?.brand}
-                    </p>
-                    <p style={{ marginTop: "5px" }}>
-                      <span style={{ fontWeight: "600" }}>Color:</span>{" "}
-                      {singleProduct?.color}
-                    </p>
-                    {/* <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Bought on:</span> {singleProduct?.bought_datetime.split('T')[0]}</p> */}
-                    {/* <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Warranty Till:</span> {singleProduct?.warranty_till.split('T')[0]}</p> */}
                   </div>
-
+                  <div className="description">
+              <h2>Details</h2>
+              <p style={{ marginTop: "15px" }}>
+                <span style={{ fontWeight: "600" }}>Brand:</span>{" "}
+                {singleProduct?.brand}
+              </p>
+              <p style={{ marginTop: "5px" }}>
+                <span style={{ fontWeight: "600" }}>Color:</span>{" "}
+                {singleProduct?.color}
+              </p>
+              <p style={{ marginTop: "5px" }}>
+                <span style={{ fontWeight: "600" }}>Bought on:</span>{" "}
+                {singleProduct.bought_datetime?.split("T")[0]}
+              </p>
+              <p style={{ marginTop: "5px" }}>
+                <span style={{ fontWeight: "600" }}>Warranty Till:</span>{" "}
+                {singleProduct?.warranty_till?.split("T")[0]}
+              </p>
+            </div>
+              <div>
                   <h3
                     style={{
                       marginTop: "15px",
@@ -246,7 +223,7 @@ function ProductDetails() {
                     variant="contained"
                     onClick={(e) => setOpenModal(true)}
                     style={{
-                      width: "100%",
+                      
                       color: "white",
                       background: "#332A7C",
                       borderRadius: "10px",
@@ -264,7 +241,7 @@ function ProductDetails() {
                   </Button>
                 </div>
               </div>
-              )
+              </div>
               <Modal
                 open={openModal}
                 onClose={(e) => setOpenModal(false)}
