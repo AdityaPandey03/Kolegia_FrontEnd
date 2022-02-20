@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaPlusCircle } from "react-icons/fa";
 import LoadingBox from "../Components/LoadingBox";
 import Navbar from "../Components/Appbar/Navbar";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import { getAllBuySellItems } from "../redux/actions/BuySellActions";
 
@@ -48,7 +50,12 @@ const Cards = () => {
     <>
     <Navbar visibleSearch={true} presentPage="buySell" />
     {isLoading ? (
-    <LoadingBox />
+    <Backdrop
+    sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+    open={isLoading}
+  >
+    <CircularProgress color="inherit" />
+  </Backdrop>
   ) :(
     <Container className={classes.root}>
       <Grid container spacing={3}>
