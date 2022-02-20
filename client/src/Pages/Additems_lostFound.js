@@ -166,7 +166,7 @@ function AddItem() {
                 className="formInput"
                 type="text"
                 id="item"
-                placeholder="enter item name you lost"
+                placeholder="Enter the name of lost item"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
                 required
@@ -180,7 +180,7 @@ function AddItem() {
                 className="formInput"
                 type="text"
                 id="brand"
-                placeholder="enter brand of the item you lost"
+                placeholder="Enter the brand of the item lost"
                 onChange={(e) => setBrand(e.target.value)}
                 value={brand}
                 required
@@ -221,7 +221,7 @@ function AddItem() {
                 className="formInput"
                 type="name"
                 id="color"
-                placeholder="primary color of item"
+                placeholder="Primary color of the item"
                 onChange={(e) => setColor(e.target.value)}
                 value={color}
                 required
@@ -250,7 +250,7 @@ function AddItem() {
                 className="formInput"
                 type="date"
                 id="date"
-                placeholder="date when item lost"
+                placeholder="Date when item lost"
                 onChange={(e) => setLostDate(e.target.value)}
                 value={lostDate}
                 required
@@ -265,7 +265,7 @@ function AddItem() {
                 className="formInput"
                 type="time"
                 id="time"
-                placeholder="time when item lost"
+                placeholder="Time when item lost"
                 onChange={(e) => setLostTime(e.target.value)}
                 value={lostTime}
                 required
@@ -279,7 +279,7 @@ function AddItem() {
                 className="formInput"
                 type="text"
                 id="location"
-                placeholder="location where item lost"
+                placeholder="Where did you lose the item?"
                 onChange={(e) => setLostLocation(e.target.value)}
                 value={lostLocation}
                 required
@@ -293,7 +293,7 @@ function AddItem() {
                 className="formInput"
                 type="textarea"
                 id="description"
-                placeholder="tell us more about item, additional information"
+                placeholder="Tell us more about the item!"
                 onChange={(e) => setDescription(e.target.value)}
                 value={description}
                 required
@@ -303,7 +303,7 @@ function AddItem() {
               <button
                 type="submit"
                 className="primary submitBtn"
-                style={{ marginBottom: "1.5rem" }}
+                style={{color:'black',background:'#F0BC5E',borderRadius:'15px',height:'3.2rem',fontFamily:'Inter,sans-serif',fontWeight:'700',marginBottom:"1.5rem"}}
               >
                 POST
               </button>
