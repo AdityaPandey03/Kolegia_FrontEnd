@@ -81,8 +81,8 @@ function LostFoundItemDetails() {
   };
   const token = decoded.auth_token;
 
-  useEffect(() => {
-    dispatch(getLostFoundProductDetails({ product_id, decoded }));
+  useEffect(async() => {
+   await dispatch(getLostFoundProductDetails({ product_id, decoded }));
 
     if (product?.lost_date) {
       const date = new Date(product?.lost_date);
@@ -99,8 +99,12 @@ function LostFoundItemDetails() {
     setOpenModal(false);
     dispatch(raiseHand({ product_id, token, note }));
   };
+var result;
   
-  let result = product.posted_on.slice(0, 10);
+if(product){result = product.lost_time?.slice(12,19)}
+  
+
+
   //TOASTIFY FUNCTIONS START
   useEffect(() => {
     setResponseOfRaisedHand(raisedHandResponse);
@@ -274,25 +278,25 @@ function LostFoundItemDetails() {
           <div className="LostItemDetailsContainer">
             <div className="firstHalf">
               <div className="LostDetailsListItem">
-                <h4>Item Lost</h4>
+                <h4 style={{fontFamily:"Hind Siliguri,sans-serif",fontWeight:'700'}}>Item Lost</h4>
                 <p>{product?.name}</p>
               </div>
               <div className="LostDetailsListItem">
-                <h4>Category</h4>
+                <h4 style={{fontFamily:"Hind Siliguri,sans-serif",fontWeight:'700'}}>Category</h4>
                 <p>{product?.category}</p>
               </div>
               <div className="LostDetailsListItem">
-                <h4>Brand</h4>
+                <h4 style={{fontFamily:"Hind Siliguri,sans-serif",fontWeight:'700'}}>Brand</h4>
                 <p>{product?.brand}</p>
               </div>
               <div className="LostDetailsListItem">
-                <h4>Primary Color</h4>
+                <h4 style={{fontFamily:"Hind Siliguri,sans-serif",fontWeight:'700'}}>Primary Color</h4>
                 <p>{product?.color}</p>
               </div>
             </div>
             <div className="secondHalf">
               <div className="LostDetailsListItem">
-                <h4>Date Lost</h4>
+                <h4 style={{fontFamily:"Hind Siliguri,sans-serif",fontWeight:'700'}}>Date Lost</h4>
                 <p>{dateString}</p>
               </div>
               <div className="LostDetailsListItem">
@@ -300,11 +304,11 @@ function LostFoundItemDetails() {
                 <p>{result}</p>
               </div>
               <div className="LostDetailsListItem">
-                <h4>Location Lost</h4>
+                <h4 style={{fontFamily:"Hind Siliguri,sans-serif",fontWeight:'700'}}>Location Lost</h4>
                 <p>{product?.lost_location}</p>
               </div>
               <div className="LostDetailsListItem">
-                <h4>Description</h4>
+                <h4 style={{fontFamily:"Hind Siliguri,sans-serif",fontWeight:'700'}}>Description</h4>
                 <p>{product?.description}</p>
               </div>
             </div>
