@@ -16,9 +16,23 @@ Kolegia is a platform where users can post their lost items and find them. Users
 
 ## ✨ Website Preview
 
-<!-- <p align="center">
+ <p>
+  <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/1.jpeg" width="800" height="600" />
+  <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/3.jpeg" width="800" height="600" />
+   <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/4.jpeg" width="800" height="600" />
+</p> 
+
+## ✨ App Preview
+
+<p align="center">
   <img src="https://i.imgur.com/diC3koE.png" width="100%" />
-</p> -->
+</p>
+
+##  Dark Theme
+
+<p align="center">
+  <img src="https://i.imgur.com/wIBS9gU.png" width="100%" />
+</p>
 
 
 
