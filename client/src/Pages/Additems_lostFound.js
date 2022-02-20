@@ -121,7 +121,7 @@ function AddItem() {
     }
     dispatch(addNewLostFoundItem(formData));
   };
-  console.log(category);
+  
 
   const handleChange = (event) => {
     setCategory(event.target.value);

@@ -1,13 +1,11 @@
 import NoteCard from "../Components/Buy_sell/BuySellCard";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
-import Rolex from "../assests/Rolex.jpg";
 import { makeStyles } from "@mui/styles";
 import { useState, useEffect } from "react";
 import Modal from "./Additems_buySell";
 import { useDispatch, useSelector } from "react-redux";
 import { FaPlusCircle } from "react-icons/fa";
-import LoadingBox from "../Components/LoadingBox";
 import Navbar from "../Components/Appbar/Navbar";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -32,7 +30,7 @@ const Cards = () => {
 
   useEffect(() => {
     dispatch(getAllBuySellItems());
-    // eslint-disable-next-line no-use-before-define
+   
   }, []);
 
   const toggleModal = () => {

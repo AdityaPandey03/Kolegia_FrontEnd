@@ -69,7 +69,7 @@ const LostFoundReducer = (state = initialState, action) => {
           : "",
       };
     case ADD_NEW_LOST_FOUND_ITEM:
-      console.log(action.payload);
+      
       return {
         ...state,
         addItemsLostFoundResponse: action.payload,

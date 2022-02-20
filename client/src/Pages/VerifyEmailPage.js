@@ -2,7 +2,7 @@ import {useState,useEffect} from 'react';
 import { useDispatch ,useSelector} from "react-redux";
 
 import { useLocation, useNavigate } from "react-router-dom";
-import {verifyEmail, verifyEmailForReset} from '../redux/actions/authActions'
+import { verifyEmailForReset} from '../redux/actions/authActions'
 import LoadingButton from '@mui/lab/LoadingButton';
 import Navbar from "../Components/Appbar/Navbar";
 

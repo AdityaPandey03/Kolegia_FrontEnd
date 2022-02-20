@@ -121,12 +121,12 @@ if(product){result = product.lost_time?.slice(12,19)}
   }, [rseponseOfRaisedHand]);
 
   useEffect(() => {
-    // console.log(deleteLostFoundItemResponse);
+    
     setDeleteItemResponse(deleteLostFoundItemResponse);
   }, [deleteLostFoundItemResponse]);
 
   useEffect(() => {
-    console.log(deleteItemResponse);
+
     if (deleteItemResponse?.status === 200) {
       toast.success(deleteItemResponse?.message);
       setDeleteSuccess(true);
@@ -138,12 +138,12 @@ if(product){result = product.lost_time?.slice(12,19)}
   }, [deleteItemResponse]);
 
   useEffect(() => {
-    console.log(foundItemResponse);
+
     setItemFound(foundItemResponse);
   }, [foundItemResponse]);
 
   useEffect(() => {
-    console.log(itemFound);
+    
     if (itemFound?.status === 200) {
       toast.success(itemFound?.message);
       setItemFoundSuccess(true);
@@ -189,7 +189,7 @@ if(product){result = product.lost_time?.slice(12,19)}
   };
 
   const handleClick = async (e) => {
-    console.log(e);
+    
     if (e.target.value === "edit") {
       navigate(`/editLostFoundItems/${product_id}`);
     } else if (e.target.value === "delete") {

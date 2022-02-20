@@ -28,7 +28,7 @@ function ProductDetails() {
   const handleClick = (e) => {
     setimage2(e.target.src);
   };
-console.log(singleProduct)
+
   return (
     <>
     <Navbar visibleSearch={false}/>

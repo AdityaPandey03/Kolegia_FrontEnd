@@ -31,7 +31,7 @@ export const getAllBuySellItems = () => async (dispatch) => {
       
       }
     );
-console.log(data);
+
     dispatch({
       type: GET_ALL_BUY_SELL_ITEMS,
       payload: data,
@@ -58,7 +58,7 @@ export const buySellSearch = (searchQuery) => async (dispatch) => {
         }
       }
     );
-    console.log(data);
+   
     dispatch({
       type: SEARCH_BUY_SELL_ITEMS,
       payload: data.products,
@@ -146,7 +146,7 @@ export const getAllOwnBuySellItems = () => async (dispatch) => {
         }
         
       );
-    // console.log(data);
+
       dispatch({
         type: GET_MY_OWN_BUY_SELL_ITEMS,
         payload: data,
@@ -177,7 +177,7 @@ export const getAllOwnBuySellItems = () => async (dispatch) => {
           }
         
       );
-    console.log(res)
+  
       dispatch({
         type: EDIT_BUY_SELL_ITEM,
         payload:res
@@ -197,7 +197,7 @@ export const getAllOwnBuySellItems = () => async (dispatch) => {
   //delete
 
   export const deleteBuySellItem= (product_id,token)=> async (dispatch) => {
-    // console.log(requirement_id,token);
+    
     
       try {
   
@@ -215,7 +215,7 @@ export const getAllOwnBuySellItems = () => async (dispatch) => {
             }
           
         );
-      console.log(res);
+     
         dispatch({
           type: DELETE_BUY_SELL_ITEM,
           payload:res

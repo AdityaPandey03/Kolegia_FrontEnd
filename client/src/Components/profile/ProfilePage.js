@@ -28,7 +28,7 @@ const Profile = () => {
               </svg>
             <div className="top-section">
                 <div className='profile-image'>
-                    {/* <img className='img-circle' src="https://res.cloudinary.com/kartikeyvaish/image/upload/v1642841457/Kolegia/logo_snpqqs.png" alt="User" /> */}
+                   
                     <img className='img-circle' src={decoded.profile_picture} alt="User"  />
                 </div>
                 <div  className='user_name'>{decoded.name}</div>

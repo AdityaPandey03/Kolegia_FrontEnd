@@ -18,7 +18,7 @@ const OtpPage = () => {
     const [loading, setLoading] = useState(false);
     const [otp,setOtp]=useState(0);
     const otpId= useSelector((state) => state.auth.otpId);
-    // const otpId="61ee9495db63b894d08f6c56";
+    
 
 
     var Email;

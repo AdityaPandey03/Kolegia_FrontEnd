@@ -4,7 +4,7 @@ import {
   GET_ALL_REQUIREMENTS,
   ADD_NEW_REQUIREMENT,
   NEW_REQUEST,
-  CHECKING_ERROR,
+  
   GET_MY_OWN_REQUIREMENTS,
   EDIT_REQUIREMENT,
   RESET_STATUS,
@@ -28,7 +28,7 @@ export const getAllRequirements = () => async (dispatch) => {
         },
       }
     );
-    console.log(data);
+    
     dispatch({
       type: GET_ALL_REQUIREMENTS,
       payload: data,
@@ -53,7 +53,7 @@ export const addRequirements =
           },
         }
       );
-      console.log(res);
+    
       dispatch({
         type: ADD_NEW_REQUIREMENT,
         payload: res,
@@ -129,7 +129,7 @@ export const editRequirements =
 
 export const deleteRequirement =
   (requirement_id, token) => async (dispatch) => {
-    console.log(requirement_id, token);
+    
 
     try {
       const res = await axios.delete(
@@ -144,7 +144,7 @@ export const deleteRequirement =
           },
         }
       );
-      console.log(res);
+   
       dispatch({
         type: DELETE_REQUIREMENT,
         payload: res,

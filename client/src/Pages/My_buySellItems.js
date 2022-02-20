@@ -39,9 +39,9 @@ const [items,setItems]=useState([])
 
   ///delete item
 
-  console.log(items)
+ 
   const handleClick=async(data,e)=>{
-    console.log(data);
+    
     const token = localStorage.getItem("jwt");
       const decoded = jwt_decode(token);
   await dispatch(deleteBuySellItem(data._id,decoded.auth_token));

@@ -1,5 +1,5 @@
 import axios from "axios";
-import jwt_decode from "jwt-decode";
+
 import {
   GET_ALL_CHATS,
   GET_ALL_MESSAGES_OF_A_CONVERSATION,
@@ -24,7 +24,7 @@ export const getAllChats = (data) => async (dispatch) => {
         data,
       }
     );
-    // console.log(res);
+    
     dispatch({
       type: GET_ALL_CHATS,
       payload: res.data.Chats,
@@ -49,7 +49,7 @@ export const getMessages = (data) => async (dispatch) => {
         },
       }
     );
-    console.log(res);
+    
     dispatch({
       type: GET_ALL_MESSAGES_OF_A_CONVERSATION,
       payload: res.data.messages.reverse(),
@@ -67,7 +67,7 @@ export const getNextBacthOfMessages = (data) => async (dispatch) => {
   });
 
   try {
-    console.log(data);
+    
     const res = await axios.get(
       `http://localhost:3000/api/v1/chats/get-messages?room_id=${data.room_id}&skip=${data.skip}`,
       {
@@ -76,7 +76,7 @@ export const getNextBacthOfMessages = (data) => async (dispatch) => {
         },
       }
     );
-    console.log(res);
+    
     dispatch({
       type: GET_NEXT_BATCH,
       payload: res.data.messages.reverse(),
