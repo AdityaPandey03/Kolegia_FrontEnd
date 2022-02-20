@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => {
 
 const My_buySellItems = () => {
   const itemList = useSelector((state) => state.buySell.ownBuySellItems);
+
   const isLoading = useSelector((state) => state.buySell.isLoading);
 
  
@@ -40,7 +41,7 @@ const My_buySellItems = () => {
     const token = localStorage.getItem("jwt");
       const decoded = jwt_decode(token);
    dispatch(deleteBuySellItem(data._id,decoded.auth_token));
-   window.location.reload(true);
+  //  window.location.reload(true);
 }
   
  
