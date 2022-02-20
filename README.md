@@ -6,6 +6,12 @@
 
 Kolegia is a platform where users can post their lost items and find them. Users can also sell their items by posting them. Users can also post the requirement for a certain product.
 
+## Goal
+
+Kolegia is an online and mobile application that may be accessed via a web app or an Android app. Kolegia is a platform for college communities to promote their stuff or
+belongings inside their campus fraternity. It enables users to trade their belongings or file theft or missing complaint about their goods on the platform. Every instance will be enlarged to all users, and the rest of the users will be alerted about the specific situation. Anyone with knowledge or information about that user can raise their hand and respond to the case, and the user will be informed. Users may be able to tag persons associated with that specific case, which will help to mainstreamthe issue and help to close the case.
+
+
 ## Features
 
 - Users can post their lost items and other users can help them find it.
@@ -13,6 +19,21 @@ Kolegia is a platform where users can post their lost items and find them. Users
 - If a user requires something, they can post a requirement for that.
 - Directly chat with the seller of the product for buying any item.
 - If someone wants to raise a hand on a lost item, they can easily do that.
+
+## Tech Stack
+
+- React 
+- Node.js
+- MongoDB
+
+## Team Members
+
+- Kartikey Vaish 2019-BCS-078
+- Kislay Singh 2019-BCS-030
+- Vivek Sherkhane 2019-BCS-049
+- Aditya Pandey 2020-IMT-005
+- Adarsh Aryan 2020-IMT-003
+- Aman Vaishya 2020-IMT-008
 
 ## ✨ Website Preview
 
