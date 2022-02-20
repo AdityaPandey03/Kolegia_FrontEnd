@@ -75,8 +75,8 @@ console.log(singleProduct)
             <p style={{fontSize:'20px'}}>Price :  Rs. {singleProduct?.price}</p>
             
             <h3 style={{marginTop:'15px',marginBottom:'5px',fontFamily:"Hind Siliguri, sans-serif",fontWeight:'600',fontSize:'28px'}}>Owner Details</h3>
-            <h4 style={{color:'black',fontSize:'20px'}}>Posted by:{owner_details?.name}</h4>
-            <h4>Phone:{owner_details?.phone}</h4>
+            <h4 style={{color:'black',fontSize:'20px'}}>Posted by : {owner_details?.name}</h4>
+            <h4 style={{color:'black',fontSize:'18px'}}>Phone No : {owner_details?.phone}</h4>
 
 
               <Button
