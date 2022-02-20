@@ -10,7 +10,7 @@ import { deleteRequirement } from "../redux/actions/RequirementActions";
 const My_requirements = () => {
     const itemList = useSelector((state) => state.requirement.ownItems);
     // const status=useSelector((state=>state.requirement.addrequirementresponse))
-    
+    const [reload,setReload]=useState(false);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllOwnRequirements());
@@ -27,6 +27,7 @@ const handleClick=(data,e)=>{
       const decoded = jwt_decode(token);
    dispatch(deleteRequirement(data._id,decoded.auth_token));
    window.location.reload(true);
+setReload(true);
 
 }
     

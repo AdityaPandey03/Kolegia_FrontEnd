@@ -17,7 +17,16 @@ const SignUpForm = () => {
     
     var signUpErrorMessage;
     
-    
+    if(location.state !=null){
+        if(location.state.Email){
+            Email=location.state.Email
+        }
+        if(location.state.name && location.state.profile_picture){
+            Name=location.state.name;
+           Profile_picture=location.state.profile_picture;
+        }
+             
+        }
  
     const navigate=useNavigate();
     const [name,setName]=useState(Name)
@@ -33,16 +42,7 @@ const SignUpForm = () => {
     const [year,setYear]=useState('')
     const [batch,setBatch]=useState('')
 
-    if(location.state !=null){
-    if(location.state.Email){
-        Email=location.state.Email
-    }
-    if(location.state.name && location.state.profile_picture){
-        Name=location.state.name;
-       Profile_picture=location.state.profile_picture;
-    }
-         
-    }
+    
 
     const dispatch=useDispatch();
     

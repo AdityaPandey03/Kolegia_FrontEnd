@@ -86,16 +86,31 @@ function Edit_MyLostFoundItems() {
   const [editItemResponse, setEditItemResponse] = useState(null);
   const [editSuccess, setEditSuccess] = useState(false);
 
+  function get_iso_time({ date, time }) {
+    try {
+      let newDateTime = date ? new Date(date) : new Date();
+  
+      if (time) {
+        let digits = time.split(":");
+        let hours = parseInt(digits[0]);
+        let minutes = parseInt(digits[1]);
+  
+        newDateTime.setHours(hours, minutes);
+      }
+  
+      return newDateTime.toISOString();
+    } catch (error) {
+      return new Date().toISOString();
+    }
+  }
+
+  const newLostTime=get_iso_time({time:lostTime});
+
   useEffect(() => {
     dispatch(getLostFoundProductDetails({ product_id, decoded }));
   }, []);
 
-  // const Status2 = useSelector((state) => state.lostFound.editlostfoundResponse);
-
-  // if (Status2 === 200) {
-  //   dispatch(resetStatus);
-  //   navigate("/sidebar/myOwnLostFoundItems");
-  // }
+  
   const handleChange = (event) => {
     setCategory(event.target.value);
   };
@@ -122,7 +137,7 @@ function Edit_MyLostFoundItems() {
     formData.append("color", color);
     formData.append("description", description);
     formData.append("lost_date", lostDate);
-    formData.append("lost_time", lostTime);
+    formData.append("lost_time", newLostTime);
     formData.append("lost_location", lostLocation);
     formData.append("token", decoded.auth_token);
     for (var i = 0; i < files.length; i++) {
