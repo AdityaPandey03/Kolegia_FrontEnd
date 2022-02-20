@@ -14,15 +14,10 @@
 .containerWrapper {
   width: 100%;
   display: flex;
-<<<<<<< HEAD
-  padding: 3% 5%;
-  background:white;
-=======
   justify-content: space-around;
   padding: 0rem 5%;
   padding-top: 3rem;
   flex-wrap: wrap;
->>>>>>> 56497a5bbf0c6e284f011506148466bb3449c063
 }
 
 .imageListContainer {
