@@ -48,8 +48,7 @@ function ProductDetails() {
   const [modalStyle] = useState(getModalStyle);
   var isLoading = buySell?.isLoading;
   var singleProduct = buySell?.singleProduct;
-  var firstImage = buySell?.firstImage;
-  const [image2, setimage2] = useState(firstImage);
+  const [image2, setimage2] = useState("");
   const [openModal, setOpenModal] = useState(false);
   const encodedToken = localStorage.getItem("jwt");
   const decoded = jwt_decode(encodedToken);
@@ -65,6 +64,10 @@ function ProductDetails() {
   useEffect(async () => {
     dispatch(getSingleProductDetails(productId));
   }, []);
+
+  useEffect(() => {
+    buySell && setimage2(buySell?.firstImage);
+  }, [buySell]);
 
   const handleClick = (e) => {
     setimage2(e.target.src);
@@ -103,7 +106,7 @@ function ProductDetails() {
   };
 
   return (
-   <div>
+    <div>
       <Navbar visibleSearch={false} />
       <div className="container">
         {isLoading ? (
@@ -132,154 +135,181 @@ function ProductDetails() {
             </div>
 
             <div className="description">
-            <h2>Details</h2>
-            <p style={{marginTop:'15px'}}><span style={{fontWeight:"600"}}>Brand:</span> {singleProduct?.brand}</p>
-            <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Color:</span> {singleProduct?.color}</p>
-            <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Bought on:</span> {singleProduct.bought_datetime?.split('T')[0]}</p>
-            <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Warranty Till:</span> {singleProduct?.warranty_till?.split('T')[0]}</p>
-          </div>
-        
-            
-            <h3 style={{marginTop:'15px',marginBottom:'5px',fontFamily:"Hind Siliguri, sans-serif",fontWeight:'600',fontSize:'25px'}}>Seller Details</h3>
-            <div className="owner">
-              <div className="ownerImg">
-                <img src={owner_details?.profile_picture} style={{borderRadius:"50%"}}></img>
-            <div className="detailsContainer">
-              <h1 style={{ fontSize: "40px" }}>{singleProduct?.name}</h1>
-              <p>
-                in{" "}
-                {singleProduct.category == "Other"
-                  ? singleProduct.other_category_name
-                  : singleProduct?.category}
+              <h2>Details</h2>
+              <p style={{ marginTop: "15px" }}>
+                <span style={{ fontWeight: "600" }}>Brand:</span>{" "}
+                {singleProduct?.brand}
               </p>
-              <p
-                style={{ fontSize: "30px", color: "green", fontWeight: "600" }}
-              >
-                ₹ {singleProduct?.price}
+              <p style={{ marginTop: "5px" }}>
+                <span style={{ fontWeight: "600" }}>Color:</span>{" "}
+                {singleProduct?.color}
               </p>
-              <p style={{ fontSize: "22px" }}>{singleProduct?.description}</p>
-
-              <div className="description">
-                <h2>Details</h2>
-                <p style={{ marginTop: "15px" }}>
-                  <span style={{ fontWeight: "600" }}>Brand:</span>{" "}
-                  {singleProduct?.brand}
-                </p>
-                <p style={{ marginTop: "5px" }}>
-                  <span style={{ fontWeight: "600" }}>Color:</span>{" "}
-                  {singleProduct?.color}
-                </p>
-                {/* <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Bought on:</span> {singleProduct?.bought_datetime.split('T')[0]}</p> */}
-                {/* <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Warranty Till:</span> {singleProduct?.warranty_till.split('T')[0]}</p> */}
-              </div>
-
-              <h3
-                style={{
-                  marginTop: "15px",
-                  marginBottom: "5px",
-                  fontFamily: "Hind Siliguri, sans-serif",
-                  fontWeight: "600",
-                  fontSize: "25px",
-                }}
-              >
-                Seller Details
-              </h3>
-              <div className="owner">
-                <div className="ownerImg">
-                  <img
-                    src={owner_details?.profile_picture}
-                    style={{ borderRadius: "50%" }}
-                  ></img>
-                </div>
-                <div className="ownerDet">
-                  <p style={{ marginTop: "5px" }}>
-                    <span style={{ fontWeight: "600" }}>Name:</span>{" "}
-                    {owner_details?.name}
-                  </p>
-                  <p style={{ marginTop: "5px" }}>
-                    <span style={{ fontWeight: "600" }}>Hostel:</span>{" "}
-                    {owner_details?.hostel}
-                  </p>
-                  <p style={{ marginTop: "5px" }}>
-                    <span style={{ fontWeight: "600" }}>Room No:</span>{" "}
-                    {owner_details?.room_number}
-                  </p>
-                </div>
-              </div>
-
-              <Button
-                variant="contained"
-                onClick={(e) => setOpenModal(true)}
-                style={{
-                  width: "100%",
-                  color: "white",
-                  background: "#332A7C",
-                  borderRadius: "10px",
-                  marginTop: "2rem",
-                  height: "2.5rem",
-                  fontFamily: "Hind Siliguri, sans-serif",
-                  fontWeight: "700",
-                }}
-              >
-                {isLoading2 ? (
-                  <CircularProgress size={14} />
-                ) : (
-                  "Connect with author"
-                )}
-              </Button>
+              <p style={{ marginTop: "5px" }}>
+                <span style={{ fontWeight: "600" }}>Bought on:</span>{" "}
+                {singleProduct.bought_datetime?.split("T")[0]}
+              </p>
+              <p style={{ marginTop: "5px" }}>
+                <span style={{ fontWeight: "600" }}>Warranty Till:</span>{" "}
+                {singleProduct?.warranty_till?.split("T")[0]}
+              </p>
             </div>
-          </div>
-        )
-        <Modal
-          open={openModal}
-          onClose={(e) => setOpenModal(false)}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <div style={modalStyle} className={`${classes.paper}`}>
-            <h4>Connect with this item seller</h4>
-            <p
+
+            <h3
               style={{
-                marginTop: "2%",
-                marginBottom: "2%",
-                fontFamily: "Helvetica",
-                fontWeight: "400",
+                marginTop: "15px",
+                marginBottom: "5px",
+                fontFamily: "Hind Siliguri, sans-serif",
+                fontWeight: "600",
+                fontSize: "25px",
               }}
             >
-              click confirm to proceed further.
-            </p>
+              Seller Details
+            </h3>
+            <div className="owner">
+              <div className="ownerImg">
+                <img
+                  src={owner_details?.profile_picture}
+                  style={{ borderRadius: "50%" }}
+                ></img>
+                <div className="detailsContainer">
+                  <h1 style={{ fontSize: "40px" }}>{singleProduct?.name}</h1>
+                  <p>
+                    in{" "}
+                    {singleProduct.category == "Other"
+                      ? singleProduct.other_category_name
+                      : singleProduct?.category}
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "30px",
+                      color: "green",
+                      fontWeight: "600",
+                    }}
+                  >
+                    ₹ {singleProduct?.price}
+                  </p>
+                  <p style={{ fontSize: "22px" }}>
+                    {singleProduct?.description}
+                  </p>
 
-            <button
-              className="button-7"
-              disabled={isLoading2}
-              onClick={(e) => handleConnectionRequest(e)}
-              style={{ width: "fit-content" }}
-              value="true"
-            >
-              {isLoading2 && <CircularProgress size={14} />}
-              {!isLoading2 && "CONFIRM"}
-            </button>
-            <button
-              className="button-7"
-              disabled={isLoading2}
-              style={{ marginLeft: "2%", width: "fit-content" }}
-              value="false"
-              onClick={(e) => handleConnectionRequest(e)}
-            >
-              {isLoading2 && <CircularProgress size={14} />}
-              {!isLoading2 && "CANCEL"}
-            </button>
+                  <div className="description">
+                    <h2>Details</h2>
+                    <p style={{ marginTop: "15px" }}>
+                      <span style={{ fontWeight: "600" }}>Brand:</span>{" "}
+                      {singleProduct?.brand}
+                    </p>
+                    <p style={{ marginTop: "5px" }}>
+                      <span style={{ fontWeight: "600" }}>Color:</span>{" "}
+                      {singleProduct?.color}
+                    </p>
+                    {/* <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Bought on:</span> {singleProduct?.bought_datetime.split('T')[0]}</p> */}
+                    {/* <p style={{marginTop:'5px'}}><span style={{fontWeight:"600"}}>Warranty Till:</span> {singleProduct?.warranty_till.split('T')[0]}</p> */}
+                  </div>
+
+                  <h3
+                    style={{
+                      marginTop: "15px",
+                      marginBottom: "5px",
+                      fontFamily: "Hind Siliguri, sans-serif",
+                      fontWeight: "600",
+                      fontSize: "25px",
+                    }}
+                  >
+                    Seller Details
+                  </h3>
+                  <div className="owner">
+                    <div className="ownerImg">
+                      <img
+                        src={owner_details?.profile_picture}
+                        style={{ borderRadius: "50%" }}
+                      ></img>
+                    </div>
+                    <div className="ownerDet">
+                      <p style={{ marginTop: "5px" }}>
+                        <span style={{ fontWeight: "600" }}>Name:</span>{" "}
+                        {owner_details?.name}
+                      </p>
+                      <p style={{ marginTop: "5px" }}>
+                        <span style={{ fontWeight: "600" }}>Hostel:</span>{" "}
+                        {owner_details?.hostel}
+                      </p>
+                      <p style={{ marginTop: "5px" }}>
+                        <span style={{ fontWeight: "600" }}>Room No:</span>{" "}
+                        {owner_details?.room_number}
+                      </p>
+                    </div>
+                  </div>
+
+                  <Button
+                    variant="contained"
+                    onClick={(e) => setOpenModal(true)}
+                    style={{
+                      width: "100%",
+                      color: "white",
+                      background: "#332A7C",
+                      borderRadius: "10px",
+                      marginTop: "2rem",
+                      height: "2.5rem",
+                      fontFamily: "Hind Siliguri, sans-serif",
+                      fontWeight: "700",
+                    }}
+                  >
+                    {isLoading2 ? (
+                      <CircularProgress size={14} />
+                    ) : (
+                      "Connect with author"
+                    )}
+                  </Button>
+                </div>
+              </div>
+              )
+              <Modal
+                open={openModal}
+                onClose={(e) => setOpenModal(false)}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <div style={modalStyle} className={`${classes.paper}`}>
+                  <h4>Connect with this item seller</h4>
+                  <p
+                    style={{
+                      marginTop: "2%",
+                      marginBottom: "2%",
+                      fontFamily: "Helvetica",
+                      fontWeight: "400",
+                    }}
+                  >
+                    click confirm to proceed further.
+                  </p>
+
+                  <button
+                    className="button-7"
+                    disabled={isLoading2}
+                    onClick={(e) => handleConnectionRequest(e)}
+                    style={{ width: "fit-content" }}
+                    value="true"
+                  >
+                    {isLoading2 && <CircularProgress size={14} />}
+                    {!isLoading2 && "CONFIRM"}
+                  </button>
+                  <button
+                    className="button-7"
+                    disabled={isLoading2}
+                    style={{ marginLeft: "2%", width: "fit-content" }}
+                    value="false"
+                    onClick={(e) => handleConnectionRequest(e)}
+                  >
+                    {isLoading2 && <CircularProgress size={14} />}
+                    {!isLoading2 && "CANCEL"}
+                  </button>
+                </div>
+              </Modal>
+            </div>
           </div>
-        </Modal>
+        )}
       </div>
-      </div>
-      )
-        }
     </div>
-
-  </div>
-  )
-  
-
+  );
+}
 
 export default ProductDetails;
