@@ -14,6 +14,18 @@ Kolegia is a platform where users can post their lost items and find them. Users
 - Directly chat with the seller of the product for buying any item.
 - If someone wants to raise a hand on a lost item, they can easily do that.
 
+## Tech Stack
+
+- React 
+- Node.js
+- MongoDB
+
+## Team Members
+
+- Adarsh Aryan 2020-IMG-003
+- Aditya Pandey 2020-IMG-005
+- Aman Vaishya 2020-IMG-008
+
 ## ✨ Website Preview
 
  <p>
