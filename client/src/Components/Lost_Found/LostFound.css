@@ -187,12 +187,12 @@ label {
   padding: 23px 15px 6px 40px;
   font-size: 1.35rem;
   line-height: 1.5;
-  color: #383838;
-  font-weight: 500;
+  color: black;
   border-bottom: 1px solid #f3f3f3;
-  font-family: "HelveticaLight";
+  /* font-family: "HelveticaLight"; */
   align-items: center;
-  font-family: "Dosis", sans-serif;
+  font-family: "Hind Siliguri", sans-serif;
+  font-weight:700;
 }
 
 .raiseHandBtn {
@@ -298,6 +298,8 @@ label {
   margin: 1rem 0;
   display: inline-block;
   font-size: 1.1rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
 }
 
 .formInput,
@@ -348,6 +350,10 @@ label {
   display: flex;
   font-size: 19px;
   font-family: "Montserrat", sans-serif;
+}
+
+::placeholder{
+  font-family:"Inter",sans-serif;
 }
 
 .responseMainWrapper {
