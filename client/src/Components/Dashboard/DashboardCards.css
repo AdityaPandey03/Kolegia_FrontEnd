@@ -5,7 +5,7 @@
     /* flex-wrap: wrap; */
     justify-content: center;
     margin: 1rem;
-    margin-top:6rem;
+    margin-top:3rem;
     gap: 2rem;
 }
 
@@ -20,7 +20,7 @@
 
 
 .Dcard{
-    max-width: 23rem;
+    max-width: 25vw;
     width:100%;
     min-width: 15rem;
     height: 18rem;
@@ -36,7 +36,7 @@
                  -5px -5px 8px #fdfdfd;
 }
 .DcardStats{
-    max-width: 23rem;
+    max-width: 25vw;
     width:100%;
     min-width: 15rem;
     height: 18rem;

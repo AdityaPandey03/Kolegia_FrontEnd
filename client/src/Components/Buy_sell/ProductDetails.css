@@ -8,57 +8,68 @@
 .container {
   margin: 0;
   padding: 0;
-  height: 94vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .containerWrapper {
-  height: 100%;
   width: 100%;
   display: flex;
-  padding: 3% 5%;
+  justify-content: space-around;
+  padding: 0rem 5%;
+  padding-top: 3rem;
+  flex-wrap: wrap;
 }
 
 .imageListContainer {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   box-sizing: border-box;
+  max-width:5rem;
+  width:100%;
+  padding: 0.5rem 0;
+  
+  box-shadow: 0px 0px 10px #6b95d4, 5px 5px 10px #4673c5;
 }
 
 .sideImage {
-  width: 40%;
-  margin-top: 5%;
+  width: 90%;
+  margin:1rem 0;
 }
 
 .imageContainer {
-  flex: 2;
+  display:flex;
   align-items: center;
-  width: 35rem;
+  max-width: 30rem;
+  width:100%;
+  min-width: 10rem;
+  margin:0rem 1rem ;
   /* width: fit-content;
   height: fit-content; */
 }
 .previewImage {
-  height: auto;
-  width: 95%;
+  height: 70vh;
+  width:100%;
+  min-width: 10rem;
   border-radius: 20px;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .detailsContainer {
-  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 1%;
-  margin-left: 5%;
   font-family: "Hind Siliguri", sans-serif;
-  font-weight: 700;
-
-
+  font-weight: 500;
+  max-width: 20rem;
+  min-width: 10rem;
+  width:100%;
+  border-top: 1px solid blue;
 }
-
+.detailsContainer.h1{
+  font-weight: bolder;
+}
 .connectBtn {
   position: relative;
   left: 10%;
@@ -73,27 +84,34 @@
   padding: 2px;
   font-family: "Inter", sans-serif;
 
-
-}
-.description_wrapper{
-  display: flex;
-  flex-direction: column;
-  
 }
 .description{
-  height: 15rem;
-  width: 95%;
-  box-shadow: 10px 15px 10px #d9d7f1, -10px -5px 10px #fdfdfd;
+  height: 90%;
+  border-top: 1px solid blue;
+  border-bottom: 1px solid blue;
   font-family: "Inter", sans-serif;
-  background: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)), url('../../assests/details.jpg');
+  background: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6));
   background-repeat: no-repeat;
   background-position: center;
-
-  margin-bottom: 40px;
+  padding:1rem 0.5rem;
+  margin-top: 1rem;
 
 }
 
-@media (min-device-width: 280px) and (max-device-width: 812px) {
+.owner{
+  width:100%; 
+  display:flex;
+  justify-content: space-between;
+}
+
+.ownerImg img{
+  width:5rem
+}
+@media screen and (max-width:1013px){
+
+}
+
+@media (max-device-width: 812px) {
   /* .container {
     position: relative;
   } */
@@ -130,3 +148,4 @@
 
   }
 }
+

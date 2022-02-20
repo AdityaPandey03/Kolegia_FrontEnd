@@ -17,7 +17,7 @@ import { getAllBuySellItems } from "../redux/actions/BuySellActions";
 const useStyles = makeStyles((theme) => {
   return {
     root: {
-      marginTop: "13vh",
+      marginTop: "10vh",
     },
   };
 });

@@ -18,7 +18,7 @@ const Profile = () => {
                     <img src={decoded.profile_picture} alt="profile-picture"  />
                 </div>
                 <h1 style={{fontSize:'25px',color:'#332A7C',marginTop:'-18px'}}>{decoded.name}</h1>
-                <h4 >{decoded.email}</h4>
+                <h4 >{decoded.email.split('@')[0]}</h4>
             </div>  
         </Link> 
         </div>
