@@ -29,11 +29,11 @@
 
 .footer-links_div3 h2 {
     font-size: 20px;
-    line-height: 17px;
+    line-height: 14px;
     font-family: var(--font-family);
     color: #fff;
 
-    margin-bottom: 0.9rem;
+    margin-bottom: 1rem;
 }
 
 .footer-links_div3 p {
@@ -47,7 +47,7 @@
 }
 
 .footer-copyright3 {
-    margin-top: 2rem;
+    margin-top: 1rem;
     text-align: center;
     width: 100%;
 }

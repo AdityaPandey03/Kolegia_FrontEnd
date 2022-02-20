@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     max-width: 100vw;
-    height: 10vh;
+    height: 9vh;
 }
 
 .navbar-links3 {
@@ -26,7 +26,7 @@
     cursor: pointer;
 
 }
-#abc {
+#abcd {
     margin-top: 0.8rem;
 }
 
@@ -143,10 +143,6 @@
 }
 
 @media screen and (max-width: 550px) {
-    .navbar-sign3 {
-        display: none;
-    }
-
     .navbar-menu_container3 {
         top: 20px;
     }

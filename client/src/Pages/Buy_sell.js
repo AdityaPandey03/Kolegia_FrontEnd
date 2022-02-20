@@ -62,7 +62,7 @@ const Cards = () => {
         {itemList.length > 0 ? (
           itemList.map((item, index) => {
             return (
-              <Grid lg={3} sm={4} xm={12} md={4} item key={index}>
+              <Grid lg={3} sm={4} xs={12} md={4} item key={index}>
                 <NoteCard editOption={false} data={item} />
               </Grid>
             );
