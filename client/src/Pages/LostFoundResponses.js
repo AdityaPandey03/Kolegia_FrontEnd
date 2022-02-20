@@ -47,7 +47,7 @@ function LostFoundResponses() {
       console.log(res);
       if (res.status === 200) {
         setIsLoading(false);
-        navigate("/chatRoom");
+        navigate(`/chatRoom/${res.data.room_id}`);
       } else if (res.status !== 200) {
         setIsLoading(false);
         alert(res.data.message);

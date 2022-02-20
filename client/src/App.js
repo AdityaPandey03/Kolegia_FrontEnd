@@ -31,9 +31,9 @@ import ResetPassword from "./Pages/ResetPassword";
 import LostFoundResponses from "./Pages/LostFoundResponses";
 import Messenger from "./Pages/Messenger";
 import Edit_Profile from "./Pages/Edit_Profile";
-import ProfilePage from "./Components/profile/ProfilePage"
+import ProfilePage from "./Components/profile/ProfilePage";
 import Change_Password from "./Pages/Change_Password";
-import SignUpPage from './Pages/SignUpPage'
+import SignUpPage from "./Pages/SignUpPage";
 import Not_Found from "./Components/Not_Found/Not_Found";
 
 const theme = createTheme({
@@ -70,8 +70,9 @@ function App() {
             <Route exact path="/resetPassword" element={<ResetPassword />} />
             <Route exact path="/editProfile" element={<Edit_Profile />} />
             <Route exact path="/verifyEmail" element={<VerifyEmailPage />} />
-            <Route exact path='changePassword' element={<Change_Password/>}/>
-            <Route exact path='signUp' element={<SignUpPage/>}/>
+            <Route exact path="changePassword" element={<Change_Password />} />
+            <Route exact path="/signUp" element={<SignUpPage />} />
+
 
             <Route
               exact
@@ -96,7 +97,9 @@ function App() {
               path="/editLostFoundItems/:id"
               element={<Edit_MyLostFoundItems />}
             />
-            <Route exact path="/chatRoom" element={<Messenger />} />
+            <Route path="/chatRoom" element={<Messenger />} />
+            {/* <Route exact path="/chatRoom/:room_id" element={<Messenger />} /> */}
+
             <Route exact path="/responses" element={<LostFoundResponses />} />
           </Routes>
         </div>
