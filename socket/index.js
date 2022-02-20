@@ -1,14 +1,13 @@
-const io = require("socket.io")(
-  8800,
-  {
-    cors: {
-      origin: "http://localhost:3001",
-    },
+const express = require("express");
+const app = express();
+const http = require("http");
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3001",
   },
-  () => {
-    console.log("server started at port 8800");
-  }
-);
+});
 
 let users = [];
 
@@ -30,7 +29,7 @@ io.on("connection", (socket) => {
   console.log("socket server connected");
 
   //getting userid and socketid and mapping them to each other for later use.
-  socket.on("addUser", (userId) => {
+  socket.on("addUser", ({ userId }) => {
     addUser(userId, socket.id);
     io.emit("getUser", users);
   });
@@ -51,4 +50,16 @@ io.on("connection", (socket) => {
     removeUser(socket.id);
     io.emit("getUser", users);
   });
+});
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.use((req, res, next) => {
+  res.send("Not Found");
+});
+
+server.listen(process.env.PORT || 8800, () => {
+  console.log("listening on *:8800");
 });

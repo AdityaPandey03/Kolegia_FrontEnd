@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import axios from "axios";
+import { useParams } from "react-router-dom";
 import "../Components/Messenger/Messenger.css";
 import Conversations from "../Components/Conversations/Conversations";
 import {
@@ -12,10 +12,11 @@ import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message/Message";
 import { io } from "socket.io-client";
-import { ConstructionOutlined } from "@mui/icons-material";
 import CircularProgress from "@mui/material/CircularProgress";
 
 function Messenger() {
+  const params = useParams();
+
   const chats = useSelector((state) => state.chat.chats);
   const currentChatMessages = useSelector(
     (state) => state.chat.all_messages_of_a_conversation
@@ -41,6 +42,10 @@ function Messenger() {
 
   const socket = useRef();
   const scrollRef = useRef();
+  const socketUri = "https://kolegia-socket.herokuapp.com";
+
+  //Route parameters
+  // const room_id = params?.room_id;
 
   useEffect(() => {
     dispatch(getAllChats({ user_details, token }));
@@ -52,7 +57,6 @@ function Messenger() {
   }, [currentChat]);
 
   useEffect(() => {
-    // console.log(currentChatMessages.reverse());
     setMessages(currentChatMessages);
   }, [currentChatMessages]);
 
@@ -70,9 +74,25 @@ function Messenger() {
     });
   }, [messages]);
 
+  useEffect(() => {
+    socket.current = io("https://kolegia-socket.herokuapp.com");
+
+    //RECEIVE MESSAGE FROM OTHER USER USING SOCKET
+    socket.current.on("getMessage", (data) => {
+      setReceivedMessage({
+        sender_id: data.senderId,
+        receiver_id: data.receiverId,
+        room_id: currentChat?._id,
+        message: data.text,
+        createdAt: Date.now(),
+      });
+    });
+  }, []);
+
   const clickHandler = (e) => {
     e.preventDefault();
 
+    //SEND MESSAGE TO OTHER USER USING SOCKET
     socket.current.emit("sendMessage", {
       senderId: user_details._id,
       text: newMessage,
@@ -89,33 +109,14 @@ function Messenger() {
     setNewMessage("");
   };
 
-  //SOCKET FUNCTIONS
-
   useEffect(() => {
-    socket.current = io("ws://localhost:8800");
-    socket.current.on("getMessage", (data) => {
-      setReceivedMessage({
-        sender_id: data.senderId,
-        receiver_id: data.receiverId,
-        room_id: currentChat?._id,
-        message: data.text,
-        createdAt: Date.now(),
-      });
+    socket.current?.emit("addUser", {
+      userId: user_details._id,
     });
-  }, []);
-
-  useEffect(() => {
-    socket.current?.emit("addUser", user_details._id);
-    // socket.current.on("getUser", (users) => {
-    //   setOnlineUsers(
-    //     user.following.filter((f) => users.some((u) => u.userId == f))
-    //   );
-    // });
   }, [user_details]);
 
   useEffect(() => {
     receivedMessage && setMessages((prev) => [...prev, receivedMessage]);
-    console.log(messages);
   }, [receivedMessage]);
 
   const handleScroll = (e) => {
@@ -203,15 +204,7 @@ function Messenger() {
             )}
           </div>
         </div>
-        <div className="chatOnline">
-          {/* <div className="chatOnlineWrapper"> */}
-          {/* <ChatOnline
-              onlineUsers={onlineUsers}
-              currentId={user._id}
-              setCurrentChat={setCurrentChat}
-            /> */}
-          {/* </div> */}
-        </div>
+        <div className="chatOnline"></div>
       </div>
     </>
   );
