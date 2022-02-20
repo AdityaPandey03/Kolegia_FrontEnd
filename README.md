@@ -38,9 +38,18 @@ belongings inside their campus fraternity. It enables users to trade their belon
 ## ✨ Website Preview
 
  <p>
-  <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/1.jpeg" width="800" height="600" />
-  <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/3.jpeg" width="800" height="600" />
-   <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/4.jpeg" width="800" height="600" />
+  <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/1.jpeg" width="1100" height="600" object-fit="cover"/>
+  <br/>
+  <br/>
+  <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/3.jpeg" width="1100" height="600" />
+  <br/>
+  <br/>
+   <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/4.jpeg" width="1100" height="600" />
+  <br/>
+  <br/>
+  <img src="https://github.com/AdityaPandey03/Kolegia_FrontEnd/blob/480368f83f3e171f47bbcb9eb88f0a22ce92d74b/client/src/assests/2.jpeg" width="1100" height="600" />
+  <br/>
+  <br/>
 </p> 
 
 ## ✨ App Preview
