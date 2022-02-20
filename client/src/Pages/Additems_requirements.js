@@ -42,7 +42,7 @@ function Modal({ toggleModal, modal }) {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2 style={{ color: "#332A7C" }}>Add item</h2>
-            <form onSubmit={handleSubmit}>
+            <form style={{display:'flex',flexDirection:'column',alignItems:'center'}}  onSubmit={handleSubmit}>
               <label htmlFor="input">Title</label>
               <input onChange={(e) => setTitle(e.target.value)} type="text" />
 

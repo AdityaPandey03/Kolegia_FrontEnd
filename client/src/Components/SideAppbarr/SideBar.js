@@ -31,7 +31,7 @@ const drawerWidth = 230
 const useStyles = makeStyles((theme) => {
   return {
     page: {
-      background: 'white',
+      // background: 'white',
       width: '100%',
       padding: theme.spacing(1),
 
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => {
     },
     drawerPaper: {
       background: '#332a7c',
-
+  
       width: drawerWidth,
       [theme.breakpoints.down(650)]: {
        width:'60px',
@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => {
     },
 
     icon:{
-      color:"white",
+      color:"white"
       
     },
     icon02:{
@@ -161,6 +161,7 @@ export default function SideBar() {
         variant="permanent"
         classes={{ paper: classes.drawerPaper }}
         anchor="left"
+        
       >
         <div>
         
@@ -187,7 +188,7 @@ export default function SideBar() {
               onClick={() => navigate(item.path)}
               className={location.pathname == item.path ? classes.active : null}
             >
-              <ListItemIcon className={classes.icon}>{item.icon}</ListItemIcon>
+              <ListItemIcon color='secondary' className={classes.icon}>{item.icon}</ListItemIcon>
               <ListItemText  className={classes.label} primary={item.text} />
             </ListItem>
           ))}
