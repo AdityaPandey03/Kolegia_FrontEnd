@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .box{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 25px;
     /* border-radius: 16px; */
     /* box-shadow: 10px 10px 10px #D9D7F1, -10px -5px 10px #fdfdfd; */
