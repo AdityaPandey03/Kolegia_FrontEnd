@@ -99,7 +99,8 @@ function LostFoundItemDetails() {
     setOpenModal(false);
     dispatch(raiseHand({ product_id, token, note }));
   };
-
+  
+  let result = product.posted_on.slice(0, 10);
   //TOASTIFY FUNCTIONS START
   useEffect(() => {
     setResponseOfRaisedHand(raisedHandResponse);
@@ -296,7 +297,7 @@ function LostFoundItemDetails() {
               </div>
               <div className="LostDetailsListItem">
                 <h4>Time Lost</h4>
-                <p>{product?.lost_time}</p>
+                <p>{result}</p>
               </div>
               <div className="LostDetailsListItem">
                 <h4>Location Lost</h4>
