@@ -13,6 +13,7 @@ import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 
 import { getAllBuySellItems } from "../redux/actions/BuySellActions";
+import { Link, Navigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const Cards = () => {
+const Cards = (props) => {
   const itemList = useSelector((state) => state.buySell.itemList);
   const isLoading = useSelector((state) => state.buySell.isLoading);
 
@@ -72,11 +73,12 @@ const Cards = () => {
         )}
       </Grid>
       <div className="circle">
-     
-       <FaPlusCircle onClick={toggleModal} className="btn-modal btn"/>
+        <Link to="/buySell/addItem">
+       <FaPlusCircle  className="btn-modal btn"/>
+
+        </Link>
         
       </div>
-      <Modal const toggleModal={toggleModal} modal={modal} />
     </Container>
     
   )};

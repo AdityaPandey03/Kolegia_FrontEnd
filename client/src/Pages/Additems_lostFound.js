@@ -311,8 +311,7 @@ function AddItem() {
             <div></div>
           </div>
         </form>
-      </div>
-      <ToastContainer
+        <ToastContainer
         position="top-center"
         autoClose={3000}
         hideProgressBar={false}
@@ -322,6 +321,8 @@ function AddItem() {
         pauseOnFocusLoss
         draggable
       />
+      </div>
+      
     </>
   );
 }

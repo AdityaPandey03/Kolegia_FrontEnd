@@ -2,35 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap');
 
 
-body.active-modal {
-    overflow-y: hidden;
-    pointer-events: none;
-}
 
-.btn-modal {
-    padding: 10px 20px;
-    display: block;
-    margin: 100px auto 0;
-    font-size: 40px;
-    color: white;
-}
 
-.modal, .overlay {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-
-}
-
-.overlay {
-    /* background: rgba(49,49,49,0.8); */
-    background-color: WHITE ;
-
-}
 .modal-content {
     position: absolute;
     box-shadow: 15px 15px 10px #D9D7F1, -10px -10px 10px #D9D7F1;
