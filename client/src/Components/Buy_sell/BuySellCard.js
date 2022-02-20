@@ -74,7 +74,7 @@ const NoteCard = ({ data,editOption,handleClick}) => {
         className={classes.media}
         component="img"
         padding="5"
-        height="200" 
+        height="200"
         image={data.files[0].uri}
         alt="watch"
       />

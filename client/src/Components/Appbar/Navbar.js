@@ -62,8 +62,7 @@ const Navbar = ({visibleSearch,presentPage}) => {
                     <img src="https://res.cloudinary.com/kartikeyvaish/image/upload/v1642841457/Kolegia/logo_snpqqs.png" alt="" />
                     <p id='abc'>olegia</p>
                 </div>
-            </div>
-            <div className='ul'>
+                <div className='ul'>
                     {visibleSearch?
                     <p><form className="form" id="form" onSubmit={handleSearch}>                            
                     <input  type="text" placeholder='Search...' id="search" className="search" value={searchQuery} onChange={handleSearchChange} />
@@ -71,6 +70,8 @@ const Navbar = ({visibleSearch,presentPage}) => {
                     </form></p>:null
                     }
                 </div>
+            </div>
+            
             <div className="a">            
                 <p><Link to='/chatRoom'><SiGooglechat/></Link></p>
                 <p><Link to='/dashboard'>Dashboard</Link></p>
