@@ -41,18 +41,18 @@ function Modal({ toggleModal, modal }) {
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-            <h2 style={{ color: "#332A7C" }}>Add item</h2>
+            <h2 style={{ color: "#332A7C",fontFamily:"Inconsolata,sans-serif",fontweight:'700' }}>Add Requirement</h2>
             <form style={{display:'flex',flexDirection:'column',alignItems:'center'}}  onSubmit={handleSubmit}>
-              <label htmlFor="input">Title</label>
+              <label style={{fontFamily:"Inter,sans-serif",fontweight:'900',marginTop:'15px'}} htmlFor="input">Title</label>
               <input onChange={(e) => setTitle(e.target.value)} type="text" />
 
-              <label htmlFor="input">description</label>
+              <label style={{fontFamily:"Inter,sans-serif",fontweight:'900'}} htmlFor="input">Description</label>
               <input
                 onChange={(e) => setDescription(e.target.value)}
                 type="text"
               />
 
-              <button>Submit</button>
+              <button style={{width:'13rem',color:'white',fontFamily: "Inter, monospace",background:'#332A7C',borderRadius:'10px',margin:'20px',height:'2.5rem',fontWeight:'700'}}>Submit</button>
               <p>{errorMessage4}</p>
             </form>
 
