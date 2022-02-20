@@ -17,6 +17,8 @@ import {
   REJECT_RAISED_HAND,
   CHECKING_ERROR_LOST_FOUND,
   MARK_AS_FOUND,
+  SEARCH_LOST_FOUND_ITEMS,
+  EMPTY_SEARCH_LOST_FOUND,
 } from "../constants/AllConstants";
 
 export const getAllLostFoundItems = () => async (dispatch) => {
@@ -45,6 +47,40 @@ export const getAllLostFoundItems = () => async (dispatch) => {
     console.log(err);
   }
 };
+
+export const lostFoundSearch = (searchQuery) => async (dispatch) => {
+  dispatch({
+    type: NEW_REQUEST,
+    payload: true,
+  });
+  try {
+    const token = localStorage.getItem("jwt");
+    const decoded = jwt_decode(token);
+
+    const { data } = await axios.get(
+      `http://localhost:3000/api/v1/lost-found-items/search-lost-found-products?search=${searchQuery}`,
+      {
+        headers: {
+          authorization: `Bearer ${decoded.auth_token}`,
+        }
+      }
+    );
+    console.log(data);
+    dispatch({
+      type: SEARCH_LOST_FOUND_ITEMS,
+      payload: data.products,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const emptySearchLostFound = ()=>(dispatch)=>{
+  dispatch({
+    type:EMPTY_SEARCH_LOST_FOUND
+  })
+};
+
 export const getLostFoundProductDetails = (itemData) => async (dispatch) => {
   // console.log(data.decoded.auth_token);
   dispatch({
@@ -379,3 +415,4 @@ export const resetStatus = (dispatch) => {
     type: RESET_STATUS,
   });
 };
+

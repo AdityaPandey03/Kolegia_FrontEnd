@@ -28,7 +28,7 @@ const Bcards = () => {
 
   return (
     <>
-      <Navbar visibleSearch={true} />
+      <Navbar visibleSearch={true} presentPage="lostFound" />
       {isLoading ? (
         <Backdrop
           sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}

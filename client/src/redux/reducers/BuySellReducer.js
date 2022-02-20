@@ -6,11 +6,14 @@ import {
   GET_MY_OWN_BUY_SELL_ITEMS,
   EDIT_BUY_SELL_ITEM,RESET_STATUS,
   DELETE_BUY_SELL_ITEM,
-  CHECKING_ERROR_BUY_SELL
+  CHECKING_ERROR_BUY_SELL,
+  SEARCH_BUY_SELL_ITEMS,
+  EMPTY_SEARCH_BUY_SELL
 } from "../constants/AllConstants";
 
 const initialState = {
   itemList: [],
+  totalItemList:[],
   singleProduct: {},
   firstImage: "",
   isLoading: false,
@@ -28,6 +31,19 @@ const BuySellReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         itemList: action.payload.products,
+        totalItemList:action.payload.products
+      };
+    case SEARCH_BUY_SELL_ITEMS:
+      return {
+        ...state,
+        isLoading:false,
+        itemList: action.payload
+      };
+    case EMPTY_SEARCH_BUY_SELL:
+      return {
+        ...state,
+        isLoading:false,
+        itemList:state.totalItemList
       };
     case NEW_REQUEST:
       return {

@@ -17,8 +17,8 @@ const Nav_bar = () => {
         <div className="navbar-links_container3">
           <p><a href="#feature">Features</a></p>
           <p><a href="#motive">Motive</a></p>
-          <p><a href="#review">Reviews</a></p>
-          <p><a href="#">Contact Us</a></p>
+          <p><a href="#testimonial">Reviews</a></p>
+          <p><a href="#footer">Contact Us</a></p>
         </div>
       </div>
       <div className="navbar-sign3">
