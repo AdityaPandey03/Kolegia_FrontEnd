@@ -14,11 +14,9 @@
 .containerWrapper {
   width: 100%;
   display: flex;
-  gap: 2rem;
   justify-content: space-between;
-  padding: 0rem 10%;
-  padding-top: 3rem;
   flex-wrap: wrap;
+  padding: 5rem 8rem;
 }
 
 .imageListContainer {
@@ -26,12 +24,9 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-sizing: border-box;
-  max-width:5rem;
+  max-width:10rem;
   width:100%;
   padding: 0.5rem 0;
-  
-  box-shadow: 0px 0px 10px #6b95d4, 5px 5px 10px #4673c5;
 }
 
 .sideImage {
@@ -60,13 +55,14 @@
 .detailsContainer {
   display: flex;
   flex-direction: column;
-  padding: 1%;
-  font-family: "Hind Siliguri", sans-serif;
+  padding: 1rem;
+  font-family: 'Manrope', sans-serif;
   font-weight: 500;
-  max-width: 20rem;
+  max-width: 30rem;
   min-width: 10rem;
-  width:100%;
-  border-top: 1px solid blue;
+  width: 25rem;
+  border: 2px solid blaCK;
+  border-radius: 5px;
 }
 .detailsContainer.h1{
   font-weight: bolder;
@@ -90,7 +86,7 @@
   height: 90%;
   border-top: 1px solid blue;
   border-bottom: 1px solid blue;
-  font-family: "Inter", sans-serif;
+  font-family: 'Manrope', sans-serif;
   background: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6));
   background-repeat: no-repeat;
   background-position: center;
@@ -102,63 +98,32 @@
 .owner{
  
   display:flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .ownerImg img{
-  width:5rem
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 2rem;
 }
-@media screen and (max-width:1013px){
 
-}
 
-@media (max-device-width: 812px) {
-  /* .container {
-    position: relative;
-  } */
+@media screen and (max-width:650px){
+
   .containerWrapper {
-    flex-wrap: wrap;
+    padding: 3rem;
   }
-  .imageListContainer {
-    flex-direction: column;
-    right: 10px;
-    width: 33%;
-    flex: 0 0 25%;
-    height: 30%;
-    text-align: left;
-    box-shadow: 10px 8px 10px #d9d7f1, -10px -5px 10px #fdfdfd;
-
-  }
-
   .sideImage {
     width: 50%;
-    margin-left: 5%;
   }
-  .imageContainer {
-    flex: 0 0 75%;
-    height: 30%;
-
+  .previewImage {
+    height: 45vh;
+    margin-bottom: 2rem;
   }
-
   .detailsContainer {
-    flex: 1;
-    height: 60%;
-    margin-top: 10%;
-    margin-left: 5%;
-    font-family: "Hind Siliguri", sans-serif;
-
+    width: 18rem;
   }
-}
-
-@media (max-width:1100px){
-  .owner{
-    width: 100vw;
-  }
-  .detailsContainer{
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    /* justify-content: space-between; */
-    gap: 10rem;
-  }
+  
 }
