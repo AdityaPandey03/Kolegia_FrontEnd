@@ -1,8 +1,8 @@
 import "../Components/Lost_Found/LostFound.css";
-import { useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import LoadingBox from "../Components/LoadingBox";
+
 import LostFoundCard from "../Components/Lost_Found/LostFoundCard";
 import Navbar from "../Components/Appbar/Navbar";
 import Backdrop from "@mui/material/Backdrop";
@@ -10,7 +10,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 import { getAllLostFoundItems } from "../redux/actions/LostFoundActions";
 
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const Bcards = () => {
   const navigate = useNavigate();

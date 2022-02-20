@@ -143,9 +143,7 @@ function Edit_MyLostFoundItems() {
     for (var i = 0; i < files.length; i++) {
       formData.append("files", files[i]);
     }
-    // for (var key of formData.entries()) {
-    //   console.log(key[0] + ", " + key[1]);
-    // }
+   
     dispatch(editLostFoundItem(formData));
   };
 

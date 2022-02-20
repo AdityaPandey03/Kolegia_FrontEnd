@@ -73,6 +73,7 @@ function ProductDetails() {
     setimage2(e.target.src);
   };
 
+
   const handleConnectionRequest = async (e) => {
     if (e.target.value === "true") {
       var message = `Buy Item Details\n\nItem Name - ${singleProduct.name}\nDescription - ${singleProduct.description}\n\n - ${decoded.name} wants to buy this item`;
@@ -104,6 +105,7 @@ function ProductDetails() {
       setOpenModal(false);
     }
   };
+
 
   return (
     <div>

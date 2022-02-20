@@ -1,6 +1,6 @@
 
 import GoogleLogin from 'react-google-login';
-import { useState } from 'react';
+
 import { useDispatch ,useSelector} from "react-redux";
 import {loginWithGoogle,resetStatus} from '../../redux/actions/authActions'
 import {  useNavigate } from "react-router-dom";
@@ -45,7 +45,7 @@ function Googlelogin() {
   };
 
   const handleLogin =  (googleData) => {
-      console.log(googleData);
+     
       dispatch(loginWithGoogle(googleData.tokenId))
   }
   return (

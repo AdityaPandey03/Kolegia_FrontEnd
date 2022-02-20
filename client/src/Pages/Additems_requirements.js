@@ -11,7 +11,7 @@ function Modal({ toggleModal, modal }) {
   const errorMessage4=useSelector((state)=>state.requirement.errorMessageRequirements)
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [reload,setReload]=useState(false)
+ 
   const status5=useSelector((state=>state.requirement.addrequirementresponse))
 
   if(status5===200){
@@ -26,12 +26,7 @@ function Modal({ toggleModal, modal }) {
     e.preventDefault();
     const token = localStorage.getItem("jwt");
       const decoded = jwt_decode(token);
-    const formData = new FormData();
-
-    // formData.append("title", title);
-    // formData.append("description", description);
-    // formData.append("token", decoded.auth_token);
-
+    
     dispatch(addRequirements(title,description,decoded.auth_token));
   };
 

@@ -44,10 +44,12 @@ function LostFoundResponses() {
           },
         }
       );
-      console.log(res);
+    
       if (res.status === 200) {
         setIsLoading(false);
+
         navigate(`/chatRoom`);
+
       } else if (res.status !== 200) {
         setIsLoading(false);
         alert(res.data.message);

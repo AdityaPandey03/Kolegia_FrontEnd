@@ -1,11 +1,11 @@
 import './req_feed.css';
 import { FaEdit,FaTrashAlt} from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { useLocation, useNavigate } from "react-router-dom";
+
 
 
 const Req_feed = ({ data,postedBy,handleClick ,editOption}) => {
-  const navigate = useNavigate();
+  
 
   let result = data.posted_on.slice(0, 10);
   return (

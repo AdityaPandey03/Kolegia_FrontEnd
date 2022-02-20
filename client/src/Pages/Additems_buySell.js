@@ -67,7 +67,7 @@ const handleSubmit=(e)=>{
   return (
     <>
       
-      {/* itemName, price, description, userId, postedBy */}
+     
       {modal && (
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>

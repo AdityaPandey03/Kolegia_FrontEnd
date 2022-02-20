@@ -3,14 +3,12 @@
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
-// import Link from "@mui/material/Link";
+
 import { Link } from "react-router-dom";
 import "./BuySellCard.css";
 import { CardContent } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { FaEdit,FaTrashAlt} from "react-icons/fa";
-// import Box from '@mui/material/Box';
-// import Button from '@mui/material/Button';
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -57,7 +55,7 @@ const useStyles = makeStyles((theme) => {
 const NoteCard = ({ data,editOption,handleClick}) => {
 
   const slicedDescription=data.description.slice(0,10);
-  console.log(slicedDescription);
+ 
   
   const classes = useStyles();
   return (
