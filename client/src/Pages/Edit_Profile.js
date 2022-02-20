@@ -11,7 +11,7 @@ import Navbar from "../Components/Appbar/Navbar";
 
 
 const Edit_Profile = () => {
-    // const addUserResponse = useSelector((state) => state.auth.addUserResponse);
+
     const location=useLocation();
     const navigate=useNavigate();
     const profileData=location.state.Data;
@@ -80,7 +80,7 @@ const Edit_Profile = () => {
         formData.append('phone',phone)
         formData.append('profile_picture',profile_Picture)
         
- console.log(profile_Picture);
+ 
       
         dispatch(editProfile(formData));
       

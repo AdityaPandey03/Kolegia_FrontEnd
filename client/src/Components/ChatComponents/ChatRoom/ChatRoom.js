@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import Input from "../Input/Input";
 import "./Chat.css";
 import Messages from "../Messages/Messages";

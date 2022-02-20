@@ -1,13 +1,13 @@
 import '../Components/LoginSignUp/Login.css'
 import { useDispatch ,useSelector} from "react-redux";
 import { useEffect, useState } from 'react';
-import {verifyEmail,signInWithEmail} from '../redux/actions/authActions'
-import { Link, useNavigate } from "react-router-dom";
+import {verifyEmail} from '../redux/actions/authActions'
+import {  useNavigate } from "react-router-dom";
 import Googlelogin from '../Components/GoogleLogin/Googlelogin';
 import LoadingButton from '@mui/lab/LoadingButton';
 import {resetErrorMessage} from '../redux/actions/authActions'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import Navbar from "../Components/Appbar/Navbar";
+
 
 
  

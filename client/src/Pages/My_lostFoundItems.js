@@ -1,5 +1,5 @@
 import "../Components/Lost_Found/LostFound.css";
-import { useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import LoadingBox from "../Components/LoadingBox";
@@ -8,7 +8,7 @@ import jwt_decode from "jwt-decode";
 
 import { deleteLostFoundItem, getAllOwnLostFoundItems } from "../redux/actions/LostFoundActions";
 
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const My_lostFoundItems = () => {
   const navigate = useNavigate();

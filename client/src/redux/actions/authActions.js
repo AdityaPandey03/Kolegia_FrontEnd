@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
 import jwt_decode from "jwt-decode";
 
 
@@ -21,7 +21,7 @@ import {
     } from "../constants/AllConstants";
 
 export const verifyEmail=(email)=>async (dispatch)=>{
-    console.log(email);
+    
     try {
         const emailResponse=await axios.post(
             "http://localhost:3000/api/v1/auth/send-email-register-otp",{
@@ -29,15 +29,15 @@ export const verifyEmail=(email)=>async (dispatch)=>{
             }
             
         );
-        console.log(emailResponse);
+        
         dispatch({
             type:VERIFY_EMAIL,
             payload:emailResponse,
         });
-        // console.log(res);
+     
     } catch (error) {
         if (error.response) {
-            console.log(error.response);
+            
             dispatch({
                 type:CHECKING_ERROR,
                 payload:error.response,
@@ -47,7 +47,7 @@ export const verifyEmail=(email)=>async (dispatch)=>{
     }
 }
 export const verifyEmailForReset=(email)=>async (dispatch)=>{
-    console.log(email);
+    
     try {
         const emailResponseforReset=await axios.post(
             "http://localhost:3000/api/v1/auth/send-forgot-password-otp",{
@@ -55,15 +55,15 @@ export const verifyEmailForReset=(email)=>async (dispatch)=>{
             }
             
         );
-        console.log(emailResponseforReset);
+        
         dispatch({
             type:VERIFY_EMAIL_FOR_RESET,
             payload:emailResponseforReset,
         });
-        // console.log(res);
+       
     } catch (error) {
         if (error.response) {
-            console.log(error.response);
+            
             dispatch({
                 type:CHECKING_ERROR,
                 payload:error.response,
@@ -83,15 +83,15 @@ export const verifyOtp=(otp,otpId,Verification)=>async (dispatch)=>{
             }
             
         );
-        console.log(OtpResponse);
+    
         dispatch({
             type:VERIFY_OTP,
             payload:OtpResponse,
         });
-        // console.log(res);
+        
     } catch (error) {
         if (error.response) {
-            console.log(error.response);
+           
             dispatch({
                 type:CHECKING_ERROR,
                 payload:error.response,
@@ -110,15 +110,15 @@ export const verifyOtpForResetPassword=(otp,otpId)=>async (dispatch)=>{
             }
             
         );
-        console.log(OtpResponse);
+       
         dispatch({
             type:VERIFY_OTP,
             payload:OtpResponse,
         });
-        // console.log(res);
+        
     } catch (error) {
         if (error.response) {
-            console.log(error.response);
+          
             dispatch({
                 type:CHECKING_ERROR,
                 payload:error.response,
@@ -136,15 +136,15 @@ export const addUserDetails=(data)=>async (dispatch)=>{
             
             
         );
-        // console.log(OtpResponse);
+        
         dispatch({
             type:ADD_USER_DETAILS,
             payload:addUserRes,
         });
-        // console.log(res);
+       
     } catch (error) {
         if (error.response) {
-            console.log(error.response);
+            
             dispatch({
                 type:CHECKING_ERROR,
                 payload:error.response,
@@ -161,12 +161,12 @@ export const loginWithGoogle=(id_token)=>async (dispatch)=>{
             }
             
         );
-        console.log(loginUserRes);
+        
         dispatch({
             type:LOGIN_WITH_GOOGLE,
             payload:loginUserRes,
         });
-        // console.log(res);
+        
     } catch (error) {
         if (error.response) {
             console.log(error.response);
@@ -188,12 +188,12 @@ export const signInWithEmail=(email,password)=>async (dispatch)=>{
             }
             
         );
-        console.log(loginUserRes);
+       
         dispatch({
             type:LOGIN_WITH_EMAIL,
             payload:loginUserRes,
         });
-        // console.log(res);
+        
     } catch (error) {
         if (error.response) {
             console.log(error.response);
@@ -226,7 +226,7 @@ export const logoutUser= (token)=> async (dispatch) => {
         );
 
        
-      console.log(res);
+    
         dispatch({
           type: USER_LOGOUT,
           payload:res
@@ -251,12 +251,12 @@ export const logoutUser= (token)=> async (dispatch) => {
                 }
                 
             );
-            console.log(resetResponse);
+           
             dispatch({
                 type:RESET_PASSWORD,
                 payload:resetResponse,
             });
-            // console.log(res);
+           
         } catch (error) {
             if (error.response) {
                 console.log(error.response);
@@ -283,12 +283,12 @@ export const logoutUser= (token)=> async (dispatch) => {
                 }
                 
             );
-            console.log(changeResponse);
+           
             dispatch({
                 type:CHANGE_PASSWORD,
                 payload:changeResponse,
             });
-            // console.log(res);
+           
         } catch (error) {
             if (error.response) {
                 console.log(error.response);
@@ -316,7 +316,7 @@ export const logoutUser= (token)=> async (dispatch) => {
               }
             
           );
-        console.log(res)
+        
           dispatch({
             type: EDIT_PROFILE,
             payload:res
@@ -364,7 +364,7 @@ export const logoutUser= (token)=> async (dispatch) => {
             },
           }
         );
-    console.log(res);
+   
         dispatch({
           type: GET_DASHBOARD_STATS,
           payload: res,

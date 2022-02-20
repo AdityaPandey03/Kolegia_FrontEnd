@@ -4,11 +4,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// import Loader from "./Components/Loader/Loader";
+
 import Dashboard from "./Pages/Dashboard";
 
 import Bcards from "./Pages/Lost_found";
-import Dropdown from "./Components/Dropdown/Dropdown";
+
 import ProductDetails from "./Pages/ProductDetails_buySell";
 import LoginSignUp from "./Pages/Login";
 import ProfileMobile from "./Pages/ProfileMobile";
@@ -49,9 +49,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <div className="App">
-          {/* <Loader/> */}
+    
 
-          {/* <Dropdown className='drop'/> */}
+         
 
           <Routes>
             <Route path="/" exact element={<Homepage />}></Route>
@@ -71,6 +71,8 @@ function App() {
             <Route exact path="/editProfile" element={<Edit_Profile />} />
             <Route exact path="/verifyEmail" element={<VerifyEmailPage />} />
             <Route exact path="changePassword" element={<Change_Password />} />
+            <Route exact path="/signUp" element={<SignUpPage />} />
+
 
             <Route
               exact

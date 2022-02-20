@@ -1,4 +1,4 @@
-import Pic from '../../assests/jim.jpg';
+
 import './DashboardCards.css'
 import jwt_decode from "jwt-decode";
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ const Profile = () => {
 
     const token = localStorage.getItem("jwt");
     const decoded = jwt_decode(token);
-    console.log(decoded)
+    
 
     return ( 
             <div className="Dcard profile-card">

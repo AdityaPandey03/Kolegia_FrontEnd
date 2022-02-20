@@ -20,9 +20,9 @@ const Footer = () => (
       </div>
       <div className="footer-links_div3">
         <h2>Get in touch</h2>
-        <p>Abjudfgskfifheof</p>
-        <p>97xxxxxxxx</p>
-        <p>xxx@xxx.xxxx</p>
+        <p>kolegia.app@gmail.com</p>
+        <p>7564820105</p>
+        <p>1800 200 100</p>
       </div>
     </div>
 

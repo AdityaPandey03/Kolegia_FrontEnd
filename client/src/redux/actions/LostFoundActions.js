@@ -2,7 +2,7 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import {
   GET_ALL_LOST_FOUND_ITEMS,
-  GET_PRODUCT_DETAILS_REQUEST,
+ 
   GET_SINGLE_LOST_FOUND_ITEM,
   ADD_NEW_LOST_FOUND_ITEM,
   NEW_REQUEST,
@@ -15,7 +15,7 @@ import {
   RAISE_HAND,
   ACCEPT_RAISED_HAND,
   REJECT_RAISED_HAND,
-  CHECKING_ERROR_LOST_FOUND,
+
   MARK_AS_FOUND,
   SEARCH_LOST_FOUND_ITEMS,
   EMPTY_SEARCH_LOST_FOUND,
@@ -38,7 +38,7 @@ export const getAllLostFoundItems = () => async (dispatch) => {
         },
       }
     );
-    console.log(data);
+   
     dispatch({
       type: GET_ALL_LOST_FOUND_ITEMS,
       payload: data.products,
@@ -65,7 +65,7 @@ export const lostFoundSearch = (searchQuery) => async (dispatch) => {
         }
       }
     );
-    console.log(data);
+ 
     dispatch({
       type: SEARCH_LOST_FOUND_ITEMS,
       payload: data.products,
@@ -82,7 +82,7 @@ export const emptySearchLostFound = ()=>(dispatch)=>{
 };
 
 export const getLostFoundProductDetails = (itemData) => async (dispatch) => {
-  // console.log(data.decoded.auth_token);
+  
   dispatch({
     type: NEW_REQUEST,
     payload: true,
@@ -96,7 +96,7 @@ export const getLostFoundProductDetails = (itemData) => async (dispatch) => {
         },
       }
     );
-    console.log(data);
+ 
     dispatch({
       type: GET_SINGLE_LOST_FOUND_ITEM,
       payload: data,
@@ -114,7 +114,7 @@ export const addNewLostFoundItem = (data) => async (dispatch) => {
         token = key[1];
       }
     }
-    console.log(token);
+  
     const res = await axios.post(
       "http://localhost:3000/api/v1/lost-found-items/create-new-lost-found-product",
       data,
@@ -159,7 +159,7 @@ export const getAllOwnLostFoundItems = () => async (dispatch) => {
         },
       }
     );
-    console.log(data);
+  
     dispatch({
       type: GET_MY_OWN_LOST_FOUND_ITEMS,
       payload: data,
@@ -213,7 +213,7 @@ export const deleteLostFoundItem = (data) => async (dispatch) => {
     payload: true,
   });
   try {
-    console.log(data.token);
+  
     const res = await axios.delete(
       "http://localhost:3000/api/v1/lost-found-items/delete-lost-found-product",
       {
@@ -248,7 +248,7 @@ export const markAsFound = (data) => async (dispatch) => {
     payload: true,
   });
   try {
-    console.log(data);
+   
     const res = await axios.put(
       "http://localhost:3000/api/v1/lost-found-items/mark-as-found",
       data,
@@ -258,7 +258,7 @@ export const markAsFound = (data) => async (dispatch) => {
         },
       }
     );
-    console.log(res);
+    
     const payloadobj = { message: res.data.message, status: res.status };
     dispatch({
       type: MARK_AS_FOUND,
@@ -285,7 +285,7 @@ export const raiseHand = (data) => async (dispatch) => {
     payload: true,
   });
   try {
-    console.log(data);
+    
     const res = await axios.post(
       "http://localhost:3000/api/v1/raisedhands/raise-hand-on-an-item",
       data,
@@ -306,7 +306,7 @@ export const raiseHand = (data) => async (dispatch) => {
         message: error.response.data.message,
         status: error.response.status,
       };
-      console.log(payloadobj);
+    
       dispatch({
         type: RAISE_HAND,
         payload: payloadobj,
@@ -331,7 +331,7 @@ export const getLostFoundItemResponses = (data) => async (dispatch) => {
         data,
       }
     );
-    console.log(res);
+    
     dispatch({
       type: GET_LOST_FOUND_RESPONSES,
       payload: res.data.raised_hands,
@@ -353,7 +353,7 @@ export const acceptRaisedHand = (data) => async (dispatch) => {
     payload: true,
   });
   try {
-    console.log(data);
+  
     const res = await axios.post(
       "http://localhost:3000/api/v1/raisedhands/accept-raised-hand",
       data,
@@ -363,7 +363,7 @@ export const acceptRaisedHand = (data) => async (dispatch) => {
         },
       }
     );
-    console.log(res);
+  
     dispatch({
       type: ACCEPT_RAISED_HAND,
       payload: res.data,
@@ -395,7 +395,7 @@ export const rejectRaisedHand = (data) => async (dispatch) => {
         data,
       }
     );
-    console.log(res);
+  
     dispatch({
       type: REJECT_RAISED_HAND,
     });

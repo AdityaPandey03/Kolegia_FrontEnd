@@ -5,7 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap");
 
-.container {
+.container09 {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -14,8 +14,9 @@
 .containerWrapper {
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  padding: 0rem 5%;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: 0rem 10%;
   padding-top: 3rem;
   flex-wrap: wrap;
 }
@@ -99,7 +100,7 @@
 }
 
 .owner{
-  width:100%; 
+ 
   display:flex;
   justify-content: space-between;
 }
@@ -149,3 +150,15 @@
   }
 }
 
+@media (max-width:1100px){
+  .owner{
+    width: 100vw;
+  }
+  .detailsContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    /* justify-content: space-between; */
+    gap: 10rem;
+  }
+}

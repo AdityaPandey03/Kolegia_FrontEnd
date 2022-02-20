@@ -19,14 +19,13 @@ var Title,Description,id;
      Description=productData.description;
      id=productData._id;
   }
-// console.log(location);
 
   
   const errorMessage2=useSelector((state)=>state.requirement.errorMessageRequirements)
   const [title, setTitle] = useState(Title);
   const [description, setDescription] = useState(Description);
-//   const [reload,setReload]=useState(false)
-const dispatch = useDispatch();
+
+     const dispatch = useDispatch();
 
 
 

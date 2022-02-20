@@ -10,7 +10,7 @@ const dispatch=useDispatch();
 const navigate= useNavigate();
 const location=useLocation();
 const productData=location.state.Data;
-console.log(productData);
+
 var Name,Description,Price,id,Category,Brand,Color;
 
 

@@ -27,10 +27,7 @@ var Email;
        
    }
 
-    // if(responseStatusCode===200){
-    //     navigate('/otpPage',{
-    //       state:{Email:email,verification:'FORGOT_PASSWORD'}
-    //     });}
+    
     
     var message4;
     if(loginWithEmailResponse.data){
