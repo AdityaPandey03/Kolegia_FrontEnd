@@ -11,6 +11,9 @@
     <li>
       <a href="#about-the-project">What is Kolegia?</a>
       </li>
+    <li>
+      <a href="#hostedurl">Hosted Website</a>
+      </li>
       <li>
       <a href="#screenshots">Screenshots</a>
       </li>
@@ -28,12 +31,20 @@
 
 <div id="about-the-project" />
 <!-- ABOUT THE PROJECT -->
-Kolegia is a platform where users can post their lost items and find them. Users can also sell their items by posting them. Users can also post the requirement for a certain product.
 
-### Goal
+# About Kolegia
 
 Kolegia is an online and mobile application that may be accessed via a web app or an Android app. Kolegia is a platform for college communities to promote their stuff or
 belongings inside their campus fraternity. It enables users to trade their belongings or file theft or missing complaint about their goods on the platform. Every instance will be enlarged to all users, and the rest of the users will be alerted about the specific situation. Anyone with knowledge or information about that user can raise their hand and respond to the case, and the user will be informed. Users may be able to tag persons associated with that specific case, which will help to mainstreamthe issue and help to close the case.
+
+<div id="hostedurl" />
+<!-- Hosted url-->
+
+# Hosted Website Link
+
+You can have a look at the website [here](https://kolegia-c3c1d.web.app/)
+
+
 
 <div id="screenshots" />
 
@@ -112,6 +123,10 @@ REACT_APP_GOOGLE_CLIENT_ID=""
 - Aditya Pandey 2020-IMG-005
 - Adarsh Aryan 2020-IMG-003
 - Aman Vaishya 2020-IMG-008
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
 
 
 
