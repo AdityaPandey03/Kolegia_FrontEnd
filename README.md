@@ -93,15 +93,8 @@ Follow the steps mentioned in the official documentation to setup the environmen
 
 ### Step 4: Install dependencies
 
-    cd client
-
     npm install
-
-### Step 5: Create a `.env` file for environment variables
-
-You'll have to create a `.env` file for environment variables with the variables listed [here](https://github.com/kartikeyvaish/Kolegia_Mobile/blob/main/README.md#env-file)
-
-### Step 6: Running the application
+### Step 5: Running the application
 
 Run the app in the development mode.
 Just type `npm start` in the terminal to open the website.
@@ -119,6 +112,9 @@ REACT_APP_GOOGLE_CLIENT_ID=""
 - Aditya Pandey 2020-IMG-005
 - Adarsh Aryan 2020-IMG-003
 - Aman Vaishya 2020-IMG-008
+
+
+
 
 
 
