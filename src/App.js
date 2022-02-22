@@ -1,6 +1,14 @@
 import "./App.css";
 import Cards from "./Pages/Buy_sell";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Toggle from "../src/Components/Toggle/toggle";
+import { GlobalStyle, lightTheme, darkTheme } from "./styles/GlobalStyle";
+import { UserDarkMode } from "./styles/UserDarkMode";
+import styled from "styled-components";
+
+
+
+
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -45,6 +53,8 @@ const theme = createTheme({
 });
 
 function App() {
+  // const [theme, toggleTheme] = UserDarkMode();
+  // const themeMode = theme === "light" ? lightTheme : darkTheme;
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
