@@ -20,6 +20,9 @@
       <li>
          <a href="#video">Demonstration Video</a>
       </li>
+       <li>
+         <a href="#backend">Backend repository</a>
+      </li>
     <li><a href="#features">Features</a>
     </li>
     <li><a href="#tech-stack">Tech Stack used</a>
@@ -59,6 +62,13 @@ Screenshots of our website are added to [this link](https://photos.app.goo.gl/Xz
 Demonstration of Kolegia is added to [this link](https://photos.app.goo.gl/XzMd2bZgjn5LBq7DA).
 <br />
 
+<div id="backend" />
+
+# Backend Repo of the project
+
+Click on [this link](https://github.com/AdityaPandey03/Kolegia_Backend) to have a look at the backend.
+<br />
+
 <div id="features" />
 
 <!-- GETTING STARTED -->
@@ -69,6 +79,7 @@ Demonstration of Kolegia is added to [this link](https://photos.app.goo.gl/XzMd2
 - If a user requires something, they can post a requirement for that.
 - Directly chat with the seller of the product for buying any item.
 - If someone wants to raise a hand on a lost item, they can easily do that.
+
 
 <div id="tech-stack" />
          
@@ -127,6 +138,10 @@ REACT_APP_GOOGLE_CLIENT_ID=""
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+
+
+
 
 
 
