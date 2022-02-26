@@ -134,10 +134,17 @@ REACT_APP_GOOGLE_CLIENT_ID=""
 - Aditya Pandey 2020-IMG-005
 - Adarsh Aryan 2020-IMG-003
 - Aman Vaishya 2020-IMG-008
+- Kislay Singh 2019BCS
+- Kartikeya Vaish 2019BCS
+- S Vivek 2019BCS
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+
+
+
 
 
 
